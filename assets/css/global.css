@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
+
 :root {
   --teal:        #1B3A4B;
   --teal-deep:   #0F2631;

@@ -374,19 +374,23 @@
     /* CTA — closing banner                          */
     /* ════════════════════════════════════════════ */
     .f2bf-cta {
-      background: var(--slate); padding: 5.5rem 2.5rem;
+      background: var(--teal); padding: 5.5rem 2.5rem; position: relative;
+    }
+    .f2bf-cta::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     }
     .f2bf-cta__inner {
-      max-width: 700px; margin: 0 auto; text-align: center;
+      max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
     }
     .f2bf-cta__heading {
       font-family: var(--display); font-weight: 900;
       font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--teal); line-height: 1.1; margin-bottom: 1.2rem;
+      color: var(--cream); line-height: 1.1; margin-bottom: 1.2rem;
     }
     .f2bf-cta__text {
       font-family: var(--text); font-size: 1.1rem;
-      color: var(--body); line-height: 1.85; margin-bottom: 2.5rem;
+      color: rgba(240,235,227,0.85); line-height: 1.85; margin-bottom: 2.5rem;
     }
     .f2bf-cta__actions {
       display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
@@ -891,8 +895,8 @@
       <h2 class="f2bf-cta__heading">Embrace Your Freedom<br>to Be Faithful</h2>
       <p class="f2bf-cta__text">Join a growing community of Christians who believe that ancient faith can actively engage the pressing issues of our time.</p>
       <div class="f2bf-cta__actions">
-        <a href="https://f2bf.icscanada.edu/f2bf-courses" class="f2bf-btn f2bf-btn--teal">Explore Courses →</a>
-        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--outline">Subscribe on Substack</a>
+        <a href="https://f2bf.icscanada.edu/f2bf-courses" class="f2bf-btn f2bf-btn--red">Explore Courses →</a>
+        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--ghost">Subscribe on Substack</a>
       </div>
     </div>
   </section>
@@ -973,7 +977,7 @@
     height: auto;
     line-height: 0;
     margin-bottom: -1px;
-	background: #BCC7D0;
+	background: #1B3A4B;
   }
   .f2bf-footer__wave svg {
     display: block;
@@ -1182,7 +1186,7 @@
       <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
       <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
       <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
-      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#1B3A4B" stroke-width="2"/>
     </svg>
   </div>
 
