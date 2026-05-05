@@ -371,8 +371,16 @@
     /* YOUR VOICE — contribution pull-quote banner   */
     /* ════════════════════════════════════════════ */
     .f2bf-voice {
-      background: var(--teal); padding: 5rem 2.5rem;
+      background:
+        linear-gradient(
+          180deg,
+          var(--teal-deep) 0%,
+          var(--teal-mid) 42%,
+          var(--teal) 100%
+        );
+      padding: 5.5rem 2.5rem 6rem;
       position: relative;
+      overflow: hidden;
     }
     .f2bf-voice::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -390,11 +398,23 @@
     }
     .f2bf-voice__text {
       font-family: var(--text); font-size: 1.08rem;
-      color: rgba(240,235,227,0.85); line-height: 1.85;
+      color: rgba(240,235,227,0.78); line-height: 1.85;
       margin-bottom: 2rem;
     }
     .f2bf-voice__actions {
       display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .f2bf-voice .f2bf-btn--red {
+      box-shadow: 0 14px 34px rgba(15,38,49,0.24);
+    }
+    .f2bf-voice .f2bf-btn--ghost {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(240,235,227,0.42);
+      color: var(--cream);
+    }
+    .f2bf-voice .f2bf-btn--ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(240,235,227,0.72);
     }
 
     /* ════════════════════════════════════════════ */
