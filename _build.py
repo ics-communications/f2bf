@@ -30,6 +30,7 @@ PAGES = [
         'btn_replacements': {},
         'animation_remove': ['f2bfReveal'],
         'inline_css': False,
+        'body_class': 'f2bf-landing-page',
     },
     {
         'source': 'f2bf-program.html',
@@ -394,6 +395,8 @@ def build_page(page_cfg):
     {css}
   </style>
 '''
+    body_class = page_cfg.get('body_class', '')
+    body_open = f'<body class="{body_class}">' if body_class else '<body>'
 
     # Build the page
     output = f'''<!DOCTYPE html>
@@ -415,7 +418,7 @@ def build_page(page_cfg):
   <link rel="stylesheet" href="/assets/css/footer.css">
 {css_block.rstrip()}
 </head>
-<body>
+{body_open}
 <!-- Navigation -->
 {nav}
 

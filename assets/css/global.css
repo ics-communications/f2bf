@@ -376,6 +376,6 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; }
   display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
 }
 
-.f2bf + .f2bf-footer .f2bf-footer__wave {
+.f2bf-landing-page .f2bf-footer__wave {
   background: var(--slate);
 }
