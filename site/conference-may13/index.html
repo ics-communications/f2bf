@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courageous Faith in a Time of Fear | Free to be Faithful</title>
+  <meta name="description" content="A two-day conference on pastoral leadership, public responsibility, and courageous faith. May 13–14, 2026, Toronto. In-person and livestream.">
+  <link rel="canonical" href="https://f2bf.icscanada.edu/conference-may13">
+  <meta property="og:title" content="Courageous Faith in a Time of Fear | Free to be Faithful">
+  <meta property="og:description" content="A two-day conference on pastoral leadership, public responsibility, and courageous faith. May 13–14, 2026, Toronto. In-person and livestream.">
+  <meta property="og:url" content="https://f2bf.icscanada.edu/conference-may13">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <style>
+    .cf-btn {
+      display: inline-flex; align-items: center; gap: 0.45em;
+      font-family: var(--text); font-size: 0.95rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.85em 2.4em; border: none; cursor: pointer;
+      text-decoration: none; border-radius: 100px;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .cf-btn--red { background: var(--red); color: var(--white); }
+    .cf-btn--red:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,60,44,0.25); }
+    .cf-btn--ghost { background: transparent; color: var(--cream); border: 1.5px solid rgba(240,235,227,0.3); }
+    .cf-btn--ghost:hover { border-color: var(--cream); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+    .cf-btn--teal { background: var(--teal); color: var(--white); }
+    .cf-btn--teal:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,58,75,0.25); }
+    .cf-btn--outline { background: transparent; color: var(--teal); border: 1.5px solid rgba(27,58,75,0.25); }
+    .cf-btn--outline:hover { border-color: var(--teal); background: var(--faint); transform: translateY(-2px); }
+
+    .cf-rule { max-width: 80px; height: 3px; border: none; background: var(--red); margin: 0; }
+    .cf-rule--center { margin-left: auto; margin-right: auto; }
+    .cf-rule--cream { background: var(--cream); opacity: 0.4; }
+
+    /* ─── Grain overlay mixin ─── */
+    .cf-grain::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    @keyframes cfReveal {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* HERO                                         */
+    /* ════════════════════════════════════════════ */
+    .cf-hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--teal-deep);
+    }
+    .cf-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .cf-hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.3; filter: saturate(0.15) brightness(0.5);
+    }
+    .cf-hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    .cf-hero__gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(
+        175deg,
+        rgba(15,38,49,0.1) 0%,
+        rgba(15,38,49,0.45) 35%,
+        rgba(15,38,49,0.82) 75%,
+        rgba(15,38,49,0.9) 100%
+      );
+    }
+    .cf-hero__content {
+      position: relative; z-index: 3;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 4rem 2.5rem 5rem;
+    }
+    .cf-hero__presented {
+      display: flex; align-items: center;
+      gap: 2rem; flex-wrap: wrap;
+      margin-bottom: 2.2rem;
+      animation: cfReveal 1s ease-out 0.15s both;
+    }
+    .cf-hero__org-block {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .cf-hero__org-logo {
+      height: 50px; width: auto;
+    }
+    .cf-hero__org {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: rgba(240,235,227,0.5);
+    }
+    .cf-hero__org-sep {
+      width: 1px; height: 36px; background: rgba(240,235,227,0.2);
+    }
+    .cf-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+      animation: cfReveal 1s ease-out 0.3s both;
+    }
+    .cf-hero__title em {
+      font-style: italic; font-weight: 400;
+      color: var(--slate-light);
+    }
+    .cf-hero__subtitle {
+      font-family: var(--display); font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      color: rgba(188,199,208,0.55); line-height: 1.45;
+      max-width: 620px; margin-bottom: 2.5rem;
+      animation: cfReveal 1s ease-out 0.45s both;
+    }
+    .cf-hero__meta {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-bottom: 2.8rem;
+      animation: cfReveal 1s ease-out 0.55s both;
+    }
+    .cf-hero__meta-item {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.45em 1em; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12); color: var(--muted);
+    }
+    .cf-hero__actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: cfReveal 1s ease-out 0.7s both;
+    }
+    .cf-hero__verse {
+      position: absolute; bottom: 5rem; right: 2.5rem;
+      max-width: 300px; text-align: right;
+      animation: cfReveal 1s ease-out 0.85s both;
+    }
+    .cf-hero__verse-text {
+      font-family: var(--display); font-style: italic;
+      font-size: 0.95rem; color: rgba(240,235,227,0.25);
+      line-height: 1.65; margin-bottom: 0.4rem;
+    }
+    .cf-hero__verse-ref {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(240,235,227,0.15);
+    }
+    @media (max-width: 768px) {
+      .cf-hero { align-items: center; min-height: 92vh; }
+      .cf-hero__verse { position: static; text-align: left; max-width: 100%; margin-top: 2.5rem; }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* ABOUT                                        */
+    /* ════════════════════════════════════════════ */
+    .cf-about {
+      background: var(--cream-lt); padding: 6rem 2.5rem;
+    }
+    .cf-about__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 2rem;
+    }
+    @media (min-width: 800px) {
+      .cf-about__inner { grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+    }
+    .cf-about__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .cf-about__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--teal);
+      margin-bottom: 1.2rem;
+    }
+    .cf-about__body {
+      font-family: var(--text); font-size: 1.12rem;
+      color: var(--body); line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .cf-about__body strong { color: var(--teal); font-weight: 600; }
+    .cf-about__themes {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 500px) {
+      .cf-about__themes { grid-template-columns: 1fr; }
+    }
+    .cf-about__theme {
+      font-family: var(--text); font-size: 0.88rem;
+      color: var(--body); line-height: 1.55;
+      padding-left: 1.2rem; position: relative;
+    }
+    .cf-about__theme::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--red); font-size: 0.82rem;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* SPEAKERS                                     */
+    /* ════════════════════════════════════════════ */
+    .cf-speakers {
+      background: var(--teal); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .cf-speakers::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .cf-speakers__inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .cf-speakers__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .cf-speakers__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--cream); margin-bottom: 3.5rem;
+    }
+    .cf-speakers__grid {
+      display: grid; grid-template-columns: 1fr; gap: 3rem;
+    }
+    @media (min-width: 750px) {
+      .cf-speakers__grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    .cf-speaker {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+      background: rgba(255,255,255,0.03); border-radius: 8px;
+      overflow: hidden; border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .cf-speaker:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    }
+    .cf-speaker__img {
+      width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+      filter: saturate(0.7) brightness(0.9);
+      display: block;
+    }
+    .cf-speaker__img--second {
+      object-position: 20% 20%;
+    }
+    .cf-speaker__body { padding: 2rem 1.8rem 2.2rem; }
+    .cf-speaker__role {
+      font-family: var(--text); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.35em 0.9em; border-radius: 100px;
+      background: var(--red); color: var(--white);
+      display: inline-block; margin-bottom: 1rem;
+    }
+    .cf-speaker__name {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.5rem; color: var(--cream); line-height: 1.25;
+      margin-bottom: 0.8rem;
+    }
+    .cf-speaker__bio {
+      font-family: var(--text); font-size: 0.94rem;
+      color: var(--muted); line-height: 1.75;
+    }
+    .cf-speaker__bio em { font-style: italic; color: rgba(240,235,227,0.5); }
+
+    /* ════════════════════════════════════════════ */
+    /* SCHEDULE                                     */
+    /* ════════════════════════════════════════════ */
+    .cf-schedule {
+      background: var(--cream-lt); padding: 5.5rem 2.5rem;
+    }
+    .cf-schedule__inner { max-width: 900px; margin: 0 auto; }
+    .cf-schedule__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .cf-schedule__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--teal); line-height: 1.1; margin-bottom: 3rem;
+    }
+    .cf-schedule__day {
+      margin-bottom: 3rem;
+    }
+    .cf-schedule__day:last-child { margin-bottom: 0; }
+    .cf-schedule__day-header {
+      display: flex; align-items: baseline; gap: 1rem;
+      flex-wrap: wrap; margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--teal);
+    }
+    .cf-schedule__day-name {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.35rem; color: var(--teal);
+    }
+    .cf-schedule__day-venue {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); font-weight: 400;
+    }
+    .cf-schedule__items {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .cf-schedule__item {
+      display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem;
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(27,58,75,0.08);
+      align-items: baseline;
+    }
+    @media (max-width: 550px) {
+      .cf-schedule__item { grid-template-columns: 1fr; gap: 0.3rem; }
+    }
+    .cf-schedule__item:last-child { border-bottom: 1px solid rgba(27,58,75,0.08); }
+    .cf-schedule__time {
+      font-family: var(--text); font-size: 0.85rem; font-weight: 600;
+      color: var(--teal); letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .cf-schedule__event-title {
+      font-family: var(--display); font-weight: 600;
+      font-size: 1.05rem; color: var(--ink); line-height: 1.4;
+    }
+    .cf-schedule__event-note {
+      font-family: var(--text); font-size: 0.88rem;
+      color: var(--muted); line-height: 1.55; margin-top: 0.15rem;
+    }
+    .cf-schedule__item--break .cf-schedule__event-title {
+      font-family: var(--text); font-weight: 400;
+      font-style: italic; color: var(--muted); font-size: 0.92rem;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* SESSIONS — workshop & roundtable details     */
+    /* ════════════════════════════════════════════ */
+    .cf-sessions {
+      background: var(--teal-deep); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .cf-sessions::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .cf-sessions__inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .cf-sessions__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .cf-sessions__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--cream); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .cf-sessions__subhead {
+      font-family: var(--text); font-size: 1.05rem;
+      color: rgba(240,235,227,0.45); line-height: 1.8;
+      max-width: 600px; margin-bottom: 3.5rem;
+    }
+
+    .cf-sessions__block { margin-bottom: 3rem; }
+    .cf-sessions__block:last-child { margin-bottom: 0; }
+    .cf-sessions__block-label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cf-sessions__cards {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .cf-sessions__cards { grid-template-columns: 1fr 1fr; }
+    }
+    .cf-session {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; padding: 2rem 1.8rem;
+      transition: background 0.35s ease;
+    }
+    .cf-session:hover { background: rgba(255,255,255,0.07); }
+    .cf-session__track {
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3em 0.75em; border-radius: 100px;
+      display: inline-block; margin-bottom: 1rem;
+    }
+    .cf-session__track--pastoral {
+      background: rgba(200,60,44,0.15); color: var(--red-hover);
+    }
+    .cf-session__track--community {
+      background: rgba(37,81,106,0.3); color: var(--slate-light);
+    }
+    .cf-session__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.2rem; color: var(--cream); line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+    .cf-session__desc {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--muted); line-height: 1.75;
+    }
+    .cf-session__facilitator {
+      font-family: var(--text); font-size: 0.8rem; font-weight: 600;
+      color: rgba(240,235,227,0.35); margin-top: 0.8rem;
+      font-style: italic;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CLOSING PANEL — featured callout              */
+    /* ════════════════════════════════════════════ */
+    .cf-panel {
+      background: var(--slate); padding: 5.5rem 2.5rem;
+    }
+    .cf-panel__inner {
+      max-width: 900px; margin: 0 auto;
+    }
+    .cf-panel__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .cf-panel__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--teal); line-height: 1.12; margin-bottom: 1.5rem;
+    }
+    .cf-panel__body {
+      font-family: var(--text); font-size: 1.1rem;
+      color: var(--body); line-height: 1.85; margin-bottom: 1.5rem;
+    }
+    .cf-panel__questions {
+      border-left: 3px solid var(--red);
+      padding-left: 1.5rem; margin-top: 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .cf-panel__q {
+      font-family: var(--display); font-style: italic; font-weight: 400;
+      font-size: 1.12rem; color: var(--teal); line-height: 1.5;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* AT A GLANCE — info bar                        */
+    /* ════════════════════════════════════════════ */
+    .cf-glance {
+      background: var(--cream-lt); padding: 4.5rem 2.5rem;
+    }
+    .cf-glance__inner { max-width: 1200px; margin: 0 auto; }
+    .cf-glance__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 2.5rem;
+    }
+    .cf-glance__bar {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+      border-top: 1px solid rgba(27,58,75,0.1);
+      border-bottom: 1px solid rgba(27,58,75,0.1);
+    }
+    @media (min-width: 600px) { .cf-glance__bar { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+    .cf-glance__cell {
+      padding: 1.8rem 1.5rem;
+      border-bottom: 1px solid rgba(27,58,75,0.06);
+    }
+    @media (min-width: 600px) {
+      .cf-glance__cell { border-bottom: none; border-right: 1px solid rgba(27,58,75,0.06); }
+      .cf-glance__cell:last-child { border-right: none; }
+    }
+    .cf-glance__cell-label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.4rem;
+    }
+    .cf-glance__cell-value {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.35rem; color: var(--teal); line-height: 1.3;
+    }
+    .cf-glance__cell-note {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); margin-top: 0.2rem;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CTA                                          */
+    /* ════════════════════════════════════════════ */
+    .cf-cta {
+      background: var(--teal); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .cf-cta::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .cf-cta__inner {
+      max-width: 700px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
+    }
+    .cf-cta__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .cf-cta__text {
+      font-family: var(--text); font-size: 1.1rem;
+      color: rgba(240,235,227,0.5); line-height: 1.85; margin-bottom: 1rem;
+    }
+    .cf-cta__details {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .cf-cta__detail {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.4em 0.9em; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12); color: var(--muted);
+    }
+    .cf-cta__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .cf-cta__note {
+      font-family: var(--text); font-size: 0.85rem;
+      color: rgba(240,235,227,0.3); margin-top: 1.8rem;
+      font-style: italic;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* REGISTRATION MODAL                            */
+    /* ════════════════════════════════════════════ */
+    .cf-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(15,38,49,0.65); backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      padding: 1.5rem; opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cf-modal-overlay.is-active { display: flex; }
+    .cf-modal-overlay.is-visible { opacity: 1; }
+
+    .cf-modal {
+      background: var(--white); border-radius: 14px;
+      width: 100%; max-width: 620px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 40px 80px rgba(15,38,49,0.3);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+      position: relative;
+    }
+    .cf-modal-overlay.is-visible .cf-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .cf-modal__close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: none; background: var(--faint); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); transition: all 0.2s;
+      z-index: 2;
+    }
+    .cf-modal__close:hover { background: var(--teal); color: var(--white); }
+    .cf-modal__close svg { width: 16px; height: 16px; }
+
+    .cf-modal__header { padding: 2.5rem 2.5rem 0; }
+    .cf-modal__tag {
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.6rem;
+    }
+    .cf-modal__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: 1.6rem; line-height: 1.15;
+      color: var(--teal); margin-bottom: 0.4rem;
+    }
+    .cf-modal__subtitle {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--muted); line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+    .cf-modal__price-badge {
+      display: inline-block; margin-top: 0.6rem;
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.4em 1em; border-radius: 100px;
+      background: var(--teal); color: var(--white);
+      transition: background 0.2s;
+    }
+
+    .cf-modal__body { padding: 1.8rem 2.5rem 2.5rem; }
+
+    .cf-modal__row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .cf-modal__row--full { grid-template-columns: 1fr; }
+    @media (max-width: 520px) {
+      .cf-modal__row { grid-template-columns: 1fr; }
+    }
+
+    .cf-modal__field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .cf-modal__label {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--teal);
+    }
+    .cf-modal__label span { color: var(--red); }
+    .cf-modal__input,
+    .cf-modal__select,
+    .cf-modal__textarea {
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--ink); padding: 0.75em 1em;
+      border: 1.5px solid var(--slate-light);
+      border-radius: 8px; background: var(--cream-lt);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .cf-modal__select { cursor: pointer; appearance: auto; }
+    .cf-modal__textarea { resize: vertical; min-height: 70px; }
+    .cf-modal__input:focus,
+    .cf-modal__select:focus,
+    .cf-modal__textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(27,58,75,0.08);
+    }
+    .cf-modal__input.is-invalid,
+    .cf-modal__select.is-invalid {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(200,60,44,0.1);
+    }
+
+    .cf-modal__divider {
+      height: 1px; background: var(--slate-light);
+      margin: 1.6rem 0 1.2rem; border: none;
+    }
+
+    .cf-modal__pay-label {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #cf-paypal-container {
+      min-height: 55px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cf-paypal-container .cf-paypal-loading {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); font-style: italic;
+    }
+
+    .cf-modal__note {
+      font-family: var(--text); font-size: 0.78rem;
+      color: var(--muted); text-align: center;
+      margin-top: 1rem; line-height: 1.55;
+    }
+    .cf-modal__note a { color: var(--teal); text-decoration: underline; }
+
+    .cf-modal__livestream-note {
+      display: none;
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--teal); background: rgba(27,58,75,0.06);
+      border: 1px solid rgba(27,58,75,0.12);
+      border-radius: 8px; padding: 0.8em 1.2em;
+      margin-top: 0.5rem; line-height: 1.55;
+    }
+    .cf-modal__livestream-note.is-active { display: block; }
+
+    /* Confirmation state */
+    .cf-modal__confirm {
+      display: none; text-align: center;
+      padding: 3.5rem 2.5rem;
+    }
+    .cf-modal__confirm.is-active { display: block; }
+    .cf-modal__confirm-icon {
+      width: 64px; height: 64px; margin: 0 auto 1.5rem;
+      border-radius: 50%; background: rgba(27,58,75,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal);
+    }
+    .cf-modal__confirm-icon svg { width: 32px; height: 32px; }
+    .cf-modal__confirm h3 {
+      font-family: var(--display); font-weight: 900;
+      font-size: 1.5rem; color: var(--teal);
+      margin-bottom: 0.8rem;
+    }
+    .cf-modal__confirm p {
+      font-family: var(--text); font-size: 1rem;
+      color: var(--body); line-height: 1.7;
+      max-width: 420px; margin: 0 auto;
+    }
+    .cf-modal__confirm-livestream {
+      display: none;
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--teal); background: rgba(27,58,75,0.06);
+      border: 1px solid rgba(27,58,75,0.12);
+      border-radius: 8px; padding: 1em 1.4em;
+      margin: 1rem auto 0; max-width: 420px; line-height: 1.6;
+    }
+    .cf-modal__confirm-livestream.is-active { display: block; }
+
+    /* Error state */
+    .cf-modal__error {
+      display: none; font-family: var(--text);
+      font-size: 0.85rem; color: var(--red);
+      background: rgba(200,60,44,0.06);
+      border: 1px solid rgba(200,60,44,0.15);
+      border-radius: 8px; padding: 0.8em 1.2em;
+      margin-bottom: 1rem; text-align: center;
+    }
+    .cf-modal__error.is-active { display: block; }
+
+    /* ─── Additional Gift ─── */
+    .cf-modal__gift { margin-top: 0.3rem; }
+    .cf-modal__gift-heading {
+      font-family: var(--text); font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.6rem;
+    }
+    .cf-modal__gift-sub {
+      font-family: var(--text); font-size: 0.88rem;
+      color: var(--body); line-height: 1.55; margin-bottom: 1rem;
+    }
+    .cf-modal__gift-options {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .cf-modal__gift-chip {
+      font-family: var(--text); font-size: 0.88rem; font-weight: 600;
+      padding: 0.55em 1.2em; border-radius: 100px;
+      border: 1.5px solid var(--slate-light); background: var(--white);
+      color: var(--teal); cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .cf-modal__gift-chip:hover {
+      border-color: var(--teal); background: var(--faint);
+    }
+    .cf-modal__gift-chip.is-selected {
+      border-color: var(--teal); background: var(--teal); color: var(--white);
+    }
+    .cf-modal__gift-custom {
+      display: none; margin-top: 0.5rem;
+    }
+    .cf-modal__gift-custom.is-active { display: flex; }
+    .cf-modal__gift-custom-wrap {
+      position: relative; flex: 1; max-width: 180px;
+    }
+    .cf-modal__gift-custom-wrap::before {
+      content: '$'; position: absolute;
+      left: 1em; top: 50%; transform: translateY(-50%);
+      font-family: var(--text); font-size: 0.95rem;
+      font-weight: 600; color: var(--muted);
+      pointer-events: none;
+    }
+    .cf-modal__gift-custom input {
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--ink); padding: 0.65em 1em 0.65em 1.8em;
+      border: 1.5px solid var(--slate-light);
+      border-radius: 8px; background: var(--cream-lt);
+      outline: none; width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cf-modal__gift-custom input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(27,58,75,0.08);
+    }
+    .cf-modal__gift-total {
+      display: none;
+      font-family: var(--text); font-size: 0.85rem; font-weight: 600;
+      color: var(--teal); background: rgba(27,58,75,0.05);
+      border-radius: 8px; padding: 0.7em 1em; margin-top: 0.8rem;
+      text-align: center;
+    }
+    .cf-modal__gift-total.is-active { display: block; }
+    .cf-modal__gift-receipt {
+      font-family: var(--text); font-size: 0.82rem;
+      color: var(--body); line-height: 1.65;
+      margin-top: 0.8rem; padding: 0.9em 1.1em;
+      background: rgba(200,60,44,0.04);
+      border: 1px solid rgba(200,60,44,0.12);
+      border-radius: 8px;
+    }
+    .cf-modal__gift-receipt strong {
+      color: var(--teal); font-weight: 700;
+    }
+    .cf-modal__gift-receipt a {
+      color: var(--red); font-weight: 600; text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ─── Modal mobile overrides ─── */
+    @media (max-width: 767px) {
+      .cf-modal__header { padding: 2rem 1.5rem 0; }
+      .cf-modal__body { padding: 1.5rem; }
+      .cf-modal__title { font-size: 1.35rem; }
+      .cf-modal__confirm { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <a class="f2bf-header__logo-link" href="/">
+      <img
+        alt="Institute for Christian Studies"
+        class="f2bf-header__logo-img"
+        src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png"
+      />
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/">Free to be Faithful</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-program">Program</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-resource">Resources</a>
+        </li>
+        <li class="f2bf-nav__item f2bf-nav__item--active">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-courses">Courses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      aria-label="Open menu"
+      class="f2bf-burger"
+      id="f2bf-burger-btn"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button
+    aria-label="Close menu"
+    class="f2bf-mobile-menu__close"
+    id="f2bf-mobile-close-btn"
+  >&times;</button>
+
+  <a class="f2bf-mobile-menu__link" href="/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="/f2bf-community">Community</a>
+      <a href="/events">All Events</a>
+      <a href="/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
+</div>
+
+
+<!-- Main Content -->
+<div class="cf">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="cf-hero">
+    <div class="cf-hero__bg">
+      <!-- PLACEHOLDER: Replace with conference-specific hero image -->
+      <img src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/775c04442a88322073cac24a125450cf/revisions/78a38af1dbfc6c96835403a41a8e3686/renditions/4b74825b0c1b8b4db5492301e81827e1" alt="Church interior with warm light">
+    </div>
+    <div class="cf-hero__gradient"></div>
+    <div class="cf-hero__content">
+      <div class="cf-hero__presented">
+        <div class="cf-hero__org-block">
+          <img class="cf-hero__org-logo" src="https://files.constantcontact.com/0e42c4d3901/947f7bbe-6836-4ec9-857c-cf31a2297524.png" alt="Ministry Forum">
+          <span class="cf-hero__org">Knox College Ministry Forum</span>
+        </div>
+        <span class="cf-hero__org-sep"></span>
+        <div class="cf-hero__org-block">
+          <img class="cf-hero__org-logo" src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png" alt="Institute for Christian Studies">
+          <span class="cf-hero__org">ICS Free to be Faithful</span>
+        </div>
+      </div>
+      <h1 class="cf-hero__title">Courageous<br>Faith <em>in a Time</em><br><em>of</em> Fear</h1>
+      <p class="cf-hero__subtitle">Pastoral Leadership, Public Responsibility, and the Risk of Taking a Stand</p>
+      <div class="cf-hero__meta">
+        <span class="cf-hero__meta-item">May 13–14, 2026</span>
+        <span class="cf-hero__meta-item">Toronto, ON</span>
+        <span class="cf-hero__meta-item">In-Person</span>
+      </div>
+      <div class="cf-hero__actions">
+		<a href="#" onclick="cfOpenReg(); return false;" class="cf-btn cf-btn--red">Register Now</a>
+      </div>
+      <div class="cf-hero__verse">
+        <p class="cf-hero__verse-text">"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go."</p>
+        <span class="cf-hero__verse-ref">— Joshua 1 : 9</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ ABOUT ══════ -->
+  <section class="cf-about">
+    <div class="cf-about__inner">
+      <div>
+        <p class="cf-about__label">About the Conference</p>
+        <h2 class="cf-about__heading">From Fear<br>Toward Hope</h2>
+        <hr class="cf-rule">
+      </div>
+      <div>
+        <p class="cf-about__body"><strong>Courageous Faith in a Time of Fear</strong> is a two-day public conference exploring what it means to lead, speak, and act faithfully amid political polarization and deep divisions within churches.</p>
+        <p class="cf-about__body">Presented by Knox College's <strong>Ministry Forum</strong> and the Institute for Christian Studies' <strong>Free to Be Faithful</strong> initiative, the conference is open to clergy and lay leaders alike and includes a dedicated pastoral leadership track.</p>
+        <p class="cf-about__body">Through roundtables, workshops, and a closing panel, participants will explore sustaining big-tent communities, organizing for faithful action, and building the capacity of faith communities to move from fear to hope.</p>
+        <div class="cf-about__themes">
+          <span class="cf-about__theme">Faith &amp; public life in polarized contexts</span>
+          <span class="cf-about__theme">Pastoral leadership under fear &amp; fatigue</span>
+          <span class="cf-about__theme">Truth-telling, reconciliation &amp; moral imagination</span>
+          <span class="cf-about__theme">Cultivating resilient, hopeful communities</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SPEAKERS ══════ -->
+  <section class="cf-speakers">
+    <div class="cf-speakers__inner">
+      <p class="cf-speakers__label">Keynote Presenters</p>
+      <h2 class="cf-speakers__heading">Meet the Speakers</h2>
+      <div class="cf-speakers__grid">
+
+        <div class="cf-speaker">
+          <!-- PLACEHOLDER: Replace with photo of Kristin Kobes Du Mez -->
+          <img class="cf-speaker__img" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/59ce09f32a58fc316e527bcac3ad7d8a/revisions/7b6e0c0d080a8cca9fab99b0995a2faa/renditions/9ede31d929031de67041121df4df02a4" alt="Dr. Kristin Kobes Du Mez">
+          <div class="cf-speaker__body">
+            <span class="cf-speaker__role">Keynote — May 13</span>
+            <h3 class="cf-speaker__name">Dr. Kristin Kobes Du Mez</h3>
+            <p class="cf-speaker__bio"><em>New York Times</em> bestselling author and Professor of History at Calvin University. Currently a Senior Democracy Fellow with the Public Religion Research Institute, her research focuses on the intersection of gender, religion, and politics. Author of <em>Jesus and John Wayne</em>.</p>
+          </div>
+        </div>
+
+        <div class="cf-speaker">
+          <!-- PLACEHOLDER: Replace with photo of Joash Thomas -->
+          <img class="cf-speaker__img cf-speaker__img--second" src="https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w" alt="Rev. Joash P. Thomas">
+          <div class="cf-speaker__body">
+            <span class="cf-speaker__role">Plenary — May 14</span>
+            <h3 class="cf-speaker__name">Rev. Joash P. Thomas</h3>
+            <p class="cf-speaker__bio">Author of <em>The Justice of Jesus</em> (Brazos Press) and Instructor in Public Theology, Peace &amp; Justice at St. Stephen's University. Drawing from his St. Thomas Christian roots and a decolonized, Jesus-centered understanding of Scripture, Fr. Joash helps audiences reimagine a faith that unites rather than divides.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SCHEDULE ══════ -->
+  <section class="cf-schedule" id="schedule">
+    <div class="cf-schedule__inner">
+      <p class="cf-schedule__label">Conference Schedule</p>
+      <h2 class="cf-schedule__heading">Two Days of<br>Learning &amp; Dialogue</h2>
+
+      <!-- Day 1 -->
+      <div class="cf-schedule__day">
+        <div class="cf-schedule__day-header">
+          <span class="cf-schedule__day-name">Wednesday, May 13</span>
+          <span class="cf-schedule__day-venue">Knox Presbyterian Church</span>
+        </div>
+        <div class="cf-schedule__items">
+          <div class="cf-schedule__item">
+            <span class="cf-schedule__time">7:00 – 8:30 PM</span>
+            <div>
+              <div class="cf-schedule__event-title">Keynote Lecture &amp; Opening Dialogue</div>
+              <div class="cf-schedule__event-note">Kristin Kobes Du Mez &amp; Joash Thomas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="cf-schedule__day">
+        <div class="cf-schedule__day-header">
+          <span class="cf-schedule__day-name">Thursday, May 14</span>
+          <span class="cf-schedule__day-venue">Knox College</span>
+        </div>
+        <div class="cf-schedule__items">
+          <div class="cf-schedule__item">
+            <span class="cf-schedule__time">9:00 – 10:00 AM</span>
+            <div>
+              <div class="cf-schedule__event-title">Plenary Lecture</div>
+              <div class="cf-schedule__event-note">Joash Thomas</div>
+            </div>
+          </div>
+          <div class="cf-schedule__item cf-schedule__item--break">
+            <span class="cf-schedule__time">10:15 – 10:30 AM</span>
+            <div><div class="cf-schedule__event-title">Coffee Break</div></div>
+          </div>
+          <div class="cf-schedule__item">
+            <span class="cf-schedule__time">10:30 – 12:00 PM</span>
+            <div>
+              <div class="cf-schedule__event-title">Roundtable Discussions</div>
+              <div class="cf-schedule__event-note">Concurrent pastoral &amp; community tracks</div>
+            </div>
+          </div>
+          <div class="cf-schedule__item cf-schedule__item--break">
+            <span class="cf-schedule__time">12:00 – 1:00 PM</span>
+            <div><div class="cf-schedule__event-title">Lunch</div></div>
+          </div>
+          <div class="cf-schedule__item">
+            <span class="cf-schedule__time">1:00 – 2:15 PM</span>
+            <div>
+              <div class="cf-schedule__event-title">Workshops — Session I</div>
+              <div class="cf-schedule__event-note">Concurrent pastoral &amp; community tracks</div>
+            </div>
+          </div>
+          <div class="cf-schedule__item cf-schedule__item--break">
+            <span class="cf-schedule__time">2:15 – 2:30 PM</span>
+            <div><div class="cf-schedule__event-title">Coffee Break</div></div>
+          </div>
+          <div class="cf-schedule__item">
+            <span class="cf-schedule__time">2:30 – 3:45 PM</span>
+            <div>
+              <div class="cf-schedule__event-title">Workshops — Session II</div>
+              <div class="cf-schedule__event-note">Concurrent pastoral &amp; community tracks</div>
+            </div>
+          </div>
+          <div class="cf-schedule__item cf-schedule__item--break">
+            <span class="cf-schedule__time">3:45 – 4:00 PM</span>
+            <div><div class="cf-schedule__event-title">Coffee Break</div></div>
+          </div>
+          <div class="cf-schedule__item">
+            <span class="cf-schedule__time">4:00 – 5:00 PM</span>
+            <div>
+              <div class="cf-schedule__event-title">Closing Panel</div>
+              <div class="cf-schedule__event-note">Capacity for Courage: Building Faith Communities for the Long Haul</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SESSIONS ══════ -->
+  <section class="cf-sessions">
+    <div class="cf-sessions__inner">
+      <p class="cf-sessions__label">Roundtables &amp; Workshops</p>
+      <h2 class="cf-sessions__heading">Session Details</h2>
+      <p class="cf-sessions__subhead">Each time block offers concurrent tracks for pastoral leaders and community members. Choose the sessions that speak to where you are.</p>
+
+      <!-- Roundtables -->
+      <div class="cf-sessions__block">
+        <div class="cf-sessions__block-label">Roundtable Discussions — 10:30 AM – 12:00 PM</div>
+        <div class="cf-sessions__cards">
+          <div class="cf-session">
+            <span class="cf-session__track cf-session__track--pastoral">Pastoral Track</span>
+            <h3 class="cf-session__title">Reformed Witness in the 21st Century: Journeying Together in Courage</h3>
+            <p class="cf-session__desc">An honest conversation about the challenges and possibilities facing Reformed communities today. Reflect on leading congregations through ideological tension, denominational transition, and public scrutiny.</p>
+          </div>
+          <div class="cf-session">
+            <span class="cf-session__track cf-session__track--community">Community Track</span>
+            <h3 class="cf-session__title">Taking a Stand Without Tearing the Church Apart</h3>
+            <p class="cf-session__desc">How do we act courageously without deepening division? Explore what faithful public responsibility looks like for congregations and how members can support clergy and one another through difficult conversations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workshops I -->
+      <div class="cf-sessions__block">
+        <div class="cf-sessions__block-label">Workshops Session I — 1:00 – 2:15 PM</div>
+        <div class="cf-sessions__cards">
+          <div class="cf-session">
+            <span class="cf-session__track cf-session__track--pastoral">Pastoral Track</span>
+            <h3 class="cf-session__title">When Silence Feels Safer: The Risk and Responsibility of Speaking</h3>
+            <p class="cf-session__desc">Explore how to discern when and how to speak with courage, how to prepare congregations for difficult conversations, and how to remain rooted in vocation rather than reaction.</p>
+          </div>
+          <div class="cf-session">
+            <span class="cf-session__track cf-session__track--community">Community Track</span>
+            <h3 class="cf-session__title">From Private Concern to Collective Action</h3>
+            <p class="cf-session__desc">Courage is both personal <i>and</i> communal. Focus on how congregations can move 
+to faithful action, create alternative spaces of support, and sustain momentum without becoming defined by 
+fear.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workshops II -->
+      <div class="cf-sessions__block">
+        <div class="cf-sessions__block-label">Workshops Session II — 2:30 – 3:45 PM</div>
+        <div class="cf-sessions__cards">
+          <div class="cf-session">
+            <span class="cf-session__track cf-session__track--pastoral">Pastoral Track</span>
+            <h3 class="cf-session__title">Holding the Big Tent: Leading Across Ideological Difference</h3>
+            <p class="cf-session__desc">Theological and practical frameworks for maintaining unity without demanding uniformity. Strategies for facilitating ongoing conversations and nurturing a culture where courageous leadership doesn't mean creating division.</p>
+            <p class="cf-session__facilitator">Led by The Good Table</p>
+          </div>
+          <div class="cf-session">
+            <span class="cf-session__track cf-session__track--community">Community Track</span>
+            <h3 class="cf-session__title">You Are Not Alone: Supporting Clergy and Strengthening Congregations</h3>
+            <p class="cf-session__desc">Explore how congregational members can actively support pastoral leadership and strengthen the spiritual resilience of their communities, becoming places of solidarity, formation, and sustained courage.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════ CLOSING PANEL ══════ -->
+  <section class="cf-panel">
+    <div class="cf-panel__inner">
+      <p class="cf-panel__label">Closing Panel — 4:00 PM</p>
+      <h2 class="cf-panel__heading">Capacity for Courage: Building Faith Communities for the Long Haul</h2>
+      <p class="cf-panel__body">The conference concludes with a panel of pastors and congregational leaders reflecting on what it takes to build communities capable of sustained courage, moving beyond one-time moments of boldness to focus on formation, structure, and shared responsibility.</p>
+      <div class="cf-panel__questions">
+        <p class="cf-panel__q">How do we nurture leaders who can speak and act with integrity?</p>
+        <p class="cf-panel__q">What forms of support help clergy endure fatigue and fear?</p>
+        <p class="cf-panel__q">How do congregations cultivate practices that strengthen courage over time?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ AT A GLANCE ══════ -->
+  <section class="cf-glance">
+    <div class="cf-glance__inner">
+      <p class="cf-glance__label">At a Glance</p>
+      <div class="cf-glance__bar">
+        <div class="cf-glance__cell">
+          <div class="cf-glance__cell-label">When</div>
+          <div class="cf-glance__cell-value">May 13–14, 2026</div>
+          <div class="cf-glance__cell-note">Evening keynote + full day</div>
+        </div>
+        <div class="cf-glance__cell">
+          <div class="cf-glance__cell-label">Where</div>
+          <div class="cf-glance__cell-value">Toronto, ON</div>
+          <div class="cf-glance__cell-note">Knox Presbyterian Church &amp; Knox College</div>
+        </div>
+        <div class="cf-glance__cell">
+          <div class="cf-glance__cell-label">Who</div>
+          <div class="cf-glance__cell-value">Open to All</div>
+          <div class="cf-glance__cell-note">Clergy, lay leaders &amp; engaged citizens</div>
+        </div>
+        <div class="cf-glance__cell">
+          <div class="cf-glance__cell-label">Tracks</div>
+          <div class="cf-glance__cell-value">Pastoral &amp; Community</div>
+          <div class="cf-glance__cell-note">Dedicated concurrent sessions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CTA ══════ -->
+  <section class="cf-cta" id="register">
+    <div class="cf-cta__inner">
+      <h2 class="cf-cta__heading">Move From Fear To Hope</h2>
+      <p class="cf-cta__text">Join scholars, pastors, ministry leaders, and engaged citizens for two days of reflection, learning, and practical imagination.</p>
+      <div class="cf-cta__details">
+        <span class="cf-cta__detail">May 13–14, 2026</span>
+        <span class="cf-cta__detail">Toronto, ON</span>
+      </div>
+      <div class="cf-cta__actions">
+        <a href="#" onclick="cfOpenReg(); return false;" class="cf-btn cf-btn--red">Register Now</a>
+        <a href="mailto:info@icscanada.edu" class="cf-btn cf-btn--ghost">Contact Us</a>
+      </div>
+      <p class="cf-cta__note">Presented by the Institute for Christian Studies's Free to Be Faithful initiative and Knox College's Ministry Forum.</p>
+    </div>
+  </section>
+
+  <!-- ══════ REGISTRATION MODAL ══════ -->
+  <div class="cf-modal-overlay" id="cf-reg-overlay">
+    <div class="cf-modal" role="dialog" aria-labelledby="cf-modal-title" aria-modal="true">
+      <button class="cf-modal__close" onclick="cfCloseReg()" aria-label="Close registration">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Form state -->
+      <div id="cf-reg-form-state">
+        <div class="cf-modal__header">
+          <p class="cf-modal__tag">May 13–14, 2026 &bull; Toronto</p>
+          <h2 class="cf-modal__title" id="cf-modal-title">Conference Registration</h2>
+          <p class="cf-modal__subtitle">Complete your information below, then pay through PayPal to finalize your registration.</p>
+          <span class="cf-modal__price-badge" id="cf-price-badge">Select a registration type</span>
+        </div>
+
+        <div class="cf-modal__body">
+          <div class="cf-modal__error" id="cf-reg-error"></div>
+
+          <!-- Registration Type -->
+          <div class="cf-modal__row--full cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-regtype">Registration Type <span>*</span></label>
+              <select class="cf-modal__select" id="cf-regtype" required>
+                <option value="">— Select one —</option>
+                <option value="Full Conference ($150)">Full Conference — $150 CAD</option>
+                <option value="May 13 Only ($50)">May 13 Evening Only — $50 CAD</option>
+                <option value="May 13 Only + Morning Keynote ($60)">May 13 Evening + May 14 Morning Keynote — $60 CAD</option>
+                <option value="Keynotes Livestream ($25)">Keynotes Livestream — $25 CAD</option>
+              </select>
+              <div class="cf-modal__livestream-note" id="cf-livestream-note">You will receive a live streaming link and instructions via email two weeks before the conference.</div>
+            </div>
+          </div>
+
+          <!-- Name -->
+          <div class="cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-fname">First Name <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-fname" autocomplete="given-name" required>
+            </div>
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-lname">Last Name <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-lname" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="cf-modal__row--full cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-email">Email <span>*</span></label>
+              <input class="cf-modal__input" type="email" id="cf-email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="cf-modal__row--full cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-address">Street Address <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-address" autocomplete="street-address" required>
+            </div>
+          </div>
+
+          <!-- City + Province -->
+          <div class="cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-city">City <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-city" autocomplete="address-level2" required>
+            </div>
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-province">Province / State <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-province" autocomplete="address-level1" required>
+            </div>
+          </div>
+
+          <!-- Postal + Country -->
+          <div class="cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-postal">Postal / Zip Code <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-postal" autocomplete="postal-code" required>
+            </div>
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-country">Country <span>*</span></label>
+              <input class="cf-modal__input" type="text" id="cf-country" autocomplete="country-name" required>
+            </div>
+          </div>
+
+          <!-- Church Affiliation (optional) -->
+          <div class="cf-modal__row--full cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-affiliation">Church Affiliation or Educational Institution</label>
+              <input class="cf-modal__input" type="text" id="cf-affiliation" placeholder="Optional">
+            </div>
+          </div>
+
+          <!-- Dietary / Accessibility -->
+          <div class="cf-modal__row--full cf-modal__row">
+            <div class="cf-modal__field">
+              <label class="cf-modal__label" for="cf-dietary">Dietary Restrictions or Accessibility Needs</label>
+              <textarea class="cf-modal__textarea" id="cf-dietary" placeholder="Please let us know if you require any specific accommodations." rows="2"></textarea>
+            </div>
+          </div>
+
+          <hr class="cf-modal__divider">
+
+          <!-- Additional Gift -->
+          <div class="cf-modal__gift">
+            <p class="cf-modal__gift-heading">Make an Additional Gift (Optional)</p>
+            <p class="cf-modal__gift-sub">Want to give a little extra to support programming and the mission? Add a gift to your registration total.</p>
+            <div class="cf-modal__gift-options">
+              <button type="button" class="cf-modal__gift-chip" data-gift="25">$25</button>
+              <button type="button" class="cf-modal__gift-chip" data-gift="50">$50</button>
+              <button type="button" class="cf-modal__gift-chip" data-gift="100">$100</button>
+              <button type="button" class="cf-modal__gift-chip" data-gift="250">$250</button>
+              <button type="button" class="cf-modal__gift-chip" data-gift="500">$500</button>
+              <button type="button" class="cf-modal__gift-chip" data-gift="1000">$1,000</button>
+              <button type="button" class="cf-modal__gift-chip" data-gift="other">Other</button>
+            </div>
+            <div class="cf-modal__gift-custom" id="cf-gift-custom">
+              <div class="cf-modal__gift-custom-wrap">
+                <input type="number" id="cf-gift-custom-input" min="1" step="1" placeholder="Amount">
+              </div>
+            </div>
+            <div class="cf-modal__gift-total" id="cf-gift-total"></div>
+            <div class="cf-modal__gift-receipt">
+              <strong>Need a tax receipt?</strong> Gifts added here are processed as part of your conference registration and do not include a tax receipt. If you would like a tax-receiptable donation, please give separately:<br>
+              <a href="https://www.paypal.com/donate?token=_e0pEG2CnZr2sw_JOzvCLmsOVWpHTtBDD5Ic4bToVx0MEFLF0u7Caj3f_3_2o54fCW4Gr56Bn0_hhdtS" target="_blank" rel="noopener">U.S. Donors (via PayPal)</a> &nbsp;|&nbsp;
+              <a href="https://icscanada.edu/donate" target="_blank" rel="noopener">Canadian Donors (ICS website)</a>
+            </div>
+          </div>
+
+          <hr class="cf-modal__divider">
+          <p class="cf-modal__pay-label">Complete payment to register</p>
+          <div id="cf-paypal-container">
+            <span class="cf-paypal-loading">Loading payment options&hellip;</span>
+          </div>
+          <p class="cf-modal__note" style="margin-top: 0.6rem; margin-bottom: 0;">Wrong country? Click the flag on the PayPal button to switch between Canadian and U.S. dollars.</p>
+          <p class="cf-modal__note">Questions? Email Héctor at <a href="mailto:haceroferrer@icscanada.edu">haceroferrer@icscanada.edu</a>.</p>
+        </div>
+      </div>
+
+      <!-- Confirmation state -->
+      <div class="cf-modal__confirm" id="cf-reg-confirm">
+        <div class="cf-modal__confirm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>You're Registered!</h3>
+        <p>Thank you for registering for <em>Courageous Faith in a Time of Fear</em>. You'll receive a confirmation from PayPal shortly.</p>
+        <div class="cf-modal__confirm-livestream" id="cf-confirm-livestream">You selected the Keynotes Livestream option. You will receive a live streaming link and detailed instructions via email approximately two weeks before the conference (by April 29, 2026).</div>
+        <div class="cf-modal__confirm-livestream" id="cf-confirm-gift">Thank you for your generous additional gift! Please note that this gift was processed as part of your conference registration and does not include a tax receipt. If you would like a tax-receiptable donation, you can give separately at <a href="https://icscanada.edu/donate" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600;">icscanada.edu/donate</a> (Canada) or via <a href="https://www.paypal.com/donate?token=_e0pEG2CnZr2sw_JOzvCLmsOVWpHTtBDD5Ic4bToVx0MEFLF0u7Caj3f_3_2o54fCW4Gr56Bn0_hhdtS" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600;">PayPal</a> (U.S.).</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════ PayPal SDK + Registration Logic ══════ -->
+<script src="https://www.paypal.com/sdk/js?client-id=AdZ0cWK3Bl7wjgmrmgk_On-ac13XCdpZxx8te_4IPlRDVoYx3ZNoGG8vK7mb8VXdKH2L-TM1M3sMj6oI&currency=CAD&intent=capture&components=buttons"></script>
+
+<script>
+(function() {
+  /* ── Price map ── */
+  var PRICES = {
+    'Full Conference ($150)': '150.00',
+    'May 13 Only ($50)': '50.00',
+    'May 13 Only + Morning Keynote ($60)': '60.00',
+    'Keynotes Livestream ($25)': '25.00'
+  };
+  var PRICE_LABELS = {
+    'Full Conference ($150)': '$150 CAD',
+    'May 13 Only ($50)': '$50 CAD',
+    'May 13 Only + Morning Keynote ($60)': '$60 CAD',
+    'Keynotes Livestream ($25)': '$25 CAD'
+  };
+
+  /* ── Element refs ── */
+  var overlay   = document.getElementById('cf-reg-overlay');
+  var formView  = document.getElementById('cf-reg-form-state');
+  var confirm   = document.getElementById('cf-reg-confirm');
+  var errBox    = document.getElementById('cf-reg-error');
+  var priceBadge = document.getElementById('cf-price-badge');
+  var livestreamNote = document.getElementById('cf-livestream-note');
+  var confirmLivestream = document.getElementById('cf-confirm-livestream');
+  var confirmGift = document.getElementById('cf-confirm-gift');
+  var regTypeSelect = document.getElementById('cf-regtype');
+
+  /* ── Required field IDs ── */
+  var requiredFields = ['cf-regtype','cf-fname','cf-lname','cf-email',
+                        'cf-address','cf-city','cf-province','cf-postal','cf-country'];
+
+  /* ── All field IDs (for reset) ── */
+  var allFields = ['cf-regtype','cf-fname','cf-lname','cf-email',
+                   'cf-address','cf-city','cf-province','cf-postal','cf-country',
+                   'cf-affiliation','cf-dietary'];
+
+  /* ── Gift state ── */
+  var giftAmount = 0;
+  var giftChips = document.querySelectorAll('.cf-modal__gift-chip');
+  var giftCustomWrap = document.getElementById('cf-gift-custom');
+  var giftCustomInput = document.getElementById('cf-gift-custom-input');
+  var giftTotalEl = document.getElementById('cf-gift-total');
+
+  function resetGift() {
+    giftAmount = 0;
+    giftChips.forEach(function(c) { c.classList.remove('is-selected'); });
+    giftCustomWrap.classList.remove('is-active');
+    if (giftCustomInput) giftCustomInput.value = '';
+    giftTotalEl.classList.remove('is-active');
+  }
+
+  function updateGiftTotal() {
+    var regType = getVal('cf-regtype');
+    var regPrice = parseFloat(PRICES[regType] || '0');
+    if (giftAmount > 0 && regPrice > 0) {
+      var total = regPrice + giftAmount;
+      giftTotalEl.textContent = 'Registration (' + PRICE_LABELS[regType] + ') + $' + giftAmount.toFixed(0) + ' gift = $' + total.toFixed(0) + ' CAD total';
+      giftTotalEl.classList.add('is-active');
+    } else {
+      giftTotalEl.classList.remove('is-active');
+    }
+  }
+
+  giftChips.forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      var val = this.getAttribute('data-gift');
+
+      /* If clicking the already-selected chip, deselect it */
+      if (this.classList.contains('is-selected') && val !== 'other') {
+        this.classList.remove('is-selected');
+        giftAmount = 0;
+        giftCustomWrap.classList.remove('is-active');
+        updateGiftTotal();
+        return;
+      }
+
+      giftChips.forEach(function(c) { c.classList.remove('is-selected'); });
+      this.classList.add('is-selected');
+
+      if (val === 'other') {
+        giftCustomWrap.classList.add('is-active');
+        giftCustomInput.focus();
+        var custom = parseFloat(giftCustomInput.value);
+        giftAmount = (custom > 0) ? custom : 0;
+      } else {
+        giftCustomWrap.classList.remove('is-active');
+        giftCustomInput.value = '';
+        giftAmount = parseFloat(val);
+      }
+      updateGiftTotal();
+    });
+  });
+
+  if (giftCustomInput) {
+    giftCustomInput.addEventListener('input', function() {
+      var v = parseFloat(this.value);
+      giftAmount = (v > 0) ? v : 0;
+      updateGiftTotal();
+    });
+  }
+
+  /* Recalculate gift total when registration type changes */
+  regTypeSelect.addEventListener('change', function() { updateGiftTotal(); });
+
+  /* ── Google Form endpoint and entry IDs ── */
+  var GFORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeehCcT68f29AmnSGqcQq1BsGXvLG5kZghku8q2-QSFOeatFg/formResponse';
+  var ENTRY_MAP = {
+    'cf-fname':       'entry.1585969271',
+    'cf-lname':       'entry.1774834157',
+    'cf-email':       'entry.1323223636',
+    'cf-address':     'entry.704186288',
+    'cf-city':        'entry.2031181760',
+    'cf-province':    'entry.1573722972',
+    'cf-postal':      'entry.1957045098',
+    'cf-country':     'entry.907101756',
+    'cf-affiliation': 'entry.545241140',
+    'cf-regtype':     'entry.909016893',
+    'cf-dietary':     'entry.212256401'
+  };
+
+  /* ── Helpers ── */
+  function getVal(id) { return document.getElementById(id).value.trim(); }
+
+  var COUNTRY_CODES = {
+    'canada':'CA','ca':'CA','can':'CA',
+    'united states':'US','united states of america':'US','usa':'US','us':'US','u.s.':'US','u.s.a.':'US',
+    'united kingdom':'GB','uk':'GB','great britain':'GB','england':'GB','scotland':'GB','wales':'GB',
+    'australia':'AU','au':'AU',
+    'new zealand':'NZ','nz':'NZ',
+    'germany':'DE','deutschland':'DE',
+    'france':'FR',
+    'netherlands':'NL','the netherlands':'NL','holland':'NL',
+    'belgium':'BE',
+    'switzerland':'CH',
+    'ireland':'IE',
+    'south africa':'ZA',
+    'mexico':'MX','méxico':'MX',
+    'brazil':'BR','brasil':'BR',
+    'india':'IN',
+    'china':'CN',
+    'japan':'JP',
+    'south korea':'KR','korea':'KR',
+    'italy':'IT',
+    'spain':'ES',
+    'portugal':'PT',
+    'sweden':'SE',
+    'norway':'NO',
+    'denmark':'DK',
+    'finland':'FI',
+    'austria':'AT',
+    'poland':'PL',
+    'czech republic':'CZ','czechia':'CZ',
+    'hungary':'HU',
+    'romania':'RO',
+    'greece':'GR',
+    'turkey':'TR','türkiye':'TR',
+    'israel':'IL',
+    'singapore':'SG',
+    'philippines':'PH',
+    'nigeria':'NG',
+    'kenya':'KE',
+    'ghana':'GH',
+    'colombia':'CO',
+    'argentina':'AR',
+    'chile':'CL',
+    'peru':'PE'
+  };
+  function countryToCode(name) {
+    if (!name) return '';
+    var key = name.toLowerCase().trim();
+    if (COUNTRY_CODES[key]) return COUNTRY_CODES[key];
+    /* If the user typed a 2-letter code directly */
+    if (/^[a-z]{2}$/.test(key)) return key.toUpperCase();
+    return '';
+  }
+
+  function validate() {
+    var valid = true;
+    errBox.classList.remove('is-active');
+    requiredFields.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.classList.remove('is-invalid');
+      if (!el.value.trim()) { el.classList.add('is-invalid'); valid = false; }
+    });
+    /* Basic email check */
+    var emailEl = document.getElementById('cf-email');
+    if (emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+      emailEl.classList.add('is-invalid'); valid = false;
+    }
+    if (!valid) {
+      errBox.textContent = 'Please fill in all required fields before proceeding.';
+      errBox.classList.add('is-active');
+    }
+    return valid;
+  }
+
+  function submitToGoogleSheet() {
+    var formData = new URLSearchParams();
+    Object.keys(ENTRY_MAP).forEach(function(fieldId) {
+      var val = getVal(fieldId);
+      /* Append gift amount to dietary/accessibility field */
+      if (fieldId === 'cf-dietary' && giftAmount > 0) {
+        val = (val ? val + ' | ' : '') + 'Additional gift: $' + giftAmount.toFixed(0) + ' CAD';
+      }
+      formData.append(ENTRY_MAP[fieldId], val);
+    });
+    return fetch(GFORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
+    });
+  }
+
+  /* ── Registration type change handler ── */
+  regTypeSelect.addEventListener('change', function() {
+    var val = this.value;
+    if (val && PRICE_LABELS[val]) {
+      priceBadge.textContent = PRICE_LABELS[val];
+    } else {
+      priceBadge.textContent = 'Select a registration type';
+    }
+    if (val === 'Keynotes Livestream ($25)') {
+      livestreamNote.classList.add('is-active');
+    } else {
+      livestreamNote.classList.remove('is-active');
+    }
+  });
+
+  /* ── Open / Close modal ── */
+  window.cfOpenReg = function() {
+    formView.style.display = '';
+    confirm.classList.remove('is-active');
+    errBox.classList.remove('is-active');
+    livestreamNote.classList.remove('is-active');
+    confirmLivestream.classList.remove('is-active');
+    if (confirmGift) confirmGift.classList.remove('is-active');
+    priceBadge.textContent = 'Select a registration type';
+    allFields.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.value = ''; el.classList.remove('is-invalid');
+    });
+    resetGift();
+    overlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        overlay.classList.add('is-visible');
+      });
+    });
+  };
+
+  window.cfCloseReg = function() {
+    overlay.classList.remove('is-visible');
+    setTimeout(function() {
+      overlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }, 300);
+  };
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) cfCloseReg();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-active')) cfCloseReg();
+  });
+
+  /* ── PayPal Buttons ── */
+  if (typeof paypal !== 'undefined') {
+    var loadingEl = document.querySelector('#cf-paypal-container .cf-paypal-loading');
+    if (loadingEl) loadingEl.remove();
+
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color:  'blue',
+        shape:  'pill',
+        label:  'pay',
+        height: 48
+      },
+
+      onClick: function(data, actions) {
+        if (!validate()) return actions.reject();
+        return actions.resolve();
+      },
+
+      createOrder: function(data, actions) {
+        var regType  = getVal('cf-regtype');
+        var baseAmount = parseFloat(PRICES[regType] || '0');
+        var totalAmount = (baseAmount + giftAmount).toFixed(2);
+        var fullName = getVal('cf-fname') + ' ' + getVal('cf-lname');
+        var email    = getVal('cf-email');
+        var countryCode = countryToCode(getVal('cf-country'));
+
+        var description = 'Courageous Faith Conference: ' + regType + ' | ' + fullName + ' | ' + email;
+        if (giftAmount > 0) {
+          description += ' | Gift: $' + giftAmount.toFixed(0);
+        }
+
+        var orderData = {
+          purchase_units: [{
+            description: description,
+            amount: {
+              currency_code: 'CAD',
+              value: totalAmount
+            }
+          }],
+          application_context: {
+            brand_name: 'Free to be Faithful - ICS',
+            shipping_preference: 'NO_SHIPPING'
+          }
+        };
+
+        if (countryCode) {
+          orderData.payer = {
+            name: { given_name: getVal('cf-fname'), surname: getVal('cf-lname') },
+            email_address: getVal('cf-email'),
+            address: { country_code: countryCode }
+          };
+        }
+
+        return actions.order.create(orderData);
+      },
+
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          var wasLivestream = getVal('cf-regtype') === 'Keynotes Livestream ($25)';
+          var hadGift = giftAmount > 0;
+          submitToGoogleSheet().then(function() {
+            formView.style.display = 'none';
+            confirm.classList.add('is-active');
+            if (wasLivestream) confirmLivestream.classList.add('is-active');
+            if (hadGift) {
+              var giftMsg = document.getElementById('cf-confirm-gift');
+              if (giftMsg) giftMsg.classList.add('is-active');
+            }
+          }).catch(function() {
+            formView.style.display = 'none';
+            confirm.classList.add('is-active');
+            if (wasLivestream) confirmLivestream.classList.add('is-active');
+            if (hadGift) {
+              var giftMsg = document.getElementById('cf-confirm-gift');
+              if (giftMsg) giftMsg.classList.add('is-active');
+            }
+          });
+        });
+      },
+
+      onError: function(err) {
+        errBox.textContent = 'Something went wrong with the payment. Please try again or contact info@icscanada.edu.';
+        errBox.classList.add('is-active');
+        console.error('PayPal error:', err);
+      }
+
+    }).render('#cf-paypal-container');
+  }
+})();
+</script>
+
+<!-- Footer -->
+<footer class="f2bf-footer" role="contentinfo">
+
+  <!-- DECORATIVE WAVE -->
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#1B3A4B" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER BODY -->
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+
+      <!-- COL 1 — Brand + Socials -->
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img
+            class="f2bf-footer-brand__logo-img"
+            src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+            alt="Institute for Christian Studies"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg>
+          </a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 — Free to be Faithful -->
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="/f2bf-program">Program</a></li>
+          <li><a href="/f2bf-courses">Courses</a></li>
+          <li><a href="/f2bf-resource">Resources</a></li>
+          <li><a href="/f2bf-community">Community</a></li>
+          <li><a href="/events">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3 — Connect -->
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 4 — Contact + Legal -->
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu"><span>info@icscanada.edu</span></a></p>
+        </div>
+
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">
+            &copy; 2026 Institute for Christian Studies.<br>
+            All rights reserved.
+          </p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>
