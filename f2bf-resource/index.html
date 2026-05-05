@@ -371,20 +371,26 @@
     /* YOUR VOICE — contribution pull-quote banner   */
     /* ════════════════════════════════════════════ */
     .f2bf-voice {
-      background: var(--slate); padding: 5rem 2.5rem;
+      background: var(--teal); padding: 5rem 2.5rem;
+      position: relative;
+    }
+    .f2bf-voice::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     }
     .f2bf-voice__inner {
       max-width: 800px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
     }
     .f2bf-voice__heading {
       font-family: var(--display); font-weight: 900;
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      color: var(--teal); line-height: 1.15;
+      color: var(--cream); line-height: 1.15;
       margin-bottom: 1.2rem;
     }
     .f2bf-voice__text {
       font-family: var(--text); font-size: 1.08rem;
-      color: var(--body); line-height: 1.85;
+      color: rgba(240,235,227,0.85); line-height: 1.85;
       margin-bottom: 2rem;
     }
     .f2bf-voice__actions {
@@ -915,8 +921,8 @@
       <h2 class="f2bf-voice__heading">Your Voice Matters</h2>
       <p class="f2bf-voice__text">Free to be Faithful needs your input. Share the books, podcasts, and practices that have helped you navigate our world. We want to incorporate your vision of what you, your community, and your world need.</p>
       <div class="f2bf-voice__actions">
-        <a href="https://docs.google.com/spreadsheets/d/1OE2cMiyP1ViDYgz-KqduaVY8McZ52L0WWLkj6qc34II/edit?usp=sharing" class="f2bf-btn f2bf-btn--teal" target="_blank" rel="noopener">Share Your Resources →</a>
-        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--outline" target="_blank" rel="noopener">Subscribe on Substack</a>
+        <a href="https://docs.google.com/spreadsheets/d/1OE2cMiyP1ViDYgz-KqduaVY8McZ52L0WWLkj6qc34II/edit?usp=sharing" class="f2bf-btn f2bf-btn--red" target="_blank" rel="noopener">Share Your Resources →</a>
+        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--ghost" target="_blank" rel="noopener">Subscribe on Substack</a>
       </div>
     </div>
   </section>
@@ -932,7 +938,7 @@
       <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
       <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
       <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
-      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#1B3A4B" stroke-width="2"/>
     </svg>
   </div>
 

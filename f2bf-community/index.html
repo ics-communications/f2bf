@@ -284,19 +284,24 @@
     /* CTA — closing banner                          */
     /* ════════════════════════════════════════════ */
     .f2bf-comm-cta {
-      background: var(--slate); padding: 5.5rem 2.5rem;
+      background: var(--teal); padding: 5.5rem 2.5rem; position: relative;
+    }
+    .f2bf-comm-cta::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     }
     .f2bf-comm-cta__inner {
       max-width: 700px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
     }
     .f2bf-comm-cta__heading {
       font-family: var(--display); font-weight: 900;
       font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--teal); line-height: 1.1; margin-bottom: 1.2rem;
+      color: var(--cream); line-height: 1.1; margin-bottom: 1.2rem;
     }
     .f2bf-comm-cta__text {
       font-family: var(--text); font-size: 1.1rem;
-      color: var(--body); line-height: 1.85; margin-bottom: 1.5rem;
+      color: rgba(240,235,227,0.85); line-height: 1.85; margin-bottom: 1.5rem;
     }
     .f2bf-comm-cta__channels {
       display: flex; justify-content: center; flex-wrap: wrap;
@@ -309,7 +314,7 @@
     .f2bf-comm-cta__channel:hover { transform: translateY(-3px); }
     .f2bf-comm-cta__channel-icon {
       width: 48px; height: 48px; border-radius: 50%;
-      background: var(--teal); color: var(--white);
+      background: var(--cream); color: var(--teal);
       display: flex; align-items: center; justify-content: center;
       transition: background 0.3s ease;
     }
@@ -320,7 +325,7 @@
     .f2bf-comm-cta__channel-name {
       font-family: var(--text); font-size: 0.78rem; font-weight: 600;
       letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--teal);
+      color: rgba(240,235,227,0.85);
     }
     .f2bf-comm-cta__actions {
       display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
@@ -615,8 +620,8 @@
       </div>
 
       <div class="f2bf-comm-cta__actions">
-        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--teal">Explore Courses →</a>
-        <a href="https://icscanada.edu/donate" class="f2bf-btn f2bf-btn--outline">♥ Support ICS</a>
+        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--red">Explore Courses →</a>
+        <a href="https://icscanada.edu/donate" class="f2bf-btn f2bf-btn--ghost">♥ Support ICS</a>
       </div>
     </div>
   </section>
@@ -632,7 +637,7 @@
       <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
       <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
       <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
-      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#1B3A4B" stroke-width="2"/>
     </svg>
   </div>
 
