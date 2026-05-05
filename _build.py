@@ -4,6 +4,7 @@ import re, os, html
 
 NAV_TEMPLATE = open('_includes/nav.html', encoding='utf-8').read()
 FOOTER_TEMPLATE = open('_includes/footer.html', encoding='utf-8').read()
+FAVICON_HREF = '/assets/img/ICS_New_Favicon.png'
 
 LINK_MAP = {
     'https://f2bf.icscanada.edu/f2bf-program': '/f2bf-program',
@@ -381,6 +382,8 @@ def build_page(page_cfg):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{FAVICON_HREF}">
+  <link rel="apple-touch-icon" href="{FAVICON_HREF}">
   <title>{page_cfg['title']}</title>
   <meta name="description" content="{page_cfg['desc']}">
   <link rel="canonical" href="{canonical_url}">
@@ -444,6 +447,8 @@ html_404 = f'''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{FAVICON_HREF}">
+  <link rel="apple-touch-icon" href="{FAVICON_HREF}">
   <title>Page Not Found | Free to be Faithful</title>
   <meta name="description" content="The page you are looking for could not be found.">
   <link rel="stylesheet" href="/assets/css/global.css">
