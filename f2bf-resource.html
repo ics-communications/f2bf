@@ -1,0 +1,1634 @@
+<!DOCTYPE html><html lang="en-CA"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resource | Free to be Faithful — ICS</title>
+  
+  <style>
+    html, body { margin: 0; padding: 0; background: transparent; }
+    .page-section:first-child .content-wrapper { padding-top: 0 !important; }
+    .sqs-block-code { padding: 0 !important; }
+    .sqs-block-code .sqs-block-content { margin: 0 !important; }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+    .f2bf *, .f2bf *::before, .f2bf *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .f2bf {
+      --teal:        #1B3A4B;
+      --teal-deep:   #0F2631;
+      --teal-mid:    #25516A;
+      --red:         #C83C2C;
+      --red-hover:   #D9503F;
+      --slate:       #BCC7D0;
+      --slate-light: #D6DDE2;
+      --cream:       #F0EBE3;
+      --cream-lt:    #F7F4EF;
+      --white:       #FFFFFF;
+      --ink:         #1A2A33;
+      --body:        #3D4F59;
+      --muted:       #7E929E;
+      --faint:       rgba(27,58,75,0.08);
+
+      --display: 'Playfair Display', Georgia, serif;
+      --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+      font-family: var(--text);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    /* ─── Buttons ─── */
+    .f2bf-btn {
+      display: inline-flex; align-items: center; gap: 0.45em;
+      font-family: var(--text); font-size: 0.95rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.85em 2.4em; border: none; cursor: pointer;
+      text-decoration: none; border-radius: 100px;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .f2bf-btn--red { background: var(--red); color: var(--white); }
+    .f2bf-btn--red:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,60,44,0.25); }
+    .f2bf-btn--ghost { background: transparent; color: var(--cream); border: 1.5px solid rgba(240,235,227,0.3); }
+    .f2bf-btn--ghost:hover { border-color: var(--cream); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+    .f2bf-btn--teal { background: var(--teal); color: var(--white); }
+    .f2bf-btn--teal:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,58,75,0.25); }
+    .f2bf-btn--outline { background: transparent; color: var(--teal); border: 1.5px solid rgba(27,58,75,0.25); }
+    .f2bf-btn--outline:hover { border-color: var(--teal); background: var(--faint); transform: translateY(-2px); }
+
+    /* ─── Horizontal rule ─── */
+    .f2bf-rule { max-width: 80px; height: 3px; border: none; background: var(--red); margin: 0; }
+    .f2bf-rule--center { margin-left: auto; margin-right: auto; }
+    .f2bf-rule--cream { background: var(--cream); opacity: 0.4; }
+
+    @keyframes f2bfReveal {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* HERO — compact editorial header               */
+    /* ════════════════════════════════════════════ */
+    .f2bf-res-hero {
+      position: relative; min-height: 52vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--teal-deep);
+    }
+    .f2bf-res-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .f2bf-res-hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.3; filter: saturate(0.15) brightness(0.5);
+    }
+    .f2bf-res-hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    .f2bf-res-hero__gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(
+        175deg,
+        rgba(15,38,49,0.15) 0%,
+        rgba(15,38,49,0.5) 40%,
+        rgba(15,38,49,0.85) 80%,
+        rgba(15,38,49,0.9) 100%
+      );
+    }
+    .f2bf-res-hero__content {
+      position: relative; z-index: 3;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 3rem 2.5rem 4rem;
+      animation: f2bfReveal 1s ease-out both;
+    }
+    .f2bf-res-hero__tag {
+      display: inline-block; font-family: var(--text);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream); opacity: 0.45;
+      margin-bottom: 1.5rem;
+      animation: f2bfReveal 1s ease-out 0.15s both;
+    }
+    .f2bf-res-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 1.5rem;
+      animation: f2bfReveal 1s ease-out 0.3s both;
+    }
+    .f2bf-res-hero__title em {
+      font-style: italic; font-weight: 400;
+      color: var(--slate-light);
+    }
+    .f2bf-res-hero__desc {
+      font-family: var(--text); font-size: 1.15rem;
+      color: rgba(240,235,227,0.5); line-height: 1.85;
+      max-width: 520px;
+      animation: f2bfReveal 1s ease-out 0.45s both;
+    }
+    /* Anchor nav */
+    .f2bf-res-hero__nav {
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      margin-top: 2.5rem;
+      animation: f2bfReveal 1s ease-out 0.6s both;
+    }
+    .f2bf-res-hero__nav-link {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.5em 1.2em; border-radius: 100px;
+      border: 1px solid rgba(240,235,227,0.15);
+      color: rgba(240,235,227,0.5); text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .f2bf-res-hero__nav-link:hover {
+      border-color: rgba(240,235,227,0.4);
+      color: var(--cream); background: rgba(255,255,255,0.05);
+    }
+    .f2bf-res-hero__nav-link span { color: var(--red); margin-right: 0.35em; }
+
+    /* ════════════════════════════════════════════ */
+    /* SECTION 1 — Curated Texts                     */
+    /* ════════════════════════════════════════════ */
+    .f2bf-texts {
+      background: var(--cream-lt); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-texts__inner { max-width: 1200px; margin: 0 auto; }
+    .f2bf-texts__header {
+      display: grid; grid-template-columns: 1fr; gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 800px) {
+      .f2bf-texts__header { grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: end; }
+    }
+    .f2bf-texts__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-texts__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--teal);
+    }
+    .f2bf-texts__intro {
+      font-family: var(--text); font-size: 1.1rem;
+      color: var(--body); line-height: 1.85;
+    }
+    .f2bf-texts__intro strong { color: var(--teal); font-weight: 600; }
+
+    /* Book cards */
+    .f2bf-texts__grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.2rem;
+    }
+    @media (min-width: 600px) {
+      .f2bf-texts__grid { grid-template-columns: 1fr 1fr; }
+    }
+    .f2bf-book {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid rgba(27,58,75,0.06);
+      padding: 2rem 1.8rem;
+      display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem;
+      align-items: start;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .f2bf-book:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(27,58,75,0.08);
+    }
+    .f2bf-book__cover {
+      width: 90px; height: 135px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(27,58,75,0.15), 0 1px 3px rgba(0,0,0,0.08);
+      position: relative;
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .f2bf-book__cover img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    /* Subtle spine highlight */
+    .f2bf-book__cover::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+      pointer-events: none; z-index: 1;
+    }
+    .f2bf-book__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.12rem; color: var(--teal); line-height: 1.35;
+      margin-bottom: 0.3rem;
+    }
+    .f2bf-book__title a {
+      color: inherit; text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .f2bf-book__title a:hover { color: var(--red); }
+    .f2bf-book__author {
+      font-family: var(--text); font-size: 0.88rem; font-weight: 600;
+      color: var(--red); margin-bottom: 0.5rem;
+    }
+    .f2bf-book__desc {
+      font-family: var(--text); font-size: 0.9rem;
+      color: var(--muted); line-height: 1.6;
+    }
+
+    /* Community submission strip */
+    .f2bf-texts__submit {
+      margin-top: 3rem;
+      padding: 2.5rem 2rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid rgba(27,58,75,0.06);
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+      align-items: center;
+    }
+    @media (min-width: 700px) {
+      .f2bf-texts__submit { grid-template-columns: 1fr auto; }
+    }
+    .f2bf-texts__submit-text {
+      font-family: var(--display); font-style: italic;
+      font-size: 1.15rem; color: var(--teal); line-height: 1.5;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* SECTION 2 — Shared Expertise (dark strip)     */
+    /* ════════════════════════════════════════════ */
+    .f2bf-expertise {
+      background: var(--teal); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .f2bf-expertise::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-expertise__inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .f2bf-expertise__top {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 800px) {
+      .f2bf-expertise__top { grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; }
+    }
+    .f2bf-expertise__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-expertise__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--cream);
+    }
+    .f2bf-expertise__desc {
+      font-family: var(--text); font-size: 1.05rem;
+      color: var(--muted); line-height: 1.85;
+    }
+    .f2bf-expertise__grid {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+    }
+    @media (min-width: 768px) {
+      .f2bf-expertise__grid { grid-template-columns: 1fr 1fr; }
+    }
+    .f2bf-expert-card {
+      padding: 2.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.4s ease;
+    }
+    @media (min-width: 768px) {
+      .f2bf-expert-card { border-top: none; border-left: 1px solid rgba(255,255,255,0.06); }
+      .f2bf-expert-card:first-child { border-left: none; }
+    }
+    .f2bf-expert-card:hover { background: rgba(255,255,255,0.03); }
+    .f2bf-expert-card__icon {
+      width: 44px; height: 44px; margin-bottom: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 100px;
+    }
+    .f2bf-expert-card__icon svg { width: 20px; height: 20px; color: var(--red); }
+    .f2bf-expert-card__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.35rem; color: var(--cream);
+      line-height: 1.25; margin-bottom: 0.8rem;
+    }
+    .f2bf-expert-card__text {
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--muted); line-height: 1.75; margin-bottom: 1.4rem;
+    }
+    .f2bf-expert-card__link {
+      font-family: var(--text); font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--red); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .f2bf-expert-card__link:hover { color: var(--red-hover); }
+
+    /* ════════════════════════════════════════════ */
+    /* SECTION 3 — Enriching Dialogues               */
+    /* ════════════════════════════════════════════ */
+    .f2bf-dialogues {
+      background: var(--cream-lt); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-dialogues__inner { max-width: 1200px; margin: 0 auto; }
+    .f2bf-dialogues__header {
+      margin-bottom: 3rem;
+    }
+    .f2bf-dialogues__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-dialogues__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    .f2bf-dialogues__desc {
+      font-family: var(--text); font-size: 1.1rem;
+      color: var(--body); line-height: 1.85;
+      max-width: 600px;
+    }
+
+    /* Dialogue cards — full-width stacked */
+    .f2bf-dialogues__list {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .f2bf-dialogue {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+      border-top: 1px solid rgba(27,58,75,0.1);
+      padding: 2rem 0;
+      transition: background 0.3s ease;
+    }
+    @media (min-width: 700px) {
+      .f2bf-dialogue { grid-template-columns: 200px 1fr auto; gap: 2rem; align-items: center; }
+    }
+    .f2bf-dialogue:last-child { border-bottom: 1px solid rgba(27,58,75,0.1); }
+    .f2bf-dialogue__meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.5rem;
+    }
+    @media (min-width: 700px) {
+      .f2bf-dialogue__meta { flex-direction: column; gap: 0.3rem; margin-bottom: 0; }
+    }
+    .f2bf-dialogue__type {
+      font-family: var(--text); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35em 0.8em; border-radius: 100px;
+      width: fit-content;
+    }
+    .f2bf-dialogue__type--webinar { background: var(--teal); color: var(--white); }
+    .f2bf-dialogue__type--podcast { background: var(--red); color: var(--white); }
+    .f2bf-dialogue__type--event { background: var(--faint); color: var(--teal); }
+    .f2bf-dialogue__date {
+      font-family: var(--text); font-size: 0.82rem; font-weight: 600;
+      color: var(--muted); margin-top: 0.2rem;
+    }
+    .f2bf-dialogue__body {}
+    .f2bf-dialogue__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.2rem; color: var(--teal); line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+    .f2bf-dialogue__speaker {
+      font-family: var(--text); font-size: 0.88rem; font-weight: 600;
+      color: var(--red); margin-bottom: 0.4rem;
+    }
+    .f2bf-dialogue__summary {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--muted); line-height: 1.65;
+    }
+    .f2bf-dialogue__action {
+      margin-top: 0.8rem;
+    }
+    @media (min-width: 700px) {
+      .f2bf-dialogue__action { margin-top: 0; }
+    }
+    .f2bf-dialogue__link {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--teal); text-decoration: none;
+      padding: 0.55em 1.4em; border-radius: 100px;
+      border: 1.5px solid rgba(27,58,75,0.2);
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .f2bf-dialogue__link:hover {
+      border-color: var(--teal); background: var(--faint);
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* YOUR VOICE — contribution pull-quote banner   */
+    /* ════════════════════════════════════════════ */
+    .f2bf-voice {
+      background: var(--slate); padding: 5rem 2.5rem;
+    }
+    .f2bf-voice__inner {
+      max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .f2bf-voice__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--teal); line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .f2bf-voice__text {
+      font-family: var(--text); font-size: 1.08rem;
+      color: var(--body); line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+    .f2bf-voice__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CTA — closing banner                          */
+    /* ════════════════════════════════════════════ */
+    .f2bf-res-cta {
+      background: var(--teal-deep); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .f2bf-res-cta::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-res-cta__inner {
+      max-width: 700px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
+    }
+    .f2bf-res-cta__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .f2bf-res-cta__text {
+      font-family: var(--text); font-size: 1.1rem;
+      color: rgba(240,235,227,0.5); line-height: 1.85; margin-bottom: 2.5rem;
+    }
+    .f2bf-res-cta__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ─── Mobile tweaks ─── */
+    @media (max-width: 600px) {
+      .f2bf-book { grid-template-columns: 70px 1fr; gap: 1rem; }
+      .f2bf-book__cover { width: 70px; height: 105px; }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* TIMELY WRITING — Live Substack RSS           */
+    /* ════════════════════════════════════════════ */
+    .f2bf-comm-writing {
+      background: var(--teal); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .f2bf-comm-writing::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-comm-writing__inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr; gap: 3rem;
+    }
+    @media (min-width: 800px) {
+      .f2bf-comm-writing__inner { grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    }
+    .f2bf-comm-writing__text {}
+    .f2bf-comm-writing__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-comm-writing__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.1; color: var(--cream); margin-bottom: 1.2rem;
+    }
+    .f2bf-comm-writing__body {
+      font-family: var(--text); font-size: 1.08rem;
+      color: rgba(240,235,227,0.55); line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+    .f2bf-comm-writing__body strong { color: var(--cream); font-weight: 600; }
+    .f2bf-comm-writing__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .f2bf-comm-writing__feed {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .f2bf-comm-writing__article {
+      display: block; text-decoration: none;
+      background: var(--cream-lt);
+      border-radius: 8px; padding: 1.2rem 1.4rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .f2bf-comm-writing__article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .f2bf-comm-writing__article--cta {
+      background: rgba(255,255,255,0.06);
+      border: 1px dashed rgba(255,255,255,0.15);
+      box-shadow: none;
+    }
+    .f2bf-comm-writing__article--cta .f2bf-comm-writing__article-title {
+      color: var(--cream);
+    }
+    .f2bf-comm-writing__article--cta:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: none;
+    }
+    .f2bf-comm-writing__article-tag {
+      font-family: var(--text); font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.35rem; display: block;
+    }
+    .f2bf-comm-writing__article-title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.05rem; color: var(--teal); line-height: 1.35;
+      margin-bottom: 0.2rem;
+    }
+    .f2bf-comm-writing__article-excerpt {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--body); line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+<!-- ===== F2BF NAVIGATION BAR ===== -->
+<style>
+  /* ===== SQUARESPACE OVERRIDES ===== */
+  .sqs-block-code { padding: 0 !important; }
+  .sqs-block-code .sqs-block-content { margin: 0 !important; }
+
+  /* ===== RESET FOR NAV SCOPE ===== */
+  .f2bf-header *,
+  .f2bf-header *::before,
+  .f2bf-header *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ===== NAV BAR ===== */
+  .f2bf-header {
+    background: #1B3A4B;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    max-width: 100vw;
+    position: relative;
+    z-index: 1000;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .f2bf-header__inner {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+  }
+
+  /* ===== LOGO ===== */
+  .f2bf-header__logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .f2bf-header__logo-img {
+    height: 53px;
+    width: auto;
+    display: block;
+  }
+
+  /* ===== DESKTOP NAV ===== */
+  .f2bf-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+  }
+
+  .f2bf-nav__item {
+    position: relative;
+  }
+
+  .f2bf-nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 0.9vw 16px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #F5F5EF;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .f2bf-nav__link:hover {
+    color: #F5F5EF;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1.5px;
+  }
+
+  .f2bf-nav__item--active .f2bf-nav__link {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1.5px;
+  }
+
+  /* Dropdown caret */
+  .f2bf-nav__caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-top: 4px solid rgba(255, 255, 255, 0.55);
+    margin-left: 2px;
+    margin-top: 1px;
+    transition: border-top-color 0.2s ease;
+  }
+
+  .f2bf-nav__item:hover .f2bf-nav__caret {
+    border-top-color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* ===== DROPDOWN PANELS ===== */
+  .f2bf-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 240px;
+    background: #1B3A4B;
+    padding: 2px 0 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 200;
+  }
+
+  .f2bf-nav__item:hover .f2bf-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .f2bf-dropdown__link {
+    display: block;
+    padding: 2px 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: right;
+    color: #F5F5EF;
+    text-decoration: none;
+  }
+
+  .f2bf-dropdown__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+  }
+
+  /* ===== MOBILE BURGER ===== */
+  .f2bf-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .f2bf-burger span {
+    display: block;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s ease;
+  }
+
+  .f2bf-burger span:first-child {
+    width: 50%;
+    margin-left: auto;
+  }
+
+  .f2bf-burger span:nth-child(2) {
+    width: 100%;
+  }
+
+  .f2bf-burger span:last-child {
+    width: 75%;
+    margin-left: auto;
+  }
+
+  /* ===== MOBILE OVERLAY ===== */
+  .f2bf-mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #1B3A4B;
+    z-index: 999;
+    padding: 100px 2rem 2rem;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+  }
+
+  .f2bf-mobile-menu.is-open {
+    display: flex;
+  }
+
+  .f2bf-mobile-menu__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.8rem;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .f2bf-mobile-menu__link {
+    display: block;
+    padding: 14px 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F5F5EF;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .f2bf-mobile-menu__sub {
+    padding-left: 1.2rem;
+  }
+
+  .f2bf-mobile-menu__sub a {
+    display: block;
+    padding: 10px 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    color: rgba(245, 245, 239, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .f2bf-mobile-menu__sub a:hover {
+    color: #F5F5EF;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1060px) {
+    .f2bf-nav { display: none; }
+    .f2bf-burger { display: flex; }
+    .f2bf-header__inner {
+      padding: 0 6vw;
+      min-height: 69px;
+    }
+    .f2bf-header__logo-img {
+      height: 30px;
+    }
+  }
+
+  @media (min-width: 1061px) {
+    .f2bf-mobile-menu { display: none !important; }
+  }
+</style>
+
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <!-- Logo -->
+    <a class="f2bf-header__logo-link" href="https://f2bf.icscanada.edu/">
+      <img
+        alt="Institute for Christian Studies"
+        class="f2bf-header__logo-img"
+        src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png"
+      />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="https://f2bf.icscanada.edu/">Free to be Faithful</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="https://f2bf.icscanada.edu/f2bf-program">Program</a>
+        </li>
+        <li class="f2bf-nav__item f2bf-nav__item--active">
+          <a class="f2bf-nav__link" href="https://f2bf.icscanada.edu/f2bf-resource">Resources</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="https://f2bf.icscanada.edu/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="https://f2bf.icscanada.edu/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="https://f2bf.icscanada.edu/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="https://f2bf.icscanada.edu/f2bf-courses">Courses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Burger -->
+    <button
+      aria-label="Open menu"
+      class="f2bf-burger"
+      onclick="document.getElementById('f2bfMobileMenu').classList.add('is-open')"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button
+    aria-label="Close menu"
+    class="f2bf-mobile-menu__close"
+    onclick="this.parentElement.classList.remove('is-open')"
+  >&times;</button>
+
+  <a class="f2bf-mobile-menu__link" href="https://f2bf.icscanada.edu/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="https://f2bf.icscanada.edu/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="https://f2bf.icscanada.edu/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="https://f2bf.icscanada.edu/f2bf-community">Community</a>
+      <a href="https://f2bf.icscanada.edu/events">All Events</a>
+      <a href="https://f2bf.icscanada.edu/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="https://f2bf.icscanada.edu/f2bf-courses">Courses</a>
+</div>
+<!-- ===== END F2BF NAVIGATION BAR ===== -->
+
+
+
+<div class="f2bf">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="f2bf-res-hero">
+    <div class="f2bf-res-hero__bg">
+      <img src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/0aea16841013b63bb54b75bcf72485ea/revisions/33c9a13feaaf496e97c0f9e7c4f4ce5b/renditions/2d7d168360656bf872438d9647c1bc4a" alt="Library shelves">
+    </div>
+    <div class="f2bf-res-hero__gradient"></div>
+    <div class="f2bf-res-hero__content">
+      <span class="f2bf-res-hero__tag">Free to be Faithful</span>
+      <h1 class="f2bf-res-hero__title">Resources</h1>
+      <p class="f2bf-res-hero__desc">See what we've been reading, listening to, and watching concerning the most pressing issues facing Christians today.</p>
+      <nav class="f2bf-res-hero__nav">
+        <a class="f2bf-res-hero__nav-link"><span>01</span> Timely Writing</a>
+        <a class="f2bf-res-hero__nav-link"><span>02</span> Curated Texts</a>
+        <a class="f2bf-res-hero__nav-link"><span>03</span> Shared Expertise</a>
+		<a class="f2bf-res-hero__nav-link"><span>04</span> Enriching Dialogues</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ══════ TIMELY WRITING — Live Substack RSS ══════ -->
+  <section class="f2bf-comm-writing" id="writing">
+    <div class="f2bf-comm-writing__inner">
+      <div class="f2bf-comm-writing__text">
+        <p class="f2bf-comm-writing__label">01 — Timely Writing</p>
+        <h2 class="f2bf-comm-writing__heading">Wrestling with the World We Share</h2>
+        <p class="f2bf-comm-writing__body">Follow and interact on our <strong>Substack</strong> — find out how we're engaging the questions that matter most to Christians today. Our writing aims to <strong>challenge and inform</strong>, offering perspectives rooted in faith, scholarship, and a commitment to the common good.</p>
+        <div class="f2bf-comm-writing__actions">
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--red" target="_blank" rel="noopener">Visit Our Substack →</a>
+        </div>
+      </div>
+      <!-- RSS Feed Widget — static cards are shown immediately; JS replaces with live data -->
+      <div id="f2bf-rss" class="f2bf-comm-writing__feed">
+        <a href="https://instituteforchristianstudies.substack.com/p/listening-to-an-unreasonable-hope" target="_blank" rel="noopener" class="f2bf-comm-writing__article">
+          <span class="f2bf-comm-writing__article-tag">Jan 23, 2026</span>
+          <h3 class="f2bf-comm-writing__article-title">Listening to an Unreasonable Hope</h3>
+          <p class="f2bf-comm-writing__article-excerpt">Héctor Acero Ferrer reframes hope as listening: a shared, unreasonable commitment to act amid suffering.</p>
+        </a>
+        <a href="https://instituteforchristianstudies.substack.com/p/what-does-it-mean-to-be-free-to-be-faithful" target="_blank" rel="noopener" class="f2bf-comm-writing__article">
+          <span class="f2bf-comm-writing__article-tag">Dec 11, 2025</span>
+          <h3 class="f2bf-comm-writing__article-title">What Does It Mean to Be Free to Be Faithful?</h3>
+          <p class="f2bf-comm-writing__article-excerpt">An introduction to a growing community of Christians who believe ancient faith can engage the pressing issues of our time.</p>
+        </a>
+        <a href="https://instituteforchristianstudies.substack.com/p/on-moral-clarity-in-dark-times" target="_blank" rel="noopener" class="f2bf-comm-writing__article">
+          <span class="f2bf-comm-writing__article-tag">Nov 28, 2025</span>
+          <h3 class="f2bf-comm-writing__article-title">On Moral Clarity in Dark Times</h3>
+          <p class="f2bf-comm-writing__article-excerpt">When the world feels like it's fracturing, how do we hold on to conviction without losing compassion?</p>
+        </a>
+        <a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener" class="f2bf-comm-writing__article f2bf-comm-writing__article--cta">
+          <span class="f2bf-comm-writing__article-tag">ICS Substack</span>
+          <h3 class="f2bf-comm-writing__article-title">Read More on Substack →</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSS Widget Script — progressive enhancement over the static cards above -->
+  <script>
+  (function(){
+    var feed = 'https://instituteforchristianstudies.substack.com/feed';
+    var el = document.getElementById('f2bf-rss');
+    if (!el) return;
+
+    // Helpers
+    function strip(s) {
+      if (!s) return '';
+      var tmp = document.createElement('div');
+      tmp.innerHTML = s;
+      return (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim();
+    }
+    function clip(s, n) {
+      s = strip(s);
+      return s.length > n ? s.slice(0,n).trim() + '\u2026' : s;
+    }
+    function fdate(d) {
+      try {
+        var dt = new Date(d);
+        if (isNaN(dt)) return '';
+        var m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return m[dt.getMonth()] + ' ' + dt.getDate() + ', ' + dt.getFullYear();
+      } catch(e) { return ''; }
+    }
+    function render(items) {
+      var h = '';
+      items.forEach(function(item) {
+        var date = fdate(item.pubDate || item.isoDate || '');
+        var desc = clip(item.description || item.content || item.contentSnippet || '', 130);
+        var title = strip(item.title || 'Untitled');
+        var link = item.link || item.url || '#';
+        h += '<a href="' + link + '" target="_blank" rel="noopener" class="f2bf-comm-writing__article">' +
+          (date ? '<span class="f2bf-comm-writing__article-tag">' + date + '</span>' : '') +
+          '<h3 class="f2bf-comm-writing__article-title">' + title + '</h3>' +
+          (desc ? '<p class="f2bf-comm-writing__article-excerpt">' + desc + '</p>' : '') +
+        '</a>';
+      });
+      h += '<a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener" class="f2bf-comm-writing__article f2bf-comm-writing__article--cta">' +
+        '<span class="f2bf-comm-writing__article-tag">ICS Substack</span>' +
+        '<h3 class="f2bf-comm-writing__article-title">Read More on Substack \u2192</h3>' +
+      '</a>';
+      el.innerHTML = h;
+    }
+
+    // Try multiple CORS-friendly RSS proxy services
+    var proxies = [
+      'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed) + '&count=4',
+      'https://api.allorigins.win/get?url=' + encodeURIComponent(feed)
+    ];
+    var tried = 0;
+
+    function tryNext() {
+      if (tried >= proxies.length) return; // static cards stay visible
+      var url = proxies[tried];
+      tried++;
+      fetch(url)
+        .then(function(r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        })
+        .then(function(data) {
+          // rss2json format
+          if (data.status === 'ok' && data.items && data.items.length > 0) {
+            render(data.items.slice(0,4));
+            return;
+          }
+          // allorigins format — returns {contents: "xml string"}
+          if (data.contents) {
+            var parser = new DOMParser();
+            var xml = parser.parseFromString(data.contents, 'text/xml');
+            var entries = xml.querySelectorAll('item');
+            if (entries.length > 0) {
+              var items = [];
+              entries.forEach(function(entry, i) {
+                if (i >= 4) return;
+                items.push({
+                  title: (entry.querySelector('title') || {}).textContent || '',
+                  link: (entry.querySelector('link') || {}).textContent || '',
+                  pubDate: (entry.querySelector('pubDate') || {}).textContent || '',
+                  description: (entry.querySelector('description') || {}).textContent || ''
+                });
+              });
+              if (items.length > 0) { render(items); return; }
+            }
+          }
+          // Neither format worked — try next proxy
+          tryNext();
+        })
+        .catch(function() { tryNext(); });
+    }
+    tryNext();
+  })();
+  </script>
+
+  <!-- ══════ CURATED TEXTS ══════ -->
+  <section class="f2bf-texts" id="curated-texts">
+    <div class="f2bf-texts__inner">
+      <div class="f2bf-texts__header">
+        <div>
+          <p class="f2bf-texts__label">02 — Reading</p>
+          <h2 class="f2bf-texts__heading">Curated Texts</h2>
+          <hr class="f2bf-rule" style="margin-top: 1rem;">
+        </div>
+        <p class="f2bf-texts__intro">Books, articles, and essays selected by the F2BF community and our scholars. These are the resources that have <strong>shaped our thinking</strong> and equipped us for the moment we're in.</p>
+      </div>
+
+      <div class="f2bf-texts__grid">
+
+        <div class="f2bf-book">
+          <div class="f2bf-book__cover">
+            <img src="https://covers.openlibrary.org/b/isbn/9780804190114-L.jpg" alt="On Tyranny book cover" loading="lazy">
+          </div>
+          <div>
+            <h3 class="f2bf-book__title"><a href="https://timothysnyder.org/on-tyranny" target="_blank" rel="noopener">On Tyranny: Twenty Lessons from the Twentieth Century</a></h3>
+            <p class="f2bf-book__author">Timothy Snyder</p>
+            <p class="f2bf-book__desc">A compact, urgent guide to recognising and resisting the patterns of authoritarianism, drawn from the darkest chapters of modern history.</p>
+          </div>
+        </div>
+
+        <div class="f2bf-book">
+          <div class="f2bf-book__cover">
+            <img src="https://eerdmans-publishing-us.imgix.net/covers/9781467470575.jpg?auto=format&w=298&dpr=1&q=100" alt="For Such a Time as This book cover" loading="lazy">
+          </div>
+          <div>
+            <h3 class="f2bf-book__title"><a href="https://www.eerdmans.com/9781467470575/for-such-a-time-as-this/" target="_blank" rel="noopener">For Such a Time as This: An Emergency Devotional</a></h3>
+            <p class="f2bf-book__author">Hanna Reichel</p>
+            <p class="f2bf-book__desc">A thoughtful framework for spiritual discernment amid political upheaval, rooted in scripture and the witness of the Confessing Church.</p>
+          </div>
+        </div>
+
+        <div class="f2bf-book">
+          <div class="f2bf-book__cover">
+            <img src="https://bakerpublishinggroup.com/cdn/shop/files/9781587436659.jpg?v=1771964548&width=740" alt="You Have a Calling book cover" loading="lazy">
+          </div>
+          <div>
+            <h3 class="f2bf-book__title"><a href="https://bakerpublishinggroup.com/products/9781587436659_you-have-a-calling" target="_blank" rel="noopener">You Have a Calling: Finding Your Vocation in the True, Good, &amp; Beautiful</a></h3>
+            <p class="f2bf-book__author">Karen Swallow Prior</p>
+            <p class="f2bf-book__desc">An invitation to rediscover the richness of Christian vocation in everyday life, guided by beauty, truth, and goodness.</p>
+          </div>
+        </div>
+
+        <div class="f2bf-book">
+          <div class="f2bf-book__cover">
+            <img src="https://m.media-amazon.com/images/I/81uFfa2632L._SY385_.jpg" alt="Blessed are the Undone book cover" loading="lazy">
+          </div>
+          <div>
+            <h3 class="f2bf-book__title"><a href="https://www.newleafnetwork.ca/blessedundone" target="_blank" rel="noopener">Blessed are the Undone: Testimonies of the Quiet Deconstruction of Faith</a></h3>
+            <p class="f2bf-book__author">Angela Reitsma Bick</p>
+            <p class="f2bf-book__desc">An honest, compassionate look at what is happening inside Canadian churches and inside the hearts of those walking away.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Community submission -->
+      <div class="f2bf-texts__submit">
+        <p class="f2bf-texts__submit-text">Share the texts and practices that have helped you navigate our world. We want to hear from you.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1OE2cMiyP1ViDYgz-KqduaVY8McZ52L0WWLkj6qc34II/edit?usp=sharing" class="f2bf-btn f2bf-btn--outline" target="_blank" rel="noopener">Submit &amp; View Responses →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ SHARED EXPERTISE ══════ -->
+  <section class="f2bf-expertise" id="shared-expertise">
+    <div class="f2bf-expertise__inner">
+      <div class="f2bf-expertise__top">
+        <div>
+          <p class="f2bf-expertise__label">03 — Listening</p>
+          <h2 class="f2bf-expertise__heading">Shared Expertise</h2>
+        </div>
+        <p class="f2bf-expertise__desc">Learn from the scholarship, research, and lived experience of the F2BF community — voices wrestling faithfully with the questions that matter most.</p>
+      </div>
+
+      <div class="f2bf-expertise__grid">
+
+        <div class="f2bf-expert-card">
+          <div class="f2bf-expert-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <h3 class="f2bf-expert-card__title">ICS Substack</h3>
+          <p class="f2bf-expert-card__text">Essays, reflections, and provocations from ICS faculty and the wider F2BF community — follow along for writing that challenges and informs.</p>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-expert-card__link" target="_blank" rel="noopener">Read on Substack →</a>
+        </div>
+
+        <div class="f2bf-expert-card">
+          <div class="f2bf-expert-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <h3 class="f2bf-expert-card__title">Podcasts &amp; Audio</h3>
+          <p class="f2bf-expert-card__text">Curated conversations and podcast recommendations selected by our scholars — listening material for your commute, walk, or quiet evening.</p>
+          <a href="https://www.icscanada.edu/critical-faith-podcast" class="f2bf-expert-card__link">Explore Audio →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ ENRICHING DIALOGUES ══════ -->
+  <section class="f2bf-dialogues" id="enriching-dialogues">
+    <div class="f2bf-dialogues__inner">
+      <div class="f2bf-dialogues__header">
+        <p class="f2bf-dialogues__label">04 — Watching</p>
+        <h2 class="f2bf-dialogues__heading">Enriching Dialogues</h2>
+        <p class="f2bf-dialogues__desc">Relive or catch up on the conversations we've been having. Access recordings and recaps from past webinars, livestreams, and community events.</p>
+      </div>
+
+      <div class="f2bf-dialogues__list">
+
+        <div class="f2bf-dialogue">
+          <div class="f2bf-dialogue__meta">
+            <span class="f2bf-dialogue__type f2bf-dialogue__type--webinar">Webinar</span>
+            <span class="f2bf-dialogue__date">May 14, 2025</span>
+          </div>
+          <div class="f2bf-dialogue__body">
+            <h3 class="f2bf-dialogue__title">Faithful Interpretation and Questions of Sexuality</h3>
+            <p class="f2bf-dialogue__speaker">Sylvia Keesmaat &amp; Rev. Len Vander Zee</p>
+            <p class="f2bf-dialogue__summary">How can Christians engage Scripture faithfully and thoughtfully in conversations about sexuality and gender?</p>
+          </div>
+          <div class="f2bf-dialogue__action">
+            <a href="https://youtu.be/4I57ttzPUnk?si=b-xb1ihjjcXdeYKT" class="f2bf-dialogue__link">Watch →</a>
+          </div>
+        </div>
+
+        <div class="f2bf-dialogue">
+          <div class="f2bf-dialogue__meta">
+            <span class="f2bf-dialogue__type f2bf-dialogue__type--event">Livestream</span>
+            <span class="f2bf-dialogue__date">July 10, 2025</span>
+          </div>
+          <div class="f2bf-dialogue__body">
+            <h3 class="f2bf-dialogue__title">Summer Big Read: On Tyranny</h3>
+            <p class="f2bf-dialogue__speaker">Bruce Berglund &amp; Kristin Kobes Du Mez</p>
+            <p class="f2bf-dialogue__summary">A wide-ranging conversation about living faithfully and courageously in times of democratic fragility.</p>
+          </div>
+          <div class="f2bf-dialogue__action">
+            <a href="https://youtu.be/mbbtjCg01Ow?si=_w3vVDkEsZGlgy_-" class="f2bf-dialogue__link">Watch →</a>
+          </div>
+        </div>
+
+        <div class="f2bf-dialogue">
+          <div class="f2bf-dialogue__meta">
+            <span class="f2bf-dialogue__type f2bf-dialogue__type--event">Big Read</span>
+            <span class="f2bf-dialogue__date">September 17, 2025</span>
+          </div>
+          <div class="f2bf-dialogue__body">
+            <h3 class="f2bf-dialogue__title">Fall Big Read: For Such a Time as This</h3>
+            <p class="f2bf-dialogue__speaker">Hanna Reichel &amp; Kristin Kobes Du Mez</p>
+            <p class="f2bf-dialogue__summary">Drawing on scholarship and pastoral wisdom, a conversation on spiritual grounding amid societal upheaval.</p>
+          </div>
+          <div class="f2bf-dialogue__action">
+            <a href="https://youtu.be/qSiFZdVWg2U?si=IxUhWFhHMNclY2nI" class="f2bf-dialogue__link">Watch →</a>
+          </div>
+        </div>
+
+        <div class="f2bf-dialogue">
+          <div class="f2bf-dialogue__meta">
+            <span class="f2bf-dialogue__type f2bf-dialogue__type--podcast">Conference</span>
+            <span class="f2bf-dialogue__date">October 16–18, 2025</span>
+          </div>
+          <div class="f2bf-dialogue__body">
+            <h3 class="f2bf-dialogue__title">Reenchanting the World: Philosophy, Spirituality, Ecology, Arts</h3>
+            <p class="f2bf-dialogue__speaker">Multiple Contributors</p>
+            <p class="f2bf-dialogue__summary">A multidisciplinary gathering exploring how philosophy, spirituality, and the arts can re-enchant our disenchanted age.</p>
+          </div>
+          <div class="f2bf-dialogue__action">
+            <a href="https://www.reenchantingconference.org" class="f2bf-dialogue__link" target="_blank" rel="noopener">Details →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ YOUR VOICE ══════ -->
+  <section class="f2bf-voice">
+    <div class="f2bf-voice__inner">
+      <h2 class="f2bf-voice__heading">Your Voice Matters</h2>
+      <p class="f2bf-voice__text">Free to be Faithful needs your input. Share the books, podcasts, and practices that have helped you navigate our world. We want to incorporate your vision of what you, your community, and your world need.</p>
+      <div class="f2bf-voice__actions">
+        <a href="https://docs.google.com/spreadsheets/d/1OE2cMiyP1ViDYgz-KqduaVY8McZ52L0WWLkj6qc34II/edit?usp=sharing" class="f2bf-btn f2bf-btn--teal" target="_blank" rel="noopener">Share Your Resources →</a>
+        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--outline" target="_blank" rel="noopener">Subscribe on Substack</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<style>
+  /* ============================================= */
+  /* SQUARESPACE OVERRIDES                         */
+  /* ============================================= */
+  #footer-sections .page-section .content-wrapper {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  #footer-sections .sqs-block-code {
+    padding: 0 !important;
+  }
+  #footer-sections .sqs-block-code .sqs-block-content {
+    margin: 0 !important;
+  }
+  #footer-sections .page-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  #footer-sections .content {
+    padding: 0 !important;
+  }
+  #footer-sections .fluid-engine {
+    row-gap: 0 !important;
+  }
+
+  /* ============================================= */
+  /* FONTS                                         */
+  /* ============================================= */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+  /* ============================================= */
+  /* FOOTER — SELF-CONTAINED                       */
+  /* ============================================= */
+  .f2bf-footer *,
+  .f2bf-footer *::before,
+  .f2bf-footer *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .f2bf-footer {
+    --teal:        #1B3A4B;
+    --teal-deep:   #0F2631;
+    --teal-mid:    #25516A;
+    --red:         #C83C2C;
+    --red-hover:   #D9503F;
+    --cream:       #F0EBE3;
+    --white:       #FFFFFF;
+    --text:        rgba(240,235,227,0.65);
+    --text-muted:  rgba(240,235,227,0.4);
+    --link:        rgba(240,235,227,0.7);
+    --link-hover:  #FFFFFF;
+    --border:      rgba(255,255,255,0.08);
+
+    --display: 'Playfair Display', Georgia, serif;
+    --sans:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+    font-family: var(--sans);
+    position: relative;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    max-width: 100vw;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- DECORATIVE WAVE ---------- */
+  .f2bf-footer__wave {
+    display: block;
+    width: 100%;
+    height: auto;
+    line-height: 0;
+    margin-bottom: -1px;
+	background: #BCC7D0;
+  }
+  .f2bf-footer__wave svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---------- MAIN BODY ---------- */
+  .f2bf-footer__body {
+    background: var(--teal-deep);
+    padding: 3rem 2rem 0;
+  }
+  .f2bf-footer__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* --- Column 1: Brand + Socials --- */
+  .f2bf-footer-brand__logo {
+    display: block;
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+  }
+  .f2bf-footer-brand__logo-img {
+    display: block;
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+  }
+
+  .f2bf-footer-social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .f2bf-footer-social__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .f2bf-footer-social__link:hover {
+    border-color: var(--red);
+    color: var(--red-hover);
+  }
+  .f2bf-footer-social__link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  /* --- Columns 2 & 3: Nav Lists --- */
+  .f2bf-footer-nav__heading {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+  .f2bf-footer-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .f2bf-footer-nav__list li + li { margin-top: 0.5rem; }
+  .f2bf-footer-nav__list a {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    color: var(--link);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .f2bf-footer-nav__list a:hover { color: var(--link-hover); }
+
+  /* --- Column 4: Contact + Legal --- */
+  .f2bf-footer-contact__heading {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+  .f2bf-footer-contact p {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .f2bf-footer-contact__group { margin-top: 0.85rem; }
+  .f2bf-footer-contact a {
+    color: var(--link);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .f2bf-footer-contact a:hover { color: var(--link-hover); }
+
+  .f2bf-footer-legal {
+    margin-top: 1.4rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+  }
+  .f2bf-footer-legal__copyright {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .f2bf-footer-legal__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1.4rem;
+  }
+  .f2bf-footer-legal__links a {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .f2bf-footer-legal__links a:hover { color: var(--link-hover); }
+
+  .f2bf-footer-legal__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--red-hover);
+    border: 1.5px solid var(--red);
+    background: transparent;
+    padding: 0.65em 1.8em;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+  }
+  .f2bf-footer-legal__cta:hover {
+    background: var(--red);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(200,60,44,0.25);
+  }
+
+  /* ---------- BOTTOM BAR ---------- */
+  .f2bf-footer__bottom {
+    margin-top: 2.5rem;
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .f2bf-footer__bottom p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    max-width: 1100px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .f2bf-footer__bottom a {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+  .f2bf-footer__bottom a:hover { color: var(--link-hover); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .f2bf-footer__inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .f2bf-footer__body { padding: 2rem 1.5rem 0; }
+    .f2bf-footer__inner {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      text-align: center;
+    }
+    .f2bf-footer-brand__logo-img { margin: 0 auto; }
+    .f2bf-footer-social { justify-content: center; }
+    .f2bf-footer-legal__cta { width: 100%; max-width: 240px; }
+  }
+</style>
+
+<footer class="f2bf-footer" role="contentinfo">
+
+  <!-- DECORATIVE WAVE -->
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER BODY -->
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+
+      <!-- COL 1 — Brand + Socials -->
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img
+            class="f2bf-footer-brand__logo-img"
+            src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+            alt="Institute for Christian Studies"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg>
+          </a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 — Free to be Faithful -->
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://f2bf.icscanada.edu/f2bf-program">Program</a></li>
+          <li><a href="https://f2bf.icscanada.edu/f2bf-courses">Courses</a></li>
+          <li><a href="https://f2bf.icscanada.edu/f2bf-resource">Resources</a></li>
+          <li><a href="https://f2bf.icscanada.edu/f2bf-community">Community</a></li>
+          <li><a href="https://f2bf.icscanada.edu/events">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3 — Connect -->
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 4 — Contact + Legal -->
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu">info@icscanada.edu</a></p>
+        </div>
+
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">
+            &copy; 2026 Institute for Christian Studies.<br>
+            All rights reserved.
+          </p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+</body></html>

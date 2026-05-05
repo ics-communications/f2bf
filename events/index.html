@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | Free to be Faithful | ICS</title>
+  <meta name="description" content="Browse upcoming and past Free to be Faithful events, view photo galleries, and check the calendar for open community gatherings.">
+  <link rel="canonical" href="https://f2bf.icscanada.edu/events">
+  <meta property="og:title" content="Events | Free to be Faithful | ICS">
+  <meta property="og:description" content="Browse upcoming and past Free to be Faithful events, view photo galleries, and check the calendar for open community gatherings.">
+  <meta property="og:url" content="https://f2bf.icscanada.edu/events">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <style>
+    /* ─── Rule ─── */
+
+    @keyframes f2bfEvReveal {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* HERO                                         */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ev-hero {
+      position: relative; min-height: 60vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--teal-deep);
+    }
+    .f2bf-ev-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .f2bf-ev-hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.3; filter: saturate(0.2) brightness(0.5);
+    }
+    .f2bf-ev-hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    .f2bf-ev-hero__gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(175deg,
+        rgba(15,38,49,0.25) 0%, rgba(15,38,49,0.6) 40%,
+        rgba(15,38,49,0.92) 75%, rgba(15,38,49,1) 100%);
+    }
+    .f2bf-ev-hero__content {
+      position: relative; z-index: 3;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 4rem 2.5rem 5rem;
+      animation: f2bfEvReveal 1s ease-out both;
+    }
+    .f2bf-ev-hero__tag {
+      display: inline-block; font-family: var(--text);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream); opacity: 0.45;
+      margin-bottom: 1.8rem;
+      animation: f2bfEvReveal 1s ease-out 0.15s both;
+    }
+    .f2bf-ev-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(3rem, 7.5vw, 5.5rem);
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 1.2rem;
+      animation: f2bfEvReveal 1s ease-out 0.3s both;
+    }
+    .f2bf-ev-hero__title em {
+      font-style: italic; font-weight: 400; color: var(--slate-light);
+    }
+    .f2bf-ev-hero__desc {
+      font-family: var(--text); font-size: 1.15rem;
+      color: rgba(240,235,227,0.5); line-height: 1.85;
+      max-width: 560px; margin-bottom: 2.5rem;
+      animation: f2bfEvReveal 1s ease-out 0.45s both;
+    }
+    .f2bf-ev-hero__actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: f2bfEvReveal 1s ease-out 0.6s both;
+    }
+    @media (max-width: 768px) {
+      .f2bf-ev-hero { align-items: center; min-height: 55vh; }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* FEATURED EVENT — editorial banner            */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ev-featured {
+      background: var(--teal); position: relative;
+      padding: 5.5rem 2.5rem;
+    }
+    .f2bf-ev-featured::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-ev-featured__inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr; gap: 3rem;
+    }
+    @media (min-width: 800px) {
+      .f2bf-ev-featured__inner { grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+    }
+    .f2bf-ev-featured__img-wrap {
+      position: relative; border-radius: 8px; overflow: hidden;
+      aspect-ratio: 16 / 10;
+    }
+    .f2bf-ev-featured__img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(0.85) brightness(0.9);
+    }
+    .f2bf-ev-featured__img-badge {
+      position: absolute; top: 1.2rem; left: 1.2rem;
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--red); color: var(--white);
+      padding: 0.4em 1em; border-radius: 100px;
+      z-index: 2;
+    }
+    .f2bf-ev-featured__text {}
+    .f2bf-ev-featured__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,60,44,0.7); margin-bottom: 1rem;
+    }
+    .f2bf-ev-featured__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .f2bf-ev-featured__body {
+      font-family: var(--text); font-size: 1.08rem;
+      color: rgba(240,235,227,0.55); line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+    .f2bf-ev-featured__details {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem;
+    }
+    .f2bf-ev-featured__detail {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(255,255,255,0.08); color: var(--cream);
+      padding: 0.5em 1.1em; border-radius: 100px;
+    }
+    .f2bf-ev-featured__speakers {
+      font-family: var(--text); font-size: 0.92rem;
+      color: rgba(240,235,227,0.4); line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .f2bf-ev-featured__speakers strong {
+      color: var(--cream); font-weight: 600;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CALENDAR WIDGET — centrepiece of the page    */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ev-calendar {
+      background: var(--cream-lt); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-ev-calendar__inner {
+      max-width: 860px; margin: 0 auto;
+    }
+    .f2bf-ev-calendar__top {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;
+    }
+    .f2bf-ev-calendar__left {}
+    .f2bf-ev-calendar__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.6rem;
+    }
+    .f2bf-ev-calendar__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.1; color: var(--teal);
+    }
+    .f2bf-ev-calendar__gcal-link {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--red); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .f2bf-ev-calendar__gcal-link:hover { color: var(--red-hover); }
+
+    /* The widget container */
+    .f2bf-ev-widget {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(27,58,75,0.06);
+    }
+    .f2bf-ev-widget__header {
+      padding: 1.2rem 1.6rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(27,58,75,0.06);
+      background: var(--faint);
+    }
+    .f2bf-ev-widget__header-left {
+      display: flex; align-items: center; gap: 0.65rem;
+    }
+    .f2bf-ev-widget__icon {
+      width: 34px; height: 34px; background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px; color: var(--cream);
+    }
+    .f2bf-ev-widget__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.05rem; color: var(--teal);
+    }
+    .f2bf-ev-widget__view-all {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--red); text-decoration: none;
+      transition: color 0.2s ease;
+      min-height: 36px; display: inline-flex; align-items: center;
+    }
+    .f2bf-ev-widget__view-all:hover { color: var(--red-hover); }
+
+    /* Scrollable event list */
+    .f2bf-ev-widget__scroll {
+      max-height: 620px; overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(27,58,75,0.12) transparent;
+    }
+    .f2bf-ev-widget__scroll::-webkit-scrollbar { width: 4px; }
+    .f2bf-ev-widget__scroll::-webkit-scrollbar-track { background: transparent; }
+    .f2bf-ev-widget__scroll::-webkit-scrollbar-thumb { background: rgba(27,58,75,0.12); border-radius: 4px; }
+
+    /* Loading & empty states */
+    .f2bf-ev-widget__loading, .f2bf-ev-widget__empty {
+      text-align: center; padding: 3rem 1.5rem;
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .f2bf-ev-widget__spinner {
+      width: 20px; height: 20px;
+      border: 2.5px solid rgba(27,58,75,0.1);
+      border-top-color: var(--red);
+      border-radius: 50%;
+      animation: f2bfEvSpin 0.8s linear infinite;
+      margin: 0 auto 0.6rem;
+    }
+    @keyframes f2bfEvSpin { to { transform: rotate(360deg); } }
+
+    /* Month dividers */
+    .f2bf-ev-month {
+      padding: 0.6rem 1.6rem 0.35rem;
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(27,58,75,0.03);
+      border-bottom: 1px solid rgba(27,58,75,0.04);
+      position: sticky; top: 0; z-index: 1;
+    }
+
+    /* Individual event item (wrapper) */
+    .f2bf-ev-item {
+      border-bottom: 1px solid rgba(27,58,75,0.04);
+    }
+    .f2bf-ev-item:last-child { border-bottom: none; }
+
+    /* Clickable header row */
+    .f2bf-ev-item__row {
+      display: grid; grid-template-columns: 52px 1fr auto; gap: 1rem;
+      align-items: center;
+      padding: 1rem 1.6rem;
+      transition: background 0.2s ease;
+      cursor: pointer;
+    }
+    .f2bf-ev-item__row:hover { background: var(--faint); }
+
+    .f2bf-ev-item__badge {
+      width: 52px; height: 52px;
+      background: var(--cream-lt);
+      border: 1px solid rgba(27,58,75,0.08);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      border-radius: 8px; position: relative; overflow: hidden;
+    }
+    .f2bf-ev-item__badge::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--red);
+    }
+    .f2bf-ev-item__badge-mon {
+      font-family: var(--text); font-size: 0.55rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--red); margin-top: 2px;
+    }
+    .f2bf-ev-item__badge-day {
+      font-family: var(--display); font-size: 1.15rem; font-weight: 700;
+      color: var(--teal); line-height: 1;
+    }
+
+    .f2bf-ev-item__info { min-width: 0; }
+    .f2bf-ev-item__title {
+      font-family: var(--display); font-size: 0.98rem; font-weight: 700;
+      color: var(--teal); line-height: 1.3;
+    }
+    .f2bf-ev-item__meta {
+      font-family: var(--text); font-size: 0.82rem;
+      color: var(--muted); line-height: 1.5;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* Expand chevron */
+    .f2bf-ev-item__toggle {
+      width: 28px; height: 28px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      transition: transform 0.3s ease, color 0.2s ease;
+    }
+    .f2bf-ev-item__toggle svg {
+      width: 16px; height: 16px;
+    }
+    .f2bf-ev-item--open .f2bf-ev-item__toggle {
+      transform: rotate(180deg); color: var(--red);
+    }
+    .f2bf-ev-item__row:hover .f2bf-ev-item__toggle { color: var(--teal); }
+
+    /* Expandable description panel */
+    .f2bf-ev-item__desc-wrap {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .f2bf-ev-item--open .f2bf-ev-item__desc-wrap {
+      max-height: 400px;
+    }
+    .f2bf-ev-item__desc-inner {
+      padding: 0 1.6rem 1.2rem 1.6rem;
+      margin-left: 68px; /* 52px badge + 16px gap */
+    }
+    .f2bf-ev-item__desc {
+      font-family: var(--text); font-size: 0.9rem;
+      color: var(--body); line-height: 1.75;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(27,58,75,0.06);
+    }
+    .f2bf-ev-item__desc a {
+      color: var(--red); text-decoration: none;
+      font-weight: 600; transition: color 0.2s ease;
+    }
+    .f2bf-ev-item__desc a:hover { color: var(--red-hover); }
+    .f2bf-ev-item__gcal-link {
+      display: inline-flex; align-items: center; gap: 0.35em;
+      font-family: var(--text); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--red); text-decoration: none;
+      margin-top: 0.8rem;
+      transition: color 0.2s ease;
+    }
+    .f2bf-ev-item__gcal-link:hover { color: var(--red-hover); }
+    .f2bf-ev-item__gcal-link svg {
+      width: 12px; height: 12px;
+    }
+
+    /* No-description state */
+    .f2bf-ev-item--no-desc .f2bf-ev-item__toggle { visibility: hidden; }
+    .f2bf-ev-item--no-desc .f2bf-ev-item__row { cursor: default; }
+
+    /* Today highlight */
+    .f2bf-ev-item--today .f2bf-ev-item__badge {
+      background: var(--red); border-color: var(--red);
+    }
+    .f2bf-ev-item--today .f2bf-ev-item__badge::after { background: var(--white); }
+    .f2bf-ev-item--today .f2bf-ev-item__badge-mon { color: rgba(255,255,255,0.7); }
+    .f2bf-ev-item--today .f2bf-ev-item__badge-day { color: var(--white); }
+
+    /* ════════════════════════════════════════════ */
+    /* PAST EVENTS — lighter section                */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ev-past {
+      background: var(--white); padding: 5.5rem 2.5rem;
+      border-top: 1px solid rgba(27,58,75,0.06);
+    }
+    .f2bf-ev-past__inner { max-width: 1200px; margin: 0 auto; }
+    .f2bf-ev-past__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.6rem;
+    }
+    .f2bf-ev-past__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.1; color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    .f2bf-ev-past__desc {
+      font-family: var(--text); font-size: 1.08rem;
+      color: var(--body); line-height: 1.85;
+      max-width: 620px; margin-bottom: 3rem;
+    }
+    .f2bf-ev-past__grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .f2bf-ev-past__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1000px) {
+      .f2bf-ev-past__grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .f2bf-ev-past-card {
+      background: var(--cream-lt);
+      border: 1px solid rgba(27,58,75,0.06);
+      border-radius: 8px; padding: 2rem 1.8rem;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .f2bf-ev-past-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(27,58,75,0.08);
+    }
+    .f2bf-ev-past-card__type {
+      font-family: var(--text); font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.3rem;
+    }
+    .f2bf-ev-past-card__date {
+      font-family: var(--text); font-size: 0.78rem;
+      color: var(--muted); margin-bottom: 0.8rem;
+    }
+    .f2bf-ev-past-card__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.15rem; color: var(--teal); line-height: 1.3;
+      margin-bottom: 0.6rem;
+    }
+    .f2bf-ev-past-card__speaker {
+      font-family: var(--text); font-size: 0.85rem; font-weight: 600;
+      color: var(--red); margin-bottom: 0.6rem;
+    }
+    .f2bf-ev-past-card__summary {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--body); line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* PHOTO GALLERY — Lightroom embed             */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ev-gallery {
+      background: var(--teal-deep); padding: 5rem 2.5rem 4.5rem;
+      position: relative;
+    }
+    .f2bf-ev-gallery::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-ev-gallery__inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .f2bf-ev-gallery__header {
+      margin-bottom: 2.5rem;
+    }
+    .f2bf-ev-gallery__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,60,44,0.7); margin-bottom: 0.6rem;
+    }
+    .f2bf-ev-gallery__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.1; color: var(--cream);
+    }
+    .f2bf-ev-gallery__embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      background: #111;
+    }
+    .f2bf-ev-gallery__embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .f2bf-ev-gallery__caption {
+      font-family: var(--text); font-size: 0.82rem;
+      color: rgba(240,235,227,0.35); margin-top: 1.2rem;
+      text-align: right; font-style: italic;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CTA                                          */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ev-cta {
+      background: var(--slate); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-ev-cta__inner {
+      max-width: 700px; margin: 0 auto; text-align: center;
+    }
+    .f2bf-ev-cta__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--teal); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .f2bf-ev-cta__text {
+      font-family: var(--text); font-size: 1.1rem;
+      color: var(--body); line-height: 1.85; margin-bottom: 2.5rem;
+    }
+    .f2bf-ev-cta__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ─── Reduced motion ─── */
+    @media (prefers-reduced-motion: reduce) {
+      .f2bf-ev-widget__spinner { animation: none; }
+      .f2bf-ev-hero__content, .f2bf-ev-hero__tag, .f2bf-ev-hero__title,
+      .f2bf-ev-hero__desc, .f2bf-ev-hero__actions { animation: none; }
+      .f2bf-ev-item__desc-wrap { transition: none; }
+      .f2bf-ev-item__toggle { transition: none; }
+    }
+
+    @media (max-width: 600px) {
+      .f2bf-ev-item__desc-inner { margin-left: 0; }
+      .f2bf-ev-item__row { grid-template-columns: 44px 1fr auto; gap: 0.75rem; padding: 0.85rem 1.2rem; }
+      .f2bf-ev-item__badge { width: 44px; height: 44px; }
+      .f2bf-ev-item__badge-day { font-size: 1rem; }
+      .f2bf-ev-item__desc-inner { padding: 0 1.2rem 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <a class="f2bf-header__logo-link" href="/">
+      <img
+        alt="Institute for Christian Studies"
+        class="f2bf-header__logo-img"
+        src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png"
+      />
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/">Free to be Faithful</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-program">Program</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-resource">Resources</a>
+        </li>
+        <li class="f2bf-nav__item f2bf-nav__item--active">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-courses">Courses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      aria-label="Open menu"
+      class="f2bf-burger"
+      id="f2bf-burger-btn"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button
+    aria-label="Close menu"
+    class="f2bf-mobile-menu__close"
+    id="f2bf-mobile-close-btn"
+  >&times;</button>
+
+  <a class="f2bf-mobile-menu__link" href="/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="/f2bf-community">Community</a>
+      <a href="/events">All Events</a>
+      <a href="/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
+</div>
+
+
+<!-- Main Content -->
+<div class="f2bf-ev">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="f2bf-ev-hero">
+    <div class="f2bf-ev-hero__bg">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80" alt="Conference audience">
+    </div>
+    <div class="f2bf-ev-hero__gradient"></div>
+    <div class="f2bf-ev-hero__content">
+      <span class="f2bf-ev-hero__tag">Free to be Faithful</span>
+      <h1 class="f2bf-ev-hero__title">Events <em>&amp;</em><br>Gatherings</h1>
+      <p class="f2bf-ev-hero__desc">Conferences, courses, webinars, and community gatherings where Christians come together to learn, dialogue, and act faithfully in the world.</p>
+      <div class="f2bf-ev-hero__actions">
+        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--ghost">Browse Courses</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FEATURED EVENT ══════ -->
+  <section class="f2bf-ev-featured">
+    <div class="f2bf-ev-featured__inner">
+      <div class="f2bf-ev-featured__img-wrap">
+        <img src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/2d05f111fd5740b0bf152d504666a0b7/revisions/bc4fbd9b89024de289356c65d8e8bd3c/renditions/f64c33e1866ef7ba69ff1f509ddbb55d" alt="Courageous Faith conference">
+        <span class="f2bf-ev-featured__img-badge">Featured Event</span>
+      </div>
+      <div class="f2bf-ev-featured__text">
+        <p class="f2bf-ev-featured__label">Public Conference</p>
+        <h2 class="f2bf-ev-featured__heading">Courageous Faith in a Time of Fear</h2>
+        <p class="f2bf-ev-featured__body">A two-day public conference exploring what it means to lead, speak, and act faithfully amid political polarization, cultural anxiety, and deep divisions within churches today.</p>
+        <div class="f2bf-ev-featured__details">
+          <span class="f2bf-ev-featured__detail">May 13&ndash;14, 2026</span>
+          <span class="f2bf-ev-featured__detail">Hybrid: In-Person + Online</span>
+        </div>
+        <p class="f2bf-ev-featured__speakers">Featuring <strong>Dr. Kristin Kobes Du Mez</strong> and <strong>Rev. Joash P. Thomas</strong>. Presented by Knox College's Ministry Forum and the Institute for Christian Studies' Free to Be Faithful initiative.</p>
+        <a href="/conference-may13" class="f2bf-btn f2bf-btn--red">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PHOTO GALLERY ══════ -->
+<section class="f2bf-ev-gallery">
+    <div class="f2bf-ev-gallery__inner">
+      <div class="f2bf-ev-gallery__header">
+        <p class="f2bf-ev-gallery__label">Scenes from Our Community</p>
+        <h2 class="f2bf-ev-gallery__heading">Photos from F2BF Events</h2>
+      </div>
+      <div class="f2bf-ev-gallery__embed">
+        <iframe
+          src="https://lightroom.adobe.com/embed/shares/b940cfdfee674a1cbd475c013b8f79f7/slideshow?background_color=%230F2631&color=%23F0EBE3"
+          title="Free to be Faithful Photo Gallery"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p class="f2bf-ev-gallery__caption">Photography by Mark Standish</p>
+    </div>
+  </section>
+
+  <!-- ══════ CALENDAR WIDGET ══════ -->
+  <section class="f2bf-ev-calendar" id="calendar">
+    <div class="f2bf-ev-calendar__inner">
+      <div class="f2bf-ev-calendar__top">
+        <div class="f2bf-ev-calendar__left">
+          <p class="f2bf-ev-calendar__label">What's Happening</p>
+          <h2 class="f2bf-ev-calendar__heading">Upcoming Events</h2>
+        </div>
+        <a href="#" id="f2bfCalLink" target="_blank" class="f2bf-ev-calendar__gcal-link">View Full Calendar →</a>
+      </div>
+
+      <div class="f2bf-ev-widget">
+        <div class="f2bf-ev-widget__header">
+          <div class="f2bf-ev-widget__header-left">
+            <div class="f2bf-ev-widget__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <span class="f2bf-ev-widget__title">ICS Calendar</span>
+          </div>
+          <a href="#" id="f2bfCalLink2" target="_blank" class="f2bf-ev-widget__view-all">All Events →</a>
+        </div>
+        <div class="f2bf-ev-widget__scroll" id="f2bfEvScroll">
+          <div class="f2bf-ev-widget__loading" id="f2bfEvLoading">
+            <div class="f2bf-ev-widget__spinner"></div>
+            Loading events&hellip;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PAST EVENTS ══════ -->
+  <section class="f2bf-ev-past">
+    <div class="f2bf-ev-past__inner">
+      <p class="f2bf-ev-past__label">Looking Back</p>
+      <h2 class="f2bf-ev-past__heading">Past Events</h2>
+      <p class="f2bf-ev-past__desc">Recordings, recaps, and resources from the conversations we've been having. Catch up on what you missed or revisit what moved you.</p>
+      <div class="f2bf-ev-past__grid">
+
+        <div class="f2bf-ev-past-card">
+          <p class="f2bf-ev-past-card__type">Webinar</p>
+          <p class="f2bf-ev-past-card__date">May 14, 2025</p>
+          <h3 class="f2bf-ev-past-card__title">Faithful Interpretation and Questions of Sexuality</h3>
+          <p class="f2bf-ev-past-card__speaker">Sylvia Keesmaat &amp; Rev. Len Vander Zee</p>
+          <p class="f2bf-ev-past-card__summary">How can Christians engage Scripture faithfully and thoughtfully in conversations about sexuality and gender?</p>
+        </div>
+
+        <div class="f2bf-ev-past-card">
+          <p class="f2bf-ev-past-card__type">Livestream</p>
+          <p class="f2bf-ev-past-card__date">July 10, 2025</p>
+          <h3 class="f2bf-ev-past-card__title">Summer Big Read: On Tyranny</h3>
+          <p class="f2bf-ev-past-card__speaker">Bruce Berglund &amp; Kristin Kobes Du Mez</p>
+          <p class="f2bf-ev-past-card__summary">A wide-ranging conversation about living faithfully and courageously in times of democratic fragility.</p>
+        </div>
+
+        <div class="f2bf-ev-past-card">
+          <p class="f2bf-ev-past-card__type">Big Read</p>
+          <p class="f2bf-ev-past-card__date">September 17, 2025</p>
+          <h3 class="f2bf-ev-past-card__title">Fall Big Read: For Such a Time as This</h3>
+          <p class="f2bf-ev-past-card__speaker">Hanna Reichel &amp; Kristin Kobes Du Mez</p>
+          <p class="f2bf-ev-past-card__summary">Drawing on scholarship and pastoral wisdom, a conversation on spiritual grounding amid societal upheaval.</p>
+        </div>
+
+        <div class="f2bf-ev-past-card">
+          <p class="f2bf-ev-past-card__type">Conference</p>
+          <p class="f2bf-ev-past-card__date">October 16&ndash;18, 2025</p>
+          <h3 class="f2bf-ev-past-card__title">Reenchanting the World: Philosophy, Spirituality, Ecology, Arts</h3>
+          <p class="f2bf-ev-past-card__speaker">Multiple Contributors</p>
+          <p class="f2bf-ev-past-card__summary">A multidisciplinary gathering exploring how philosophy, spirituality, and the arts can re-enchant our disenchanted age.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CTA ══════ -->
+  <section class="f2bf-ev-cta">
+    <div class="f2bf-ev-cta__inner">
+      <h2 class="f2bf-ev-cta__heading">Don't Miss<br>What's Next</h2>
+      <p class="f2bf-ev-cta__text">Stay connected with Free to be Faithful. Subscribe to our Substack for event announcements, new courses, and writing that challenges and inspires.</p>
+      <div class="f2bf-ev-cta__actions">
+        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--teal">Explore Courses →</a>
+        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--outline">Subscribe on Substack</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var CID='c_69d54f953052b91b0291db43e425f6a6d3fc4d132761d91188ea8aa25dec5880@group.calendar.google.com';
+  var KEY='AIzaSyC5bmvG6-SBuhHBpKaSz2cjkdd8pVntjXQ';
+  var scroll = document.getElementById('f2bfEvScroll');
+  var loading = document.getElementById('f2bfEvLoading');
+  var calLink = document.getElementById('f2bfCalLink');
+  var calLink2 = document.getElementById('f2bfCalLink2');
+  var calURL = 'https://calendar.google.com/calendar/embed?src=' + encodeURIComponent(CID);
+  calLink.href = calURL;
+  calLink2.href = calURL;
+
+  var MO_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var MO_FULL  = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  function parseDate(s) {
+    if (!s) return new Date();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+      var p = s.split('-');
+      return new Date(parseInt(p[0],10), parseInt(p[1],10)-1, parseInt(p[2],10));
+    }
+    return new Date(s);
+  }
+
+  function formatTime(dt) {
+    if (!dt) return 'All day';
+    var d = parseDate(dt), h = d.getHours(), m = d.getMinutes(), a = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return m === 0 ? h + ' ' + a : h + ':' + String(m).padStart(2, '0') + ' ' + a;
+  }
+
+  function isToday(dt) {
+    if (!dt) return false;
+    var d = parseDate(dt), n = new Date();
+    return d.getFullYear() === n.getFullYear() && d.getMonth() === n.getMonth() && d.getDate() === n.getDate();
+  }
+
+  function stripHtml(html) {
+    if (!html) return '';
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  }
+
+  function sanitizeDesc(html) {
+    if (!html) return '';
+    // Allow basic formatting, strip scripts and dangerous tags
+    return html
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/on\w+="[^"]*"/gi, '')
+      .replace(/on\w+='[^']*'/gi, '');
+  }
+
+  var chevronSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  var externalSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
+  function toggleItem(el) {
+    el.classList.toggle('f2bf-ev-item--open');
+  }
+
+  function render(events) {
+    loading.remove();
+    if (!events || !events.length) {
+      scroll.innerHTML = '<div class="f2bf-ev-widget__empty">No upcoming events at this time. Check back soon!</div>';
+      return;
+    }
+    var currentMonth = '';
+    events.forEach(function(e) {
+      var startRaw = e.start.dateTime || e.start.date;
+      var startDate = parseDate(startRaw);
+      var monthKey = startDate.getFullYear() + '-' + startDate.getMonth();
+
+      if (monthKey !== currentMonth) {
+        currentMonth = monthKey;
+        var monthDiv = document.createElement('div');
+        monthDiv.className = 'f2bf-ev-month';
+        monthDiv.textContent = MO_FULL[startDate.getMonth()] + ' ' + startDate.getFullYear();
+        scroll.appendChild(monthDiv);
+      }
+
+      var todayClass = isToday(startRaw) ? ' f2bf-ev-item--today' : '';
+      var timeStr = e.start.dateTime ? formatTime(e.start.dateTime) : 'All day';
+      var location = e.location || '';
+      var metaStr = timeStr + (location ? ' \u00B7 ' + location : '');
+
+      var rawDesc = e.description || '';
+      var hasDesc = stripHtml(rawDesc).trim().length > 0;
+      var noDescClass = hasDesc ? '' : ' f2bf-ev-item--no-desc';
+      var descHTML = hasDesc ? sanitizeDesc(rawDesc) : '';
+      var gcalLink = e.htmlLink || '';
+
+      var item = document.createElement('div');
+      item.className = 'f2bf-ev-item' + todayClass + noDescClass;
+
+      var descPanel = '';
+      if (hasDesc || gcalLink) {
+        descPanel =
+          '<div class="f2bf-ev-item__desc-wrap"><div class="f2bf-ev-item__desc-inner">' +
+            (hasDesc ? '<div class="f2bf-ev-item__desc">' + descHTML + '</div>' : '') +
+            (gcalLink ? '<a href="' + gcalLink + '" target="_blank" class="f2bf-ev-item__gcal-link">View in Google Calendar ' + externalSVG + '</a>' : '') +
+          '</div></div>';
+      }
+
+      item.innerHTML =
+        '<div class="f2bf-ev-item__row">' +
+          '<div class="f2bf-ev-item__badge">' +
+            '<span class="f2bf-ev-item__badge-mon">' + MO_SHORT[startDate.getMonth()] + '</span>' +
+            '<span class="f2bf-ev-item__badge-day">' + startDate.getDate() + '</span>' +
+          '</div>' +
+          '<div class="f2bf-ev-item__info">' +
+            '<div class="f2bf-ev-item__title">' + (e.summary || 'Untitled Event') + '</div>' +
+            '<div class="f2bf-ev-item__meta">' + metaStr + '</div>' +
+          '</div>' +
+          '<div class="f2bf-ev-item__toggle">' + chevronSVG + '</div>' +
+        '</div>' +
+        descPanel;
+
+      if (hasDesc) {
+        item.querySelector('.f2bf-ev-item__row').addEventListener('click', function() {
+          toggleItem(item);
+        });
+      }
+
+      scroll.appendChild(item);
+    });
+  }
+
+  function fallback() {
+    loading.remove();
+    var now = new Date();
+    var placeholder = [
+      { summary: 'Free to be Faithful: Public Lecture', da: 3, time: '7 PM', loc: '59 St. George St', desc: 'An evening of reflection and dialogue on what it means to live faithfully in the public square. Open to all.' },
+      { summary: 'The Christian-Jewish Question Today', da: 5, time: '6:30 PM', loc: 'Online', desc: 'Antisemitism, Christian Zionism, and Israel: situating today\'s tensions in historical and theological context. Instructor: Matthew D. Taylor.' },
+      { summary: 'The Evangelical Imagination', da: 6, time: '6:30 PM', loc: 'Online', desc: 'How stories, images, and metaphors created a culture in crisis. Exploring the evangelical social imaginary with Karen Swallow Prior.' },
+      { summary: 'Critical Faith Podcast: Live Recording', da: 12, time: '6:30 PM', loc: 'ICS Campus', desc: 'Join us for a live taping of the Critical Faith podcast. Audience participation welcome.' },
+      { summary: 'MWS-E Information Session', da: 18, time: '12 PM', loc: 'Online', desc: 'Learn about the Master of Worldview Studies in Education program, hear from current students, and ask questions.' },
+      { summary: 'Scripture, Faith & Scholarship Series', da: 22, time: '7 PM', loc: 'ICS Campus', desc: '' },
+      { summary: 'Courageous Faith in a Time of Fear', da: 35, time: '9 AM', loc: 'Toronto / Online', desc: 'A two-day public conference exploring what it means to lead, speak, and act faithfully amid political polarization and deep divisions within churches. Featuring Kristin Kobes Du Mez and Joash P. Thomas.' },
+      { summary: 'PhD Colloquium: Philosophy of Education', da: 42, time: '3 PM', loc: 'Seminar Room', desc: '' },
+      { summary: 'Ground Motive Forum', da: 50, time: '7:30 PM', loc: 'Online', desc: 'A moderated forum on faith, philosophy, and public life. Panelists TBA.' },
+      { summary: 'Spring Convocation', da: 65, time: '2 PM', loc: '59 St. George St', desc: 'Celebrate the achievements of ICS graduating students at our annual spring convocation ceremony.' }
+    ];
+    var currentMonth = '';
+    placeholder.forEach(function(ev) {
+      var d = new Date(now);
+      d.setDate(d.getDate() + ev.da);
+      var monthKey = d.getFullYear() + '-' + d.getMonth();
+
+      if (monthKey !== currentMonth) {
+        currentMonth = monthKey;
+        var monthDiv = document.createElement('div');
+        monthDiv.className = 'f2bf-ev-month';
+        monthDiv.textContent = MO_FULL[d.getMonth()] + ' ' + d.getFullYear();
+        scroll.appendChild(monthDiv);
+      }
+
+      var hasDesc = ev.desc && ev.desc.length > 0;
+      var noDescClass = hasDesc ? '' : ' f2bf-ev-item--no-desc';
+
+      var descPanel = '';
+      if (hasDesc) {
+        descPanel =
+          '<div class="f2bf-ev-item__desc-wrap"><div class="f2bf-ev-item__desc-inner">' +
+            '<div class="f2bf-ev-item__desc">' + ev.desc + '</div>' +
+          '</div></div>';
+      }
+
+      var item = document.createElement('div');
+      item.className = 'f2bf-ev-item' + noDescClass;
+      item.innerHTML =
+        '<div class="f2bf-ev-item__row">' +
+          '<div class="f2bf-ev-item__badge">' +
+            '<span class="f2bf-ev-item__badge-mon">' + MO_SHORT[d.getMonth()] + '</span>' +
+            '<span class="f2bf-ev-item__badge-day">' + d.getDate() + '</span>' +
+          '</div>' +
+          '<div class="f2bf-ev-item__info">' +
+            '<div class="f2bf-ev-item__title">' + ev.summary + '</div>' +
+            '<div class="f2bf-ev-item__meta">' + ev.time + ' \u00B7 ' + ev.loc + '</div>' +
+          '</div>' +
+          '<div class="f2bf-ev-item__toggle">' + chevronSVG + '</div>' +
+        '</div>' +
+        descPanel;
+
+      if (hasDesc) {
+        item.querySelector('.f2bf-ev-item__row').addEventListener('click', function() {
+          toggleItem(item);
+        });
+      }
+
+      scroll.appendChild(item);
+    });
+  }
+
+  fetch('https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(CID) +
+    '/events?key=' + KEY +
+    '&timeMin=' + new Date().toISOString() +
+    '&maxResults=20&singleEvents=true&orderBy=startTime')
+    .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(d) { render(d.items); })
+    .catch(function() { fallback(); });
+})();
+</script>
+
+<!-- Footer -->
+<footer class="f2bf-footer" role="contentinfo">
+
+  <!-- DECORATIVE WAVE -->
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER BODY -->
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+
+      <!-- COL 1 — Brand + Socials -->
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img
+            class="f2bf-footer-brand__logo-img"
+            src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+            alt="Institute for Christian Studies"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg>
+          </a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 — Free to be Faithful -->
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="/f2bf-program">Program</a></li>
+          <li><a href="/f2bf-courses">Courses</a></li>
+          <li><a href="/f2bf-resource">Resources</a></li>
+          <li><a href="/f2bf-community">Community</a></li>
+          <li><a href="/events">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3 — Connect -->
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 4 — Contact + Legal -->
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu"><span>info@icscanada.edu</span></a></p>
+        </div>
+
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">
+            &copy; 2026 Institute for Christian Studies.<br>
+            All rights reserved.
+          </p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>

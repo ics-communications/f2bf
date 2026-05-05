@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+:root {
+  --teal:        #1B3A4B;
+  --teal-deep:   #0F2631;
+  --teal-mid:    #25516A;
+  --red:         #C83C2C;
+  --red-hover:   #D9503F;
+  --slate:       #BCC7D0;
+  --slate-light: #D6DDE2;
+  --cream:       #F0EBE3;
+  --cream-lt:    #F7F4EF;
+  --white:       #FFFFFF;
+  --ink:         #1A2A33;
+  --body:        #3D4F59;
+  --muted:       #7E929E;
+  --faint:       rgba(27,58,75,0.08);
+  --display: 'Playfair Display', Georgia, serif;
+  --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.f2bf *, .f2bf *::before, .f2bf *::after,
+.f2bf-prog *, .f2bf-prog *::before, .f2bf-prog *::after,
+.f2bf-c *, .f2bf-c *::before, .f2bf-c *::after,
+.f2bf-comm *, .f2bf-comm *::before, .f2bf-comm *::after,
+.f2bf-ev *, .f2bf-ev *::before, .f2bf-ev *::after,
+.cf *, .cf *::before, .cf *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.f2bf, .f2bf-prog, .f2bf-c, .f2bf-comm, .f2bf-ev, .cf {
+  font-family: var(--text);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Buttons (pill-shaped) ─── */
+.f2bf-btn {
+  display: inline-flex; align-items: center; gap: 0.45em;
+  font-family: var(--text); font-size: 0.95rem; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.85em 2.4em; border: none; cursor: pointer;
+  text-decoration: none; border-radius: 100px;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.f2bf-btn--red { background: var(--red); color: var(--white); }
+.f2bf-btn--red:hover { background: var(--red-hover); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,60,44,0.25); }
+.f2bf-btn--ghost { background: transparent; color: var(--cream); border: 1.5px solid rgba(240,235,227,0.3); }
+.f2bf-btn--ghost:hover { border-color: var(--cream); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+.f2bf-btn--teal { background: var(--teal); color: var(--white); }
+.f2bf-btn--teal:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,58,75,0.25); }
+.f2bf-btn--outline { background: transparent; color: var(--teal); border: 1.5px solid rgba(27,58,75,0.25); }
+.f2bf-btn--outline:hover { border-color: var(--teal); background: var(--faint); transform: translateY(-2px); }
+.f2bf-btn--sm { font-size: 0.82rem; padding: 0.7em 1.8em; }
+
+/* ─── Horizontal rule ─── */
+.f2bf-rule {
+  max-width: 80px; height: 3px; border: none;
+  background: var(--red); margin: 0;
+}
+.f2bf-rule--center { margin-left: auto; margin-right: auto; }
+.f2bf-rule--cream { background: var(--cream); opacity: 0.4; }
+.f2bf-rule--slate { background: var(--slate); }
+
+@keyframes f2bfReveal {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

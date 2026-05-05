@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courses | Free to be Faithful | ICS</title>
+  <meta name="description" content="Enroll in six-week online seminars led by world-class scholars. Take courses for personal enrichment or earn ICS credit toward a Master's degree.">
+  <link rel="canonical" href="https://f2bf.icscanada.edu/f2bf-courses">
+  <meta property="og:title" content="Courses | Free to be Faithful | ICS">
+  <meta property="og:description" content="Enroll in six-week online seminars led by world-class scholars. Take courses for personal enrichment or earn ICS credit toward a Master's degree.">
+  <meta property="og:url" content="https://f2bf.icscanada.edu/f2bf-courses">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <style>
+    @keyframes f2bcReveal {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* HERO                                         */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-hero {
+      position: relative; min-height: 70vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--teal-deep);
+    }
+    .f2bf-c-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .f2bf-c-hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.3; filter: saturate(0.2) brightness(0.5);
+    }
+    .f2bf-c-hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    .f2bf-c-hero__gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(175deg,
+        rgba(15,38,49,0.15) 0%, rgba(15,38,49,0.5) 35%,
+        rgba(15,38,49,0.82) 75%, rgba(15,38,49,0.9) 100%);
+    }
+    .f2bf-c-hero__content {
+      position: relative; z-index: 3;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 4rem 2.5rem 5rem;
+      animation: f2bcReveal 1s ease-out both;
+    }
+    .f2bf-c-hero__tag {
+      display: inline-block; font-family: var(--text);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream); opacity: 0.45;
+      margin-bottom: 1.5rem;
+      animation: f2bcReveal 1s ease-out 0.1s both;
+    }
+    .f2bf-c-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 1.2rem;
+      animation: f2bcReveal 1s ease-out 0.25s both;
+    }
+    .f2bf-c-hero__title em {
+      font-style: italic; font-weight: 400;
+      color: var(--slate-light);
+    }
+    .f2bf-c-hero__desc {
+      font-family: var(--text); font-size: 1.15rem;
+      color: rgba(240,235,227,0.5); line-height: 1.85;
+      max-width: 560px; margin-bottom: 2.5rem;
+      animation: f2bcReveal 1s ease-out 0.4s both;
+    }
+    .f2bf-c-hero__actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: f2bcReveal 1s ease-out 0.55s both;
+    }
+    @media (max-width: 768px) {
+      .f2bf-c-hero { min-height: 80vh; align-items: center; }
+      .f2bf-c-hero__content { padding: 3rem 1.5rem 4rem; }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* HOW IT WORKS — format info                    */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-format {
+      background: var(--cream-lt); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-c-format__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 2rem;
+    }
+    @media (min-width: 800px) {
+      .f2bf-c-format__inner { grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    }
+    .f2bf-c-format__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-c-format__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--teal); margin-bottom: 1.2rem;
+    }
+    .f2bf-c-format__body {
+      font-family: var(--text); font-size: 1.08rem;
+      color: var(--body); line-height: 1.9; margin-bottom: 1.2rem;
+    }
+    .f2bf-c-format__body strong { color: var(--teal); font-weight: 600; }
+    .f2bf-c-format__features {
+      list-style: none; display: flex; flex-direction: column; gap: 0;
+    }
+    .f2bf-c-format__feat {
+      display: grid; grid-template-columns: 48px 1fr; gap: 1rem;
+      padding: 1.3rem 0;
+      border-top: 1px solid rgba(27,58,75,0.08); align-items: center;
+    }
+    .f2bf-c-format__feat:last-child { border-bottom: 1px solid rgba(27,58,75,0.08); }
+    .f2bf-c-format__feat-icon {
+      width: 40px; height: 40px; display: flex;
+      align-items: center; justify-content: center;
+      color: var(--red);
+    }
+    .f2bf-c-format__feat-icon svg { width: 22px; height: 22px; }
+    .f2bf-c-format__feat-text {
+      font-family: var(--text); font-size: 1.02rem;
+      color: var(--body); line-height: 1.5;
+    }
+    .f2bf-c-format__feat-text strong { color: var(--teal); }
+
+    /* ════════════════════════════════════════════ */
+    /* PRICING GLANCE BAR                            */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-pricing {
+      background: var(--teal); padding: 4rem 2.5rem;
+      position: relative;
+    }
+    .f2bf-c-pricing::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-c-pricing__inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .f2bf-c-pricing__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 2rem;
+    }
+    .f2bf-c-pricing__grid {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (min-width: 600px) { .f2bf-c-pricing__grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .f2bf-c-pricing__cell {
+      padding: 2rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (min-width: 600px) {
+      .f2bf-c-pricing__cell { border-bottom: none; border-right: 1px solid rgba(255,255,255,0.05); }
+      .f2bf-c-pricing__cell:last-child { border-right: none; }
+    }
+    .f2bf-c-pricing__cell-label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+    .f2bf-c-pricing__cell-value {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.5rem; color: var(--cream); line-height: 1.3;
+    }
+    .f2bf-c-pricing__cell-note {
+      font-family: var(--text); font-size: 0.88rem;
+      color: rgba(240,235,227,0.35); margin-top: 0.3rem;
+    }
+    .f2bf-c-pricing__footer {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      align-items: center; margin-top: 1.8rem;
+    }
+    .f2bf-c-pricing__footnote {
+      font-family: var(--text); font-size: 0.9rem; font-style: italic;
+      color: rgba(240,235,227,0.35); line-height: 1.6; flex: 1; min-width: 260px;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* COURSE LISTING                                */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-courses {
+      background: var(--cream-lt); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-c-courses__inner { max-width: 1200px; margin: 0 auto; }
+    .f2bf-c-courses__header {
+      margin-bottom: 3.5rem;
+    }
+    .f2bf-c-courses__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-c-courses__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.1; color: var(--teal);
+    }
+
+    /* Individual course block */
+    .f2bf-c-course {
+      display: grid; grid-template-columns: 1fr;
+      gap: 0; margin-bottom: 2rem;
+      background: var(--white); border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(27,58,75,0.06);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .f2bf-c-course:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(27,58,75,0.1);
+    }
+    @media (min-width: 800px) {
+      .f2bf-c-course { grid-template-columns: 340px 1fr; }
+      .f2bf-c-course:nth-child(even) { grid-template-columns: 1fr 340px; }
+      .f2bf-c-course:nth-child(even) .f2bf-c-course__img-col { order: 2; }
+      .f2bf-c-course:nth-child(even) .f2bf-c-course__text-col { order: 1; }
+    }
+
+    .f2bf-c-course__img-col {
+      position: relative; min-height: 280px; overflow: hidden; aspect-ratio: 1/1;
+    }
+    .f2bf-c-course__img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(0.75); transition: transform 0.5s ease;
+    }
+    .f2bf-c-course:hover .f2bf-c-course__img { transform: scale(1.04); }
+    .f2bf-c-course__season {
+      position: absolute; top: 1.2rem; left: 1.2rem;
+      font-family: var(--text); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4em 1em; border-radius: 100px;
+      background: var(--red); color: var(--white); z-index: 2;
+    }
+
+    .f2bf-c-course__text-col { padding: 2.2rem 2rem; display: flex; flex-direction: column; justify-content: center; }
+    .f2bf-c-course__meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;
+    }
+    .f2bf-c-course__tag {
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.35em 0.75em; border-radius: 100px;
+    }
+    .f2bf-c-course__tag--day { background: var(--teal); color: var(--white); }
+    .f2bf-c-course__tag--time { background: var(--faint); color: var(--teal); }
+    .f2bf-c-course__tag--online { background: rgba(200,60,44,0.08); color: var(--red); }
+    .f2bf-c-course__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.45rem; color: var(--teal); line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+    .f2bf-c-course__subtitle {
+      font-family: var(--display); font-style: italic; font-weight: 400;
+      font-size: 1.02rem; color: var(--muted); line-height: 1.4;
+      margin-bottom: 0.8rem;
+    }
+    .f2bf-c-course__instructor {
+      font-family: var(--text); font-size: 0.88rem; font-weight: 600;
+      color: var(--red); margin-bottom: 0.9rem;
+    }
+    .f2bf-c-course__desc {
+      font-family: var(--text); font-size: 0.94rem;
+      color: var(--body); line-height: 1.7; margin-bottom: 1.2rem;
+    }
+    .f2bf-c-course__highlights {
+      list-style: none; display: flex; flex-direction: column; gap: 0.3rem;
+      margin-bottom: 1.4rem;
+    }
+    .f2bf-c-course__highlights li {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); line-height: 1.5;
+      padding-left: 1.1rem; position: relative;
+    }
+    .f2bf-c-course__highlights li::before {
+      content: '→'; position: absolute; left: 0; color: var(--red); font-size: 0.78rem;
+    }
+
+    .f2bf-c-course__bio {
+      border-top: 1px solid var(--faint);
+      padding-top: 1rem; margin-bottom: 1.4rem;
+    }
+    .f2bf-c-course__bio-label {
+      font-family: var(--text); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.5rem;
+    }
+    .f2bf-c-course__bio-text {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); line-height: 1.65;
+    }
+    .f2bf-c-course__bio-text a {
+      color: var(--teal); text-decoration: underline;
+    }
+    .f2bf-c-course__bio-text a:hover { color: var(--teal-mid); }
+
+    /* ════════════════════════════════════════════ */
+    /* PAST / ARCHIVE COURSES — compact grid         */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-archive {
+      background: var(--teal-deep); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    .f2bf-c-archive::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-c-archive__inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .f2bf-c-archive__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-c-archive__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--cream); line-height: 1.1; margin-bottom: 1rem;
+    }
+    .f2bf-c-archive__sub {
+      font-family: var(--text); font-size: 1.05rem;
+      color: var(--muted); line-height: 1.7;
+      max-width: 520px; margin-bottom: 3rem;
+    }
+    .f2bf-c-archive__grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+    }
+    @media (min-width: 600px) { .f2bf-c-archive__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .f2bf-c-archive__grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+
+    .f2bf-c-arch-card {
+      padding: 2rem 1.6rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; background: rgba(255,255,255,0.02);
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+    .f2bf-c-arch-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,60,44,0.2);
+    }
+    .f2bf-c-arch-card__term {
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.8rem;
+    }
+    .f2bf-c-arch-card__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.12rem; color: var(--cream); line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+    .f2bf-c-arch-card__instructor {
+      font-family: var(--text); font-size: 0.82rem;
+      color: var(--muted); margin-bottom: 0.7rem;
+    }
+    .f2bf-c-arch-card__desc {
+      font-family: var(--text); font-size: 0.85rem;
+      color: rgba(240,235,227,0.35); line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CTA BANNER                                    */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-cta {
+      background: var(--slate); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-c-cta__inner {
+      max-width: 700px; margin: 0 auto; text-align: center;
+    }
+    .f2bf-c-cta__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--teal); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .f2bf-c-cta__text {
+      font-family: var(--text); font-size: 1.1rem;
+      color: var(--body); line-height: 1.85; margin-bottom: 1rem;
+    }
+    .f2bf-c-cta__note {
+      font-family: var(--text); font-size: 0.9rem; font-style: italic;
+      color: var(--muted); margin-bottom: 2.5rem;
+    }
+    .f2bf-c-cta__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* REGISTRATION MODAL                            */
+    /* ════════════════════════════════════════════ */
+    .f2bf-c-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(15,38,49,0.65); backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      padding: 1.5rem; opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .f2bf-c-modal-overlay.is-active { display: flex; }
+    .f2bf-c-modal-overlay.is-visible { opacity: 1; }
+
+    .f2bf-c-modal {
+      background: var(--white); border-radius: 14px;
+      width: 100%; max-width: 580px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 40px 80px rgba(15,38,49,0.3);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+      position: relative;
+    }
+    .f2bf-c-modal-overlay.is-visible .f2bf-c-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .f2bf-c-modal__close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: none; background: var(--faint); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); transition: all 0.2s;
+      z-index: 2;
+    }
+    .f2bf-c-modal__close:hover { background: var(--teal); color: var(--white); }
+    .f2bf-c-modal__close svg { width: 16px; height: 16px; }
+
+    .f2bf-c-modal__header {
+      padding: 2.5rem 2.5rem 0;
+    }
+    .f2bf-c-modal__tag {
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.6rem;
+    }
+    .f2bf-c-modal__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: 1.6rem; line-height: 1.15;
+      color: var(--teal); margin-bottom: 0.4rem;
+    }
+    .f2bf-c-modal__subtitle {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--muted); line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+    .f2bf-c-modal__price-badge {
+      display: inline-block; margin-top: 0.6rem;
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.4em 1em; border-radius: 100px;
+      background: var(--teal); color: var(--white);
+    }
+
+    .f2bf-c-modal__body { padding: 1.8rem 2.5rem 2.5rem; }
+
+    .f2bf-c-modal__row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .f2bf-c-modal__row--full { grid-template-columns: 1fr; }
+    @media (max-width: 520px) {
+      .f2bf-c-modal__row { grid-template-columns: 1fr; }
+    }
+
+    .f2bf-c-modal__field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .f2bf-c-modal__label {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--teal);
+    }
+    .f2bf-c-modal__label span { color: var(--red); }
+    .f2bf-c-modal__input {
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--ink); padding: 0.75em 1em;
+      border: 1.5px solid var(--slate-light);
+      border-radius: 8px; background: var(--cream-lt);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .f2bf-c-modal__input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(27,58,75,0.08);
+    }
+    .f2bf-c-modal__input.is-invalid {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(200,60,44,0.1);
+    }
+
+    .f2bf-c-modal__divider {
+      height: 1px; background: var(--slate-light);
+      margin: 1.6rem 0 1.2rem; border: none;
+    }
+
+    .f2bf-c-modal__pay-label {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #f2bf-paypal-container {
+      min-height: 55px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #f2bf-paypal-container .f2bf-c-paypal-loading {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); font-style: italic;
+    }
+
+    .f2bf-c-modal__note {
+      font-family: var(--text); font-size: 0.78rem;
+      color: var(--muted); text-align: center;
+      margin-top: 1rem; line-height: 1.55;
+    }
+
+    /* Confirmation state */
+    .f2bf-c-modal__confirm {
+      display: none; text-align: center;
+      padding: 3.5rem 2.5rem;
+    }
+    .f2bf-c-modal__confirm.is-active { display: block; }
+    .f2bf-c-modal__confirm-icon {
+      width: 64px; height: 64px; margin: 0 auto 1.5rem;
+      border-radius: 50%; background: rgba(27,58,75,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal);
+    }
+    .f2bf-c-modal__confirm-icon svg { width: 32px; height: 32px; }
+    .f2bf-c-modal__confirm h3 {
+      font-family: var(--display); font-weight: 900;
+      font-size: 1.5rem; color: var(--teal);
+      margin-bottom: 0.8rem;
+    }
+    .f2bf-c-modal__confirm p {
+      font-family: var(--text); font-size: 1rem;
+      color: var(--body); line-height: 1.7;
+      max-width: 380px; margin: 0 auto;
+    }
+
+    /* Error state */
+    .f2bf-c-modal__error {
+      display: none; font-family: var(--text);
+      font-size: 0.85rem; color: var(--red);
+      background: rgba(200,60,44,0.06);
+      border: 1px solid rgba(200,60,44,0.15);
+      border-radius: 8px; padding: 0.8em 1.2em;
+      margin-bottom: 1rem; text-align: center;
+    }
+    .f2bf-c-modal__error.is-active { display: block; }
+
+    /* ─── Mobile overrides ─── */
+    @media (max-width: 767px) {
+      .f2bf-c-format { padding: 3.5rem 1.5rem; }
+      .f2bf-c-courses { padding: 3.5rem 1.5rem; }
+      .f2bf-c-pricing { padding: 3rem 1.5rem; }
+      .f2bf-c-archive { padding: 3.5rem 1.5rem; }
+      .f2bf-c-cta { padding: 3.5rem 1.5rem; }
+      .f2bf-c-course__text-col { padding: 1.5rem; }
+      .f2bf-c-course__img-col { min-height: 220px; }
+      .f2bf-c-modal__header { padding: 2rem 1.5rem 0; }
+      .f2bf-c-modal__body { padding: 1.5rem; }
+      .f2bf-c-modal__title { font-size: 1.35rem; }
+      .f2bf-c-modal__confirm { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <a class="f2bf-header__logo-link" href="/">
+      <img
+        alt="Institute for Christian Studies"
+        class="f2bf-header__logo-img"
+        src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png"
+      />
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/">Free to be Faithful</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-program">Program</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-resource">Resources</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item f2bf-nav__item--active">
+          <a class="f2bf-nav__link" href="/f2bf-courses">Courses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      aria-label="Open menu"
+      class="f2bf-burger"
+      id="f2bf-burger-btn"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button
+    aria-label="Close menu"
+    class="f2bf-mobile-menu__close"
+    id="f2bf-mobile-close-btn"
+  >&times;</button>
+
+  <a class="f2bf-mobile-menu__link" href="/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="/f2bf-community">Community</a>
+      <a href="/events">All Events</a>
+      <a href="/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
+</div>
+
+
+<!-- Main Content -->
+<div class="f2bf-c">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="f2bf-c-hero">
+    <div class="f2bf-c-hero__bg">
+      <img src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/6c77b1c45e9242afb20fa26c3e19a4d0/revisions/5e72870d602c4ca4999cccff25d494fc/renditions/f338ea8c5a1a6839f80bde71e23e2fa1" alt="Classroom discussion">
+    </div>
+    <div class="f2bf-c-hero__gradient"></div>
+    <div class="f2bf-c-hero__content">
+      <span class="f2bf-c-hero__tag">Free to be Faithful &middot; Institute for Christian Studies</span>
+      <h1 class="f2bf-c-hero__title">Courses <em>Online</em></h1>
+      <p class="f2bf-c-hero__desc">Six-week seminars led by world-class scholars exploring how ancient faith meets the pressing questions of our time. Take a course for personal enrichment or earn ICS credit toward a Master’s degree.</p>
+      <div class="f2bf-c-hero__actions">
+<a href="#" onclick="f2bfOpenReg(''); return false;" class="f2bf-btn f2bf-btn--red">Register Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+  
+   <!-- ══════ CURRENT COURSES ══════ -->
+  <section class="f2bf-c-courses" id="courses">
+    <div class="f2bf-c-courses__inner">
+      <div class="f2bf-c-courses__header">
+        <p class="f2bf-c-courses__label">Fall 2026</p>
+        <h2 class="f2bf-c-courses__heading">Current Courses</h2>
+      </div>
+
+      <!-- Course 1: The Contemplative Life - Jacob Benjamins -->
+      <div class="f2bf-c-course">
+        <div class="f2bf-c-course__img-col">
+          <span class="f2bf-c-course__season">Now Enrolling</span>
+          <img class="f2bf-c-course__img" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/4a7c49aa254f82866883d4ef75ed8fdd/revisions/f6c7ed0159314288a811c2e40aeb8435/renditions/1bd73e02f88bb8f9fa3929d07a0f6583" alt="Jacob Benjamins">
+        </div>
+        <div class="f2bf-c-course__text-col">
+          <div class="f2bf-c-course__meta">
+            <span class="f2bf-c-course__tag f2bf-c-course__tag--day">Tuesdays</span>
+            <span class="f2bf-c-course__tag f2bf-c-course__tag--time">6:30PM ET</span>
+            <span class="f2bf-c-course__tag f2bf-c-course__tag--online">Online</span>
+          </div>
+          <h3 class="f2bf-c-course__title">The Contemplative Life in the Age of Distraction</h3>
+          <!-- <p class="f2bf-c-course__subtitle">Faith and Practice in an Age of Digital Distraction</p> -->
+          <p class="f2bf-c-course__instructor">Jacob Benjamins &middot; Starting June 2, 2026</p>
+          <p class="f2bf-c-course__desc">How might we live a &ldquo;contemplative life&rdquo; in an age of digital distraction? This course examines both the difficulty and promise of cultivating a broadly defined contemplative life today, as a resource for navigating political chaos, the crisis of truth, rapidly changing technology, and spiritual exhaustion. Alongside weekly readings, students engage practices such as digital fasting, slow reading, spiritual writing, time in nature, and silence. The course does not portray contemplative life in opposition to the active or practical life, but seeks an integrative spirituality that complicates binaries such as theory and praxis, philosophy and spirituality, activity and passivity.</p>
+          <ul class="f2bf-c-course__highlights">
+            <li>Practice digital fasting, slow reading, and silence as spiritual disciplines</li>
+            <li>Read across philosophy and spirituality, theory and praxis</li>
+            <li>Cultivate an integrative spirituality for the active and the contemplative life alike</li>
+          </ul>
+          <div class="f2bf-c-course__bio">
+            <p class="f2bf-c-course__bio-label">About the Instructor</p>
+            <p class="f2bf-c-course__bio-text">Jacob Benjamins is a SSHRC postdoctoral research fellow at the Institute for Christian Studies. He is the author of <a href="https://fordhampress.com/the-play-of-goodness-hb-9781531508883.html" target="_blank" rel="noopener"><em>The Play of Goodness: Creation, Phenomenology, and Culture</em></a> (Fordham University Press, 2025), and co-editor of two forthcoming collections on contemplation and philosophy: <em>The Act of Contemplation: Metaphysics, Phenomenology and the Religious Life</em> (University of Toronto Press) and <em>From Contemplation to Critique: Key Figures of Social Spirituality in the Twentieth Century</em> (Studies in Spirituality).</p>
+          </div>
+<a href="#" onclick="f2bfOpenReg('The Contemplative Life'); return false;" class="f2bf-btn f2bf-btn--teal f2bf-btn--sm">Register &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ══════ PRICING ══════ -->
+  <section class="f2bf-c-pricing">
+    <div class="f2bf-c-pricing__inner">
+      <p class="f2bf-c-pricing__label">Course Fees</p>
+      <div class="f2bf-c-pricing__grid">
+        <div class="f2bf-c-pricing__cell">
+          <div class="f2bf-c-pricing__cell-label">Non-Credit</div>
+          <div class="f2bf-c-pricing__cell-value">$400 CAD</div>
+          <div class="f2bf-c-pricing__cell-note">Per 6-week course</div>
+        </div>
+        <div class="f2bf-c-pricing__cell">
+          <div class="f2bf-c-pricing__cell-label">For Credit</div>
+          <div class="f2bf-c-pricing__cell-value">$1,500 CAD</div>
+          <div class="f2bf-c-pricing__cell-note">Toward ICS degree completion</div>
+        </div>
+        <div class="f2bf-c-pricing__cell">
+          <div class="f2bf-c-pricing__cell-label">Format</div>
+          <div class="f2bf-c-pricing__cell-value">Fully Online</div>
+          <div class="f2bf-c-pricing__cell-note">Weekly 2-hour Zoom seminars</div>
+        </div>
+      </div>
+      <div class="f2bf-c-pricing__footer">
+        <p class="f2bf-c-pricing__footnote">Scholarship funding is available. We don't want tuition to stand in the way of anyone who would like to participate.</p>
+<a href="#" onclick="f2bfOpenReg(''); return false;" class="f2bf-btn f2bf-btn--red f2bf-btn--sm">Register (Non-Credit) &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════ FORMAT / HOW IT WORKS ══════ -->
+  <section class="f2bf-c-format">
+    <div class="f2bf-c-format__inner">
+      <div>
+        <p class="f2bf-c-format__label">How It Works</p>
+        <h2 class="f2bf-c-format__heading">Learn at<br>Your Pace</h2>
+        <hr class="f2bf-rule">
+      </div>
+      <div>
+        <p class="f2bf-c-format__body">Free to be Faithful courses involve a <strong>dynamic blend of expert lectures and in-class discussions</strong>, all delivered online via Zoom. Each course runs for six consecutive weeks, meeting once a week for two hours.</p>
+        <p class="f2bf-c-format__body">Take individual courses as a <strong>non-credit participant</strong> for your own interest and enrichment. Take them <strong>for credit</strong> as you can fit them into your schedule. Or complete the program and earn a <strong>Master of Worldview Studies (MWS) degree</strong>.</p>
+        <ul class="f2bf-c-format__features">
+          <li class="f2bf-c-format__feat">
+            <span class="f2bf-c-format__feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            <span class="f2bf-c-format__feat-text"><strong>Weekly readings</strong> (~25 pages/week), accessible for a non-specialist audience</span>
+          </li>
+          <li class="f2bf-c-format__feat">
+            <span class="f2bf-c-format__feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+            <span class="f2bf-c-format__feat-text"><strong>Two-hour Zoom seminars</strong> once a week for 6 consecutive weeks</span>
+          </li>
+          <li class="f2bf-c-format__feat">
+            <span class="f2bf-c-format__feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <span class="f2bf-c-format__feat-text"><strong>Engagement with expert instructors</strong> and enthusiastic participants from across North America</span>
+          </li>
+          <li class="f2bf-c-format__feat">
+            <span class="f2bf-c-format__feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+            <span class="f2bf-c-format__feat-text"><strong>Earn ICS credit</strong> toward a Master's degree, or simply deepen your faith</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+ 
+
+
+  <!-- ══════ ARCHIVE / OTHER COURSES ══════ -->
+  <section class="f2bf-c-archive">
+    <div class="f2bf-c-archive__inner">
+      <p class="f2bf-c-archive__label">Course Catalogue</p>
+      <h2 class="f2bf-c-archive__heading">Past Courses</h2>
+      <p class="f2bf-c-archive__sub">F2BF courses rotate each term. Here are some of the courses we've offered and plan to offer again.</p>
+
+      <div class="f2bf-c-archive__grid">
+
+        <div class="f2bf-c-arch-card">
+          <div class="f2bf-c-arch-card__term">Fall 2025</div>
+          <h3 class="f2bf-c-arch-card__title">Gender, Sexuality, and the Bible</h3>
+          <p class="f2bf-c-arch-card__instructor">Sylvia Keesmaat</p>
+          <p class="f2bf-c-arch-card__desc">Exploring how the Bible has been interpreted with regard to questions of sexuality and gender.</p>
+        </div>
+
+        <div class="f2bf-c-arch-card">
+          <div class="f2bf-c-arch-card__term">Fall 2025</div>
+          <h3 class="f2bf-c-arch-card__title">Twentieth Century Authoritarianism</h3>
+          <p class="f2bf-c-arch-card__instructor">Bruce Berglund</p>
+          <p class="f2bf-c-arch-card__desc">Exploring resistance and complicity through 20th-century European history.</p>
+        </div>
+
+        <div class="f2bf-c-arch-card">
+          <div class="f2bf-c-arch-card__term">Fall 2025</div>
+          <h3 class="f2bf-c-arch-card__title">The Good, The True, and The Beautiful</h3>
+          <p class="f2bf-c-arch-card__instructor">Karen Swallow Prior</p>
+          <p class="f2bf-c-arch-card__desc">Reading literature to restore the soul &mdash; classic and contemporary fiction and poetry.</p>
+        </div>
+
+        <div class="f2bf-c-arch-card">
+          <div class="f2bf-c-arch-card__term">Winter 2026</div>
+          <h3 class="f2bf-c-arch-card__title">Reading the Ruins</h3>
+          <p class="f2bf-c-arch-card__instructor">Angela Reitsma Bick</p>
+          <p class="f2bf-c-arch-card__desc">Canadian writers explore the quiet deconstruction of faith through narrative and story.</p>
+        </div>
+
+        <div class="f2bf-c-arch-card">
+          <div class="f2bf-c-arch-card__term">Spring 2026</div>
+          <h3 class="f2bf-c-arch-card__title">The Christian-Jewish Question Today</h3>
+          <p class="f2bf-c-arch-card__instructor">Matthew D. Taylor</p>
+          <p class="f2bf-c-arch-card__desc">Antisemitism, Christian Zionism, and Israel &mdash; situating today's tensions in historical and theological context.</p>
+        </div>
+
+        <div class="f2bf-c-arch-card">
+          <div class="f2bf-c-arch-card__term">Spring 2026</div>
+          <h3 class="f2bf-c-arch-card__title">The Evangelical Imagination</h3>
+          <p class="f2bf-c-arch-card__instructor">Karen Swallow Prior</p>
+          <p class="f2bf-c-arch-card__desc">How stories, images, and metaphors created a culture in crisis &mdash; centred on Prior's book of the same name.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ══════ REGISTRATION MODAL ══════ -->
+  <div class="f2bf-c-modal-overlay" id="f2bf-reg-overlay">
+    <div class="f2bf-c-modal" role="dialog" aria-labelledby="f2bf-modal-title" aria-modal="true">
+      <button class="f2bf-c-modal__close" onclick="f2bfCloseReg()" aria-label="Close registration">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Form state -->
+      <div id="f2bf-reg-form-state">
+        <div class="f2bf-c-modal__header">
+          <p class="f2bf-c-modal__tag">Non-Credit Registration</p>
+          <h2 class="f2bf-c-modal__title" id="f2bf-modal-title">Course Registration</h2>
+          <p class="f2bf-c-modal__subtitle">Complete your information below, then pay through PayPal to finalize your registration.</p>
+          <span class="f2bf-c-modal__price-badge">$400 CAD</span>
+        </div>
+
+        <div class="f2bf-c-modal__body">
+          <div class="f2bf-c-modal__error" id="f2bf-reg-error"></div>
+
+          <div class="f2bf-c-modal__row--full f2bf-c-modal__row">
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-course">Course Title <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-course" placeholder="e.g. The Contemplative Life" required>
+            </div>
+          </div>
+
+          <div class="f2bf-c-modal__row">
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-fname">First Name <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-fname" autocomplete="given-name" required>
+            </div>
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-lname">Last Name <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-lname" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="f2bf-c-modal__row--full f2bf-c-modal__row">
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-email">Email <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="email" id="f2bf-email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="f2bf-c-modal__row--full f2bf-c-modal__row">
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-address">Street Address <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-address" autocomplete="street-address" required>
+            </div>
+          </div>
+
+          <div class="f2bf-c-modal__row">
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-city">City <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-city" autocomplete="address-level2" required>
+            </div>
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-province">Province / State <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-province" autocomplete="address-level1" required>
+            </div>
+          </div>
+
+          <div class="f2bf-c-modal__row">
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-postal">Postal / Zip Code <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="text" id="f2bf-postal" autocomplete="postal-code" required>
+            </div>
+            <div class="f2bf-c-modal__field">
+              <label class="f2bf-c-modal__label" for="f2bf-phone">Phone Number <span>*</span></label>
+              <input class="f2bf-c-modal__input" type="tel" id="f2bf-phone" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <hr class="f2bf-c-modal__divider">
+          <p class="f2bf-c-modal__pay-label">Complete payment to register</p>
+          <div id="f2bf-paypal-container">
+            <span class="f2bf-c-paypal-loading">Loading payment options&hellip;</span>
+          </div>
+          <p class="f2bf-c-modal__note" style="margin-top: 0.6rem; margin-bottom: 0;">Wrong country? Click the flag on the PayPal button to switch between Canadian and U.S. dollars.</p>
+          <p class="f2bf-c-modal__note">For-credit registration ($1,500 CAD), please email <a href="mailto:academic-registrar@icscanada.edu">academic-registrar@icscanada.edu</a>.<br>Scholarship funding is available. Finances should not be a barrier.</p>
+        </div>
+      </div>
+
+      <!-- Confirmation state -->
+      <div class="f2bf-c-modal__confirm" id="f2bf-reg-confirm">
+        <div class="f2bf-c-modal__confirm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>You're Registered!</h3>
+        <p>Thanks for registering! We're excited you will be joining us in the classroom. You'll receive a confirmation from PayPal shortly.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════ PayPal SDK + Registration Logic ══════ -->
+<!--
+  ┌────────────────────────────────────────────────────┐
+  │  REPLACE YOUR_PAYPAL_CLIENT_ID_HERE BELOW          │
+  │  with your Live PayPal Client ID from:             │
+  │  https://developer.paypal.com/dashboard/applications│
+  └────────────────────────────────────────────────────┘
+-->
+<script src="https://www.paypal.com/sdk/js?client-id=AdZ0cWK3Bl7wjgmrmgk_On-ac13XCdpZxx8te_4IPlRDVoYx3ZNoGG8vK7mb8VXdKH2L-TM1M3sMj6oI&currency=CAD&intent=capture&components=buttons"></script>
+
+<script>
+(function() {
+  /* ── Element refs ── */
+  var overlay  = document.getElementById('f2bf-reg-overlay');
+  var formView = document.getElementById('f2bf-reg-form-state');
+  var confirm  = document.getElementById('f2bf-reg-confirm');
+  var errBox   = document.getElementById('f2bf-reg-error');
+
+  /* ── Field IDs ── */
+  var fields = ['f2bf-course','f2bf-fname','f2bf-lname','f2bf-email',
+                'f2bf-address','f2bf-city','f2bf-province','f2bf-postal','f2bf-phone'];
+
+  /* ── Google Form endpoint and entry IDs ── */
+  var GFORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScZEndr8eTm9_chvo11zbRsulHdk8Vcw2J0XpO4iBky5Ojbew/formResponse';
+  var ENTRY_MAP = {
+    'f2bf-course':   'entry.1791394575',
+    'f2bf-email':    'entry.1133471893',
+    'f2bf-fname':    'entry.366340186',
+    'f2bf-lname':    'entry.1006059651',
+    'f2bf-address':  'entry.2099719134',
+    'f2bf-city':     'entry.1031216460',
+    'f2bf-province': 'entry.758304905',
+    'f2bf-postal':   'entry.421234236',
+    'f2bf-phone':    'entry.706236044'
+  };
+
+  /* ── Helpers ── */
+  function getVal(id) { return document.getElementById(id).value.trim(); }
+
+  function validate() {
+    var valid = true;
+    errBox.classList.remove('is-active');
+    fields.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.classList.remove('is-invalid');
+      if (!el.value.trim()) { el.classList.add('is-invalid'); valid = false; }
+    });
+    /* Basic email check */
+    var emailEl = document.getElementById('f2bf-email');
+    if (emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+      emailEl.classList.add('is-invalid'); valid = false;
+    }
+    if (!valid) {
+      errBox.textContent = 'Please fill in all required fields before proceeding.';
+      errBox.classList.add('is-active');
+    }
+    return valid;
+  }
+
+  function submitToGoogleSheet() {
+    var formData = new URLSearchParams();
+    Object.keys(ENTRY_MAP).forEach(function(fieldId) {
+      formData.append(ENTRY_MAP[fieldId], getVal(fieldId));
+    });
+    /* Submit silently via no-cors fetch (Google Forms doesn't allow CORS) */
+    return fetch(GFORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
+    });
+  }
+
+  /* ── Open / Close modal ── */
+  window.f2bfOpenReg = function(courseTitle) {
+    /* Reset state */
+    formView.style.display = '';
+    confirm.classList.remove('is-active');
+    errBox.classList.remove('is-active');
+    fields.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.value = ''; el.classList.remove('is-invalid');
+    });
+    /* Pre-fill course title if provided */
+    if (courseTitle) {
+      document.getElementById('f2bf-course').value = courseTitle;
+    }
+    /* Show overlay */
+    overlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        overlay.classList.add('is-visible');
+      });
+    });
+  };
+
+  window.f2bfCloseReg = function() {
+    overlay.classList.remove('is-visible');
+    setTimeout(function() {
+      overlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }, 300);
+  };
+
+  /* Close on overlay click */
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) f2bfCloseReg();
+  });
+  /* Close on Escape */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-active')) f2bfCloseReg();
+  });
+
+  /* ── PayPal Buttons ── */
+  if (typeof paypal !== 'undefined') {
+    document.querySelector('#f2bf-paypal-container .f2bf-c-paypal-loading')?.remove();
+
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color:  'blue',
+        shape:  'pill',
+        label:  'pay',
+        height: 48
+      },
+
+      /* Validate before opening PayPal */
+      onClick: function(data, actions) {
+        if (!validate()) return actions.reject();
+        return actions.resolve();
+      },
+
+      /* Create the order */
+      createOrder: function(data, actions) {
+        var courseName = getVal('f2bf-course');
+        var fullName   = getVal('f2bf-fname') + ' ' + getVal('f2bf-lname');
+        var email      = getVal('f2bf-email');
+
+        return actions.order.create({
+          purchase_units: [{
+            description: 'F2BF Course: ' + courseName + ' | ' + fullName + ' | ' + email,
+            amount: {
+              currency_code: 'CAD',
+              value: '400.00'
+            }
+          }],
+          application_context: {
+            brand_name: 'Free to be Faithful - ICS',
+            shipping_preference: 'NO_SHIPPING'
+          }
+        });
+      },
+
+      /* Payment approved: submit form to Google Sheet */
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          /* Submit registration to Google Sheets */
+          submitToGoogleSheet().then(function() {
+            /* Show confirmation */
+            formView.style.display = 'none';
+            confirm.classList.add('is-active');
+          }).catch(function() {
+            /* Even if Google Form submission fails, payment succeeded */
+            formView.style.display = 'none';
+            confirm.classList.add('is-active');
+          });
+        });
+      },
+
+      /* Payment error */
+      onError: function(err) {
+        errBox.textContent = 'Something went wrong with the payment. Please try again or contact us.';
+        errBox.classList.add('is-active');
+        console.error('PayPal error:', err);
+      }
+
+    }).render('#f2bf-paypal-container');
+  }
+})();
+</script>
+
+<!-- Footer -->
+<footer class="f2bf-footer" role="contentinfo">
+
+  <!-- DECORATIVE WAVE -->
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER BODY -->
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+
+      <!-- COL 1 — Brand + Socials -->
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img
+            class="f2bf-footer-brand__logo-img"
+            src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+            alt="Institute for Christian Studies"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg>
+          </a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 — Free to be Faithful -->
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="/f2bf-program">Program</a></li>
+          <li><a href="/f2bf-courses">Courses</a></li>
+          <li><a href="/f2bf-resource">Resources</a></li>
+          <li><a href="/f2bf-community">Community</a></li>
+          <li><a href="/events">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3 — Connect -->
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 4 — Contact + Legal -->
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu"><span>info@icscanada.edu</span></a></p>
+        </div>
+
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">
+            &copy; 2026 Institute for Christian Studies.<br>
+            All rights reserved.
+          </p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>

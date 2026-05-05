@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free to be Faithful | Institute for Christian Studies</title>
+  <meta name="description" content="Courses, resources, and community for Christians exploring how ancient faith engages the pressing issues of our time. A lifelong learning initiative of ICS.">
+  <link rel="canonical" href="https://f2bf.icscanada.edu/">
+  <meta property="og:title" content="Free to be Faithful | Institute for Christian Studies">
+  <meta property="og:description" content="Courses, resources, and community for Christians exploring how ancient faith engages the pressing issues of our time. A lifelong learning initiative of ICS.">
+  <meta property="og:url" content="https://f2bf.icscanada.edu/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <style>
+    /* ════════════════════════════════════════════ */
+    /* HERO — full-bleed, editorial typographic     */
+    /* ════════════════════════════════════════════ */
+    .f2bf-hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--teal-deep);
+    }
+    .f2bf-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .f2bf-hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.35; filter: saturate(0.2) brightness(0.55);
+    }
+    /* Subtle grain overlay */
+    .f2bf-hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    .f2bf-hero__gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(
+        175deg,
+        rgba(15,38,49,0.2) 0%,
+        rgba(15,38,49,0.55) 40%,
+        rgba(15,38,49,0.85) 80%,
+        rgba(15,38,49,0.9) 100%
+      );
+    }
+    .f2bf-hero__content {
+      position: relative; z-index: 3;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 4rem 2.5rem 5rem;
+      animation: f2bfReveal 1s ease-out both;
+    }
+    .f2bf-hero__tag {
+      display: inline-block; font-family: var(--text);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream); opacity: 0.45;
+      margin-bottom: 2rem;
+      animation: f2bfReveal 1s ease-out 0.15s both;
+    }
+    .f2bf-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      animation: f2bfReveal 1s ease-out 0.3s both;
+    }
+    .f2bf-hero__title em {
+      font-style: italic; font-weight: 400;
+      color: var(--slate-light);
+    }
+    .f2bf-hero__tagline {
+      font-family: var(--text); font-size: 1.2rem;
+      font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(188,199,208,0.6);
+      margin-bottom: 2.5rem;
+      animation: f2bfReveal 1s ease-out 0.45s both;
+    }
+    .f2bf-hero__desc {
+      font-family: var(--text); font-size: 1.15rem;
+      color: rgba(240,235,227,0.5); line-height: 1.85;
+      max-width: 520px; margin-bottom: 2.5rem;
+      animation: f2bfReveal 1s ease-out 0.55s both;
+    }
+    .f2bf-hero__actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: f2bfReveal 1s ease-out 0.7s both;
+    }
+    /* Verse tucked in the right on desktop */
+    .f2bf-hero__verse {
+      position: absolute; bottom: 5rem; right: 2.5rem;
+      max-width: 320px; text-align: right;
+      animation: f2bfReveal 1s ease-out 0.8s both;
+    }
+    .f2bf-hero__verse-text {
+      font-family: var(--display); font-style: italic;
+      font-size: 1.02rem; color: rgba(240,235,227,0.3);
+      line-height: 1.65; margin-bottom: 0.4rem;
+    }
+    .f2bf-hero__verse-ref {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(240,235,227,0.18);
+    }
+    @media (max-width: 768px) {
+      .f2bf-hero { align-items: center; min-height: 90vh; }
+      .f2bf-hero__verse { position: static; text-align: left; max-width: 100%; margin-top: 2rem; }
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* ABOUT — editorial left-aligned block          */
+    /* ════════════════════════════════════════════ */
+    .f2bf-about {
+      background: var(--cream-lt); padding: 6rem 2.5rem;
+    }
+    .f2bf-about__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 2rem;
+    }
+    @media (min-width: 800px) {
+      .f2bf-about__inner { grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    }
+    .f2bf-about__left {}
+    .f2bf-about__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .f2bf-about__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1; color: var(--teal);
+      margin-bottom: 1.2rem;
+    }
+    .f2bf-about__right {}
+    .f2bf-about__body {
+      font-family: var(--text); font-size: 1.12rem;
+      color: var(--body); line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .f2bf-about__body strong { color: var(--teal); font-weight: 600; }
+    .f2bf-about__manifesto {
+      font-family: var(--display); font-style: italic;
+      font-size: 1.25rem; color: var(--teal); line-height: 1.6;
+      border-left: 3px solid var(--red); padding-left: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* PILLARS — horizontal card strip, not grid    */
+    /* ════════════════════════════════════════════ */
+    .f2bf-pillars {
+      background: var(--teal); padding: 5.5rem 2.5rem;
+      position: relative;
+    }
+    /* Grain on dark */
+    .f2bf-pillars::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-pillars__inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .f2bf-pillars__top {
+      display: flex; align-items: baseline; gap: 1.5rem;
+      margin-bottom: 3.5rem; flex-wrap: wrap;
+    }
+    .f2bf-pillars__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      line-height: 1.05; color: var(--cream);
+    }
+    .f2bf-pillars__sub {
+      font-family: var(--text); font-size: 1.05rem;
+      color: var(--muted); line-height: 1.7;
+      max-width: 360px;
+    }
+    .f2bf-pillars__strip {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+    }
+    @media (min-width: 768px) {
+      .f2bf-pillars__strip { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .f2bf-pill {
+      padding: 3rem 2.2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.4s ease;
+    }
+    @media (min-width: 768px) {
+      .f2bf-pill { border-top: none; border-left: 1px solid rgba(255,255,255,0.06); }
+      .f2bf-pill:first-child { border-left: none; }
+    }
+    .f2bf-pill:hover { background: rgba(255,255,255,0.03); }
+    .f2bf-pill__num {
+      font-family: var(--display); font-weight: 900;
+      font-size: 3.5rem; line-height: 1;
+      color: rgba(200,60,44,0.25); margin-bottom: 0.8rem;
+    }
+    .f2bf-pill__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.5rem; color: var(--cream);
+      line-height: 1.25; margin-bottom: 0.9rem;
+    }
+    .f2bf-pill__desc {
+      font-family: var(--text); font-size: 0.97rem;
+      color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem;
+    }
+    .f2bf-pill__list {
+      list-style: none; display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .f2bf-pill__list li {
+      font-family: var(--text); font-size: 0.88rem;
+      color: rgba(240,235,227,0.4); line-height: 1.55;
+      padding-left: 1rem; position: relative;
+    }
+    .f2bf-pill__list li::before {
+      content: '→'; position: absolute; left: 0; color: var(--red); font-size: 0.8rem;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CONFERENCE — highlight section                */
+    /* ════════════════════════════════════════════ */
+    .f2bf-conf {
+      background: var(--teal-deep); padding: 5.5rem 2.5rem; position: relative;
+    }
+    .f2bf-conf::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-conf__inner {
+      max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
+    }
+    .f2bf-conf__header { margin-bottom: 2.5rem; }
+    .f2bf-conf__logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2rem; margin-bottom: 1.2rem;
+    }
+    .f2bf-conf__org-block {
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    }
+    .f2bf-conf__logo {
+      height: 50px; width: auto;
+    }
+    .f2bf-conf__org {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(240,235,227,0.5); text-align: center;
+    }
+    .f2bf-conf__logo-sep {
+      width: 1px; height: 70px; background: rgba(240,235,227,0.2);
+    }
+    .f2bf-conf__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15; color: var(--cream);
+    }
+    .f2bf-conf__heading em {
+      font-style: italic; font-weight: 400;
+    }
+    .f2bf-conf__subtitle {
+      font-family: var(--text); font-size: 1.05rem;
+      color: rgba(240,235,227,0.7); margin-top: 1rem; line-height: 1.6;
+    }
+    .f2bf-conf__meta {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .f2bf-conf__meta-item {
+      font-family: var(--text); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--white); background: rgba(255,255,255,0.1);
+      padding: 0.4em 1em; border-radius: 100px;
+    }
+    .f2bf-conf__body { margin-bottom: 2.5rem; }
+    .f2bf-conf__desc {
+      font-family: var(--text); font-size: 0.95rem;
+      color: rgba(240,235,227,0.65); line-height: 1.75;
+      max-width: 700px; margin: 0 auto 2.5rem;
+    }
+    .f2bf-conf__speakers {
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .f2bf-conf__speaker {
+      display: flex; align-items: center; gap: 1rem; text-align: left;
+    }
+    .f2bf-conf__speaker-img {
+      width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(240,235,227,0.2);
+    }
+    .f2bf-conf__speaker-role {
+      font-family: var(--text); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--red-hover); display: block; margin-bottom: 0.2rem;
+    }
+    .f2bf-conf__speaker-name {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.05rem; color: var(--cream); line-height: 1.3;
+    }
+    .f2bf-conf__themes {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+    }
+    .f2bf-conf__theme {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(240,235,227,0.6); background: rgba(255,255,255,0.06);
+      padding: 0.45em 1em; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .f2bf-conf__actions {
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CTA — closing banner                          */
+    /* ════════════════════════════════════════════ */
+    .f2bf-cta {
+      background: var(--slate); padding: 5.5rem 2.5rem;
+    }
+    .f2bf-cta__inner {
+      max-width: 700px; margin: 0 auto; text-align: center;
+    }
+    .f2bf-cta__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--teal); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .f2bf-cta__text {
+      font-family: var(--text); font-size: 1.1rem;
+      color: var(--body); line-height: 1.85; margin-bottom: 2.5rem;
+    }
+    .f2bf-cta__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <a class="f2bf-header__logo-link" href="/">
+      <img
+        alt="Institute for Christian Studies"
+        class="f2bf-header__logo-img"
+        src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png"
+      />
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item f2bf-nav__item--active">
+          <a class="f2bf-nav__link" href="/">Free to be Faithful</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-program">Program</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-resource">Resources</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-courses">Courses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      aria-label="Open menu"
+      class="f2bf-burger"
+      id="f2bf-burger-btn"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button
+    aria-label="Close menu"
+    class="f2bf-mobile-menu__close"
+    id="f2bf-mobile-close-btn"
+  >&times;</button>
+
+  <a class="f2bf-mobile-menu__link" href="/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="/f2bf-community">Community</a>
+      <a href="/events">All Events</a>
+      <a href="/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
+</div>
+
+
+<!-- Main Content -->
+<div class="f2bf">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="f2bf-hero">
+    <div class="f2bf-hero__bg">
+      <img src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/17d8f5c74f29479b90326c635ad2edcc/revisions/48661684b3ac42a8bf9d9385b572ff7d/renditions/f2a68f5a48091dd73b2183a0fbd74c56" alt="Community gathering">
+    </div>
+    <div class="f2bf-hero__gradient"></div>
+    <div class="f2bf-hero__content">
+      <span class="f2bf-hero__tag">Institute for Christian Studies</span>
+      <h1 class="f2bf-hero__title">Free <em>to be</em><br>Faithful</h1>
+      <p class="f2bf-hero__tagline">Equipping Christians for Democratic Life</p>
+      <p class="f2bf-hero__desc">Courses, resources, and community for Christians seeking to explore how their ancient faith can engage the pressing issues of our time.</p>
+      <div class="f2bf-hero__actions">
+        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--red">Explore Courses →</a>
+        <a class="f2bf-btn f2bf-btn--ghost">Join the Movement</a>
+      </div>
+      <div class="f2bf-hero__verse">
+        <p class="f2bf-hero__verse-text">"For freedom Christ has set us free. Stand firm, therefore, and do not submit again to a yoke of slavery."</p>
+        <span class="f2bf-hero__verse-ref">— Galatians 5 : 1</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ ABOUT ══════ -->
+  <section class="f2bf-about">
+    <div class="f2bf-about__inner">
+      <div class="f2bf-about__left">
+        <p class="f2bf-about__label">Our Mission</p>
+        <h2 class="f2bf-about__heading">Finding a<br>Better Way</h2>
+        <hr class="f2bf-rule">
+      </div>
+      <div class="f2bf-about__right">
+        <p class="f2bf-about__body">Free to be Faithful is a community-driven initiative committed to <strong>renewing public life</strong> by helping Christians engage culture — guided by the Spirit, united in our very differences. We offer conversations, resources, and events that equip believers to be both faithfully Christian and deeply committed to the common good.</p>
+        <p class="f2bf-about__body">This is not a political movement. It's a <strong>discipleship practice</strong> — one that cultivates a Christian imagination, civic wisdom, and relational depth.</p>
+        <blockquote class="f2bf-about__manifesto">
+          Rooted without becoming rigid. Bold without becoming belligerent. Faithful without becoming fearful.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PILLARS ══════ -->
+  <section class="f2bf-pillars">
+    <div class="f2bf-pillars__inner">
+      <div class="f2bf-pillars__top">
+        <h2 class="f2bf-pillars__heading">Program · Resource ·<br>Community</h2>
+        <p class="f2bf-pillars__sub">Three ways F2BF helps you connect faith and life wherever you are on your journey.</p>
+      </div>
+      <div class="f2bf-pillars__strip">
+
+        <div class="f2bf-pill">
+          <div class="f2bf-pill__num">01</div>
+          <h3 class="f2bf-pill__title">Program</h3>
+          <p class="f2bf-pill__desc">Six-week online courses led by world-class scholars, with the option to earn ICS credit toward degree completion.</p>
+          <ul class="f2bf-pill__list">
+            <li>Courses to foster deeper understanding</li>
+            <li>Community to spark a new imagination</li>
+            <li>Retreats and intensives for all walks</li>
+          </ul>
+        </div>
+
+        <div class="f2bf-pill">
+          <div class="f2bf-pill__num">02</div>
+          <h3 class="f2bf-pill__title">Resource</h3>
+          <p class="f2bf-pill__desc">See what we've been reading, listening to, and watching concerning the most pressing issues facing Christians today.</p>
+          <ul class="f2bf-pill__list">
+            <li>Curated texts to dive deeper</li>
+            <li>Shared expertise from scholars</li>
+            <li>Enriching dialogues to relive or discover</li>
+          </ul>
+        </div>
+
+        <div class="f2bf-pill">
+          <div class="f2bf-pill__num">03</div>
+          <h3 class="f2bf-pill__title">Community</h3>
+          <p class="f2bf-pill__desc">Join our open events, build coalitions, find solidarity with welcoming people eager to continue the conversation.</p>
+          <ul class="f2bf-pill__list">
+            <li>Open events to strengthen coalitions</li>
+            <li>Timely writing to challenge and inform</li>
+            <li>Welcoming people from every tradition</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CONFERENCE ══════ -->
+  <section class="f2bf-conf">
+    <div class="f2bf-conf__inner">
+      <div class="f2bf-conf__header">
+        <div class="f2bf-conf__logos">
+          <div class="f2bf-conf__org-block">
+            <img class="f2bf-conf__logo" src="https://files.constantcontact.com/0e42c4d3901/947f7bbe-6836-4ec9-857c-cf31a2297524.png" alt="Ministry Forum">
+            <span class="f2bf-conf__org">Knox College Ministry Forum</span>
+          </div>
+          <span class="f2bf-conf__logo-sep"></span>
+          <div class="f2bf-conf__org-block">
+            <img class="f2bf-conf__logo" src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png" alt="Institute for Christian Studies">
+            <span class="f2bf-conf__org">ICS Free to Be Faithful</span>
+          </div>
+        </div>
+        <h2 class="f2bf-conf__heading">Courageous Faith<br><em>in a Time of Fear</em></h2>
+        <p class="f2bf-conf__subtitle">Pastoral Leadership, Public Responsibility, and the Risk of Taking a Stand</p>
+        <div class="f2bf-conf__meta">
+          <span class="f2bf-conf__meta-item">May 13–14, 2026</span>
+          <span class="f2bf-conf__meta-item">Toronto, ON</span>
+          <span class="f2bf-conf__meta-item">In-Person + Livestream</span>
+        </div>
+      </div>
+      <div class="f2bf-conf__body">
+        <p class="f2bf-conf__desc">A two-day public conference exploring what it means to lead, speak, and act faithfully amid political polarization and deep divisions within churches. Open to clergy and lay leaders alike, with a dedicated pastoral leadership track.</p>
+
+        <div class="f2bf-conf__speakers">
+          <div class="f2bf-conf__speaker">
+            <img class="f2bf-conf__speaker-img" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/59ce09f32a58fc316e527bcac3ad7d8a/revisions/7b6e0c0d080a8cca9fab99b0995a2faa/renditions/9ede31d929031de67041121df4df02a4" alt="Dr. Kristin Kobes Du Mez">
+            <div>
+              <span class="f2bf-conf__speaker-role">Keynote — May 13</span>
+              <h3 class="f2bf-conf__speaker-name">Dr. Kristin Kobes Du Mez</h3>
+            </div>
+          </div>
+          <div class="f2bf-conf__speaker">
+            <img class="f2bf-conf__speaker-img" src="https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w" alt="Rev. Joash P. Thomas">
+            <div>
+              <span class="f2bf-conf__speaker-role">Plenary — May 14</span>
+              <h3 class="f2bf-conf__speaker-name">Rev. Joash P. Thomas</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="f2bf-conf__themes">
+          <span class="f2bf-conf__theme">Faith &amp; public life in polarized contexts</span>
+          <span class="f2bf-conf__theme">Pastoral leadership under fear &amp; fatigue</span>
+          <span class="f2bf-conf__theme">Truth-telling, reconciliation &amp; moral imagination</span>
+          <span class="f2bf-conf__theme">Cultivating resilient, hopeful communities</span>
+        </div>
+      </div>
+
+      <div class="f2bf-conf__actions">
+        <a href="/conference-may13#register" class="f2bf-btn f2bf-btn--red">Full Details + Registration &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CTA ══════ -->
+  <section class="f2bf-cta" id="join">
+    <div class="f2bf-cta__inner">
+      <h2 class="f2bf-cta__heading">Embrace Your Freedom<br>to Be Faithful</h2>
+      <p class="f2bf-cta__text">Join a growing community of Christians who believe that ancient faith can actively engage the pressing issues of our time.</p>
+      <div class="f2bf-cta__actions">
+        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--teal">Explore Courses →</a>
+        <a href="https://instituteforchristianstudies.substack.com" class="f2bf-btn f2bf-btn--outline">Subscribe on Substack</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="f2bf-footer" role="contentinfo">
+
+  <!-- DECORATIVE WAVE -->
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER BODY -->
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+
+      <!-- COL 1 — Brand + Socials -->
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img
+            class="f2bf-footer-brand__logo-img"
+            src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+            alt="Institute for Christian Studies"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg>
+          </a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 — Free to be Faithful -->
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="/f2bf-program">Program</a></li>
+          <li><a href="/f2bf-courses">Courses</a></li>
+          <li><a href="/f2bf-resource">Resources</a></li>
+          <li><a href="/f2bf-community">Community</a></li>
+          <li><a href="/events">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3 — Connect -->
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 4 — Contact + Legal -->
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu"><span>info@icscanada.edu</span></a></p>
+        </div>
+
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">
+            &copy; 2026 Institute for Christian Studies.<br>
+            All rights reserved.
+          </p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>
