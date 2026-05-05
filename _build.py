@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build script: transforms source HTML files into clean GitHub Pages output."""
-import re, os, html
+import re, os, html, shutil
 
 NAV_TEMPLATE = open('_includes/nav.html', encoding='utf-8').read()
 FOOTER_TEMPLATE = open('_includes/footer.html', encoding='utf-8').read()
@@ -102,6 +102,13 @@ PAGES = [
         'btn_replacements': {},
         'animation_remove': [],
         'keep_page_btns': True,
+    },
+]
+
+ROUTE_ALIASES = [
+    {
+        'source': 'f2bf-courses/index.html',
+        'target': 'courses/index.html',
     },
 ]
 
@@ -435,6 +442,14 @@ for page in PAGES:
         print(f"ERROR processing {page['source']}: {e}")
         import traceback
         traceback.print_exc()
+
+for alias in ROUTE_ALIASES:
+    try:
+        os.makedirs(os.path.dirname(alias['target']), exist_ok=True)
+        shutil.copyfile(alias['source'], alias['target'])
+        print(f"Alias {alias['source']} -> {alias['target']}")
+    except Exception as e:
+        print(f"ERROR creating alias {alias['target']}: {e}")
 
 print("\nDone! Now creating 404.html...")
 
