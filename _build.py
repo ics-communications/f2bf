@@ -29,6 +29,7 @@ PAGES = [
         'wave_bg': '#BCC7D0',
         'btn_replacements': {},
         'animation_remove': ['f2bfReveal'],
+        'inline_css': False,
     },
     {
         'source': 'f2bf-program.html',
@@ -106,6 +107,10 @@ PAGES = [
 ]
 
 ROUTE_ALIASES = [
+    {
+        'source': 'index.html',
+        'target': 'f2bf-landing/index.html',
+    },
     {
         'source': 'f2bf-courses/index.html',
         'target': 'courses/index.html',
@@ -383,6 +388,13 @@ def build_page(page_cfg):
     else:
         canonical_url = 'https://f2bf.icscanada.edu/'
 
+    css_block = ''
+    if page_cfg.get('inline_css', True):
+        css_block = f'''  <style>
+    {css}
+  </style>
+'''
+
     # Build the page
     output = f'''<!DOCTYPE html>
 <html lang="en-CA">
@@ -401,9 +413,7 @@ def build_page(page_cfg):
   <link rel="stylesheet" href="/assets/css/global.css">
   <link rel="stylesheet" href="/assets/css/nav.css">
   <link rel="stylesheet" href="/assets/css/footer.css">
-  <style>
-    {css}
-  </style>
+{css_block.rstrip()}
 </head>
 <body>
 <!-- Navigation -->
