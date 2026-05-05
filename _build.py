@@ -86,7 +86,7 @@ PAGES = [
         'canonical': 'f2bf-resource',
         'active_nav_text': 'Resources',
         'active_nav_type': 'link',
-        'wave_bg': '#BCC7D0',
+        'wave_bg': '#1B3A4B',
         'btn_replacements': {},
         'animation_remove': ['f2bfReveal'],
     },

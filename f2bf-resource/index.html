@@ -373,13 +373,7 @@
     /* YOUR VOICE — contribution pull-quote banner   */
     /* ════════════════════════════════════════════ */
     .f2bf-voice {
-      background:
-        linear-gradient(
-          180deg,
-          var(--teal-deep) 0%,
-          var(--teal-mid) 42%,
-          var(--teal) 100%
-        );
+      background: var(--teal);
       padding: 5.5rem 2.5rem 6rem;
       position: relative;
       overflow: hidden;
@@ -387,6 +381,11 @@
     .f2bf-voice::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-voice::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+      background: var(--teal);
+      pointer-events: none;
     }
     .f2bf-voice__inner {
       max-width: 800px; margin: 0 auto; text-align: center;
@@ -400,14 +399,29 @@
     }
     .f2bf-voice__text {
       font-family: var(--text); font-size: 1.08rem;
-      color: rgba(240,235,227,0.78); line-height: 1.85;
+      color: rgba(240,235,227,0.82); line-height: 1.85;
       margin-bottom: 2rem;
     }
     .f2bf-voice__actions {
       display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
     }
     .f2bf-voice .f2bf-btn--red {
-      box-shadow: 0 14px 34px rgba(15,38,49,0.24);
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 14px 34px rgba(15,38,49,0.28);
+    }
+    .f2bf-voice .f2bf-btn--red:hover {
+      background: var(--red-hover);
+      box-shadow: 0 16px 36px rgba(15,38,49,0.34);
+    }
+    .f2bf-voice .f2bf-btn--teal {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 14px 34px rgba(15,38,49,0.28);
+    }
+    .f2bf-voice .f2bf-btn--teal:hover {
+      background: var(--red-hover);
+      box-shadow: 0 16px 36px rgba(15,38,49,0.34);
     }
     .f2bf-voice .f2bf-btn--ghost {
       background: rgba(255,255,255,0.04);
@@ -415,6 +429,15 @@
       color: var(--cream);
     }
     .f2bf-voice .f2bf-btn--ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(240,235,227,0.72);
+    }
+    .f2bf-voice .f2bf-btn--outline {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(240,235,227,0.42);
+      color: var(--cream);
+    }
+    .f2bf-voice .f2bf-btn--outline:hover {
       background: rgba(255,255,255,0.1);
       border-color: rgba(240,235,227,0.72);
     }
