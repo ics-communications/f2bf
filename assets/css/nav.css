@@ -16,12 +16,13 @@
 }
 
 .f2bf-header__inner {
-  max-width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 10vw;
+  padding: 0 clamp(1rem, 4vw, 4rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   min-height: 100px;
 }
 
@@ -55,7 +56,7 @@
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  padding: 0.9vw 16px;
+  padding: 14px 12px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
@@ -241,11 +242,11 @@
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1060px) {
+@media (max-width: 1200px) {
   .f2bf-nav { display: none; }
   .f2bf-burger { display: flex; }
   .f2bf-header__inner {
-    padding: 0 6vw;
+    padding: 0 clamp(1rem, 4vw, 2rem);
     min-height: 69px;
   }
   .f2bf-header__logo-img {
@@ -253,6 +254,6 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1201px) {
   .f2bf-mobile-menu { display: none !important; }
 }
