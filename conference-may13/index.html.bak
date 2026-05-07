@@ -476,24 +476,6 @@
       color: rgba(240,235,227,0.35); margin-top: 0.8rem;
       font-style: italic;
     }
-    .cf-session__leader {
-      display: flex; align-items: center; gap: 1rem;
-      margin-top: 1.2rem; padding-top: 1.2rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .cf-session__leader-img {
-      width: 56px; height: 56px; border-radius: 50%;
-      object-fit: cover; flex-shrink: 0;
-    }
-    .cf-session__leader-name {
-      font-family: var(--text); font-size: 0.85rem; font-weight: 700;
-      color: var(--cream); margin-bottom: 0.2rem;
-    }
-    .cf-session__leader-bio {
-      font-family: var(--text); font-size: 0.78rem;
-      color: rgba(240,235,227,0.35); line-height: 1.6;
-    }
-    .cf-session__leader-bio em { font-style: italic; }
 
     /* ════════════════════════════════════════════ */
     /* CLOSING PANEL — featured callout              */
@@ -1166,27 +1148,15 @@
         <div class="cf-sessions__cards">
           <div class="cf-session">
             <span class="cf-session__track cf-session__track--pastoral">Pastoral Track</span>
-            <h3 class="cf-session__title">Take Heart! Faith Deconstruction Will Not Destroy the Church</h3>
-            <p class="cf-session__desc">Using research and stories from <em>Blessed are the Undone</em>, this workshop will equip leaders to interpret and respond thoughtfully to experiences of faith deconstruction in their communities&mdash;and give helpful context to anyone who feels &ldquo;undone.&rdquo; What if stories of quiet deconstruction are not a problem to solve but a prophetic call for the Church?</p>
-            <div class="cf-session__leader">
-              <img class="cf-session__leader-img" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/ac9ebddbbf76bdfc058b0aa14d83a7d4/revisions/1b94460a02223f66fef75f366713a3ef/renditions/79d75a0f53fa09ac959c328dd508bb6d" alt="Angela Reitsma Bick">
-              <div>
-                <p class="cf-session__leader-name">Angela Reitsma Bick</p>
-                <p class="cf-session__leader-bio">Writer, speaker, and co-author of <em>Blessed are the Undone: Testimonies of the Quiet Deconstruction of Faith in Canada</em>. Former Editor-in-Chief of <em>Christian Courier</em> (2009&ndash;2025).</p>
-              </div>
-            </div>
+            <h3 class="cf-session__title">When Silence Feels Safer: The Risk and Responsibility of Speaking</h3>
+            <p class="cf-session__desc">Explore how to discern when and how to speak with courage, how to prepare congregations for difficult conversations, and how to remain rooted in vocation rather than reaction.</p>
           </div>
           <div class="cf-session">
             <span class="cf-session__track cf-session__track--community">Community Track</span>
-            <h3 class="cf-session__title">Engage Different: What Lies Beneath&mdash;Culture, Theology, and the Courage to Lead Across Difference</h3>
-            <p class="cf-session__desc">Most congregational tension today is driven by what sits below the waterline: unspoken cultural assumptions, inherited theological convictions few of us have ever traced to their roots, or radical differences that can feel irresolvable. This interactive workshop fuses two field-tested tools from the <em>Engage Difference!</em> curriculum: the Cultural Iceberg and a Theological Archeology exercise.</p>
-            <div class="cf-session__leader">
-              <img class="cf-session__leader-img" src="/assets/img/Montealegre_profile2.png" alt="David Montealegre">
-              <div>
-                <p class="cf-session__leader-name">David Montealegre</p>
-                <p class="cf-session__leader-bio">Associate Secretary of Intercultural Leadership and Learning at the Canadian Council of Churches. Louisville Institute Postdoctoral Fellow and Seasonal Professor at Emmanuel College, University of Toronto.</p>
-              </div>
-            </div>
+            <h3 class="cf-session__title">From Private Concern to Collective Action</h3>
+            <p class="cf-session__desc">Courage is both personal <i>and</i> communal. Focus on how congregations can move 
+to faithful action, create alternative spaces of support, and sustain momentum without becoming defined by 
+fear.</p>
           </div>
         </div>
       </div>
@@ -1197,15 +1167,9 @@
         <div class="cf-sessions__cards">
           <div class="cf-session">
             <span class="cf-session__track cf-session__track--pastoral">Pastoral Track</span>
-            <h3 class="cf-session__title">Tending the Wide Table: Notes from the Long Way</h3>
-            <p class="cf-session__desc">This workshop is for pastors and ministry leaders walking their own journeys with congregations and communities navigating theological differences. The Good Table is a Canadian association of Jesus-centred, fully inclusive churches and leaders. Drawing on three years of deep listening, repentance, and following the Spirit&rsquo;s breadcrumbs, we&rsquo;ll share stories, encouragement, honest conversation, and practical frameworks for navigating change and difference.</p>
-            <div class="cf-session__leader">
-              <img class="cf-session__leader-img" src="/assets/img/Elle-Heashot.jpg" alt="Elle Pyke">
-              <div>
-                <p class="cf-session__leader-name">Elle Pyke</p>
-                <p class="cf-session__leader-bio">Executive Director of The Good Table Canada and Director of Programming and Innovation with The New Leaf Network. Completing an MA in Theology and Culture at St. Stephen&rsquo;s University.</p>
-              </div>
-            </div>
+            <h3 class="cf-session__title">Holding the Big Tent: Leading Across Ideological Difference</h3>
+            <p class="cf-session__desc">Theological and practical frameworks for maintaining unity without demanding uniformity. Strategies for facilitating ongoing conversations and nurturing a culture where courageous leadership doesn't mean creating division.</p>
+            <p class="cf-session__facilitator">Led by The Good Table</p>
           </div>
           <div class="cf-session">
             <span class="cf-session__track cf-session__track--community">Community Track</span>
