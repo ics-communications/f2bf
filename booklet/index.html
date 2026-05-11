@@ -367,7 +367,7 @@ html, body {
 }
 .pillar__desc {
   font-family: var(--text);
-  font-size: 9.5pt;
+  font-size: 10.5pt;
   line-height: 1.5;
   color: var(--body);
   margin-top: 0.04in;
@@ -381,7 +381,7 @@ html, body {
 }
 .pillar__list li {
   font-family: var(--text);
-  font-size: 8.5pt;
+  font-size: 9.5pt;
   color: var(--teal-mid);
   padding-left: 0.14in;
   position: relative;
@@ -448,7 +448,8 @@ html, body {
    reads as a single composition. Purely decorative typography. */
 .timeline__yearmark {
   position: absolute;
-  top: 0.45in;
+  top: -0.3in;             /* moved up — bleeds further off the top edge to free
+                              vertical space for the list below */
   font-family: var(--display);
   font-weight: 900;
   font-size: 200pt;
@@ -476,27 +477,28 @@ html, body {
 
 .timeline__list {
   list-style: none;
-  /* margin-top tuned so the vertical centre of the list sits at ~66% of the
-     8.75in artboard (≈5.78in from page top). Also clears the year watermark. */
-  margin-top: 1.65in;
+  /* margin-top tuned to fit P4's 8 items (some wrap to 2 lines) without overflow.
+     List vertical centre lands at ~61% of the artboard. */
+  margin-top: 0.7in;
   position: relative;
   padding-left: 0.42in;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;  /* cluster items vertically — keeps rhythm consistent
+                               between P4 (8 items, fills list) and P5 (5 items,
+                               cluster sits in the middle with breathing room). */
 }
 .tl-item {
   position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0.1in 0;
+  flex: 0 0 auto;          /* natural content size — no stretching */
+  padding: 0.05in 0;
 }
-/* Solid red dot — vertically centred in each item, horizontally centred on the rail.
+/* Dot — vertically centred in each item, horizontally centred on the rail.
    Rail center is at 0.12in + 1px from list-left (~12.5px). Dot 10px → left = 12.5 - 5
    = 7.5px = 0.078in from list-left. tl-item content-box starts at list padding-left
-   0.42in. ::before left = 0.078 - 0.42 = -0.342in. */
+   0.42in. ::before left = 0.078 - 0.42 = -0.342in.
+   Course = red; event (Big Read / conference / gathering) = cream. */
 .tl-item::before {
   content: '';
   position: absolute;
@@ -508,6 +510,7 @@ html, body {
   background: var(--red);
   z-index: 1;
 }
+.tl-item--event::before { background: var(--cream); }
 /* Per-item rail segment. Items are flush against one another so the rail reads as
    continuous. Last item's rail terminates exactly at the dot centre — no line below. */
 .tl-item::after {
@@ -553,14 +556,43 @@ html, body {
   margin-top: 0.04in;
 }
 
-/* Highlighted entries (May 2025 launch, May 2026 conference). Marker stays a
-   solid red dot like all the others — only the row gets the red wash + larger
-   title + brighter date label. */
+/* Highlighted entries (May 2025 launch, May 2026 conference). Marker keeps its
+   category dot colour — only the row gets the red wash + larger title + brighter
+   date label. */
 .tl-item--ring {
   background: linear-gradient(90deg, rgba(200,60,44,0.18), rgba(200,60,44,0) 92%);
 }
 .tl-item--ring .tl-item__title { font-size: 13.5pt; }
 .tl-item--ring .tl-item__date { color: var(--cream); }
+
+/* Two-category legend. Anchored below the safe-area bottom (into the trim
+   margin) so it sits closer to the page edge, ~0.05in clear of the trim line
+   for bindery safety. */
+.timeline__legend {
+  position: absolute;
+  left: 0;
+  bottom: -0.2in;
+  display: inline-flex;
+  gap: 0.22in;
+  font-family: var(--text);
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.6);
+}
+.timeline__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08in;
+}
+.timeline__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.timeline__legend-dot--course { background: var(--red); }
+.timeline__legend-dot--event  { background: var(--cream); }
 
 /* Grouped month — single date label with multiple events stacked beneath.
    Used for September 2025 (3 events) and March 2026 (2 events). */
@@ -951,7 +983,7 @@ html, body {
       <hr class="rule p2__rule">
       <div class="p2__body body">
         <p>Launched by the <strong>Institute for Christian Studies</strong> (ICS), Free to be Faithful is a <strong>program</strong>, a <strong>resource</strong>, and a <strong>community</strong>, designed to help Christians meet our complex moment.</p>
-        <p>Our courses, community, events and more develop believers who are both <strong>faithfully Christian</strong> and <strong>deeply committed to the common good</strong> in our divided age.</p>
+        <p>Our courses, community, and events develop believers who are both <strong>faithfully Christian</strong> and <strong>deeply committed to the common good</strong> in our divided age.</p>
       </div>
       <blockquote class="p2__manifesto">
         Rooted without becoming rigid.<br>
@@ -1024,28 +1056,45 @@ html, body {
 
       <ul class="timeline__list">
 
-        <li class="tl-item tl-item--ring">
+        <li class="tl-item tl-item--event tl-item--ring">
           <span class="tl-item__date">May 2025 · Launch Gathering</span>
           <div class="tl-item__title">Free to be Faithful</div>
           <span class="tl-item__by">Grand Rapids</span>
         </li>
 
         <li class="tl-item">
+          <span class="tl-item__date">May 2025</span>
+          <div class="tl-item__title">Faithful Interpretation &amp; Questions of Sexuality</div>
+          <span class="tl-item__by">Sylvia Keesmaat &amp; Len Vander Zee</span>
+        </li>
+
+        <li class="tl-item tl-item--event">
+          <span class="tl-item__date">July 2025</span>
+          <div class="tl-item__title">Summer Big Read</div>
+          <span class="tl-item__by">Bruce Berglund with Kristin Kobes Du Mez</span>
+        </li>
+
+        <li class="tl-item">
           <span class="tl-item__date">September 2025</span>
-          <ul class="tl-group">
-            <li class="tl-sub">
-              <span class="tl-sub__title">Gender, Sexuality, and the Bible</span>
-              <span class="tl-sub__by">with Sylvia Keesmaat</span>
-            </li>
-            <li class="tl-sub">
-              <span class="tl-sub__title">Twentieth Century Authoritarianism</span>
-              <span class="tl-sub__by">with Bruce Berglund</span>
-            </li>
-            <li class="tl-sub">
-              <span class="tl-sub__title">Fall Big Read</span>
-              <span class="tl-sub__by">Hanna Reichel &amp; Kristin Kobes Du Mez</span>
-            </li>
-          </ul>
+          <div class="tl-item__title">Gender, Sexuality, and the Bible</div>
+          <span class="tl-item__by">with Sylvia Keesmaat</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">September 2025</span>
+          <div class="tl-item__title">Twentieth Century Authoritarianism</div>
+          <span class="tl-item__by">with Bruce Berglund</span>
+        </li>
+
+        <li class="tl-item tl-item--event">
+          <span class="tl-item__date">September 2025</span>
+          <div class="tl-item__title">Fall Big Read</div>
+          <span class="tl-item__by">Hanna Reichel &amp; Kristin Kobes Du Mez</span>
+        </li>
+
+        <li class="tl-item tl-item--event">
+          <span class="tl-item__date">October 2025</span>
+          <div class="tl-item__title">Reechanting the World Conference</div>
         </li>
 
         <li class="tl-item">
@@ -1055,6 +1104,17 @@ html, body {
         </li>
 
       </ul>
+
+      <div class="timeline__legend" aria-label="Legend">
+        <span class="timeline__legend-item">
+          <span class="timeline__legend-dot timeline__legend-dot--course"></span>
+          Course
+        </span>
+        <span class="timeline__legend-item">
+          <span class="timeline__legend-dot timeline__legend-dot--event"></span>
+          Event
+        </span>
+      </div>
     </div>
   </section>
 
@@ -1076,19 +1136,17 @@ html, body {
 
         <li class="tl-item">
           <span class="tl-item__date">March 2026</span>
-          <ul class="tl-group">
-            <li class="tl-sub">
-              <span class="tl-sub__title">The Christian-Jewish Question Today</span>
-              <span class="tl-sub__by">with Matthew D. Taylor</span>
-            </li>
-            <li class="tl-sub">
-              <span class="tl-sub__title">The Evangelical Imagination</span>
-              <span class="tl-sub__by">with Karen Swallow Prior</span>
-            </li>
-          </ul>
+          <div class="tl-item__title">The Christian-Jewish Question Today</div>
+          <span class="tl-item__by">with Matthew D. Taylor</span>
         </li>
 
-        <li class="tl-item tl-item--ring">
+        <li class="tl-item">
+          <span class="tl-item__date">March 2026</span>
+          <div class="tl-item__title">The Evangelical Imagination</div>
+          <span class="tl-item__by">with Karen Swallow Prior</span>
+        </li>
+
+        <li class="tl-item tl-item--event tl-item--ring">
           <span class="tl-item__date">May 2026</span>
           <div class="tl-item__title">Courageous Faith in a Time of Fear</div>
           <span class="tl-item__by">Toronto · Public Conference</span>
@@ -1101,6 +1159,17 @@ html, body {
         </li>
 
       </ul>
+
+      <div class="timeline__legend" aria-label="Legend">
+        <span class="timeline__legend-item">
+          <span class="timeline__legend-dot timeline__legend-dot--course"></span>
+          Course
+        </span>
+        <span class="timeline__legend-item">
+          <span class="timeline__legend-dot timeline__legend-dot--event"></span>
+          Event
+        </span>
+      </div>
     </div>
   </section>
 
@@ -1280,6 +1349,11 @@ html, body {
       <div class="p8__url">
         <span class="p8__url-label">Begin here</span>
         f2bf.icscanada.edu
+      </div>
+	  
+	  <div class="p8__url">
+        <span class="p8__url-label">Support our programs</span>
+        icscanada.edu/donate
       </div>
 
       <div class="p8__contact">
