@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conference Program — Thursday, May 14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 11in 17in;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --teal-deep: #0F2631;
+    --teal: #1B3A4B;
+    --teal-mid: #25516A;
+    --red: #C83C2C;
+    --cream: #F0EBE3;
+    --white: #FFFFFF;
+    --muted: rgba(240,235,227,0.45);
+    --display: 'Playfair Display', Georgia, serif;
+    --sans: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  html, body {
+    width: 11in;
+    height: 17in;
+    overflow: hidden;
+    background: var(--teal-deep);
+    color: var(--cream);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .poster {
+    width: 11in;
+    height: 17in;
+    padding: 0.6in 0.7in;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle grain texture */
+  .poster::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    z-index: 0;
+  }
+
+  .poster > * { position: relative; z-index: 1; }
+
+  /* ── Top: Organizers ── */
+  .orgs {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 0.35in;
+  }
+  .orgs img {
+    height: 38px;
+    width: auto;
+    opacity: 0.85;
+  }
+  .org-sep {
+    width: 1px;
+    height: 28px;
+    background: rgba(240,235,227,0.2);
+  }
+  .org-name {
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── Title Block ── */
+  .title-block {
+    margin-bottom: 0.25in;
+  }
+  .title-main {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 52pt;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .title-main em {
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(188,199,208,0.5);
+  }
+  .title-rule {
+    width: 70px;
+    height: 3px;
+    background: var(--red);
+    border: none;
+    margin: 0.18in 0 0.15in;
+  }
+  .title-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.06in;
+  }
+  .meta-pill {
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.25em 0.8em;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--muted);
+  }
+
+  /* ── Hero Background ── */
+  .poster__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .poster__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    opacity: 0.25;
+    filter: saturate(0.15) brightness(0.45);
+  }
+  .poster__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      175deg,
+      rgba(15,38,49,0.15) 0%,
+      rgba(15,38,49,0.5) 25%,
+      rgba(15,38,49,0.85) 55%,
+      rgba(15,38,49,0.95) 100%
+    );
+    z-index: 1;
+  }
+
+  /* ── Schedule ── */
+  .schedule-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.12in;
+    padding-bottom: 0.06in;
+    border-bottom: 1px solid rgba(240,235,227,0.08);
+  }
+
+  .schedule {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .s-row {
+    display: grid;
+    grid-template-columns: 1.15in 1fr;
+    gap: 0.15in;
+    padding: 0.08in 0;
+    border-bottom: 1px solid rgba(240,235,227,0.06);
+    align-items: start;
+  }
+  .s-row:last-child { border-bottom: none; }
+
+  .s-time {
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+    padding-top: 1px;
+  }
+
+  .s-session-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16pt;
+    color: var(--white);
+    line-height: 1.25;
+  }
+
+  .s-speaker {
+    font-size: 11.5pt;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .s-location {
+    display: inline-block;
+    font-size: 9.5pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-top: 2px;
+  }
+
+  /* Break rows */
+  .s-row.break {
+    padding: 0.04in 0;
+  }
+  .s-row.break .s-time {
+    font-size: 11pt;
+    font-weight: 600;
+    color: rgba(240,235,227,0.3);
+  }
+  .s-break-title {
+    font-size: 11pt;
+    font-style: italic;
+    color: rgba(240,235,227,0.25);
+  }
+
+  /* Two-track rows */
+  .s-tracks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.12in;
+    margin-top: 0.05in;
+  }
+
+  .s-track {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 5px;
+    padding: 0.08in 0.1in;
+  }
+
+  .s-track-badge {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
+  .s-track-badge.t1 { background: rgba(200,60,44,0.15); color: #ff7666; }
+  .s-track-badge.t2 { background: rgba(37,81,106,0.5); color: #8bbddb; }
+
+  .s-track-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 12pt;
+    color: var(--cream);
+    line-height: 1.25;
+  }
+
+  .s-track-speaker {
+    font-size: 10pt;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .s-track-loc {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-top: 3px;
+  }
+
+  /* ── Bottom: QR + CTA ── */
+  .bottom {
+    margin-top: 0.2in;
+    padding-top: 0.15in;
+    border-top: 1px solid rgba(240,235,227,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.25in;
+  }
+
+  .qr-wrap {
+    flex-shrink: 0;
+    width: 1.8in;
+    height: 1.8in;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 0.12in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-wrap img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .qr-text {
+    flex: 1;
+  }
+  .qr-heading {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16pt;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 0.04in;
+  }
+  .qr-sub {
+    font-size: 10pt;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-bottom: 0.08in;
+  }
+  .qr-url {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Closing panel callout ── */
+  .s-panel-note {
+    font-size: 11pt;
+    color: rgba(240,235,227,0.35);
+    line-height: 1.45;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  @media print {
+    html, body {
+      width: 11in;
+      height: 17in;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- Hero Background Image -->
+  <div class="poster__bg">
+    <img src="4b74825b0c1b8b4db5492301e81827e1.jpg" alt="Knox College Interior">
+  </div>
+
+  <!-- Organizers -->
+  <div class="orgs">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <img src="https://files.constantcontact.com/0e42c4d3901/947f7bbe-6836-4ec9-857c-cf31a2297524.png" alt="Knox College Ministry Forum">
+      <span class="org-name">Knox Ministry Forum</span>
+    </div>
+    <span class="org-sep"></span>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <img src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png" alt="Institute for Christian Studies">
+      <span class="org-name">ICS Free to be Faithful</span>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="title-block">
+    <h1 class="title-main">Courageous<br>Faith <em>in a<br>Time of</em> Fear</h1>
+    <hr class="title-rule">
+    <div class="title-meta">
+      <span class="meta-pill">Thursday, May 14, 2026</span>
+      <span class="meta-pill">Knox College, Toronto</span>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div class="schedule-label">Conference Program</div>
+  <div class="schedule">
+
+    <!-- Plenary -->
+    <div class="s-row">
+      <div class="s-time">9:00 AM</div>
+      <div>
+        <div class="s-session-title">Plenary Lecture</div>
+        <div class="s-speaker">Rev. Joash P. Thomas</div>
+        <div class="s-location">Knox Chapel</div>
+      </div>
+    </div>
+
+    <!-- Break -->
+    <div class="s-row break">
+      <div class="s-time">10:15 AM</div>
+      <div class="s-break-title">Coffee Break</div>
+    </div>
+
+    <!-- Roundtables -->
+    <div class="s-row">
+      <div class="s-time">10:30 AM</div>
+      <div>
+        <div class="s-session-title">Roundtable Discussions</div>
+        <div class="s-location">Classroom 4</div>
+        <div class="s-tracks">
+          <div class="s-track">
+            <span class="s-track-badge t1">Track 1</span>
+            <div class="s-track-title">Reformed Witness in the 21st Century: Journeying Together in Courage</div>
+          </div>
+          <div class="s-track">
+            <span class="s-track-badge t2">Track 2</span>
+            <div class="s-track-title">Taking a Stand Without Tearing the Church Apart</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lunch -->
+    <div class="s-row break">
+      <div class="s-time">12:00 PM</div>
+      <div class="s-break-title">Lunch</div>
+    </div>
+
+    <!-- Workshops I -->
+    <div class="s-row">
+      <div class="s-time">1:00 PM</div>
+      <div>
+        <div class="s-session-title">Workshops &mdash; Session I</div>
+        <div class="s-tracks">
+          <div class="s-track">
+            <span class="s-track-badge t1">Track 1</span>
+            <div class="s-track-title">Take Heart! Faith Deconstruction Will Not Destroy the Church</div>
+            <div class="s-track-speaker">Angela Reitsma Bick</div>
+            <div class="s-track-loc">Classroom 3</div>
+          </div>
+          <div class="s-track">
+            <span class="s-track-badge t2">Track 2</span>
+            <div class="s-track-title">Engage Different: What Lies Beneath&mdash;Culture, Theology &amp; Courage</div>
+            <div class="s-track-speaker">David Montealegre</div>
+            <div class="s-track-loc">Classroom 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Break -->
+    <div class="s-row break">
+      <div class="s-time">2:15 PM</div>
+      <div class="s-break-title">Coffee Break</div>
+    </div>
+
+    <!-- Workshops II -->
+    <div class="s-row">
+      <div class="s-time">2:30 PM</div>
+      <div>
+        <div class="s-session-title">Workshops &mdash; Session II</div>
+        <div class="s-tracks">
+          <div class="s-track">
+            <span class="s-track-badge t1">Track 1</span>
+            <div class="s-track-title">Tending the Wide Table: Notes from the Long Way</div>
+            <div class="s-track-speaker">Elle Pyke &middot; The Good Table</div>
+            <div class="s-track-loc">Classroom 3</div>
+          </div>
+          <div class="s-track">
+            <span class="s-track-badge t2">Track 2</span>
+            <div class="s-track-title">You Are Not Alone: Supporting Clergy &amp; Strengthening Congregations</div>
+            <div class="s-track-loc">Classroom 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Break -->
+    <div class="s-row break">
+      <div class="s-time">3:45 PM</div>
+      <div class="s-break-title">Coffee Break</div>
+    </div>
+
+    <!-- Closing Panel -->
+    <div class="s-row">
+      <div class="s-time">4:00 PM</div>
+      <div>
+        <div class="s-session-title">Closing Panel</div>
+        <div class="s-panel-note">Capacity for Courage: Building Faith Communities for the Long Haul</div>
+        <div class="s-location">Classroom 4</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QR Code + CTA -->
+  <div class="bottom">
+    <div class="qr-wrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&format=svg&data=https://f2bf.icscanada.edu/program" alt="QR Code">
+    </div>
+    <div class="qr-text">
+      <div class="qr-heading">Full Program &amp;<br>Session Details</div>
+      <div class="qr-sub">Scan for the interactive conference app with session descriptions, speaker bios, and real-time schedule updates.</div>
+      <div class="qr-url">f2bf.icscanada.edu/program</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
