@@ -204,6 +204,10 @@
     color: var(--muted);
     line-height: 1.5;
   }
+  .schedule-card.past {
+    opacity: 0.35;
+    pointer-events: none;
+  }
 
   /* Modal */
   .modal-overlay {
@@ -319,9 +323,13 @@
   }
   .track-location {
     font-size: 11px;
-    font-weight: 600;
-    color: rgba(240,235,227,0.35);
-    letter-spacing: 0.04em;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid rgba(200,60,44,0.25);
+    border-radius: 100px;
   }
   .track-facilitator {
     font-size: 12px;
@@ -481,27 +489,27 @@ if ('serviceWorker' in navigator) {
 const SCHEDULE_DATA = {
   day1: [
     {
-      id: ‘d1-1’,
-      time: ‘7:00 – 8:30 PM’,
-      title: ‘Keynote Lecture & Opening Dialogue’,
-      note: ‘Kristin Kobes Du Mez & Joash Thomas’,
+      id: 'd1-1',
+      time: '7:00 – 8:30 PM',
+      title: 'Keynote Lecture & Opening Dialogue',
+      note: 'Kristin Kobes Du Mez & Joash Thomas',
       hasDetails: true,
       tracks: [
         {
-          type: ‘general’,
-          location: ‘Knox Chapel’,
-          title: ‘Courageous Faith in a Time of Fear’,
-          desc: ‘Join us for the opening keynote exploring what it means to lead, speak, and act faithfully amid political polarization. Followed by a dynamic dialogue between Dr. Du Mez and Rev. Thomas.’,
+          type: 'general',
+          location: 'Knox Chapel',
+          title: 'Courageous Faith in a Time of Fear',
+          desc: 'Join us for the opening keynote exploring what it means to lead, speak, and act faithfully amid political polarization. Followed by a dynamic dialogue between Dr. Du Mez and Rev. Thomas.',
           speakers: [
             {
-              name: ‘Dr. Kristin Kobes Du Mez’,
-              img: ‘https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/59ce09f32a58fc316e527bcac3ad7d8a/revisions/7b6e0c0d080a8cca9fab99b0995a2faa/renditions/9ede31d929031de67041121df4df02a4’,
-              position: ‘center center’
+              name: 'Dr. Kristin Kobes Du Mez',
+              img: 'https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/59ce09f32a58fc316e527bcac3ad7d8a/revisions/7b6e0c0d080a8cca9fab99b0995a2faa/renditions/9ede31d929031de67041121df4df02a4',
+              position: 'center center'
             },
             {
-              name: ‘Rev. Joash P. Thomas’,
-              img: ‘https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w’,
-              position: ‘20% 20%’
+              name: 'Rev. Joash P. Thomas',
+              img: 'https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w',
+              position: '20% 20%'
             }
           ]
         }
@@ -510,127 +518,127 @@ const SCHEDULE_DATA = {
   ],
   day2: [
     {
-      id: ‘d2-1’,
-      time: ‘9:00 – 10:00 AM’,
-      title: ‘Plenary Lecture’,
-      note: ‘Joash Thomas’,
+      id: 'd2-1',
+      time: '9:00 – 10:00 AM',
+      title: 'Plenary Lecture',
+      note: 'Joash Thomas',
       hasDetails: true,
       tracks: [
         {
-          type: ‘general’,
-          location: ‘Knox Chapel’,
-          title: ‘Reimagining a Faith that Unites’,
-          desc: ‘Drawing from his St. Thomas Christian roots and a decolonized, Jesus-centered understanding of Scripture, Fr. Joash helps audiences reimagine a faith that unites rather than divides.’,
+          type: 'general',
+          location: 'Knox Chapel',
+          title: 'Reimagining a Faith that Unites',
+          desc: 'Drawing from his St. Thomas Christian roots and a decolonized, Jesus-centered understanding of Scripture, Fr. Joash helps audiences reimagine a faith that unites rather than divides.',
           speakers: [
             {
-              name: ‘Rev. Joash P. Thomas’,
-              img: ‘https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w’,
-              position: ‘20% 20%’
+              name: 'Rev. Joash P. Thomas',
+              img: 'https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w',
+              position: '20% 20%'
             }
           ]
         }
       ]
     },
-    { id: ‘d2-break1’, time: ‘10:15 – 10:30 AM’, title: ‘Coffee Break’, isBreak: true },
+    { id: 'd2-break1', time: '10:15 – 10:30 AM', title: 'Coffee Break', isBreak: true },
     {
-      id: ‘d2-2’,
-      time: ‘10:30 – 12:00 PM’,
-      title: ‘Roundtable Discussions’,
-      note: ‘Concurrent tracks — Classroom 4’,
+      id: 'd2-2',
+      time: '10:30 – 12:00 PM',
+      title: 'Roundtable Discussions',
+      note: 'Concurrent tracks — Classroom 4',
       hasDetails: true,
       tracks: [
         {
-          type: ‘pastoral’,
-          location: ‘Classroom 4’,
-          title: ‘Reformed Witness in the 21st Century: Journeying Together in Courage’,
-          desc: ‘An honest conversation about the challenges and possibilities facing Reformed communities today. Reflect on leading congregations through ideological tension, denominational transition, and public scrutiny.’
+          type: 'pastoral',
+          location: 'Classroom 4',
+          title: 'Reformed Witness in the 21st Century: Journeying Together in Courage',
+          desc: 'An honest conversation about the challenges and possibilities facing Reformed communities today. Reflect on leading congregations through ideological tension, denominational transition, and public scrutiny.'
         },
         {
-          type: ‘community’,
-          location: ‘Classroom 4’,
-          title: ‘Taking a Stand Without Tearing the Church Apart’,
-          desc: ‘How do we act courageously without deepening division? Explore what faithful public responsibility looks like for congregations and how members can support clergy and one another through difficult conversations.’
+          type: 'community',
+          location: 'Classroom 4',
+          title: 'Taking a Stand Without Tearing the Church Apart',
+          desc: 'How do we act courageously without deepening division? Explore what faithful public responsibility looks like for congregations and how members can support clergy and one another through difficult conversations.'
         }
       ]
     },
-    { id: ‘d2-break2’, time: ‘12:00 – 1:00 PM’, title: ‘Lunch’, isBreak: true },
+    { id: 'd2-break2', time: '12:00 – 1:00 PM', title: 'Lunch', isBreak: true },
     {
-      id: ‘d2-3’,
-      time: ‘1:00 – 2:15 PM’,
-      title: ‘Workshops — Session I’,
-      note: ‘Concurrent tracks — Classrooms 2 & 3’,
+      id: 'd2-3',
+      time: '1:00 – 2:15 PM',
+      title: 'Workshops — Session I',
+      note: 'Concurrent tracks — Classrooms 2 & 3',
       hasDetails: true,
       tracks: [
         {
-          type: ‘pastoral’,
-          location: ‘Classroom 3’,
-          title: ‘Take Heart! Faith Deconstruction Will Not Destroy the Church’,
-          desc: ‘Using research and stories from <em>Blessed are the Undone</em>, this workshop will equip leaders to interpret and respond thoughtfully to experiences of faith deconstruction in their communities—and give helpful context to anyone who feels “undone.” What if stories of quiet deconstruction are not a problem to solve but a prophetic call for the Church?’,
+          type: 'pastoral',
+          location: 'Classroom 3',
+          title: 'Take Heart! Faith Deconstruction Will Not Destroy the Church',
+          desc: 'Using research and stories from <em>Blessed are the Undone</em>, this workshop will equip leaders to interpret and respond thoughtfully to experiences of faith deconstruction in their communities—and give helpful context to anyone who feels “undone.” What if stories of quiet deconstruction are not a problem to solve but a prophetic call for the Church?',
           speakers: [
             {
-              name: ‘Angela Reitsma Bick’,
-              img: ‘https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/ac9ebddbbf76bdfc058b0aa14d83a7d4/revisions/1b94460a02223f66fef75f366713a3ef/renditions/79d75a0f53fa09ac959c328dd508bb6d’,
-              position: ‘center center’
-            }
-          ]
-        },
-        {
-          type: ‘community’,
-          location: ‘Classroom 2’,
-          title: ‘Engage Different: What Lies Beneath—Culture, Theology, and the Courage to Lead Across Difference’,
-          desc: ‘Most congregational tension today is driven by what sits below the waterline: unspoken cultural assumptions, inherited theological convictions few of us have ever traced to their roots, or radical differences that can feel irresolvable. This interactive workshop fuses two field-tested tools from the <em>Engage Difference!</em> curriculum: the Cultural Iceberg and a Theological Archeology exercise.’,
-          speakers: [
-            {
-              name: ‘David Montealegre’,
-              img: ‘/assets/img/Montealegre_profile2.png’,
-              position: ‘center center’
-            }
-          ]
-        }
-      ]
-    },
-    { id: ‘d2-break3’, time: ‘2:15 – 2:30 PM’, title: ‘Coffee Break’, isBreak: true },
-    {
-      id: ‘d2-4’,
-      time: ‘2:30 – 3:45 PM’,
-      title: ‘Workshops — Session II’,
-      note: ‘Concurrent tracks — Classrooms 2 & 3’,
-      hasDetails: true,
-      tracks: [
-        {
-          type: ‘pastoral’,
-          location: ‘Classroom 3’,
-          title: ‘Tending the Wide Table: Notes from the Long Way’,
-          desc: ‘This workshop is for pastors and ministry leaders walking their own journeys with congregations and communities navigating theological differences. The Good Table is a Canadian association of Jesus-centred, fully inclusive churches and leaders. Drawing on three years of deep listening, repentance, and following the Spirit’s breadcrumbs, we’ll share stories, encouragement, honest conversation, and practical frameworks for navigating change and difference.’,
-          speakers: [
-            {
-              name: ‘Elle Pyke’,
-              img: ‘/assets/img/Elle-Heashot.jpg’,
-              position: ‘center center’
+              name: 'Angela Reitsma Bick',
+              img: 'https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/ac9ebddbbf76bdfc058b0aa14d83a7d4/revisions/1b94460a02223f66fef75f366713a3ef/renditions/79d75a0f53fa09ac959c328dd508bb6d',
+              position: 'center center'
             }
           ]
         },
         {
-          type: ‘community’,
-          location: ‘Classroom 2’,
-          title: ‘You Are Not Alone: Supporting Clergy and Strengthening Congregations’,
-          desc: ‘Explore how congregational members can actively support pastoral leadership and strengthen the spiritual resilience of their communities, becoming places of solidarity, formation, and sustained courage.’
+          type: 'community',
+          location: 'Classroom 2',
+          title: 'Engage Different: What Lies Beneath—Culture, Theology, and the Courage to Lead Across Difference',
+          desc: 'Most congregational tension today is driven by what sits below the waterline: unspoken cultural assumptions, inherited theological convictions few of us have ever traced to their roots, or radical differences that can feel irresolvable. This interactive workshop fuses two field-tested tools from the <em>Engage Difference!</em> curriculum: the Cultural Iceberg and a Theological Archeology exercise.',
+          speakers: [
+            {
+              name: 'David Montealegre',
+              img: '/assets/img/Montealegre_profile2.png',
+              position: 'center center'
+            }
+          ]
         }
       ]
     },
-    { id: ‘d2-break4’, time: ‘3:45 – 4:00 PM’, title: ‘Coffee Break’, isBreak: true },
+    { id: 'd2-break3', time: '2:15 – 2:30 PM', title: 'Coffee Break', isBreak: true },
     {
-      id: ‘d2-5’,
-      time: ‘4:00 – 5:00 PM’,
-      title: ‘Closing Panel’,
-      note: ‘Capacity for Courage: Building Faith Communities for the Long Haul’,
+      id: 'd2-4',
+      time: '2:30 – 3:45 PM',
+      title: 'Workshops — Session II',
+      note: 'Concurrent tracks — Classrooms 2 & 3',
       hasDetails: true,
       tracks: [
         {
-          type: ‘general’,
-          location: ‘Classroom 4’,
-          title: ‘Panel Discussion & Synthesis’,
-          desc: ‘Reflecting on what it takes to build communities capable of sustained courage, moving beyond one-time moments of boldness to focus on formation, structure, and shared responsibility.’
+          type: 'pastoral',
+          location: 'Classroom 3',
+          title: 'Tending the Wide Table: Notes from the Long Way',
+          desc: 'This workshop is for pastors and ministry leaders walking their own journeys with congregations and communities navigating theological differences. The Good Table is a Canadian association of Jesus-centred, fully inclusive churches and leaders. Drawing on three years of deep listening, repentance, and following the Spirit\'s breadcrumbs, we\'ll share stories, encouragement, honest conversation, and practical frameworks for navigating change and difference.',
+          speakers: [
+            {
+              name: 'Elle Pyke',
+              img: '/assets/img/Elle-Heashot.jpg',
+              position: 'center center'
+            }
+          ]
+        },
+        {
+          type: 'community',
+          location: 'Classroom 2',
+          title: 'You Are Not Alone: Supporting Clergy and Strengthening Congregations',
+          desc: 'Explore how congregational members can actively support pastoral leadership and strengthen the spiritual resilience of their communities, becoming places of solidarity, formation, and sustained courage.'
+        }
+      ]
+    },
+    { id: 'd2-break4', time: '3:45 – 4:00 PM', title: 'Coffee Break', isBreak: true },
+    {
+      id: 'd2-5',
+      time: '4:00 – 5:00 PM',
+      title: 'Closing Panel',
+      note: 'Capacity for Courage: Building Faith Communities for the Long Haul',
+      hasDetails: true,
+      tracks: [
+        {
+          type: 'general',
+          location: 'Classroom 4',
+          title: 'Panel Discussion & Synthesis',
+          desc: 'Reflecting on what it takes to build communities capable of sustained courage, moving beyond one-time moments of boldness to focus on formation, structure, and shared responsibility.'
         }
       ]
     }
@@ -640,16 +648,44 @@ const SCHEDULE_DATA = {
 // Map to easily lookup items by ID for the modal
 const itemLookup = {};
 
+const CONF_DATES = { day1: '2026-05-13', day2: '2026-05-14' };
+
+function parseEndTime(timeStr, dateStr) {
+  const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*$/i);
+  if (!match) return null;
+  let h = parseInt(match[1]);
+  const m = parseInt(match[2]);
+  const ap = match[3].toUpperCase();
+  if (ap === 'PM' && h !== 12) h += 12;
+  if (ap === 'AM' && h === 12) h = 0;
+  return dateStr + 'T' + String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':00';
+}
+
+function getEasternNow() {
+  return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Toronto' }));
+}
+
+function updatePastEvents() {
+  const now = getEasternNow();
+  document.querySelectorAll('.schedule-card[data-end]').forEach(card => {
+    const end = new Date(card.dataset.end);
+    card.classList.toggle('past', now > end);
+  });
+}
+
 function renderSchedule(dayId, containerId) {
   const container = document.getElementById(containerId);
+  const dateStr = CONF_DATES[dayId];
   let html = '';
-  
+
   SCHEDULE_DATA[dayId].forEach(item => {
-    itemLookup[item.id] = item; // Store for modal
-    
+    itemLookup[item.id] = item;
+    const endISO = parseEndTime(item.time, dateStr);
+    const endAttr = endISO ? ` data-end="${endISO}"` : '';
+
     if (item.isBreak) {
       html += `
-        <div class="schedule-card break">
+        <div class="schedule-card break"${endAttr}>
           <div class="card-time">${item.time}</div>
           <div class="card-title">${item.title}</div>
         </div>`;
@@ -658,7 +694,7 @@ function renderSchedule(dayId, containerId) {
       const locations = item.tracks ? [...new Set(item.tracks.map(t => t.location).filter(Boolean))] : [];
       const locHtml = locations.length ? `<div class="card-location">${locations.join(' & ')}</div>` : '';
       html += `
-        <div class="schedule-card interactive-item" data-id="${item.id}">
+        <div class="schedule-card interactive-item" data-id="${item.id}"${endAttr}>
           <div class="card-time"><span>${item.time}</span>${hint}</div>
           <div class="card-title">${item.title}</div>
           <div class="card-note">${item.note}</div>
@@ -785,6 +821,19 @@ function closeModal(e) {
 renderSchedule('day1', 'list-day1');
 renderSchedule('day2', 'list-day2');
 initLongPress();
+updatePastEvents();
+setInterval(updatePastEvents, 60000);
+
+// Auto-select tab based on today's date
+const today = new Date();
+const month = today.getMonth() + 1;
+const day = today.getDate();
+const year = today.getFullYear();
+if (year === 2026 && month === 5 && day === 14) {
+  switchTab('day2');
+} else if (year === 2026 && month === 5 && day >= 15) {
+  switchTab('info');
+}
 
 // Handle escape key for modal
 document.addEventListener('keydown', (e) => {
