@@ -1,0 +1,494 @@
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  .page-section:first-child .content-wrapper { padding-top: 0 !important; }
+  .sqs-block-code { padding: 0 !important; }
+  .sqs-block-code .sqs-block-content { margin: 0 !important; }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+  .cfls *, .cfls *::before, .cfls *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .cfls {
+    --teal:        #1B3A4B;
+    --teal-deep:   #0F2631;
+    --teal-mid:    #25516A;
+    --red:         #C83C2C;
+    --slate-light: #D6DDE2;
+    --cream:       #F0EBE3;
+    --muted:       #7E929E;
+
+    --display: 'Playfair Display', Georgia, serif;
+    --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+    font-family: var(--text);
+    color: var(--cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    background: var(--teal-deep);
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Grain overlay */
+  .cfls::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .cfls__inner {
+    position: relative; z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4.5rem 2.5rem 5.5rem;
+  }
+
+  /* ─── Header ─── */
+  .cfls__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── Presented-by logo strip ─── */
+  .cfls__presented {
+    display: flex; align-items: center; justify-content: center;
+    gap: 2rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .cfls__org-block {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .cfls__org-logo {
+    height: 46px; width: auto; display: block;
+  }
+  .cfls__org-label {
+    font-family: var(--text); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(240,235,227,0.5);
+  }
+  .cfls__org-sep {
+    width: 1px; height: 36px;
+    background: rgba(240,235,227,0.2);
+  }
+  @media (max-width: 560px) {
+    .cfls__presented { gap: 1.3rem; }
+    .cfls__org-logo { height: 38px; }
+    .cfls__org-sep { height: 28px; }
+  }
+
+  .cfls__label {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.4rem;
+  }
+  .cfls__live-dot {
+    display: inline-block;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 0 rgba(200,60,44,0.6);
+    animation: cflsPulse 2s infinite;
+  }
+  @keyframes cflsPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(200,60,44,0.55); }
+    70%  { box-shadow: 0 0 0 14px rgba(200,60,44,0); }
+    100% { box-shadow: 0 0 0 0 rgba(200,60,44,0); }
+  }
+  .cfls__title {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.05; letter-spacing: -0.015em;
+    color: var(--cream);
+    margin-bottom: 0.9rem;
+  }
+  .cfls__title em {
+    font-style: italic; font-weight: 400;
+    color: var(--slate-light);
+  }
+  .cfls__meta {
+    font-family: var(--display); font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(188,199,208,0.7);
+  }
+
+  /* ─── Player ─── */
+  .cfls__player-wrap {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 28px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+    user-select: none;
+  }
+  .cfls__player {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .cfls__player iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  /* Shields sit INSIDE .cfls__player as siblings of the iframe. They need
+     a transparent background (not 'none') and pointer-events: auto so they
+     actually capture clicks over the YouTube overlay UI. */
+  .cfls__shield {
+    position: absolute;
+    background: transparent;
+    pointer-events: auto;
+    z-index: 10;
+    cursor: default;
+  }
+  .cfls__shield--top {
+    top: 0; left: 0; right: 0;
+    height: 70px;
+  }
+  .cfls__shield--logo {
+    top: 0; right: 0;
+    width: 110px; height: 70px;
+  }
+  .cfls__shield--bottom-right {
+    bottom: 0; right: 0;
+    width: 220px; height: 56px;
+  }
+
+  /* ─── Day heading ─── */
+  .cfls__day-heading {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    color: var(--cream);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .cfls__day-heading span {
+    font-weight: 400; font-style: italic;
+    color: var(--slate-light);
+  }
+  .cfls__day-section + .cfls__day-section {
+    margin-top: 3.5rem;
+  }
+
+  /* ─── Footer note under player ─── */
+  .cfls__note {
+    max-width: 640px;
+    margin: 2.5rem auto 0;
+    text-align: center;
+    font-family: var(--text); font-size: 0.92rem;
+    color: var(--muted); line-height: 1.75;
+  }
+  .cfls__note strong { color: var(--slate-light); font-weight: 600; }
+
+  /* ─── Divider ─── */
+  .cfls__rule {
+    width: 60px; height: 2px;
+    background: var(--red);
+    border: none;
+    margin: 3rem auto 0;
+  }
+
+  /* ─── Troubleshoot / help ─── */
+  .cfls__help {
+    max-width: 680px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+  @media (min-width: 640px) {
+    .cfls__help { grid-template-columns: 1fr 1fr; text-align: left; }
+  }
+  .cfls__help-item {
+    padding: 1.2rem 1.4rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+  }
+  .cfls__help-label {
+    font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.45rem;
+  }
+  .cfls__help-text {
+    font-family: var(--text); font-size: 0.92rem;
+    color: var(--slate-light); line-height: 1.6;
+  }
+  .cfls__help-text a {
+    color: var(--cream);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  @media (max-width: 640px) {
+    .cfls__inner { padding: 3rem 1.5rem 4rem; }
+    .cfls__shield--top { height: 50px; }
+    .cfls__shield--logo { width: 80px; height: 50px; }
+    .cfls__shield--bottom-right { width: 160px; height: 44px; }
+  }
+
+  /* ─── Access gate ─── */
+  .cfls__gate {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    text-align: center;
+  }
+  .cfls__gate-label {
+    font-family: var(--text); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+  }
+  .cfls__gate-title {
+    font-family: var(--display); font-weight: 700;
+    font-size: 1.35rem; line-height: 1.3;
+    color: var(--cream);
+    margin-bottom: 1.6rem;
+  }
+  .cfls__gate-form {
+    display: flex; gap: 0.6rem; flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .cfls__gate-input {
+    flex: 1 1 200px; min-width: 0;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--text); font-size: 0.95rem;
+    color: var(--cream);
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .cfls__gate-input:focus { border-color: var(--red); }
+  .cfls__gate-input::placeholder { color: rgba(240,235,227,0.35); }
+  .cfls__gate-btn {
+    padding: 0.7rem 1.4rem;
+    font-family: var(--text); font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cream);
+    background: var(--red);
+    border: 0; border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.05s ease;
+  }
+  .cfls__gate-btn:hover { background: #b73526; }
+  .cfls__gate-btn:active { transform: translateY(1px); }
+  .cfls__gate-error {
+    font-family: var(--text); font-size: 0.85rem;
+    color: var(--red);
+    margin-top: 0.6rem;
+    min-height: 1.2em;
+  }
+  .cfls__gate-help {
+    font-family: var(--text); font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+  .cfls__gate-help a {
+    color: var(--slate-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .cfls__gate--shake {
+    animation: cflsShake 0.35s cubic-bezier(.36,.07,.19,.97);
+  }
+  @keyframes cflsShake {
+    0%, 100% { transform: translateX(0); }
+    20%      { transform: translateX(-8px); }
+    40%      { transform: translateX(8px); }
+    60%      { transform: translateX(-5px); }
+    80%      { transform: translateX(5px); }
+  }
+  /* Hide players + note until unlocked; keep header + schedule/contact visible */
+  .cfls:not(.cfls--unlocked) .cfls__day-section,
+  .cfls:not(.cfls--unlocked) .cfls__note { display: none; }
+  .cfls--unlocked .cfls__gate { display: none; }
+</style>
+
+<section class="cfls" id="cfls-livestream">
+  <div class="cfls__inner">
+
+    <header class="cfls__header">
+
+      <!-- Presented-by logo strip -->
+      <div class="cfls__presented">
+        <div class="cfls__org-block">
+          <img class="cfls__org-logo" src="https://files.constantcontact.com/0e42c4d3901/947f7bbe-6836-4ec9-857c-cf31a2297524.png" alt="Ministry Forum">
+          <span class="cfls__org-label">Knox College Ministry Forum</span>
+        </div>
+        <span class="cfls__org-sep"></span>
+        <div class="cfls__org-block">
+          <img class="cfls__org-logo" src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png" alt="Institute for Christian Studies">
+          <span class="cfls__org-label">ICS Free to be Faithful</span>
+        </div>
+      </div>
+
+      <p class="cfls__label">
+        <span class="cfls__live-dot" aria-hidden="true"></span>
+        Keynote Livestream
+      </p>
+      <h1 class="cfls__title">Courageous Faith <em>in a Time of</em> Fear</h1>
+      <p class="cfls__meta">May 13&ndash;14, 2026 &nbsp;&middot;&nbsp; Toronto</p>
+    </header>
+
+    <div class="cfls__gate" id="cfls-gate">
+      <p class="cfls__gate-label">Access Required</p>
+      <h3 class="cfls__gate-title">This livestream is for registered attendees</h3>
+      <form class="cfls__gate-form" id="cfls-gate-form" novalidate>
+        <input
+          type="password"
+          class="cfls__gate-input"
+          id="cfls-gate-input"
+          placeholder="Enter password"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          aria-label="Access password" />
+        <button type="submit" class="cfls__gate-btn">Unlock</button>
+      </form>
+      <p class="cfls__gate-error" id="cfls-gate-error" role="alert" hidden>Incorrect password &mdash; please try again.</p>
+      <p class="cfls__gate-help">Password was included in your registration confirmation. <a href="mailto:ics-communications@icscanada.edu">Lost it?</a></p>
+    </div>
+
+    <div class="cfls__day-section">
+      <h2 class="cfls__day-heading">Day 1 <span>&mdash; Wednesday, May 13</span></h2>
+      <div class="cfls__player-wrap" id="cfls-player-wrap-1">
+        <div class="cfls__player">
+          <iframe
+            id="cfls-frame-1"
+            src="about:blank"
+            data-src="https://www.youtube-nocookie.com/embed/tXNfWEQOmAk?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;controls=1&amp;disablekb=1&amp;fs=1&amp;iv_load_policy=3"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            title="Courageous Faith &mdash; Day 1 Keynote">
+          </iframe>
+          <div class="cfls__shield cfls__shield--top" aria-hidden="true"></div>
+          <div class="cfls__shield cfls__shield--logo" aria-hidden="true"></div>
+          <div class="cfls__shield cfls__shield--bottom-right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cfls__day-section">
+      <h2 class="cfls__day-heading">Day 2 <span>&mdash; Thursday, May 14</span></h2>
+      <div class="cfls__player-wrap" id="cfls-player-wrap-2">
+        <div class="cfls__player">
+          <iframe
+            id="cfls-frame-2"
+            src="about:blank"
+            data-src="https://www.youtube-nocookie.com/embed/yHS27IbOpjw?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;controls=1&amp;disablekb=1&amp;fs=1&amp;iv_load_policy=3"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            title="Courageous Faith &mdash; Day 2 Keynote">
+          </iframe>
+          <div class="cfls__shield cfls__shield--top" aria-hidden="true"></div>
+          <div class="cfls__shield cfls__shield--logo" aria-hidden="true"></div>
+          <div class="cfls__shield cfls__shield--bottom-right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="cfls__note">
+      The stream will begin shortly before each scheduled keynote. If the video isn't playing, <strong>refresh the page</strong>. Use fullscreen for the best experience.
+    </p>
+
+    <hr class="cfls__rule" />
+
+    <div class="cfls__help">
+      <div class="cfls__help-item">
+        <p class="cfls__help-label">Schedule</p>
+        <p class="cfls__help-text">Wed May 13 &middot; evening keynote (7pm)<br>Thu May 14 &middot; morning keynote (9:00am)</p>
+      </div>
+      <div class="cfls__help-item">
+        <p class="cfls__help-label">Need Help?</p>
+        <p class="cfls__help-text">Email <a href="mailto:ics-communications@icscanada.edu">ics-communications@icscanada.edu</a> for access issues.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var KEY      = 'cfls_unlocked_v1';
+  var EXPECTED = 'ZjJiZm1heTEz'; // base64 of the access password
+  var SECTION  = document.getElementById('cfls-livestream');
+  var GATE     = document.getElementById('cfls-gate');
+  var FORM     = document.getElementById('cfls-gate-form');
+  var INPUT    = document.getElementById('cfls-gate-input');
+  var ERROR    = document.getElementById('cfls-gate-error');
+
+  function unlock(persist) {
+    if (SECTION) {
+      SECTION.classList.add('cfls--unlocked');
+      var iframes = SECTION.querySelectorAll('iframe[data-src]');
+      for (var i = 0; i < iframes.length; i++) {
+        var ds = iframes[i].getAttribute('data-src');
+        if (ds && iframes[i].getAttribute('src') !== ds) {
+          iframes[i].setAttribute('src', ds);
+        }
+      }
+    }
+    if (persist) {
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    }
+  }
+
+  function check(value) {
+    try { return btoa(value) === EXPECTED; } catch (e) { return false; }
+  }
+
+  try {
+    if (sessionStorage.getItem(KEY) === '1') unlock(false);
+  } catch (e) {}
+
+  if (FORM) {
+    FORM.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = (INPUT.value || '').trim();
+      if (check(v)) {
+        unlock(true);
+      } else {
+        if (ERROR) ERROR.hidden = false;
+        if (GATE) {
+          GATE.classList.remove('cfls__gate--shake');
+          void GATE.offsetWidth;
+          GATE.classList.add('cfls__gate--shake');
+        }
+        if (INPUT) INPUT.select();
+      }
+    });
+  }
+
+  if (INPUT && SECTION && !SECTION.classList.contains('cfls--unlocked')) {
+    setTimeout(function () { try { INPUT.focus(); } catch (e) {} }, 80);
+  }
+
+  ['cfls-player-wrap-1', 'cfls-player-wrap-2'].forEach(function (id, i) {
+    var wrap = document.getElementById(id);
+    if (!wrap) return;
+    wrap.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      return false;
+    });
+    var frame = document.getElementById('cfls-frame-' + (i + 1));
+    if (frame) {
+      frame.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    }
+  });
+})();
+</script>
