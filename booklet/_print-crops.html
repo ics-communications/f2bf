@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<title>Free to be Faithful — 8-page Booklet</title>
+<meta name="description" content="Print-ready 8-page promotional booklet for Free to be Faithful (Institute for Christian Studies). Trim 5.5×8.5in, bleed 0.125in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   FREE TO BE FAITHFUL — 8pp Booklet
+   Trim: 5.5 × 8.5 in · Bleed: 0.125 in · Artboard: 5.75 × 8.75 in
+   Safe area: 0.375 in from artboard edge (0.25 in inside trim)
+   Print: page size set to artboard. Printer imposes from reader spreads.
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  --teal:        #1B3A4B;
+  --teal-deep:   #0F2631;
+  --teal-mid:    #25516A;
+  --red:         #C83C2C;
+  --red-deep:    #A82E20;
+  --slate:       #BCC7D0;
+  --slate-light: #D6DDE2;
+  --cream:       #F0EBE3;
+  --cream-lt:    #F7F4EF;
+  --ink:         #1A2A33;
+  --body:        #3D4F59;
+  --muted:       #7E929E;
+
+  --display: 'Playfair Display', Georgia, serif;
+  --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+  --bleed:   0.125in;
+  --safe:    0.375in; /* from artboard edge = 0.25in inside trim */
+  --page-w:  5.75in;
+  --page-h:  8.75in;
+}
+
+@page {
+  size: 5.75in 8.75in;
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #2b2b2b;
+  font-family: var(--text);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4in;
+  padding: 0.5in 0;
+}
+
+.page {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  background: var(--cream-lt);
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.35);
+}
+.page:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* Guides — visible on screen only */
+.page::before,
+.page::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+.page::before {
+  /* Trim guide (5.5 x 8.5 centered) */
+  inset: var(--bleed);
+  outline: 1px dashed rgba(255, 80, 80, 0.55);
+}
+.page::after {
+  /* Safe-area guide (0.25in inside trim = 0.375in from artboard edge) */
+  inset: var(--safe);
+  outline: 1px dashed rgba(80, 200, 120, 0.4);
+}
+@media print {
+  .page::before, .page::after { display: none; }
+  .book { gap: 0; padding: 0; background: none; }
+  html, body { background: #fff; }
+  .page { box-shadow: none; }
+}
+
+/* ════ Generic safe-area container ════ */
+.safe-area {
+  position: absolute;
+  inset: var(--safe);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ════ Type primitives ════ */
+.eyebrow {
+  font-family: var(--text);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.display-xl {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 54pt;
+  line-height: 0.94;
+  letter-spacing: -0.015em;
+}
+.display-lg {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 36pt;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+}
+.display-md {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 26pt;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+.display-sm {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16pt;
+  line-height: 1.15;
+}
+.body {
+  font-family: var(--text);
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--body);
+  font-weight: 400;
+}
+.body--sm {
+  font-size: 9pt;
+  line-height: 1.5;
+}
+.italic { font-style: italic; }
+.rule {
+  width: 42px;
+  height: 2.5px;
+  background: var(--red);
+  border: 0;
+}
+
+/* ════════════════════════════════════════════ */
+/* P1 — OUTSIDE FRONT COVER                     */
+/* ════════════════════════════════════════════ */
+.p1 {
+  background: var(--teal-deep);
+  color: var(--cream);
+}
+.p1__photo {
+  position: absolute; inset: 0;
+  background-image: url('https://lightroom.adobe.com/v2c/spaces/796283b06b914932aaff4c457375828c/assets/30c19c62dc8448afb3d319426fd0d25c/revisions/33c9a6f8378d4ebea32cfb4f8c7d50ed/renditions/321e45597328e883c4e3599a2d4a4b1c');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  filter: saturate(0.55) contrast(1.05);
+}
+.p1__gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15,38,49,0.55) 0%,
+    rgba(15,38,49,0.35) 30%,
+    rgba(15,38,49,0.65) 60%,
+    rgba(15,38,49,0.93) 100%);
+}
+.p1__grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.p1 .safe-area {
+  justify-content: space-between;
+  color: var(--cream);
+}
+.p1__eyebrow {
+  color: rgba(240,235,227,0.7);
+}
+.p1__lockup { display: flex; flex-direction: column; gap: 0.18in; }
+.p1__wordmark {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 64pt;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+}
+.p1__wordmark em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--slate-light);
+}
+.p1__tagline {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14pt;
+  color: rgba(240,235,227,0.85);
+  margin-top: 0.05in;
+}
+.p1__rule { background: var(--red); width: 56px; height: 3px; margin-top: 0.12in; }
+.p1__year {
+  font-family: var(--text);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.65);
+  margin-top: 0.18in;
+}
+
+/* ════════════════════════════════════════════ */
+/* P2 — INSIDE FRONT COVER · WELCOME / MISSION  */
+/* ════════════════════════════════════════════ */
+.p2 { background: var(--cream); }
+.p2__photo {
+  /* Full-bleed photo strip at bottom; extends past trim by the bleed amount */
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2.85in;
+  background-image: url('https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/f0faaa0c016a4b8ea240f85f17e2cb1e/revisions/57a5dd3a9fd4465ebd0da11be4657afb/renditions/4c4b344875c946f60233f891b131730a');
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0.78;
+  filter: saturate(0.45) contrast(1.05) brightness(0.85);
+  z-index: 0;
+}
+.p2__photo-tint {
+  /* Teal overlay matching the cover treatment */
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2.85in;
+  background: rgba(15,38,49,0.45);
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.p2__photo-gradient {
+  /* Cream fade at top to blend with page body; teal gradient down to bottom for type legibility */
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2.85in;
+  background: linear-gradient(180deg,
+    rgba(240,235,227,1) 0%,
+    rgba(240,235,227,0.0) 18%,
+    rgba(15,38,49,0.25) 40%,
+    rgba(15,38,49,0.6) 70%,
+    rgba(15,38,49,0.94) 100%);
+  z-index: 2;
+}
+.p2 .safe-area {
+  justify-content: flex-start;
+  gap: 0.18in;
+  z-index: 3;
+}
+.p2__eyebrow { color: var(--red); }
+.p2__heading {
+  color: var(--teal-deep);
+  margin-top: 0.05in;
+}
+.p2__rule { margin-top: 0.08in; }
+.p2__body p {
+  margin-top: 0.1in;
+  color: var(--body);
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.p2__body p strong { color: var(--teal-deep); font-weight: 600; }
+.p2__manifesto {
+  margin-top: 0.2in;
+  padding: 0.18in 0;
+  border-top: 1px solid rgba(200,60,44,0.5);
+  border-bottom: 1px solid rgba(200,60,44,0.5);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12.5pt;
+  line-height: 1.4;
+  color: var(--teal-deep);
+  text-align: center;
+}
+.p2__verse {
+  margin-top: auto;
+  padding: 0.18in 0.2in 0.05in;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 9pt;
+  color: rgba(240,235,227,0.92);
+  line-height: 1.5;
+  text-align: center;
+  text-shadow: 0 1px 6px rgba(15,38,49,0.4);
+}
+.p2__verse-ref {
+  display: block;
+  margin-top: 0.06in;
+  font-family: var(--text);
+  font-style: normal;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--cream);
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ════════════════════════════════════════════ */
+/* P3 — THREE PILLARS                            */
+/* ════════════════════════════════════════════ */
+.p3 { background: var(--cream-lt); }
+.p3 .safe-area { gap: 0.14in; }
+.p3__eyebrow { color: var(--red); }
+.p3__heading { color: var(--teal-deep); }
+.p3__sub {
+  font-family: var(--text);
+  font-size: 10pt;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.04in;
+}
+.p3__rule { margin-top: 0.1in; margin-bottom: 0.12in; }
+.p3__pillars { display: flex; flex-direction: column; gap: 0.22in; }
+.pillar {
+  position: relative;
+  padding-left: 0.55in;
+  padding-top: 0.05in;
+  padding-bottom: 0.12in;
+  border-bottom: 1px solid rgba(27,58,75,0.1);
+}
+.pillar:last-child { border-bottom: 0; }
+.pillar__num {
+  position: absolute;
+  left: 0; top: 0.05in;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 26pt;
+  line-height: 1;
+  color: rgba(200,60,44,0.22);
+}
+.pillar__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14pt;
+  color: var(--teal-deep);
+  letter-spacing: -0.005em;
+}
+.pillar__desc {
+  font-family: var(--text);
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: var(--body);
+  margin-top: 0.04in;
+}
+.pillar__list {
+  list-style: none;
+  margin-top: 0.06in;
+  display: flex;
+  flex-direction: column;
+  gap: 0.02in;
+}
+.pillar__list li {
+  font-family: var(--text);
+  font-size: 9.5pt;
+  color: var(--teal-mid);
+  padding-left: 0.14in;
+  position: relative;
+  line-height: 1.4;
+}
+.pillar__list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.07in;
+  width: 6px; height: 1.5px;
+  background: var(--red);
+}
+.p3__cue {
+  margin-top: auto;
+  padding-top: 0.18in;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 9.5pt;
+  color: var(--muted);
+  text-align: right;
+}
+.p3__cue::after {
+  content: ' →';
+  color: var(--red);
+  font-style: normal;
+}
+
+/* ════════════════════════════════════════════ */
+/* P4-P5 — TIMELINE SPREAD (dark theme)          */
+/* ════════════════════════════════════════════ */
+.p4, .p5 {
+  background: var(--teal-deep);
+  color: var(--cream);
+}
+/* Layered gradient texture: vignette + warm bloom + linear depth.
+   Mirrored across P4 (bloom from upper-left) and P5 (bloom from upper-right)
+   so the spread reads as a single composition. */
+.p4 {
+  background:
+    radial-gradient(ellipse 7in 8in at 0% 0%, rgba(200,60,44,0.18), rgba(200,60,44,0) 60%),
+    radial-gradient(ellipse 5in 5in at 100% 100%, rgba(37,81,106,0.35), rgba(37,81,106,0) 70%),
+    linear-gradient(160deg, #133040 0%, #0F2631 55%, #081820 100%);
+}
+.p5 {
+  background:
+    radial-gradient(ellipse 7in 8in at 100% 0%, rgba(200,60,44,0.18), rgba(200,60,44,0) 60%),
+    radial-gradient(ellipse 5in 5in at 0% 100%, rgba(37,81,106,0.35), rgba(37,81,106,0) 70%),
+    linear-gradient(200deg, #133040 0%, #0F2631 55%, #081820 100%);
+}
+.p4__grain, .p5__grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+/* Soft vignette inside the trim to add depth at the page edges */
+.p4::after-overlay,
+.p5::after-overlay { }
+.p4 .safe-area, .p5 .safe-area { position: relative; z-index: 2; }
+.p4 .safe-area, .p5 .safe-area { gap: 0.1in; color: var(--cream); }
+
+/* Decorative oversized year marks — bleed off outer edges so the spread
+   reads as a single composition. Purely decorative typography. */
+.timeline__yearmark {
+  position: absolute;
+  top: -0.3in;             /* moved up — bleeds further off the top edge to free
+                              vertical space for the list below */
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 200pt;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(200,60,44,0.16);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+.p4 .timeline__yearmark { left: -0.45in; }
+.p5 .timeline__yearmark { right: -0.45in; }
+
+.timeline__eyebrow { color: var(--red); }
+.timeline__heading {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 32pt;
+  line-height: 0.98;
+  letter-spacing: -0.012em;
+  color: var(--cream);
+  max-width: 4.5in;
+}
+.timeline__heading em { font-style: italic; font-weight: 400; color: var(--slate-light); }
+
+.timeline__list {
+  list-style: none;
+  /* margin-top tuned to fit P4's 8 items (some wrap to 2 lines) without overflow.
+     List vertical centre lands at ~61% of the artboard. */
+  margin-top: 0.7in;
+  position: relative;
+  padding-left: 0.42in;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* cluster items vertically — keeps rhythm consistent
+                               between P4 (8 items, fills list) and P5 (5 items,
+                               cluster sits in the middle with breathing room). */
+}
+.tl-item {
+  position: relative;
+  flex: 0 0 auto;          /* natural content size — no stretching */
+  padding: 0.05in 0;
+}
+/* Dot — vertically centred in each item, horizontally centred on the rail.
+   Rail center is at 0.12in + 1px from list-left (~12.5px). Dot 10px → left = 12.5 - 5
+   = 7.5px = 0.078in from list-left. tl-item content-box starts at list padding-left
+   0.42in. ::before left = 0.078 - 0.42 = -0.342in.
+   Course = red; event (Big Read / conference / gathering) = cream. */
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -0.342in;
+  top: 50%;
+  margin-top: -5px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  z-index: 1;
+}
+.tl-item--event::before { background: var(--cream); }
+/* Per-item rail segment. Items are flush against one another so the rail reads as
+   continuous. Last item's rail terminates exactly at the dot centre — no line below. */
+.tl-item::after {
+  content: '';
+  position: absolute;
+  left: -0.3in;   /* x = 0.42 - 0.3 = 0.12in from list-left, on the rail axis */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--red);
+  z-index: 0;
+}
+.tl-item:last-child::after {
+  bottom: auto;
+  height: 50%;
+}
+.tl-item__date {
+  display: block;
+  font-family: var(--text);
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.04in;
+}
+.tl-item__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 12pt;
+  line-height: 1.18;
+  color: var(--cream);
+}
+.tl-item__by {
+  display: block;
+  font-family: var(--text);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.78);
+  margin-top: 0.04in;
+}
+
+/* Highlighted entries (May 2025 launch, May 2026 conference). Marker keeps its
+   category dot colour — only the row gets the red wash + larger title + brighter
+   date label. */
+.tl-item--ring {
+  background: linear-gradient(90deg, rgba(200,60,44,0.18), rgba(200,60,44,0) 92%);
+}
+.tl-item--ring .tl-item__title { font-size: 13.5pt; }
+.tl-item--ring .tl-item__date { color: var(--cream); }
+
+/* Two-category legend. Anchored below the safe-area bottom (into the trim
+   margin) so it sits closer to the page edge, ~0.05in clear of the trim line
+   for bindery safety. */
+.timeline__legend {
+  position: absolute;
+  left: 0;
+  bottom: -0.6in;
+  display: inline-flex;
+  gap: 0.22in;
+  font-family: var(--text);
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.6);
+}
+.timeline__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08in;
+}
+.timeline__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.timeline__legend-dot--course { background: var(--red); }
+.timeline__legend-dot--event  { background: var(--cream); }
+
+/* Grouped month — single date label with multiple events stacked beneath.
+   Used for September 2025 (3 events) and March 2026 (2 events). */
+.tl-group {
+  list-style: none;
+  margin-top: 0.05in;
+  display: flex;
+  flex-direction: column;
+}
+.tl-sub {
+  padding: 0.07in 0;
+}
+.tl-sub + .tl-sub {
+  border-top: 1px dotted rgba(240,235,227,0.13);
+}
+.tl-sub__title {
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 11.5pt;
+  line-height: 1.18;
+  color: var(--cream);
+}
+.tl-sub__by {
+  display: block;
+  margin-top: 0.03in;
+  font-family: var(--text);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.72);
+}
+
+/* ════════════════════════════════════════════ */
+/* P6 — VOICES OF THE YEAR (instructor gallery)  */
+/* ════════════════════════════════════════════ */
+.p6 { background: var(--cream); }
+.p6 .safe-area { gap: 0.08in; }
+.p6__eyebrow { color: var(--red); }
+.p6__heading {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 28pt;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--teal-deep);
+  margin-top: 0.04in;
+}
+.p6__heading em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal-mid);
+}
+.p6__sub {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--muted);
+  margin-top: 0.05in;
+  max-width: 4.5in;
+}
+.p6__rule {
+  background: var(--red);
+  width: 42px; height: 2.5px; border: 0;
+  margin-top: 0.1in;
+}
+.p6__grid {
+  margin-top: 0.22in;
+  margin-bottom: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.26in;
+  row-gap: 0.2in;
+  align-content: center;
+  flex: 1;
+}
+.face {
+  display: flex;
+  align-items: center;
+  gap: 0.14in;
+}
+.face__photo {
+  width: 0.85in;
+  height: 0.85in;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--slate-light);
+  box-shadow: 0 0 0 2px var(--cream-lt), 0 0 0 3px rgba(200,60,44,0.35);
+  flex-shrink: 0;
+}
+.face__name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 11.5pt;
+  line-height: 1.12;
+  color: var(--teal-deep);
+}
+.face__role {
+  display: block;
+  margin-top: 0.04in;
+  font-family: var(--text);
+  font-size: 7.2pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* ════════════════════════════════════════════ */
+/* P7 — INSIDE BACK COVER · JOIN THE MOVEMENT   */
+/* ════════════════════════════════════════════ */
+.p7 { background: var(--cream-lt); }
+.p7 .safe-area { gap: 0.1in; }
+.p7__eyebrow { color: var(--red); }
+.p7__heading { color: var(--teal-deep); margin-top: 0.06in; }
+.p7__heading em { font-style: italic; font-weight: 400; color: var(--teal-mid); }
+.p7__rule { margin-top: 0.1in; }
+.p7__body {
+  margin-top: 0.18in;
+  font-family: var(--text);
+  font-size: 10pt;
+  line-height: 1.6;
+  color: var(--body);
+}
+.p7__body p + p { margin-top: 0.1in; }
+
+.p7__steps {
+  margin-top: 0.24in;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12in;
+}
+.step {
+  display: grid;
+  grid-template-columns: 0.34in 1fr;
+  align-items: baseline;
+  gap: 0.05in;
+  padding-bottom: 0.1in;
+  border-bottom: 1px dotted rgba(27,58,75,0.18);
+}
+.step:last-child { border-bottom: 0; }
+.step__num {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 22pt;
+  line-height: 1;
+  color: var(--red);
+}
+.step__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13pt;
+  color: var(--teal-deep);
+  line-height: 1.15;
+}
+.step__url {
+  display: block;
+  margin-top: 0.04in;
+  font-family: var(--text);
+  font-size: 8.5pt;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.p7__primary {
+  margin-top: auto;
+  padding-top: 0.2in;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.2in;
+}
+.p7__primary-text {
+  font-family: var(--text);
+  font-size: 8.5pt;
+  color: var(--muted);
+  line-height: 1.4;
+  max-width: 2.6in;
+}
+.p7__primary-text strong {
+  display: block;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--teal-deep);
+  margin-bottom: 0.04in;
+}
+.p7__qr {
+  width: 1.1in; height: 1.1in;
+  background: #fff;
+  padding: 0.06in;
+  border: 1px solid rgba(27,58,75,0.1);
+  flex-shrink: 0;
+}
+.p7__qr img { width: 100%; height: 100%; display: block; }
+
+/* ════════════════════════════════════════════ */
+/* P8 — OUTSIDE BACK COVER                       */
+/* ════════════════════════════════════════════ */
+.p8 {
+  background: var(--teal-deep);
+  color: var(--cream);
+}
+.p8__grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.p8__glow {
+  position: absolute;
+  top: -2in; left: 50%;
+  transform: translateX(-50%);
+  width: 5in; height: 5in;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,60,44,0.25), rgba(200,60,44,0) 60%);
+  pointer-events: none;
+}
+.p8 .safe-area {
+  color: var(--cream);
+  align-items: center;
+  text-align: center;
+}
+.p8__eyebrow {
+  font-family: var(--text);
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.p8__wordmark {
+  margin-top: 0.45in;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 46pt;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.p8__wordmark em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--slate-light);
+}
+.p8__rule {
+  width: 42px; height: 2.5px; background: var(--red); border: 0;
+  margin: 0.22in auto;
+}
+.p8__tagline {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13pt;
+  line-height: 1.5;
+  color: rgba(240,235,227,0.78);
+  max-width: 3.8in;
+}
+.p8__url {
+  margin-top: 0.55in;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 16pt;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+}
+.p8__url-label {
+  display: block;
+  font-family: var(--text);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6.5pt;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.08in;
+}
+.p8__contact {
+  margin-top: auto;
+  padding-top: 0.2in;
+  font-family: var(--text);
+  font-size: 8pt;
+  line-height: 1.65;
+  color: rgba(240,235,227,0.6);
+}
+.p8__contact a { color: inherit; text-decoration: none; }
+.p8__contact-sep {
+  display: inline-block;
+  margin: 0 0.06in;
+  color: rgba(200,60,44,0.7);
+}
+.p8__ics-logo {
+  margin-top: 0.14in;
+  width: 1.3in;
+  height: auto;
+  opacity: 0.85;
+}
+.p8__provenance {
+  margin-top: 0.1in;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 7pt;
+  line-height: 1.45;
+  color: rgba(240,235,227,0.42);
+  max-width: 4in;
+}
+.p8__legal {
+  margin-top: 0.1in;
+  font-family: var(--text);
+  font-size: 6pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.35);
+}
+
+/* ════════════════════════════════════════════ */
+/* Floating print helper (screen only)           */
+/* ════════════════════════════════════════════ */
+.print-bar {
+  position: fixed;
+  top: 12px; right: 12px;
+  background: #111;
+  color: #fff;
+  font-family: var(--text);
+  font-size: 11px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: flex; gap: 10px; align-items: center;
+  z-index: 99999;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.print-bar button {
+  background: var(--red); color: #fff;
+  border: 0; padding: 6px 12px;
+  font-family: var(--text); font-weight: 600;
+  font-size: 11px; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer;
+  border-radius: 5px;
+}
+.print-bar label {
+  display: inline-flex; align-items: center; gap: 4px;
+  cursor: pointer; user-select: none;
+}
+.no-guides .page::before,
+.no-guides .page::after { display: none; }
+@media print { .print-bar { display: none; } }
+
+/* ════════════════════════════════════════════════════════════════
+   CROP MARKS BUILD — added by _build-pdfs.py for the crops PDF only.
+   ════════════════════════════════════════════════════════════════ */
+@page { size: 6.25in 9.25in; margin: 0; }
+.book { gap: 0.4in; }
+.crop-wrap {
+  position: relative;
+  width: 6.25in;
+  height: 9.25in;
+  background: #fff;
+  page-break-after: always;
+  break-after: page;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.35);
+}
+.crop-wrap:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+.crop-wrap .page {
+  position: absolute;
+  top: 0.25in;
+  left: 0.25in;
+  width: 5.75in;
+  height: 8.75in;
+  box-shadow: none;
+  page-break-after: auto;
+  break-after: auto;
+}
+@media print {
+  .crop-wrap { box-shadow: none; }
+  .book { gap: 0; padding: 0; background: none; }
+  html, body { background: #fff; }
+}
+/* ─── Crop marks ───────────────────────────────────────────────────
+   crop-wrap artboard: 6.25 x 9.25 in.
+   bleed edge: 0.25 in inside.   trim line: 0.375 in inside.
+   tick: 0.125 in long, 0.5 pt thick, gap 0.125 in from trim corner. */
+.cm {
+  position: absolute;
+  background: #000;
+}
+.cm-h { width: 0.125in; height: 0.5pt; }
+.cm-v { width: 0.5pt;   height: 0.125in; }
+/* Top-left corner */
+.cm-tl-h { top: 0.375in; left: 0.125in; }
+.cm-tl-v { left: 0.375in; top: 0.125in; }
+/* Top-right corner */
+.cm-tr-h { top: 0.375in; right: 0.125in; }
+.cm-tr-v { right: 0.375in; top: 0.125in; }
+/* Bottom-left corner */
+.cm-bl-h { bottom: 0.375in; left: 0.125in; }
+.cm-bl-v { left: 0.375in; bottom: 0.125in; }
+/* Bottom-right corner */
+.cm-br-h { bottom: 0.375in; right: 0.125in; }
+.cm-br-v { right: 0.375in; bottom: 0.125in; }
+
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <strong>F2BF · 8pp Booklet</strong>
+  <span>5.5×8.5 in · 0.125 in bleed</span>
+  <label><input type="checkbox" id="toggleGuides" checked> Show guides</label>
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="book" id="book">
+
+  <!-- ═══════════════════════ P1 — FRONT COVER ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p1" aria-label="Front cover">
+    <div class="p1__photo"></div>
+    <div class="p1__gradient"></div>
+    <div class="p1__grain"></div>
+    <div class="safe-area">
+      <div>
+        <div class="eyebrow p1__eyebrow">Institute for Christian Studies</div>
+      </div>
+      <div class="p1__lockup">
+        <div class="p1__wordmark">Free<br><em>to be</em><br>Faithful</div>
+        <div class="p1__tagline">Equipping Christians for Democratic Life.</div>
+        <hr class="rule p1__rule">
+        <div class="p1__year">2025 — 2026 Season</div>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P2 — MISSION ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p2" aria-label="Mission">
+    <div class="p2__photo"></div>
+    <div class="p2__photo-tint"></div>
+    <div class="p2__photo-gradient"></div>
+    <div class="safe-area">
+      <div class="eyebrow p2__eyebrow">Our Mission</div>
+      <h1 class="display-xl p2__heading">Finding a<br>Better Way.</h1>
+      <hr class="rule p2__rule">
+      <div class="p2__body body">
+        <p>Launched by the <strong>Institute for Christian Studies</strong> (ICS), Free to be Faithful is a <strong>program</strong>, a <strong>resource</strong>, and a <strong>community</strong>, designed to help Christians meet our complex moment.</p>
+        <p>Our courses, community, and events develop believers who are both <strong>faithfully Christian</strong> and <strong>deeply committed to the common good</strong> in our divided age.</p>
+      </div>
+      <blockquote class="p2__manifesto">
+        Rooted without becoming rigid.<br>
+        Bold without becoming belligerent.<br>
+        Faithful without becoming fearful.
+      </blockquote>
+      <div class="p2__verse">
+        &ldquo;For freedom Christ has set us free. Stand firm, therefore, and do not submit again to a yoke of slavery.&rdquo;
+        <span class="p2__verse-ref">Galatians 5 : 1</span>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P3 — THREE PILLARS ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p3" aria-label="Three pillars">
+    <div class="safe-area">
+      <div class="eyebrow p3__eyebrow">What we offer</div>
+      <h2 class="display-lg p3__heading">Program ·<br>Resource ·<br>Community.</h2>
+      <div class="p3__sub">Three ways F2BF helps you connect faith and life.</div>
+      <hr class="rule p3__rule">
+
+      <div class="p3__pillars">
+
+        <div class="pillar">
+          <div class="pillar__num">01</div>
+          <h3 class="pillar__title">Program</h3>
+          <p class="pillar__desc">Six-week online seminars led by world-class scholars, with the option to earn ICS credit toward degree completion.</p>
+          <ul class="pillar__list">
+            <li>Courses to foster deeper understanding</li>
+            <li>Retreats and intensives for all walks</li>
+            <li>Pathways toward a Master of Worldview Studies</li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar__num">02</div>
+          <h3 class="pillar__title">Resource</h3>
+          <p class="pillar__desc">Curated texts, essays, and dialogues on the issues facing Christians today, gathered, framed, and made shareable.</p>
+          <ul class="pillar__list">
+            <li>Curated texts to dive deeper</li>
+            <li>Shared expertise from scholars</li>
+            <li>Enriching dialogues to relive or discover</li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar__num">03</div>
+          <h3 class="pillar__title">Community</h3>
+          <p class="pillar__desc">Open events, coalitions, and conversations with welcoming people from every Christian tradition.</p>
+          <ul class="pillar__list">
+            <li>Open events to strengthen coalitions</li>
+            <li>Timely writing to challenge and inform</li>
+            <li>Welcoming people from every tradition</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="p3__cue">Where we&rsquo;ve been this year</div>
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P4 — TIMELINE 2025 ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p4" aria-label="Timeline 2025">
+    <div class="p4__grain"></div>
+    <div class="timeline__yearmark" aria-hidden="true">2025</div>
+    <div class="safe-area">
+      <div class="eyebrow timeline__eyebrow">A Year of Free to be Faithful</div>
+      <h2 class="timeline__heading">Where we&rsquo;ve been<em>&mdash; since May 2025.</em></h2>
+
+      <ul class="timeline__list">
+
+        <li class="tl-item tl-item--event tl-item--ring">
+          <span class="tl-item__date">May 2025 · Launch Gathering</span>
+          <div class="tl-item__title">Free to be Faithful</div>
+          <span class="tl-item__by">Grand Rapids</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">May 2025</span>
+          <div class="tl-item__title">Faithful Interpretation &amp; Questions of Sexuality</div>
+          <span class="tl-item__by">Sylvia Keesmaat &amp; Len Vander Zee</span>
+        </li>
+
+        <li class="tl-item tl-item--event">
+          <span class="tl-item__date">July 2025</span>
+          <div class="tl-item__title">Summer Big Read</div>
+          <span class="tl-item__by">Bruce Berglund with Kristin Kobes Du Mez</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">September 2025</span>
+          <div class="tl-item__title">Gender, Sexuality, and the Bible</div>
+          <span class="tl-item__by">with Sylvia Keesmaat</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">September 2025</span>
+          <div class="tl-item__title">Twentieth Century Authoritarianism</div>
+          <span class="tl-item__by">with Bruce Berglund</span>
+        </li>
+
+        <li class="tl-item tl-item--event">
+          <span class="tl-item__date">September 2025</span>
+          <div class="tl-item__title">Fall Big Read</div>
+          <span class="tl-item__by">Hanna Reichel &amp; Kristin Kobes Du Mez</span>
+        </li>
+
+        <li class="tl-item tl-item--event">
+          <span class="tl-item__date">October 2025</span>
+          <div class="tl-item__title">Reechanting the World Conference</div>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">October 2025</span>
+          <div class="tl-item__title">The Good, the True, the Beautiful</div>
+          <span class="tl-item__by">with Karen Swallow Prior</span>
+        </li>
+
+      </ul>
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P5 — TIMELINE 2026 ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p5" aria-label="Timeline 2026">
+    <div class="p5__grain"></div>
+    <div class="timeline__yearmark" aria-hidden="true">2026</div>
+    <div class="safe-area">
+      <div class="eyebrow timeline__eyebrow">&mdash; And where we&rsquo;re going.</div>
+      <h2 class="timeline__heading">The road ahead<em>&mdash; through 2026.</em></h2>
+
+      <ul class="timeline__list">
+
+        <li class="tl-item">
+          <span class="tl-item__date">January 2026</span>
+          <div class="tl-item__title">Reading the Ruins</div>
+          <span class="tl-item__by">with Angela Reitsma Bick</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">March 2026</span>
+          <div class="tl-item__title">The Christian-Jewish Question Today</div>
+          <span class="tl-item__by">with Matthew D. Taylor</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">March 2026</span>
+          <div class="tl-item__title">The Evangelical Imagination</div>
+          <span class="tl-item__by">with Karen Swallow Prior</span>
+        </li>
+
+        <li class="tl-item tl-item--event tl-item--ring">
+          <span class="tl-item__date">May 2026</span>
+          <div class="tl-item__title">Courageous Faith in a Time of Fear</div>
+          <span class="tl-item__by">Toronto · Public Conference</span>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-item__date">June 2026</span>
+          <div class="tl-item__title">The Contemplative Life in the Age of Distraction</div>
+          <span class="tl-item__by">with Jacob Benjamins</span>
+        </li>
+
+      </ul>
+
+      <div class="timeline__legend" aria-label="Legend">
+        <span class="timeline__legend-item">
+          <span class="timeline__legend-dot timeline__legend-dot--course"></span>
+          Course
+        </span>
+        <span class="timeline__legend-item">
+          <span class="timeline__legend-dot timeline__legend-dot--event"></span>
+          Event
+        </span>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P6 — VOICES OF THE YEAR ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p6" aria-label="Voices of the year">
+    <div class="safe-area">
+      <div class="eyebrow p6__eyebrow">Voices of the Year</div>
+      <h2 class="p6__heading">The people<br>shaping the <em>conversation.</em></h2>
+      <div class="p6__sub">Scholars, writers, and pastoral voices guiding our courses and gatherings.</div>
+      <hr class="p6__rule">
+
+      <div class="p6__grid">
+
+        <div class="face">
+          <img class="face__photo" src="https://images.squarespace-cdn.com/content/v1/5d35d91930e35e0001f32247/0fcc6065-90e9-4a47-b3cb-7351d0a4c970/Sylvia%2Bheadshot%2Bbirch%2Btree%2B%281%29.jpeg" alt="Sylvia Keesmaat">
+          <div>
+            <div class="face__name">Sylvia Keesmaat</div>
+            <span class="face__role">Scholar · Activist · Speaker</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://images.squarespace-cdn.com/content/v1/69727fb4d6a46a29f916f46c/1381afca-dddd-4968-9ddb-ff40af3676f5/Berglund%2Bauthor%2Bphoto.jpg" alt="Bruce Berglund">
+          <div>
+            <div class="face__name">Bruce Berglund</div>
+            <span class="face__role">Author · Historian</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/2d31b1d604d6538884d402ac037d369f/revisions/e75081dd3e4567a5fe6590cbc85cb12d/renditions/8b516c6d1e06707f737b0fda5e14f3cc" alt="Karen Swallow Prior">
+          <div>
+            <div class="face__name">Karen Swallow Prior</div>
+            <span class="face__role">Author · Bethel Seminary</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://ptsem.edu/wp-content/uploads/2024/04/Hanna-Reichel-News-Image-1.jpg" alt="Hanna Reichel">
+          <div>
+            <div class="face__name">Hanna Reichel</div>
+            <span class="face__role">Theologian · Princeton</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/59ce09f32a58fc316e527bcac3ad7d8a/revisions/7b6e0c0d080a8cca9fab99b0995a2faa/renditions/9ede31d929031de67041121df4df02a4" alt="Kristin Kobes Du Mez">
+          <div>
+            <div class="face__name">Kristin Kobes Du Mez</div>
+            <span class="face__role">Historian · Calvin University</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/ac9ebddbbf76bdfc058b0aa14d83a7d4/revisions/1b94460a02223f66fef75f366713a3ef/renditions/79d75a0f53fa09ac959c328dd508bb6d" alt="Angela Reitsma Bick">
+          <div>
+            <div class="face__name">Angela Reitsma Bick</div>
+            <span class="face__role">Former Editor in Chief · Christian Courier</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://www.drmatthewdtaylor.com/ui/images/mwvL1vOhAf-500.webp" alt="Matthew D. Taylor">
+          <div>
+            <div class="face__name">Matthew D. Taylor</div>
+            <span class="face__role">Scholar &amp; Author</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/4a7c49aa254f82866883d4ef75ed8fdd/revisions/f6c7ed0159314288a811c2e40aeb8435/renditions/1bd73e02f88bb8f9fa3929d07a0f6583" alt="Jacob Benjamins">
+          <div>
+            <div class="face__name">Jacob Benjamins</div>
+            <span class="face__role">Postdoctoral Fellow · ICS</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/b2c10be223564c4802d880c29342eff3/revisions/f91248eeef584c9a99b27f34b97cf736/renditions/80443c43064eb8ab5e73f7a8c1f86360" alt="Ron Kuipers">
+          <div>
+            <div class="face__name">Ron Kuipers</div>
+            <span class="face__role">President · ICS</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w" alt="Rev. Joash P. Thomas">
+          <div>
+            <div class="face__name">Joash P. Thomas</div>
+            <span class="face__role">Public Theologian · St. Stephen&rsquo;s</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/1989be880e740ae434956f4b5c309956/revisions/aade7317e21341bfa27d80682c0cdb11/renditions/17c5a8a134b987c53cbc6f72c7d4b019" alt="Gideon Strauss">
+          <div>
+            <div class="face__name">Gideon Strauss</div>
+            <span class="face__role">Philosopher · ICS</span>
+          </div>
+        </div>
+
+        <div class="face">
+          <img class="face__photo" src="https://bibleremixed.ca/cspics/graphics545.jpg?v=2" alt="Brian Walsh">
+          <div>
+            <div class="face__name">Brian Walsh</div>
+            <span class="face__role">Theologian &amp; Author</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P7 — JOIN THE MOVEMENT ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p7" aria-label="Join the movement">
+    <div class="safe-area">
+      <div class="eyebrow p7__eyebrow">Join the Movement</div>
+      <h2 class="display-lg p7__heading">Embrace Your <em>Freedom</em><br>to Be Faithful.</h2>
+      <hr class="rule p7__rule">
+      <div class="p7__body">
+        <p>Join a growing community of Christians who believe that ancient faith can actively engage the pressing issues of our time.</p>
+        <p>Whether you&rsquo;re seeking deeper study, curated reading, or simply a circle of welcoming people, there is a way in for you.</p>
+      </div>
+
+      <div class="p7__steps">
+
+        <div class="step">
+          <div class="step__num">01</div>
+          <div>
+            <div class="step__title">Explore the courses.</div>
+            <span class="step__url">f2bf.icscanada.edu/f2bf-courses</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__num">02</div>
+          <div>
+            <div class="step__title">Subscribe on Substack.</div>
+            <span class="step__url">instituteforchristianstudies.substack.com</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__num">03</div>
+          <div>
+            <div class="step__title">Support the work.</div>
+            <span class="step__url">icscanada.edu/donate</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p7__primary">
+        <div class="p7__primary-text">
+          <strong>Start here.</strong>
+          Scan to visit Free to be Faithful and find the next course, resource, or gathering for you.
+        </div>
+        <div class="p7__qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Ff2bf.icscanada.edu&amp;size=600x600&amp;ecc=H&amp;margin=1" alt="QR code to f2bf.icscanada.edu">
+        </div>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- ═══════════════════════ P8 — BACK COVER ═══════════════════════ -->
+  <div class="crop-wrap"><div class="cm cm-h cm-tl-h"></div><div class="cm cm-v cm-tl-v"></div><div class="cm cm-h cm-tr-h"></div><div class="cm cm-v cm-tr-v"></div><div class="cm cm-h cm-bl-h"></div><div class="cm cm-v cm-bl-v"></div><div class="cm cm-h cm-br-h"></div><div class="cm cm-v cm-br-v"></div><section class="page p8" aria-label="Back cover">
+    <div class="p8__grain"></div>
+    <div class="p8__glow"></div>
+    <div class="safe-area">
+      <div class="p8__eyebrow">For freedom Christ has set us free.</div>
+
+      <div class="p8__wordmark">Free<br><em>to be</em><br>Faithful</div>
+      <hr class="p8__rule">
+      <div class="p8__tagline">Rooted without becoming rigid. Bold without becoming belligerent. Faithful without becoming fearful.</div>
+
+      <div class="p8__url">
+        <span class="p8__url-label">Begin here</span>
+        f2bf.icscanada.edu
+      </div>
+	  
+	  <div class="p8__url">
+        <span class="p8__url-label">Support our programs</span>
+        icscanada.edu/donate
+      </div>
+
+      <div class="p8__contact">
+        59 St. George Street, Toronto, Ontario M5S 2E6
+        <span class="p8__contact-sep">·</span>
+        1-888-326-5347
+        <br>
+        info@icscanada.edu
+      </div>
+
+      <img class="p8__ics-logo" src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w" alt="Institute for Christian Studies">
+
+      <div class="p8__provenance">
+        A lifelong learning initiative of the Institute for Christian Studies &mdash; a graduate school in the Reformational tradition affiliated with the University of Toronto.
+      </div>
+      <div class="p8__legal">© 2026 Institute for Christian Studies</div>
+    </div>
+  </section></div>
+
+</div>
+
+<script>
+  document.getElementById('toggleGuides').addEventListener('change', function (e) {
+    document.getElementById('book').classList.toggle('no-guides', !e.target.checked);
+  });
+</script>
+
+</body>
+</html>
