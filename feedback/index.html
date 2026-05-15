@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/img/ICS_New_Favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/ICS_New_Favicon.png">
+  <title>Conference Feedback | Courageous Faith in a Time of Fear</title>
+  <meta name="description" content="Share your feedback from Courageous Faith in a Time of Fear, the Free to be Faithful + Knox College Ministry Forum conference, May 13–14, 2026.">
+  <link rel="canonical" href="https://f2bf.icscanada.edu/feedback">
+  <meta name="robots" content="noindex,follow">
+  <meta property="og:title" content="Conference Feedback | Courageous Faith in a Time of Fear">
+  <meta property="og:description" content="Share your feedback from the Courageous Faith in a Time of Fear conference.">
+  <meta property="og:url" content="https://f2bf.icscanada.edu/feedback">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Free to be Faithful">
+
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+
+  <style>
+    /* ════════════════════════════════════════════ */
+    /* FEEDBACK PAGE                                */
+    /* ════════════════════════════════════════════ */
+
+    .cff-hero {
+      position: relative; background: var(--teal-deep);
+      padding: 6rem 2.5rem 5rem; overflow: hidden;
+    }
+    .cff-hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    .cff-hero__inner {
+      max-width: 880px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .cff-hero__eyebrow {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1rem;
+    }
+    .cff-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.05; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 1rem;
+    }
+    .cff-hero__title em { font-style: italic; font-weight: 400; color: var(--slate-light); }
+    .cff-hero__sub {
+      font-family: var(--display); font-style: italic;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: rgba(188,199,208,0.7); line-height: 1.5;
+      max-width: 640px;
+    }
+
+    /* ── Form shell ── */
+    .cff-form-wrap {
+      background: var(--cream-lt); padding: 4.5rem 1.5rem 6rem;
+    }
+    .cff-form {
+      max-width: 880px; margin: 0 auto;
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.08);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 6px 24px rgba(15,38,49,0.06);
+    }
+    .cff-intro {
+      padding: 2.5rem 2.5rem 0;
+      font-family: var(--text); font-size: 1.02rem;
+      color: var(--body); line-height: 1.75;
+    }
+    .cff-intro p { margin: 0 0 1rem; }
+    .cff-intro strong { color: var(--teal); font-weight: 600; }
+
+    /* Sections */
+    .cff-section {
+      padding: 2.5rem 2.5rem 0.5rem;
+      border-top: 1px solid rgba(27,58,75,0.08);
+      margin-top: 1.5rem;
+    }
+    .cff-section:first-of-type { border-top: none; margin-top: 0.5rem; }
+    .cff-section__label {
+      font-family: var(--text); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.5rem;
+    }
+    .cff-section__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.55rem; color: var(--teal); line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .cff-section__lead {
+      font-family: var(--text); font-size: 0.98rem;
+      color: var(--muted); line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Questions */
+    .cff-q {
+      padding: 1.8rem 2.5rem;
+    }
+    .cff-q__title {
+      font-family: var(--display); font-weight: 600;
+      font-size: 1.05rem; color: var(--ink); line-height: 1.45;
+      margin-bottom: 0.4rem;
+    }
+    .cff-q__hint {
+      font-family: var(--text); font-size: 0.85rem;
+      color: var(--muted); line-height: 1.5;
+      margin-bottom: 0.9rem; font-style: italic;
+    }
+
+    /* Choice lists (radio / checkbox) */
+    .cff-choices {
+      display: flex; flex-direction: column; gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .cff-choice {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid rgba(27,58,75,0.12);
+      border-radius: 8px; cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--body); line-height: 1.5;
+      background: var(--white);
+    }
+    .cff-choice:hover {
+      border-color: rgba(27,58,75,0.3);
+      background: var(--faint, #f6f3ec);
+    }
+    .cff-choice input[type="radio"],
+    .cff-choice input[type="checkbox"] {
+      margin-top: 0.2rem; accent-color: var(--red);
+      width: 16px; height: 16px; flex-shrink: 0;
+    }
+    .cff-choice input:checked + span { color: var(--teal); font-weight: 600; }
+    .cff-choice:has(input:checked) {
+      border-color: var(--teal); background: rgba(27,58,75,0.04);
+    }
+
+    /* Inline "other" input */
+    .cff-other {
+      margin-top: 0.6rem; padding-left: 0.4rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .cff-other label {
+      font-family: var(--text); font-size: 0.88rem;
+      color: var(--muted); white-space: nowrap;
+    }
+    .cff-other input {
+      flex: 1; padding: 0.55rem 0.8rem;
+      border: 1px solid rgba(27,58,75,0.18);
+      border-radius: 6px; font-family: var(--text);
+      font-size: 0.95rem; color: var(--ink);
+      background: var(--white);
+    }
+    .cff-other input:focus {
+      outline: none; border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(27,58,75,0.12);
+    }
+
+    /* Textarea */
+    .cff-textarea {
+      width: 100%; min-height: 110px;
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(27,58,75,0.18);
+      border-radius: 8px;
+      font-family: var(--text); font-size: 1rem;
+      color: var(--ink); line-height: 1.6;
+      resize: vertical; background: var(--white);
+    }
+    .cff-textarea:focus {
+      outline: none; border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(27,58,75,0.12);
+    }
+    .cff-input {
+      width: 100%; padding: 0.7rem 1rem;
+      border: 1px solid rgba(27,58,75,0.18);
+      border-radius: 8px; font-family: var(--text);
+      font-size: 1rem; color: var(--ink); background: var(--white);
+    }
+    .cff-input:focus {
+      outline: none; border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(27,58,75,0.12);
+    }
+
+    /* Rating tables */
+    .cff-rate {
+      width: 100%; border-collapse: collapse;
+      margin-top: 0.5rem;
+      font-family: var(--text); font-size: 0.94rem;
+    }
+    .cff-rate th, .cff-rate td {
+      padding: 0.7rem 0.5rem;
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+      text-align: center; vertical-align: middle;
+    }
+    .cff-rate th {
+      font-weight: 700; font-size: 0.78rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--teal);
+    }
+    .cff-rate th:first-child, .cff-rate td:first-child {
+      text-align: left; color: var(--body); font-weight: 500;
+      width: 42%;
+    }
+    .cff-rate input[type="radio"] {
+      accent-color: var(--red); width: 18px; height: 18px;
+      cursor: pointer;
+    }
+
+    /* Mobile: stack rating rows */
+    @media (max-width: 640px) {
+      .cff-rate, .cff-rate thead, .cff-rate tbody,
+      .cff-rate tr, .cff-rate th, .cff-rate td {
+        display: block; width: 100%;
+      }
+      .cff-rate thead { display: none; }
+      .cff-rate tr {
+        padding: 1rem 0; border-bottom: 1px solid rgba(27,58,75,0.08);
+      }
+      .cff-rate td {
+        padding: 0.35rem 0; border: none;
+        display: flex; align-items: center; gap: 0.7rem;
+      }
+      .cff-rate td:first-child {
+        font-weight: 600; color: var(--teal);
+        font-size: 1rem; margin-bottom: 0.5rem;
+      }
+      .cff-rate td::before {
+        content: attr(data-label);
+        font-size: 0.85rem; color: var(--muted);
+        text-transform: uppercase; letter-spacing: 0.06em;
+        font-weight: 600; min-width: 80px;
+      }
+      .cff-rate td:first-child::before { content: none; }
+    }
+
+    /* Submit row */
+    .cff-actions {
+      padding: 2rem 2.5rem 2.5rem;
+      border-top: 1px solid rgba(27,58,75,0.08);
+      margin-top: 1.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      align-items: stretch;
+    }
+    .cff-submit {
+      display: inline-flex; justify-content: center; align-items: center;
+      gap: 0.45em; font-family: var(--text);
+      font-size: 0.98rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 1em 2.4em; border: none; cursor: pointer;
+      border-radius: 100px;
+      background: var(--red); color: var(--white);
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .cff-submit:hover:not(:disabled) {
+      background: var(--red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(200,60,44,0.25);
+    }
+    .cff-submit:disabled {
+      opacity: 0.6; cursor: not-allowed; transform: none;
+    }
+    .cff-status {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--muted); text-align: center; line-height: 1.5;
+    }
+    .cff-status.is-error { color: #c83c2c; font-weight: 600; }
+
+    /* Thank-you state */
+    .cff-thanks {
+      display: none; padding: 4rem 2.5rem; text-align: center;
+    }
+    .cff-thanks.is-active { display: block; }
+    .cff-form.is-submitted .cff-intro,
+    .cff-form.is-submitted .cff-section,
+    .cff-form.is-submitted .cff-actions { display: none; }
+    .cff-thanks__icon {
+      font-size: 3rem; color: var(--red); margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .cff-thanks__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--teal); margin-bottom: 1rem;
+    }
+    .cff-thanks__body {
+      font-family: var(--text); font-size: 1.05rem;
+      color: var(--body); line-height: 1.75;
+      max-width: 560px; margin: 0 auto 2rem;
+    }
+    .cff-thanks__cta {
+      display: inline-flex; align-items: center; gap: 0.45em;
+      font-family: var(--text); font-size: 0.95rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.85em 2.4em; border-radius: 100px;
+      background: var(--teal); color: var(--white);
+      text-decoration: none; transition: all 0.35s ease;
+    }
+    .cff-thanks__cta:hover {
+      background: var(--teal-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(27,58,75,0.25);
+    }
+
+    @media (max-width: 640px) {
+      .cff-intro, .cff-section, .cff-q, .cff-actions { padding-left: 1.4rem; padding-right: 1.4rem; }
+      .cff-form-wrap { padding: 2.5rem 0.8rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <a class="f2bf-header__logo-link" href="/">
+      <img alt="Institute for Christian Studies" class="f2bf-header__logo-img"
+           src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png" />
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item"><a class="f2bf-nav__link" href="/">Free to be Faithful</a></li>
+        <li class="f2bf-nav__item"><a class="f2bf-nav__link" href="/f2bf-program">Program</a></li>
+        <li class="f2bf-nav__item"><a class="f2bf-nav__link" href="/f2bf-resource">Resources</a></li>
+        <li class="f2bf-nav__item">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item"><a class="f2bf-nav__link" href="/f2bf-courses">Courses</a></li>
+      </ul>
+    </nav>
+    <button aria-label="Open menu" class="f2bf-burger" id="f2bf-burger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button aria-label="Close menu" class="f2bf-mobile-menu__close" id="f2bf-mobile-close-btn">&times;</button>
+  <a class="f2bf-mobile-menu__link" href="/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="/f2bf-community">Community</a>
+      <a href="/events">All Events</a>
+      <a href="/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
+</div>
+
+<!-- Main -->
+<main>
+  <!-- Hero -->
+  <section class="cff-hero">
+    <div class="cff-hero__inner">
+      <p class="cff-hero__eyebrow">Conference Feedback Questionnaire</p>
+      <h1 class="cff-hero__title">Courageous Faith <em>in a Time of</em> Fear</h1>
+      <p class="cff-hero__sub">Your reflections shape what comes next. Thank you for taking a few minutes to share them.</p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="cff-form-wrap">
+    <form class="cff-form" id="cffForm" novalidate>
+
+      <div class="cff-intro">
+        <p>Thank you for participating in <strong>Courageous Faith in a Time of Fear</strong>. We are deeply grateful for your presence, insights, and engagement throughout the conference.</p>
+        <p>Your feedback will help us strengthen future gatherings and continue building spaces for thoughtful, courageous, and community-centered public faith. This survey should take approximately <strong>5–8 minutes</strong> to complete, and all responses are anonymous.</p>
+      </div>
+
+      <!-- ════ SECTION 1: General Information ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 1</p>
+        <h2 class="cff-section__title">General Information</h2>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">1. How did you participate in the conference?</p>
+        <div class="cff-choices">
+          <label class="cff-choice"><input type="radio" name="q1_participation" value="In person (full conference)"><span>In person (full conference)</span></label>
+          <label class="cff-choice"><input type="radio" name="q1_participation" value="In person (keynotes only)"><span>In person (keynotes only)</span></label>
+          <label class="cff-choice"><input type="radio" name="q1_participation" value="Online livestream"><span>Online livestream</span></label>
+          <label class="cff-choice"><input type="radio" name="q1_participation" value="__other__" data-other="q1_other"><span>Other</span></label>
+        </div>
+        <div class="cff-other"><label for="q1_other">If other:</label><input type="text" id="q1_other" name="q1_participation_other" placeholder="Please specify"></div>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">2. Which best describes you?</p>
+        <div class="cff-choices">
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Pastor / ministry leader"><span>Pastor / ministry leader</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Student / educator"><span>Student / educator</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Academic / researcher"><span>Academic / researcher</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Community organizer / activist"><span>Community organizer / activist</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Artist / creative practitioner"><span>Artist / creative practitioner</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Lay church member"><span>Lay church member</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="Nonprofit / organizational leader"><span>Nonprofit / organizational leader</span></label>
+          <label class="cff-choice"><input type="radio" name="q2_role" value="__other__" data-other="q2_other"><span>Other</span></label>
+        </div>
+        <div class="cff-other"><label for="q2_other">If other:</label><input type="text" id="q2_other" name="q2_role_other" placeholder="Please specify"></div>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">3. How did you hear about the conference?</p>
+        <div class="cff-choices">
+          <label class="cff-choice"><input type="radio" name="q3_source" value="ICS / Free to be Faithful email"><span>ICS / Free to be Faithful email</span></label>
+          <label class="cff-choice"><input type="radio" name="q3_source" value="Social media"><span>Social media</span></label>
+          <label class="cff-choice"><input type="radio" name="q3_source" value="Friend or colleague"><span>Friend or colleague</span></label>
+          <label class="cff-choice"><input type="radio" name="q3_source" value="Church or organization"><span>Church or organization</span></label>
+          <label class="cff-choice"><input type="radio" name="q3_source" value="Speaker recommendation"><span>Speaker recommendation</span></label>
+          <label class="cff-choice"><input type="radio" name="q3_source" value="Podcast / newsletter"><span>Podcast / newsletter</span></label>
+          <label class="cff-choice"><input type="radio" name="q3_source" value="__other__" data-other="q3_other"><span>Other</span></label>
+        </div>
+        <div class="cff-other"><label for="q3_other">If other:</label><input type="text" id="q3_other" name="q3_source_other" placeholder="Please specify"></div>
+      </div>
+
+      <!-- ════ SECTION 2: Overall Experience ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 2</p>
+        <h2 class="cff-section__title">Overall Experience</h2>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">4. Please rate the following aspects of the conference.</p>
+        <table class="cff-rate">
+          <thead>
+            <tr><th>Area</th><th>Excellent</th><th>Good</th><th>Fair</th><th>Poor</th></tr>
+          </thead>
+          <tbody id="cffRate1"></tbody>
+        </table>
+      </div>
+
+      <!-- ════ SECTION 3: Conference Content & Impact ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 3</p>
+        <h2 class="cff-section__title">Conference Content &amp; Impact</h2>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">5. What was the most meaningful or impactful part of the conference for you?</p>
+        <textarea class="cff-textarea" name="q5_meaningful"></textarea>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">6. Did the conference help you think differently about faith, fear, public life, or community formation? If so, how?</p>
+        <textarea class="cff-textarea" name="q6_thinking"></textarea>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">7. Were there particular speakers, sessions, or conversations that especially resonated with you? Why?</p>
+        <textarea class="cff-textarea" name="q7_resonated"></textarea>
+      </div>
+
+      <!-- ════ SECTION 4: Community & Conversation ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 4</p>
+        <h2 class="cff-section__title">Community &amp; Conversation</h2>
+        <p class="cff-section__lead">One of the goals of this conference was not simply to present ideas, but to cultivate thoughtful and courageous community.</p>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">8. To what extent did the conference foster meaningful dialogue and connection?</p>
+        <div class="cff-choices">
+          <label class="cff-choice"><input type="radio" name="q8_dialogue" value="Very much"><span>Very much</span></label>
+          <label class="cff-choice"><input type="radio" name="q8_dialogue" value="Somewhat"><span>Somewhat</span></label>
+          <label class="cff-choice"><input type="radio" name="q8_dialogue" value="A little"><span>A little</span></label>
+          <label class="cff-choice"><input type="radio" name="q8_dialogue" value="Not at all"><span>Not at all</span></label>
+        </div>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">9. Were there voices, perspectives, or topics you wished had been more present in the conference?</p>
+        <textarea class="cff-textarea" name="q9_missing"></textarea>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">10. How well did the conference balance critique, hope, practical action, and theological reflection?</p>
+        <textarea class="cff-textarea" name="q10_balance"></textarea>
+      </div>
+
+      <!-- ════ SECTION 5: Future Directions ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 5</p>
+        <h2 class="cff-section__title">Future Directions</h2>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">11. What kinds of topics, themes, or questions would you like future conferences or Free to be Faithful events to explore?</p>
+        <textarea class="cff-textarea" name="q11_future_topics"></textarea>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">12. Would you be interested in future opportunities connected to this work?</p>
+        <p class="cff-q__hint">Check all that apply.</p>
+        <div class="cff-choices">
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Future conferences"><span>Future conferences</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Online seminars / courses"><span>Online seminars / courses</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Reading groups"><span>Reading groups</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Pastoral leadership gatherings"><span>Pastoral leadership gatherings</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Local community conversations"><span>Local community conversations</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Podcasts / video conversations"><span>Podcasts / video conversations</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Writing or contributing reflections"><span>Writing or contributing reflections</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="Volunteer opportunities"><span>Volunteer opportunities</span></label>
+          <label class="cff-choice"><input type="checkbox" name="q12_interests" value="__other__" data-other="q12_other"><span>Other</span></label>
+        </div>
+        <div class="cff-other"><label for="q12_other">If other:</label><input type="text" id="q12_other" name="q12_interests_other" placeholder="Please specify"></div>
+      </div>
+
+      <!-- ════ SECTION 6: Logistics & Organization ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 6</p>
+        <h2 class="cff-section__title">Logistics &amp; Organization</h2>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">13. How would you rate the following logistical aspects of the conference?</p>
+        <table class="cff-rate">
+          <thead>
+            <tr><th>Area</th><th>Excellent</th><th>Good</th><th>Fair</th><th>Poor</th></tr>
+          </thead>
+          <tbody id="cffRate2"></tbody>
+        </table>
+      </div>
+
+      <!-- ════ SECTION 7: Final Reflections ════ -->
+      <div class="cff-section">
+        <p class="cff-section__label">Part 7</p>
+        <h2 class="cff-section__title">Final Reflections</h2>
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">14. What is one word or phrase that captures your experience of the conference?</p>
+        <input type="text" class="cff-input" name="q14_one_word" placeholder="e.g., hopeful, challenging, restorative…">
+      </div>
+
+      <div class="cff-q">
+        <p class="cff-q__title">15. Is there anything else you would like us to know?</p>
+        <textarea class="cff-textarea" name="q15_anything_else"></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="cff-actions">
+        <button type="submit" class="cff-submit" id="cffSubmit">Submit Feedback</button>
+        <p class="cff-status" id="cffStatus">Thank you again for participating in <em>Courageous Faith in a Time of Fear</em> and for helping shape the future of these conversations through <strong>Free to be Faithful</strong>.</p>
+      </div>
+
+      <!-- Thank-you state -->
+      <div class="cff-thanks" id="cffThanks">
+        <div class="cff-thanks__icon">&#10084;</div>
+        <h2 class="cff-thanks__title">Thank you</h2>
+        <p class="cff-thanks__body">Your feedback has been received. We are deeply grateful for your reflections — they will shape future Free to be Faithful gatherings.</p>
+        <a class="cff-thanks__cta" href="/conference-may13">Back to the Conference</a>
+      </div>
+
+    </form>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="f2bf-footer" role="contentinfo">
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#1B3A4B" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img class="f2bf-footer-brand__logo-img"
+               src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+               alt="Institute for Christian Studies" loading="lazy" />
+        </a>
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg></a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+        </div>
+      </div>
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="/f2bf-program">Program</a></li>
+          <li><a href="/f2bf-courses">Courses</a></li>
+          <li><a href="/f2bf-resource">Resources</a></li>
+          <li><a href="/f2bf-community">Community</a></li>
+          <li><a href="/events">Events</a></li>
+        </ul>
+      </nav>
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu"><span>info@icscanada.edu</span></a></p>
+        </div>
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">&copy; 2026 Institute for Christian Studies.<br>All rights reserved.</p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+    </div>
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/nav.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Apps Script Web App endpoint ── */
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbweE3r6V4ocbGhMXNWerlIF1wg94aNEfsYjQIDBDRbEHDxpHPU7mLzGmGPBJUGj8m88/exec';
+
+  /* ── Rating table rows ── */
+  var RATE_1 = [
+    ['q4_overall',       'Overall conference experience'],
+    ['q4_keynotes',      'Quality of keynote presentations'],
+    ['q4_workshops',     'Workshops / breakout sessions'],
+    ['q4_roundtables',   'Roundtable discussions'],
+    ['q4_conversation',  'Opportunities for meaningful conversation'],
+    ['q4_relevance',     'Relevance of themes and topics'],
+    ['q4_diversity',     'Diversity of perspectives represented'],
+    ['q4_hospitality',   'Hospitality and organization'],
+    ['q4_online',        'Online participation experience (if applicable)']
+  ];
+  var RATE_2 = [
+    ['q13_registration',  'Registration process'],
+    ['q13_communication', 'Communication before the event'],
+    ['q13_venue',         'Venue and facilities'],
+    ['q13_food',          'Food and refreshments'],
+    ['q13_av',            'Audio/visual quality'],
+    ['q13_livestream',    'Livestream / online access'],
+    ['q13_schedule',      'Schedule and pacing']
+  ];
+  var SCALE = ['Excellent', 'Good', 'Fair', 'Poor'];
+
+  function buildRateRows(tbodyId, rows) {
+    var tbody = document.getElementById(tbodyId);
+    rows.forEach(function (r) {
+      var tr = document.createElement('tr');
+      var th = document.createElement('td');
+      th.textContent = r[1];
+      tr.appendChild(th);
+      SCALE.forEach(function (val) {
+        var td = document.createElement('td');
+        td.setAttribute('data-label', val);
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = r[0];
+        input.value = val;
+        input.setAttribute('aria-label', r[1] + ' — ' + val);
+        td.appendChild(input);
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+  buildRateRows('cffRate1', RATE_1);
+  buildRateRows('cffRate2', RATE_2);
+
+  /* ── Collect form data ── */
+  function collectData() {
+    var form = document.getElementById('cffForm');
+    var data = {};
+
+    /* Radios */
+    var radioNames = {};
+    form.querySelectorAll('input[type="radio"]').forEach(function (r) { radioNames[r.name] = true; });
+    Object.keys(radioNames).forEach(function (name) {
+      var sel = form.querySelector('input[type="radio"][name="' + name + '"]:checked');
+      if (!sel) { data[name] = ''; return; }
+      if (sel.value === '__other__') {
+        var otherId = sel.getAttribute('data-other');
+        var otherInput = otherId ? document.getElementById(otherId) : null;
+        data[name] = 'Other: ' + ((otherInput && otherInput.value.trim()) || '');
+      } else {
+        data[name] = sel.value;
+      }
+    });
+
+    /* Checkboxes — group by name */
+    var checkboxNames = {};
+    form.querySelectorAll('input[type="checkbox"]').forEach(function (c) { checkboxNames[c.name] = true; });
+    Object.keys(checkboxNames).forEach(function (name) {
+      var checked = form.querySelectorAll('input[type="checkbox"][name="' + name + '"]:checked');
+      var vals = [];
+      checked.forEach(function (c) {
+        if (c.value === '__other__') {
+          var otherId = c.getAttribute('data-other');
+          var otherInput = otherId ? document.getElementById(otherId) : null;
+          vals.push('Other: ' + ((otherInput && otherInput.value.trim()) || ''));
+        } else {
+          vals.push(c.value);
+        }
+      });
+      data[name] = vals.join('; ');
+    });
+
+    /* Textareas + text inputs (not the "_other" sidekicks already merged) */
+    form.querySelectorAll('textarea, input[type="text"]').forEach(function (el) {
+      if (!el.name) return;
+      if (/_other$/.test(el.name)) return;
+      data[el.name] = el.value.trim();
+    });
+
+    return data;
+  }
+
+  /* ── Submit ── */
+  var form = document.getElementById('cffForm');
+  var submitBtn = document.getElementById('cffSubmit');
+  var status = document.getElementById('cffStatus');
+  var thanks = document.getElementById('cffThanks');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    status.classList.remove('is-error');
+    status.textContent = 'Sending your feedback…';
+
+    var payload = collectData();
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(function () {
+      form.classList.add('is-submitted');
+      thanks.classList.add('is-active');
+      window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    }).catch(function () {
+      submitBtn.disabled = false;
+      status.classList.add('is-error');
+      status.textContent = 'Something went wrong sending your feedback. Please try again, or email info@icscanada.edu.';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
