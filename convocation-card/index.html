@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ICS Convocation 2026 Card — 7×5 (v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --wine: #9B0D24;
+  --wine-deep: #7A0A1C;
+  --wine-mid: #BE0B28;
+  --accent: #A85A32;
+  --accent-light: #C87A52;
+  --accent-pale: #EEDACA;
+  --cream: #FDFBF7;
+  --cream-warm: #F9F5ED;
+  --text-dark: #2E1318;
+  --text-body: #3A3330;
+  --text-muted: #857E78;
+  --text-on-dark: #E8C2C2;
+  --rule: rgba(46,19,24,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html, body {
+  background: #e0ddd8;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
+.card-wrapper:last-child { margin-bottom: 0; }
+
+.page-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10pt;
+  color: #999;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+/* 7×5 trim + 0.125" bleed all around => 7.25 × 5.25 design surface */
+.card {
+  width: 7.25in;
+  height: 5.25in;
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+  page-break-after: always;
+  break-after: page;
+}
+.card-wrapper:last-child .card { page-break-after: auto; break-after: auto; }
+
+.trim-guide {
+  position: absolute;
+  top: 0.125in; left: 0.125in; right: 0.125in; bottom: 0.125in;
+  border: 1px dashed rgba(0,0,0,0.18);
+  pointer-events: none;
+  z-index: 200;
+}
+.safe-guide {
+  position: absolute;
+  top: 0.375in; left: 0.375in; right: 0.375in; bottom: 0.375in;
+  border: 1px dotted rgba(0,0,0,0.10);
+  pointer-events: none;
+  z-index: 200;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ============================================================
+   WINE TOP BAND — bleeds top + sides (shared across both cards)
+   ============================================================ */
+.top-band {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.66in;
+  background: var(--wine-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.125in 0.55in 0 0.55in;
+  z-index: 4;
+}
+.top-band::before {
+  /* subtle warm overlay */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 50%, rgba(168,90,50,0.18) 0%, rgba(168,90,50,0) 50%),
+    linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.12) 100%);
+  pointer-events: none;
+}
+.top-band::after {
+  /* hairline accent rule beneath the band */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+}
+.top-band .logo {
+  height: 0.32in;
+  width: auto;
+  position: relative;
+  z-index: 2;
+}
+.top-band .occasion {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   COMMON TYPOGRAPHY
+   ============================================================ */
+.eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+.eyebrow.on-dark { color: var(--accent-light); }
+
+/* ============================================================
+   PORTRAIT SIZES
+   ============================================================ */
+.portrait {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cream-warm);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+  flex-shrink: 0;
+}
+.portrait--lg { width: 1.35in; height: 1.35in; }
+.portrait--md { width: 1.3in;  height: 1.3in; }
+.portrait--sm { width: 0.78in; height: 0.78in; }
+
+/* ============================================================
+   QUOTE TYPOGRAPHY
+   ============================================================ */
+.quote {
+  position: relative;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  color: var(--text-dark);
+  padding-left: 0.7rem;
+}
+.quote::before {
+  content: '\201C';
+  position: absolute;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.55;
+}
+.quote--lg       { font-size: 10pt;  line-height: 1.5; }
+.quote--lg::before { font-size: 32pt; top: -0.36rem; left: -0.14rem; }
+.quote--md       { font-size: 10pt;  line-height: 1.5; }
+.quote--md::before { font-size: 30pt; top: -0.32rem; left: -0.12rem; }
+.quote--sm       { font-size: 8pt;   line-height: 1.45; }
+.quote--sm::before { font-size: 20pt; top: -0.18rem; left: -0.06rem; }
+
+/* ============================================================
+   ATTRIBUTION
+   ============================================================ */
+.attribution {
+  margin-top: 0.45rem;
+  padding-top: 0.32rem;
+  border-top: 1px solid var(--rule);
+}
+.attribution.compact {
+  margin-top: 0.32rem;
+  padding-top: 0.24rem;
+}
+.attribution .name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--wine);
+  letter-spacing: 0.005em;
+}
+.attribution.compact .name { font-size: 9pt; }
+.attribution .class {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-top: 0.1rem;
+}
+.attribution.compact .class { font-size: 7pt; }
+.attribution .url-line {
+  margin-top: 0.28rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.attribution .url-line::before {
+  content: '↗';
+  margin-right: 0.22rem;
+  color: var(--accent);
+  font-size: 7pt;
+}
+.attribution.compact .url-line { font-size: 7pt; margin-top: 0.22rem; }
+
+/* Program eyebrow above each testimonial */
+.program {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ============================================================
+   SIDE 1
+   ============================================================ */
+.side-1 .greeting {
+  position: absolute;
+  top: 0.85in;
+  left: 0.55in;
+  right: 0.55in;
+}
+.side-1 .greeting .eyebrow { color: var(--accent); }
+.side-1 .thesis {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 19pt;
+  font-weight: 700;
+  color: var(--wine);
+  line-height: 1.18;
+  margin-top: 0.22rem;
+  max-width: 5.6in;
+  letter-spacing: -0.005em;
+}
+.side-1 .thesis em { font-style: italic; }
+
+.side-1 .voices {
+  position: absolute;
+  top: 1.82in;
+  left: 0.55in;
+  right: 0.55in;
+  bottom: 0.3in;
+  display: grid;
+  grid-template-columns: 1.25fr 1px 0.68fr;
+  gap: 0.28in;
+}
+.side-1 .v-divider {
+  background: var(--rule);
+  width: 1px;
+  height: 100%;
+  justify-self: center;
+}
+
+/* HERO block: portrait floats left, quote wraps; attribution clears beneath */
+.hero-block { display: block; }
+.hero-block .program { margin-bottom: 0.32rem; }
+.hero-block .portrait--lg {
+  float: left;
+  margin: 0.05in 0.18in 0.08in 0;
+}
+.hero-block .quote { margin-top: 0; }
+.hero-block .attribution { clear: both; }
+
+/* SUPPORTING block: stacked */
+.supporting-block { display: flex; flex-direction: column; }
+.supporting-block .portrait { margin: 0.32rem 0 0 0; }
+.supporting-block .quote { margin-top: 0.42rem; }
+
+/* ============================================================
+   SIDE 2
+   ============================================================ */
+.side-2 .layout {
+  position: absolute;
+  top: 0.66in;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 3.95in 1fr;
+}
+
+.side-2 .testimony-pane {
+  position: relative;
+  background: var(--cream);
+  padding: 0.42in 0.4in 0.32in 0.55in;
+}
+.side-2 .testimony-pane .program { margin-bottom: 0.32rem; }
+.side-2 .testimony-pane .portrait { margin-bottom: 0.4rem; }
+
+.side-2 .cta-pane {
+  position: relative;
+  background: var(--wine-deep);
+  color: var(--cream);
+  padding: 0.42in 0.42in 0.34in 0.42in;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.side-2 .cta-pane::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(168,90,50,0.18) 0%, rgba(168,90,50,0) 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.18) 100%);
+  pointer-events: none;
+}
+
+.cta-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  position: relative;
+  z-index: 2;
+}
+.cta-headline {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17pt;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.14;
+  color: var(--cream);
+  margin-top: 0.28rem;
+  position: relative;
+  z-index: 2;
+  letter-spacing: -0.005em;
+}
+.cta-rule {
+  width: 34px;
+  height: 2px;
+  background: var(--accent-light);
+  margin-top: 0.42rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-primary {
+  margin-top: 0.4rem;
+  display: flex;
+  gap: 0.16in;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Brand-styled QR with embedded ICS seal */
+.cta-qr-wrap {
+  position: relative;
+  width: 0.92in;
+  height: 0.92in;
+  flex: 0 0 0.92in;
+}
+.cta-qr {
+  width: 100%;
+  height: 100%;
+  background: var(--cream);
+  padding: 0.04in;
+  border-radius: 2px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.32);
+}
+.cta-qr img { width: 100%; height: 100%; display: block; }
+.cta-qr-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.28in;
+  height: 0.28in;
+  background: var(--wine-deep);
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px var(--cream);
+}
+.cta-qr-seal .mark {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 7pt;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cta-give-text { flex: 1; min-width: 0; padding-top: 0.02in; }
+.cta-give-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+}
+.cta-give-action {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--cream);
+  margin-top: 0.14rem;
+  line-height: 1.2;
+}
+.cta-give-url {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 500;
+  color: var(--text-on-dark);
+  margin-top: 0.2rem;
+  letter-spacing: 0.02em;
+}
+.cta-give-scan {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  margin-top: 0.22rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+}
+.cta-give-scan::before {
+  content: '⌖';
+  font-size: 9pt;
+  opacity: 0.85;
+}
+
+/* Secondary CTAs */
+.cta-secondary-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  margin-top: 0.42rem;
+  position: relative;
+  z-index: 2;
+}
+.cta-secondary {
+  margin-top: 0.18rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+.cta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+.cta-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+.cta-row .label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  flex: 0 0 0.5in;
+}
+.cta-row .detail {
+  font-family: 'Outfit', sans-serif;
+  font-size: 8pt;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+/* Campaign line + Footer */
+.cta-campaign {
+  margin-top: auto;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 7.5pt;
+  color: var(--text-on-dark);
+  position: relative;
+  z-index: 2;
+  padding-top: 0.4rem;
+  line-height: 1.4;
+}
+.cta-campaign .campaign-name {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--accent-light);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 7pt;
+}
+
+.cta-footer {
+  margin-top: 0.22rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 7pt;
+  color: var(--text-on-dark);
+  opacity: 0.9;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 2;
+}
+.cta-footer .org {
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  html, body { background: none; padding: 0; }
+  .card-wrapper { margin-bottom: 0; }
+  .card { box-shadow: none; margin: 0; page-break-after: always; break-after: page; }
+  .card-wrapper:last-child .card { page-break-after: auto; break-after: auto; }
+  .page-label { display: none; }
+  .trim-guide, .safe-guide { display: none; }
+  @page { size: 7.25in 5.25in; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SIDE 1 — Greeting + thesis + hero voice + supporting voice    -->
+<!-- ============================================================ -->
+<div class="card-wrapper">
+  <div class="page-label">Side 1 — Greeting · Hero Voice · Supporting Voice</div>
+  <section class="card side-1">
+    <div class="top-band">
+      <img class="logo"
+           src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png"
+           alt="Institute for Christian Studies">
+    </div>
+
+    <div class="greeting">
+      <h1 class="thesis">Spacious faith for a <em>divided world.</em></h1>
+    </div>
+
+    <div class="voices">
+      <!-- HERO VOICE — Carolyn Bentum -->
+      <div class="hero-block">
+        <img class="portrait portrait--lg"
+             src="https://lightroom.adobe.com/v2c/spaces/f1ec2d4210f140609f4918405837ebbf/assets/2f3a5d5cf054441784d515b01c15dfdb/revisions/b4f6d225049f43dd8b7784b606212089/renditions/6b3a51879bc2c5d5404ca7260b7ba7a3"
+             alt="Carolyn Bentum">
+        <div class="hero-content">
+          <div class="program">Educational Leadership</div>
+          <p class="quote quote--lg">In an intimate group, you can become more vulnerable; you can talk about your experiences that are happening right now and connect it to your learning, and know that people are there to support you and pray for you.&rdquo;</p>
+          <div class="attribution">
+            <div class="name">Carolyn Bentum</div>
+            <div class="class">MA&ndash;EL &middot; Class of &rsquo;27</div>
+            <div class="url-line">education.icscanada.edu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-divider"></div>
+
+      <!-- SUPPORTING VOICE — Ann Post -->
+      <div class="supporting-block">
+        <div class="program">Free to Be Faithful</div>
+        <img class="portrait portrait--sm"
+             src="https://lightroom.adobe.com/v2c/spaces/6b009cde4bac44838800259e47af370e/assets/d461569080b34d2e9af25b8e100da317/revisions/b742191c01f44f05a1ed846c625b2616/renditions/1cd9a25d82c051459a79c695e1fc3d2c"
+             alt="Ann Post">
+        <p class="quote quote--sm">ICS offers a unique educational perspective which is irreplaceable&hellip; I am proud and happy to be a part of its story.&rdquo;</p>
+        <div class="attribution compact">
+          <div class="name">Ann Post</div>
+          <div class="class">MWS &middot; Class of &rsquo;25</div>
+          <div class="url-line">f2bf.icscanada.edu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="safe-guide"></div>
+    <div class="trim-guide"></div>
+  </section>
+</div>
+
+<!-- ============================================================ -->
+<!-- SIDE 2 — One voice + the ask                                  -->
+<!-- ============================================================ -->
+<div class="card-wrapper">
+  <div class="page-label">Side 2 — Testimony · The Ask</div>
+  <section class="card side-2">
+    <div class="top-band">
+      <img class="logo"
+           src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png"
+           alt="Institute for Christian Studies">
+    </div>
+
+    <div class="layout">
+      <!-- LEFT — Dave Lee testimony -->
+      <div class="testimony-pane">
+        <div class="program">MA &amp; PhD in Philosophy</div>
+        <img class="portrait portrait--md"
+             src="https://lightroom.adobe.com/v2c/spaces/f41dd63dcd3e4b9289a6828dd7f6a8e5/assets/86629e72bf53983c51353744c5b60cb9/revisions/f5867a2a4cb94ffdb0b854bdce63cb95/renditions/de7d656aed68137adedf1d65b32d6b75"
+             alt="Dave Lee">
+        <p class="quote quote--md">I thought my M.A. at ICS was just going to be an academic pursuit on the side, but I felt like it made everything more holistic. At ICS, there is no separation between academia and ministry&mdash;they go hand in hand.&rdquo;</p>
+        <div class="attribution">
+          <div class="name">Dave Lee</div>
+          <div class="class">MA &middot; Class of &rsquo;25</div>
+          <div class="url-line">icscanada.edu/philosophy</div>
+        </div>
+      </div>
+
+      <!-- RIGHT — CTA panel -->
+      <div class="cta-pane">
+        <h2 class="cta-headline">Will you partner with us?</h2>
+        <div class="cta-rule"></div>
+		<br>
+
+        <div class="cta-primary">
+          <div class="cta-qr-wrap">
+            <div class="cta-qr">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=0&data=https%3A%2F%2Ficscanada.edu%2Fdonate&color=7A0A1C&bgcolor=FDFBF7&ecc=H&qzone=1"
+                   alt="QR code linking to icscanada.edu/donate">
+            </div>
+            <div class="cta-qr-seal">
+              <span class="mark">ics</span>
+            </div>
+          </div>
+          <div class="cta-give-text">
+            <div class="cta-give-label">Give</div>
+            <div class="cta-give-action">Form leaders.<br>Sustain this work.</div>
+            <div class="cta-give-url">icscanada.edu/donate</div>
+          </div>
+        </div>
+		
+	<br>
+	<br>
+
+        <div class="cta-secondary-label">Or stay connected</div>
+        <div class="cta-secondary">
+          <div class="cta-row">
+            <div class="label">Apply</div>
+            <div class="detail">icscanada.edu/admissions</div>
+          </div>
+          <div class="cta-row">
+            <div class="label">Connect</div>
+            <div class="detail">info@icscanada.edu</div>
+          </div>
+        </div>
+
+<br>
+<br>
+        <div class="cta-footer">
+          <span class="org">Institute for Christian Studies</span><br>
+          59 St. George St., Toronto, ON&nbsp;&nbsp;M5S 2E6<br>
+          Registered Canadian charity &middot; BN 107508434RR0001
+        </div>
+      </div>
+    </div>
+
+    <div class="safe-guide"></div>
+    <div class="trim-guide"></div>
+  </section>
+</div>
+
+</body>
+</html>
