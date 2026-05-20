@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,8 +172,11 @@ img { display: block; max-width: 100%; }
   position: relative;
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
-  color: var(--text-dark);
-  padding-left: 0.7rem;
+  color: var(--wine-deep);
+  padding: 0.1in 0.14in 0.1in 0.7rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(238,218,202,0.22);
+  border-radius: 0 2px 2px 0;
 }
 .quote::before {
   content: '\201C';
@@ -182,14 +186,14 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   line-height: 1;
   color: var(--accent);
-  opacity: 0.55;
+  opacity: 0.7;
 }
-.quote--lg       { font-size: 10pt;  line-height: 1.5; }
-.quote--lg::before { font-size: 32pt; top: -0.36rem; left: -0.14rem; }
-.quote--md       { font-size: 10pt;  line-height: 1.5; }
-.quote--md::before { font-size: 30pt; top: -0.32rem; left: -0.12rem; }
-.quote--sm       { font-size: 8pt;   line-height: 1.45; }
-.quote--sm::before { font-size: 20pt; top: -0.18rem; left: -0.06rem; }
+.quote--lg       { font-size: 11pt;  line-height: 1.48; }
+.quote--lg::before { font-size: 32pt; top: -0.1rem; left: -0.08rem; }
+.quote--md       { font-size: 11pt;  line-height: 1.48; }
+.quote--md::before { font-size: 30pt; top: -0.08rem; left: -0.06rem; }
+.quote--sm       { font-size: 10.5pt; line-height: 1.45; }
+.quote--sm::before { font-size: 20pt; top: -0.02rem; left: -0.02rem; }
 
 /* ============================================================
    ATTRIBUTION
@@ -205,7 +209,7 @@ img { display: block; max-width: 100%; }
 }
 .attribution .name {
   font-family: 'Libre Baskerville', serif;
-  font-size: 10pt;
+  font-size: 11pt;
   font-weight: 700;
   color: var(--wine);
   letter-spacing: 0.005em;
@@ -240,7 +244,7 @@ img { display: block; max-width: 100%; }
 /* Program eyebrow above each testimonial */
 .program {
   font-family: 'Outfit', sans-serif;
-  font-size: 7.5pt;
+  font-size: 8pt;
   font-weight: 700;
   color: var(--accent);
   text-transform: uppercase;
@@ -248,58 +252,81 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================================
-   SIDE 1
+   SIDE 1 — Hero
    ============================================================ */
 .side-1 .greeting {
   position: absolute;
-  top: 0.85in;
-  left: 0.55in;
-  right: 0.55in;
+  top: 0.66in;
+  left: 0;
+  right: 0;
+  bottom: 2.75in;
+  background: var(--wine);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.55in;
 }
-.side-1 .greeting .eyebrow { color: var(--accent); }
+.side-1 .greeting::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
 .side-1 .thesis {
   font-family: 'Libre Baskerville', serif;
-  font-size: 19pt;
+  font-size: 24pt;
   font-weight: 700;
-  color: var(--wine);
+  color: var(--cream);
   line-height: 1.18;
-  margin-top: 0.22rem;
-  max-width: 5.6in;
+  max-width: 6in;
   letter-spacing: -0.005em;
+  text-align: center;
 }
-.side-1 .thesis em { font-style: italic; }
+.side-1 .thesis em {
+  font-style: italic;
+  color: var(--accent-pale);
+}
 
-.side-1 .voices {
+/* Hero testimonial: single featured voice */
+.side-1 .hero-testimonial {
   position: absolute;
-  top: 1.82in;
+  top: 2.5in;
   left: 0.55in;
   right: 0.55in;
   bottom: 0.3in;
-  display: grid;
-  grid-template-columns: 1.25fr 1px 0.68fr;
-  gap: 0.28in;
+  display: flex;
+  gap: 0.24in;
+  align-items: flex-start;
+  padding-top: 0.28in;
 }
-.side-1 .v-divider {
-  background: var(--rule);
-  width: 1px;
-  height: 100%;
-  justify-self: center;
+.portrait--xl { width: 1.5in; height: 1.5in; }
+.side-1 .hero-testimonial .hero-content {
+  flex: 1;
+  min-width: 0;
 }
+.side-1 .hero-testimonial .program { margin-bottom: 0.2rem; }
+.side-1 .hero-testimonial .quote { margin-top: 0; }
+.quote--hero       { font-size: 12pt;  line-height: 1.48; }
+.quote--hero::before { font-size: 36pt; top: -0.12rem; left: -0.08rem; }
 
-/* HERO block: portrait floats left, quote wraps; attribution clears beneath */
-.hero-block { display: block; }
-.hero-block .program { margin-bottom: 0.32rem; }
-.hero-block .portrait--lg {
+/* Side 2: stacked testimony blocks */
+.testimony-block { display: block; }
+.testimony-block .portrait--sm {
   float: left;
-  margin: 0.05in 0.18in 0.08in 0;
+  margin: 0.02in 0.16in 0.08in 0;
 }
-.hero-block .quote { margin-top: 0; }
-.hero-block .attribution { clear: both; }
-
-/* SUPPORTING block: stacked */
-.supporting-block { display: flex; flex-direction: column; }
-.supporting-block .portrait { margin: 0.32rem 0 0 0; }
-.supporting-block .quote { margin-top: 0.42rem; }
+.testimony-block .quote { margin-top: 0; }
+.testimony-block .attribution { clear: both; }
+.testimony-block .program { margin-bottom: 0.18rem; }
+.t-divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0.22in 0;
+}
 
 /* ============================================================
    SIDE 2
@@ -317,10 +344,11 @@ img { display: block; max-width: 100%; }
 .side-2 .testimony-pane {
   position: relative;
   background: var(--cream);
-  padding: 0.42in 0.4in 0.32in 0.55in;
+  padding: 0.32in 0.4in 0.28in 0.45in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.side-2 .testimony-pane .program { margin-bottom: 0.32rem; }
-.side-2 .testimony-pane .portrait { margin-bottom: 0.4rem; }
 
 .side-2 .cta-pane {
   position: relative;
@@ -564,51 +592,27 @@ img { display: block; max-width: 100%; }
 <body>
 
 <!-- ============================================================ -->
-<!-- SIDE 1 — Greeting + thesis + hero voice + supporting voice    -->
+<!-- SIDE 1 — Hero title + Featured voice                          -->
 <!-- ============================================================ -->
 <div class="card-wrapper">
-  <div class="page-label">Side 1 — Greeting · Hero Voice · Supporting Voice</div>
+  <div class="page-label">Side 1 — Hero · Featured Voice</div>
   <section class="card side-1">
-    <div class="top-band">
-      <img class="logo"
-           src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png"
-           alt="Institute for Christian Studies">
-    </div>
 
     <div class="greeting">
-      <h1 class="thesis">Spacious faith for a <em>divided world.</em></h1>
+      <h1 class="thesis">Where Faith Meets <em>Rigorous Scholarship</em></h1>
     </div>
 
-    <div class="voices">
-      <!-- HERO VOICE — Carolyn Bentum -->
-      <div class="hero-block">
-        <img class="portrait portrait--lg"
-             src="https://lightroom.adobe.com/v2c/spaces/f1ec2d4210f140609f4918405837ebbf/assets/2f3a5d5cf054441784d515b01c15dfdb/revisions/b4f6d225049f43dd8b7784b606212089/renditions/6b3a51879bc2c5d5404ca7260b7ba7a3"
-             alt="Carolyn Bentum">
-        <div class="hero-content">
-          <div class="program">Educational Leadership</div>
-          <p class="quote quote--lg">In an intimate group, you can become more vulnerable; you can talk about your experiences that are happening right now and connect it to your learning, and know that people are there to support you and pray for you.&rdquo;</p>
-          <div class="attribution">
-            <div class="name">Carolyn Bentum</div>
-            <div class="class">MA&ndash;EL &middot; Class of &rsquo;27</div>
-            <div class="url-line">education.icscanada.edu</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="v-divider"></div>
-
-      <!-- SUPPORTING VOICE — Ann Post -->
-      <div class="supporting-block">
-        <div class="program">Free to Be Faithful</div>
-        <img class="portrait portrait--sm"
-             src="https://lightroom.adobe.com/v2c/spaces/6b009cde4bac44838800259e47af370e/assets/d461569080b34d2e9af25b8e100da317/revisions/b742191c01f44f05a1ed846c625b2616/renditions/1cd9a25d82c051459a79c695e1fc3d2c"
-             alt="Ann Post">
-        <p class="quote quote--sm">ICS offers a unique educational perspective which is irreplaceable&hellip; I am proud and happy to be a part of its story.&rdquo;</p>
-        <div class="attribution compact">
-          <div class="name">Ann Post</div>
-          <div class="class">MWS &middot; Class of &rsquo;25</div>
-          <div class="url-line">f2bf.icscanada.edu</div>
+    <div class="hero-testimonial">
+      <img class="portrait portrait--xl"
+           src="https://lightroom.adobe.com/v2c/spaces/f1ec2d4210f140609f4918405837ebbf/assets/2f3a5d5cf054441784d515b01c15dfdb/revisions/b4f6d225049f43dd8b7784b606212089/renditions/6b3a51879bc2c5d5404ca7260b7ba7a3"
+           alt="Carolyn Bentum">
+      <div class="hero-content">
+        <div class="program">Educational Leadership</div>
+        <p class="quote quote--hero">In an intimate group, you can become more vulnerable; you can talk about your experiences that are happening right now and connect it to your learning, and know that people are there to support you and pray for you.&rdquo;</p>
+        <div class="attribution">
+          <div class="name">Carolyn Bentum</div>
+          <div class="class">MA&ndash;EL &middot; Class of &rsquo;27</div>
+          <div class="url-line">education.icscanada.edu</div>
         </div>
       </div>
     </div>
@@ -624,24 +628,36 @@ img { display: block; max-width: 100%; }
 <div class="card-wrapper">
   <div class="page-label">Side 2 — Testimony · The Ask</div>
   <section class="card side-2">
-    <div class="top-band">
-      <img class="logo"
-           src="https://files.constantcontact.com/0e42c4d3901/2a0902db-1ac0-454b-9a69-805b1b2aa58b.png"
-           alt="Institute for Christian Studies">
-    </div>
 
     <div class="layout">
-      <!-- LEFT — Dave Lee testimony -->
+      <!-- LEFT — Two testimonies -->
       <div class="testimony-pane">
-        <div class="program">MA &amp; PhD in Philosophy</div>
-        <img class="portrait portrait--md"
-             src="https://lightroom.adobe.com/v2c/spaces/f41dd63dcd3e4b9289a6828dd7f6a8e5/assets/86629e72bf53983c51353744c5b60cb9/revisions/f5867a2a4cb94ffdb0b854bdce63cb95/renditions/de7d656aed68137adedf1d65b32d6b75"
-             alt="Dave Lee">
-        <p class="quote quote--md">I thought my M.A. at ICS was just going to be an academic pursuit on the side, but I felt like it made everything more holistic. At ICS, there is no separation between academia and ministry&mdash;they go hand in hand.&rdquo;</p>
-        <div class="attribution">
-          <div class="name">Dave Lee</div>
-          <div class="class">MA &middot; Class of &rsquo;25</div>
-          <div class="url-line">icscanada.edu/philosophy</div>
+        <div class="testimony-block">
+          <div class="program">Lifelong Learning</div>
+          <img class="portrait portrait--sm"
+               src="https://lightroom.adobe.com/v2c/spaces/6b009cde4bac44838800259e47af370e/assets/d461569080b34d2e9af25b8e100da317/revisions/b742191c01f44f05a1ed846c625b2616/renditions/1cd9a25d82c051459a79c695e1fc3d2c"
+               alt="Ann Post">
+          <p class="quote quote--sm">ICS offers a unique educational perspective which is irreplaceable&hellip; I am proud and happy to be a part of its story.&rdquo;</p>
+          <div class="attribution compact">
+            <div class="name">Ann Post</div>
+            <div class="class">MWS &middot; Class of &rsquo;25</div>
+            <div class="url-line">f2bf.icscanada.edu</div>
+          </div>
+        </div>
+
+        <hr class="t-divider">
+
+        <div class="testimony-block">
+          <div class="program">MA &amp; PhD in Philosophy</div>
+          <img class="portrait portrait--sm"
+               src="https://lightroom.adobe.com/v2c/spaces/f41dd63dcd3e4b9289a6828dd7f6a8e5/assets/86629e72bf53983c51353744c5b60cb9/revisions/f5867a2a4cb94ffdb0b854bdce63cb95/renditions/de7d656aed68137adedf1d65b32d6b75"
+               alt="Dave Lee">
+          <p class="quote quote--sm">I thought my M.A. at ICS was just going to be an academic pursuit on the side, but I felt like it made everything more holistic. At ICS, there is no separation between academia and ministry&mdash;they go hand in hand.&rdquo;</p>
+          <div class="attribution compact">
+            <div class="name">Dave Lee</div>
+            <div class="class">MA &middot; Class of &rsquo;25</div>
+            <div class="url-line">icscanada.edu/philosophy</div>
+          </div>
         </div>
       </div>
 
