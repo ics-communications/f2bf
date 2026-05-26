@@ -898,7 +898,7 @@
     var now = new Date();
     var placeholder = [
       { summary: 'Free to be Faithful: Public Lecture', da: 3, time: '7 PM', loc: '59 St. George St', desc: 'An evening of reflection and dialogue on what it means to live faithfully in the public square. Open to all.' },
-      { summary: 'The Contemplative Life in the Age of Distraction', da: 5, time: '6:30 PM', loc: 'Online', desc: 'How might we live a contemplative life in an age of digital distraction? This course examines both the difficulty and promise of cultivating contemplative practices as a resource for navigating political chaos, the crisis of truth, and spiritual exhaustion. Instructor: Jacob Benjamins.' },
+      { summary: 'The Contemplative Life in the Age of Distraction', date: '2026-06-16', time: '6:30 PM', loc: 'Online', desc: 'How might we live a contemplative life in an age of digital distraction? This course examines both the difficulty and promise of cultivating contemplative practices as a resource for navigating political chaos, the crisis of truth, and spiritual exhaustion. Instructor: Jacob Benjamins.' },
       { summary: 'Critical Faith Podcast: Live Recording', da: 12, time: '6:30 PM', loc: 'ICS Campus', desc: 'Join us for a live taping of the Critical Faith podcast. Audience participation welcome.' },
       { summary: 'MWS-E Information Session', da: 18, time: '12 PM', loc: 'Online', desc: 'Learn about the Master of Worldview Studies in Education program, hear from current students, and ask questions.' },
       { summary: 'Scripture, Faith & Scholarship Series', da: 22, time: '7 PM', loc: 'ICS Campus', desc: '' },
@@ -909,8 +909,8 @@
     ];
     var currentMonth = '';
     placeholder.forEach(function(ev) {
-      var d = new Date(now);
-      d.setDate(d.getDate() + ev.da);
+      var d = ev.date ? parseDate(ev.date) : new Date(now);
+      if (!ev.date) d.setDate(d.getDate() + ev.da);
       var monthKey = d.getFullYear() + '-' + d.getMonth();
 
       if (monthKey !== currentMonth) {

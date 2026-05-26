@@ -137,7 +137,7 @@ This is the **core editorial spread** and the only place dates and names appear.
   - **March 2026** — *The Christian-Jewish Question Today* · Taylor
   - **March 2026** — *The Evangelical Imagination* · Swallow Prior
   - **May 2026** — *Courageous Faith in a Time of Fear* (conference)
-  - **June 2026** — *The Contemplative Life in the Age of Distraction* · Benjamins
+  - **June 16, 2026** — *The Contemplative Life in the Age of Distraction* · Benjamins
 
 - **Typographic treatment:** Months in small caps red; titles in display serif italic; presenters in body text small caps.
 - **Visual texture:** A small icon system (e.g., dot = course, ring = conference) keeps the rhythm without naming categories explicitly.

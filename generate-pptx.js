@@ -308,7 +308,7 @@ async function main() {
     { date: "MAR 2026", title: "The Christian-Jewish Question Today", sub: "Matthew D. Taylor", isEvent: false },
     { date: "MAR 2026", title: "The Evangelical Imagination", sub: "Karen Swallow Prior", isEvent: false },
     { date: "MAY 2026", title: "Courageous Faith in a Time of Fear", sub: "Toronto · Public Conference", isEvent: true, highlight: true },
-    { date: "JUN 2026", title: "The Contemplative Life in the Age of Distraction", sub: "Jacob Benjamins", isEvent: false },
+    { date: "JUN 16, 2026", title: "The Contemplative Life in the Age of Distraction", sub: "Jacob Benjamins", isEvent: false },
   ];
   tl2026.forEach((item, i) => {
     const yBase = 0.7 + i * 0.8;
