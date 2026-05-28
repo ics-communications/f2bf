@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<title>Free to be Faithful — 11×17 Poster</title>
+<meta name="description" content="Print-ready 11×17 promotional poster for Free to be Faithful (Institute for Christian Studies). Trim 11×17in, bleed 0.125in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   FREE TO BE FAITHFUL — 11×17 Poster
+   Trim: 11 × 17 in · Bleed: 0.125 in · Artboard: 11.25 × 17.25 in
+   Safe area: 0.375 in from artboard edge (0.25 in inside trim)
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  --teal-deep:   #0F2631;
+  --teal-mid:    #25516A;
+  --red:         #C83C2C;
+  --slate-light: #D6DDE2;
+  --cream:       #F0EBE3;
+  --cream-lt:    #F7F4EF;
+
+  --display: 'Playfair Display', Georgia, serif;
+  --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+  --bleed:      0.125in;
+  --safe:       0.375in;
+  --poster-w:   11.25in;
+  --poster-h:   17.25in;
+}
+
+@page {
+  size: 11.25in 17.25in;
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #2b2b2b;
+  font-family: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ════ Poster ════ */
+.poster-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 0.5in 0;
+}
+.poster {
+  position: relative;
+  width: var(--poster-w);
+  height: var(--poster-h);
+  overflow: hidden;
+  background: var(--teal-deep);
+  box-shadow: 0 12px 50px rgba(0,0,0,0.35);
+}
+
+/* Guides — screen only */
+.poster::before,
+.poster::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+.poster::before {
+  inset: var(--bleed);
+  outline: 1px dashed rgba(255, 80, 80, 0.55);
+}
+.poster::after {
+  inset: var(--safe);
+  outline: 1px dashed rgba(80, 200, 120, 0.4);
+}
+@media print {
+  .poster::before, .poster::after { display: none; }
+  .poster-wrap { padding: 0; background: none; }
+  html, body { background: #fff; }
+  .poster { box-shadow: none; }
+  .print-bar { display: none; }
+}
+
+/* ════ Full-bleed photo layer ════ */
+.cover__photo {
+  position: absolute; inset: 0;
+  background-image: url('https://lightroom.adobe.com/v2c/spaces/796283b06b914932aaff4c457375828c/assets/30c19c62dc8448afb3d319426fd0d25c/revisions/33c9a6f8378d4ebea32cfb4f8c7d50ed/renditions/321e45597328e883c4e3599a2d4a4b1c');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  filter: saturate(0.5) contrast(1.05);
+}
+.cover__gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15,38,49,0.12) 0%,
+    rgba(15,38,49,0.04) 15%,
+    rgba(15,38,49,0.08) 35%,
+    rgba(15,38,49,0.45) 55%,
+    rgba(15,38,49,0.82) 70%,
+    rgba(15,38,49,0.96) 85%,
+    rgba(15,38,49,0.99) 100%);
+}
+.cover__grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ════ Content — positioned within safe area ════ */
+.safe-area {
+  position: absolute;
+  inset: var(--safe);
+  color: var(--cream);
+  z-index: 2;
+}
+
+/* ════ ICS eyebrow — pinned to top-left ════ */
+.eyebrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--text);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.6);
+}
+
+/* ════ Bottom content — text stack + QR, bottom-aligned ════ */
+.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Left: text stack */
+.text-stack {
+  flex: 1;
+  min-width: 0;
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 120pt;
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+}
+.wordmark em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--slate-light);
+}
+
+.tagline {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20pt;
+  color: rgba(240,235,227,0.8);
+  margin-top: 0.2in;
+}
+
+.rule {
+  width: 72px;
+  height: 3px;
+  background: var(--red);
+  border: 0;
+  margin-top: 0.2in;
+}
+
+.manifesto {
+  margin-top: 0.45in;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17pt;
+  line-height: 1.6;
+  color: rgba(240,235,227,0.75);
+}
+.manifesto__rule {
+  width: 36px;
+  height: 2px;
+  background: var(--red);
+  border: 0;
+  margin-top: 0.3in;
+}
+.pillars {
+  margin-top: 0.2in;
+  font-family: var(--text);
+  font-size: 10pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.55);
+}
+.pillars__sep {
+  display: inline-block;
+  margin: 0 0.14in;
+  color: rgba(200,60,44,0.6);
+}
+
+/* ════ Right: QR group — URL text + QR code ════ */
+.qr-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.22in;
+  flex-shrink: 0;
+  margin-left: 0.5in;
+}
+
+.qr-group__text {
+  text-align: right;
+  padding-bottom: 0.15in;
+}
+.qr-group__label {
+  font-family: var(--text);
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.08in;
+}
+.qr-group__url {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 16pt;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+}
+
+.qr-group__code {
+  width: 1.56in;
+  height: 1.56in;
+  background: var(--cream);
+  padding: 0.1in;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px rgba(200,60,44,0.2),
+    0 4px 16px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+.qr-group__code img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ════ Print bar (screen only) ════ */
+.print-bar {
+  position: fixed;
+  top: 12px; right: 12px;
+  background: #111;
+  color: #fff;
+  font-family: var(--text);
+  font-size: 11px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: flex; gap: 10px; align-items: center;
+  z-index: 99999;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.print-bar button {
+  background: var(--red); color: #fff;
+  border: 0; padding: 6px 12px;
+  font-family: var(--text); font-weight: 600;
+  font-size: 11px; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer;
+  border-radius: 5px;
+}
+.print-bar label {
+  display: inline-flex; align-items: center; gap: 4px;
+  cursor: pointer; user-select: none;
+}
+.no-guides .poster::before,
+.no-guides .poster::after { display: none; }
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <strong>F2BF &middot; Poster</strong>
+  <span>11&times;17 in &middot; 0.125 in bleed</span>
+  <label><input type="checkbox" id="toggleGuides" checked> Show guides</label>
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="poster-wrap" id="posterWrap">
+<div class="poster">
+
+  <div class="cover__photo"></div>
+  <div class="cover__gradient"></div>
+  <div class="cover__grain"></div>
+
+  <div class="safe-area">
+
+    <div class="eyebrow">Institute for Christian Studies</div>
+
+    <div class="bottom">
+
+      <div class="text-stack">
+        <div class="wordmark">Free<br><em>to be</em><br>Faithful</div>
+        <div class="tagline">Equipping Christians for Democratic Life.</div>
+        <hr class="rule">
+        <div class="manifesto">
+          Rooted without becoming rigid.<br>
+          Bold without becoming belligerent.<br>
+          Faithful without becoming fearful.
+        </div>
+        <hr class="manifesto__rule">
+        <div class="pillars">
+          Program
+          <span class="pillars__sep">&middot;</span>
+          Resource
+          <span class="pillars__sep">&middot;</span>
+          Community
+        </div>
+      </div>
+
+      <div class="qr-group">
+        <div class="qr-group__text">
+          <div class="qr-group__label">Begin here</div>
+          <div class="qr-group__url">f2bf.icscanada.edu</div>
+        </div>
+        <div class="qr-group__code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Ff2bf.icscanada.edu&amp;size=600x600&amp;ecc=H&amp;margin=1" alt="QR code to f2bf.icscanada.edu">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<script>
+  document.getElementById('toggleGuides').addEventListener('change', function (e) {
+    document.getElementById('posterWrap').classList.toggle('no-guides', !e.target.checked);
+  });
+</script>
+
+</body>
+</html>
