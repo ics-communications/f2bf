@@ -61,28 +61,32 @@ html, body {
   box-shadow: 0 12px 50px rgba(0,0,0,0.35);
 }
 
-/* Guides — screen only */
+/* Guides — screen only (hidden by default for PDF safety) */
 .poster::before,
 .poster::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  z-index: 9999;
+  content: none;
 }
-.poster::before {
-  inset: var(--bleed);
-  outline: 1px dashed rgba(255, 80, 80, 0.55);
-}
-.poster::after {
-  inset: var(--safe);
-  outline: 1px dashed rgba(80, 200, 120, 0.4);
+@media screen {
+  .poster::before,
+  .poster::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .poster::before {
+    inset: var(--bleed);
+    outline: 1px dashed rgba(255, 80, 80, 0.55);
+  }
+  .poster::after {
+    inset: var(--safe);
+    outline: 1px dashed rgba(80, 200, 120, 0.4);
+  }
 }
 @media print {
-  .poster::before, .poster::after { display: none; }
   .poster-wrap { padding: 0; background: none; }
   html, body { background: #fff; }
   .poster { box-shadow: none; }
-  .print-bar { display: none; }
 }
 
 /* ════ Full-bleed photo layer ════ */
@@ -126,7 +130,7 @@ html, body {
   top: 0;
   left: 0;
   font-family: var(--text);
-  font-size: 9pt;
+  font-size: 14.4pt;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -152,7 +156,7 @@ html, body {
 .wordmark {
   font-family: var(--display);
   font-weight: 900;
-  font-size: 120pt;
+  font-size: 144pt;
   line-height: 0.88;
   letter-spacing: -0.025em;
   color: var(--cream);
@@ -167,9 +171,10 @@ html, body {
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: 20pt;
+  font-size: 24pt;
   color: rgba(240,235,227,0.8);
   margin-top: 0.2in;
+  white-space: nowrap;
 }
 
 .rule {
@@ -181,11 +186,11 @@ html, body {
 }
 
 .manifesto {
-  margin-top: 0.45in;
+  margin-top: 0.8in;
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: 17pt;
+  font-size: 20.4pt;
   line-height: 1.6;
   color: rgba(240,235,227,0.75);
 }
@@ -199,7 +204,7 @@ html, body {
 .pillars {
   margin-top: 0.2in;
   font-family: var(--text);
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -227,7 +232,7 @@ html, body {
 .qr-group__label {
   font-family: var(--text);
   font-weight: 700;
-  font-size: 7pt;
+  font-size: 8.4pt;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--red);
@@ -236,7 +241,7 @@ html, body {
 .qr-group__url {
   font-family: var(--display);
   font-weight: 900;
-  font-size: 16pt;
+  font-size: 19.2pt;
   letter-spacing: 0.01em;
   color: var(--cream);
 }
@@ -268,9 +273,13 @@ html, body {
   font-size: 11px;
   padding: 10px 14px;
   border-radius: 8px;
-  display: flex; gap: 10px; align-items: center;
+  display: none;
+  gap: 10px; align-items: center;
   z-index: 99999;
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+@media screen {
+  .print-bar { display: flex; }
 }
 .print-bar button {
   background: var(--red); color: #fff;
@@ -313,7 +322,6 @@ html, body {
       <div class="text-stack">
         <div class="wordmark">Free<br><em>to be</em><br>Faithful</div>
         <div class="tagline">Equipping Christians for Democratic Life.</div>
-        <hr class="rule">
         <div class="manifesto">
           Rooted without becoming rigid.<br>
           Bold without becoming belligerent.<br>
