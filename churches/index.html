@@ -341,6 +341,168 @@
     .f2bf-churches-page .f2bf-footer__wave { background: var(--teal); }
 
     /* ════════════════════════════════════════════ */
+    /* SIGNUP MODAL                                  */
+    /* Mirrors the course registration modal on      */
+    /* /f2bf-courses so the two signups feel like    */
+    /* one system. Same values, page-local prefix,   */
+    /* following this repo's per-page CSS convention.*/
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(15,38,49,0.65);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      padding: 1.5rem; opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .f2bf-ch-modal-overlay.is-active { display: flex; }
+    .f2bf-ch-modal-overlay.is-visible { opacity: 1; }
+
+    .f2bf-ch-modal {
+      background: var(--white); border-radius: 14px;
+      width: 100%; max-width: 620px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 40px 80px rgba(15,38,49,0.3);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+      position: relative;
+    }
+    .f2bf-ch-modal-overlay.is-visible .f2bf-ch-modal { transform: translateY(0) scale(1); }
+
+    .f2bf-ch-modal__close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: none; background: var(--faint); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--body); transition: all 0.2s; z-index: 2;
+    }
+    .f2bf-ch-modal__close:hover { background: var(--teal); color: var(--white); }
+    .f2bf-ch-modal__close svg { width: 16px; height: 16px; }
+
+    .f2bf-ch-modal__header { padding: 2.5rem 2.5rem 0; }
+    .f2bf-ch-modal__tag {
+      font-family: var(--text); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 0.6rem;
+    }
+    .f2bf-ch-modal__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: 1.6rem; line-height: 1.15;
+      color: var(--teal); margin-bottom: 0.4rem;
+    }
+    .f2bf-ch-modal__subtitle {
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--body); line-height: 1.6;
+    }
+
+    .f2bf-ch-modal__body { padding: 1.8rem 2.5rem 2.5rem; }
+
+    .f2bf-ch-modal__row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .f2bf-ch-modal__row--full { grid-template-columns: 1fr; }
+    @media (max-width: 520px) { .f2bf-ch-modal__row { grid-template-columns: 1fr; } }
+
+    .f2bf-ch-modal__field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .f2bf-ch-modal__label {
+      font-family: var(--text); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase; color: var(--teal);
+    }
+    .f2bf-ch-modal__label span { color: var(--red); }
+    .f2bf-ch-modal__input {
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--ink); padding: 0.75em 1em;
+      border: 1.5px solid var(--slate-light);
+      border-radius: 8px; background: var(--cream-lt);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .f2bf-ch-modal__input:focus {
+      border-color: var(--teal); box-shadow: 0 0 0 3px rgba(27,58,75,0.08);
+    }
+    .f2bf-ch-modal__input.is-invalid {
+      border-color: var(--red); box-shadow: 0 0 0 3px rgba(200,60,44,0.1);
+    }
+    select.f2bf-ch-modal__input {
+      appearance: none; -webkit-appearance: none; cursor: pointer;
+      padding-right: 2.4em;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233D4F59' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9em center;
+      background-size: 14px;
+    }
+    textarea.f2bf-ch-modal__input { min-height: 96px; resize: vertical; line-height: 1.6; }
+
+    /* Checkbox groups — same field language, stacked rows */
+    .f2bf-ch-modal__checks { display: flex; flex-direction: column; gap: 0.15rem; }
+    .f2bf-ch-modal__check {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-family: var(--text); font-size: 0.92rem;
+      color: var(--body); line-height: 1.55;
+      padding: 0.5rem 0; cursor: pointer;
+    }
+    .f2bf-ch-modal__check input {
+      appearance: none; -webkit-appearance: none;
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 0.1rem;
+      border: 1.5px solid var(--slate-light); border-radius: 5px;
+      background: var(--cream-lt); cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .f2bf-ch-modal__check input:checked {
+      background: var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/13px no-repeat;
+      border-color: var(--teal);
+    }
+    .f2bf-ch-modal__check input:focus-visible {
+      outline: none; box-shadow: 0 0 0 3px rgba(27,58,75,0.14);
+    }
+    .f2bf-ch-modal__check.is-invalid input { border-color: var(--red); box-shadow: 0 0 0 3px rgba(200,60,44,0.1); }
+
+    .f2bf-ch-modal__consent {
+      margin-top: 0.4rem; padding: 1rem 1.1rem;
+      background: var(--cream-lt); border-radius: 8px;
+    }
+    .f2bf-ch-modal__consent .f2bf-ch-modal__check { padding: 0; font-size: 0.86rem; }
+
+    .f2bf-ch-modal__divider { height: 1px; background: var(--slate-light); margin: 1.6rem 0 1.4rem; border: none; }
+    .f2bf-ch-modal__submit { width: 100%; justify-content: center; }
+    .f2bf-ch-modal__submit[disabled] { opacity: 0.65; cursor: progress; }
+    .f2bf-ch-modal__note {
+      font-family: var(--text); font-size: 0.78rem;
+      color: var(--body); text-align: center;
+      margin-top: 1rem; line-height: 1.55;
+    }
+    .f2bf-ch-modal__note a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+
+    .f2bf-ch-modal__error {
+      display: none; font-family: var(--text);
+      font-size: 0.85rem; color: var(--red);
+      background: rgba(200,60,44,0.06);
+      border: 1px solid rgba(200,60,44,0.15);
+      border-radius: 8px; padding: 0.8em 1.2em;
+      margin-bottom: 1rem; text-align: center;
+    }
+    .f2bf-ch-modal__error.is-active { display: block; }
+
+    .f2bf-ch-modal__confirm { display: none; text-align: center; padding: 3.5rem 2.5rem; }
+    .f2bf-ch-modal__confirm.is-active { display: block; }
+    .f2bf-ch-modal__confirm-icon {
+      width: 64px; height: 64px; margin: 0 auto 1.5rem;
+      border-radius: 50%; background: rgba(27,58,75,0.06);
+      display: flex; align-items: center; justify-content: center; color: var(--teal);
+    }
+    .f2bf-ch-modal__confirm-icon svg { width: 32px; height: 32px; }
+    .f2bf-ch-modal__confirm h3 {
+      font-family: var(--display); font-weight: 900;
+      font-size: 1.5rem; color: var(--teal); margin-bottom: 0.8rem;
+    }
+    .f2bf-ch-modal__confirm p {
+      font-family: var(--text); font-size: 1rem;
+      color: var(--body); line-height: 1.7;
+      max-width: 400px; margin: 0 auto;
+    }
+
+    /* ════════════════════════════════════════════ */
     /* RESPONSIVE                                    */
     /* ════════════════════════════════════════════ */
     @media (max-width: 860px) {
@@ -353,6 +515,12 @@
       .f2bf-ch-invite { padding: 4rem 1.5rem; }
       .f2bf-ch-close { padding: 4rem 1.5rem 3.5rem; }
       .f2bf-ch-close__contact { flex-direction: column; align-items: center; gap: 1.2rem; }
+      .f2bf-ch-modal-overlay { padding: 0; align-items: flex-end; }
+      .f2bf-ch-modal { max-height: 94vh; border-radius: 14px 14px 0 0; }
+      .f2bf-ch-modal__header { padding: 2rem 1.5rem 0; }
+      .f2bf-ch-modal__body { padding: 1.5rem; }
+      .f2bf-ch-modal__title { font-size: 1.35rem; }
+      .f2bf-ch-modal__confirm { padding: 2.5rem 1.5rem; }
     }
     @media (max-width: 520px) {
       .f2bf-ch-hero__actions .f2bf-btn,
@@ -477,8 +645,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <span class="f2bf-ch-hero__tag">Free to be Faithful</span>
       <h1 class="f2bf-ch-hero__title">A Companion for Your <em>Congregation</em></h1>
       <p class="f2bf-ch-hero__desc">Leading a church today is heavy work. Everything gathered here comes out of the Free to be Faithful community at ICS, and all of it is free for you and your congregation to watch, read, and talk about together.</p>
+      <!-- href is the real form, so this still works without JS; the handler
+           upgrades it to the on-page modal. -->
       <div class="f2bf-ch-hero__actions">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg/viewform" class="f2bf-btn f2bf-btn--red" target="_blank" rel="noopener">Send Me Church Resources</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg/viewform" class="f2bf-btn f2bf-btn--red" data-open-signup target="_blank" rel="noopener">Send Me Church Resources</a>
         <a href="#justice-and-faith" class="f2bf-btn f2bf-btn--ghost">See What's Here</a>
       </div>
     </div>
@@ -602,7 +772,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <h2 class="f2bf-ch-close__heading">Tell us what your congregation needs</h2>
       <p class="f2bf-ch-close__body">This shelf will grow over the coming years, and what we make next depends on what we hear from churches. Leave your address and we'll send new resources as they're ready — and if your congregation is navigating something we might help with, we would genuinely like to know.</p>
       <div class="f2bf-ch-close__actions">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg/viewform" class="f2bf-btn f2bf-btn--red" target="_blank" rel="noopener">Send Me Church Resources</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg/viewform" class="f2bf-btn f2bf-btn--red" data-open-signup target="_blank" rel="noopener">Send Me Church Resources</a>
         <a href="https://donate.icscanada.edu" class="f2bf-btn f2bf-btn--ghost" target="_blank" rel="noopener">Support This Work</a>
       </div>
 
@@ -622,6 +792,123 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       </div>
     </div>
   </section>
+
+  <!-- ══════ SIGNUP MODAL ══════ -->
+  <div class="f2bf-ch-modal-overlay" id="f2bf-ch-overlay">
+    <div class="f2bf-ch-modal" role="dialog" aria-labelledby="f2bf-ch-modal-title" aria-modal="true">
+      <button class="f2bf-ch-modal__close" type="button" data-close-signup aria-label="Close signup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Form state -->
+      <div id="f2bf-ch-form-state">
+        <div class="f2bf-ch-modal__header">
+          <p class="f2bf-ch-modal__tag">For Churches</p>
+          <h2 class="f2bf-ch-modal__title" id="f2bf-ch-modal-title">Resources for Your Church</h2>
+          <p class="f2bf-ch-modal__subtitle">Tell us a little about your congregation and we'll send new resources as they're released. A handful of emails a year, and you can unsubscribe any time.</p>
+        </div>
+
+        <div class="f2bf-ch-modal__body">
+          <div class="f2bf-ch-modal__row">
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-name">Your name <span>*</span></label>
+              <input class="f2bf-ch-modal__input" type="text" id="ch-name" autocomplete="name" required>
+            </div>
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-email">Email address <span>*</span></label>
+              <input class="f2bf-ch-modal__input" type="email" id="ch-email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="f2bf-ch-modal__row f2bf-ch-modal__row--full">
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-church">Church or organization <span>*</span></label>
+              <input class="f2bf-ch-modal__input" type="text" id="ch-church" autocomplete="organization" required>
+            </div>
+          </div>
+
+          <div class="f2bf-ch-modal__row">
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-role">Your role there</label>
+              <select class="f2bf-ch-modal__input" id="ch-role">
+                <option value="">Select&hellip;</option>
+                <option>Pastor or minister</option>
+                <option>Associate or assistant pastor</option>
+                <option>Elder, deacon, or board member</option>
+                <option>Staff member</option>
+                <option>Lay leader or volunteer</option>
+                <option>Member of the congregation</option>
+              </select>
+            </div>
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-city">City and province or state</label>
+              <input class="f2bf-ch-modal__input" type="text" id="ch-city" autocomplete="address-level2">
+            </div>
+          </div>
+
+          <div class="f2bf-ch-modal__row">
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-denom">Denomination or tradition</label>
+              <input class="f2bf-ch-modal__input" type="text" id="ch-denom">
+            </div>
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-size">Congregation size</label>
+              <select class="f2bf-ch-modal__input" id="ch-size">
+                <option value="">Select&hellip;</option>
+                <option>Fewer than 50</option>
+                <option>50 to 150</option>
+                <option>150 to 400</option>
+                <option>More than 400</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="f2bf-ch-modal__row f2bf-ch-modal__row--full">
+            <div class="f2bf-ch-modal__field">
+              <span class="f2bf-ch-modal__label">What would you like to hear about?</span>
+              <div class="f2bf-ch-modal__checks" id="ch-interests">
+                <label class="f2bf-ch-modal__check"><input type="checkbox" value="New resources for congregations as they are released"><span>New resources for congregations as they are released</span></label>
+                <label class="f2bf-ch-modal__check"><input type="checkbox" value="Free to be Faithful courses for members of our congregation"><span>Free to be Faithful courses for members of our congregation</span></label>
+                <label class="f2bf-ch-modal__check"><input type="checkbox" value="Events, conferences, and livestreams"><span>Events, conferences, and livestreams</span></label>
+                <label class="f2bf-ch-modal__check"><input type="checkbox" value="Talking with ICS about working together"><span>Talking with ICS about working together</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="f2bf-ch-modal__row f2bf-ch-modal__row--full">
+            <div class="f2bf-ch-modal__field">
+              <label class="f2bf-ch-modal__label" for="ch-wrestling">What is your congregation wrestling with right now?</label>
+              <textarea class="f2bf-ch-modal__input" id="ch-wrestling" placeholder="Optional, and there is no wrong answer. What you tell us shapes what we make next."></textarea>
+            </div>
+          </div>
+
+          <div class="f2bf-ch-modal__consent">
+            <label class="f2bf-ch-modal__check" id="ch-consent-row">
+              <input type="checkbox" id="ch-consent" required>
+              <span>Yes, the Institute for Christian Studies may email me about resources, courses, and events. (Unsubscribe at any time. ICS, 59 St. George Street, Toronto, ON M5S 2E6.) <span style="color:var(--red)">*</span></span>
+            </label>
+          </div>
+
+          <hr class="f2bf-ch-modal__divider">
+          <!-- Sits with the button rather than at the top of the modal: on a
+               form this tall, a message above the first field is off-screen at
+               the moment the user presses submit. -->
+          <div class="f2bf-ch-modal__error" id="f2bf-ch-error" role="alert"></div>
+          <button type="button" class="f2bf-btn f2bf-btn--red f2bf-ch-modal__submit" id="ch-submit">Send Me Church Resources</button>
+          <p class="f2bf-ch-modal__note">Prefer email? Write to <a href="mailto:info@icscanada.edu">info@icscanada.edu</a> and we'll add you ourselves.</p>
+        </div>
+      </div>
+
+      <!-- Confirmation state -->
+      <div class="f2bf-ch-modal__confirm" id="f2bf-ch-confirm">
+        <div class="f2bf-ch-modal__confirm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>We have you on the list</h3>
+        <p>Thank you. You'll hear from us when new resources for congregations are ready. If you'd like to talk with someone at ICS sooner, write to info@icscanada.edu or call 1-416-979-2331.</p>
+      </div>
+    </div>
+  </div>
 
 </main>
 
@@ -762,6 +1049,174 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     });
 
     link.parentNode.replaceChild(btn, link);
+  });
+})();
+</script>
+<script>
+/* Church signup modal. Posts straight to the Google Form's formResponse
+   endpoint the same way the course registration modal on /f2bf-courses does,
+   so respondents never leave the page and never see Google's chrome.
+
+   Google Forms allows no CORS, so the POST is fire-and-forget (mode:'no-cors')
+   and the response is opaque — we cannot read a status. Validation therefore
+   happens here, before sending, and a network-level failure is the only thing
+   that can surface an error. */
+(function () {
+  'use strict';
+
+  var FORM_ID = '1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg';
+  var POST_URL = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse';
+
+  /* Field ids read from the live form; changing a question in Google Forms
+     mints a new entry id, so re-read them if the form is ever rebuilt. */
+  var ENTRY = {
+    name:       'entry.2036152956',
+    email:      'entry.2031001150',
+    church:     'entry.1924112379',
+    role:       'entry.745340412',
+    city:       'entry.705904092',
+    denom:      'entry.2139509055',
+    size:       'entry.297470772',
+    interests:  'entry.1583337821',
+    wrestling:  'entry.1727014602',
+    consent:    'entry.605306254'
+  };
+
+  var CONSENT_VALUE = 'Yes, the Institute for Christian Studies may email me about resources, courses, and events. (Unsubscribe at any time. ICS, 59 St. George Street, Toronto, ON M5S 2E6.)';
+
+  var overlay = document.getElementById('f2bf-ch-overlay');
+  var formView = document.getElementById('f2bf-ch-form-state');
+  var confirmView = document.getElementById('f2bf-ch-confirm');
+  var errBox = document.getElementById('f2bf-ch-error');
+  var submitBtn = document.getElementById('ch-submit');
+  var consentRow = document.getElementById('ch-consent-row');
+  if (!overlay || !submitBtn) return;
+
+  var el = function (id) { return document.getElementById(id); };
+  var val = function (id) { var n = el(id); return n ? n.value.trim() : ''; };
+  var lastFocus = null;
+
+  function open(trigger) {
+    lastFocus = trigger || document.activeElement;
+    formView.style.display = '';
+    confirmView.classList.remove('is-active');
+    errBox.classList.remove('is-active');
+    overlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        overlay.classList.add('is-visible');
+        var first = el('ch-name');
+        if (first) first.focus();
+      });
+    });
+  }
+
+  function close() {
+    overlay.classList.remove('is-visible');
+    setTimeout(function () {
+      overlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }, 300);
+  }
+
+  function validate() {
+    var ok = true;
+    errBox.classList.remove('is-active');
+    ['ch-name', 'ch-email', 'ch-church'].forEach(function (id) {
+      var node = el(id);
+      node.classList.remove('is-invalid');
+      if (!node.value.trim()) { node.classList.add('is-invalid'); ok = false; }
+    });
+    var email = el('ch-email');
+    if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      email.classList.add('is-invalid'); ok = false;
+    }
+    consentRow.classList.remove('is-invalid');
+    if (!el('ch-consent').checked) { consentRow.classList.add('is-invalid'); ok = false; }
+
+    if (!ok) {
+      errBox.textContent = el('ch-consent').checked
+        ? 'Please add your name, a valid email, and your church before sending.'
+        : 'Please complete the required fields and confirm we may email you.';
+      errBox.classList.add('is-active');
+      // Take the user to the first thing that needs fixing; role="alert" on the
+      // box announces the reason for anyone not watching the scroll.
+      var firstBad = document.querySelector(
+        '.f2bf-ch-modal__input.is-invalid, .f2bf-ch-modal__check.is-invalid input');
+      if (firstBad) firstBad.focus();
+    }
+    return ok;
+  }
+
+  function payload() {
+    var body = new URLSearchParams();
+    body.append(ENTRY.name, val('ch-name'));
+    body.append(ENTRY.email, val('ch-email'));
+    body.append(ENTRY.church, val('ch-church'));
+    if (val('ch-role')) body.append(ENTRY.role, val('ch-role'));
+    if (val('ch-city')) body.append(ENTRY.city, val('ch-city'));
+    if (val('ch-denom')) body.append(ENTRY.denom, val('ch-denom'));
+    if (val('ch-size')) body.append(ENTRY.size, val('ch-size'));
+    if (val('ch-wrestling')) body.append(ENTRY.wrestling, val('ch-wrestling'));
+    // Repeated keys are how Google Forms receives a multi-select answer.
+    Array.prototype.forEach.call(
+      document.querySelectorAll('#ch-interests input:checked'),
+      function (box) { body.append(ENTRY.interests, box.value); });
+    body.append(ENTRY.consent, CONSENT_VALUE);
+    return body.toString();
+  }
+
+  submitBtn.addEventListener('click', function () {
+    if (!validate()) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch(POST_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: payload()
+    }).then(function () {
+      formView.style.display = 'none';
+      confirmView.classList.add('is-active');
+      confirmView.setAttribute('tabindex', '-1');
+      confirmView.focus();
+    }).catch(function () {
+      errBox.textContent = 'Something went wrong sending that. Please try again, or email info@icscanada.edu.';
+      errBox.classList.add('is-active');
+    }).then(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Me Church Resources';
+    });
+  });
+
+  /* Clear a field's error the moment it is corrected, rather than leaving it
+     red until the next submit, and drop the message once nothing is invalid. */
+  function clearWhenClean(node, row) {
+    node.addEventListener(node.type === 'checkbox' ? 'change' : 'input', function () {
+      (row || node).classList.remove('is-invalid');
+      if (!document.querySelector('.f2bf-ch-modal__input.is-invalid, .f2bf-ch-modal__check.is-invalid')) {
+        errBox.classList.remove('is-active');
+      }
+    });
+  }
+  ['ch-name', 'ch-email', 'ch-church'].forEach(function (id) { clearWhenClean(el(id)); });
+  clearWhenClean(el('ch-consent'), consentRow);
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-signup]'), function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      open(btn);
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-close-signup]'), function (btn) {
+    btn.addEventListener('click', close);
+  });
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-active')) close();
   });
 })();
 </script>
