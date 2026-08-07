@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/img/ICS_New_Favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/ICS_New_Favicon.png">
+  <title>For Churches | Free to be Faithful | ICS</title>
+  <meta name="description" content="Research, recorded conversations, and courses from the Free to be Faithful community at the Institute for Christian Studies — free for your congregation to watch, read, and discuss.">
+  <link rel="canonical" href="https://f2bf.icscanada.edu/churches">
+  <meta property="og:title" content="For Churches | Free to be Faithful | ICS">
+  <meta property="og:description" content="Research, recorded conversations, and courses from the Free to be Faithful community at the Institute for Christian Studies — free for your congregation to watch, read, and discuss.">
+  <meta property="og:url" content="https://f2bf.icscanada.edu/churches">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Free to be Faithful">
+  <meta property="og:image" content="https://f2bf.icscanada.edu/assets/img/church_hero-1280.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="For Churches | Free to be Faithful | ICS">
+  <meta name="twitter:description" content="Research, recorded conversations, and courses from the Free to be Faithful community — free for your congregation to use.">
+  <meta name="twitter:image" content="https://f2bf.icscanada.edu/assets/img/church_hero-1280.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://f2bf.icscanada.edu/churches",
+        "name": "For Churches | Free to be Faithful",
+        "description": "Research, recorded conversations, and courses from the Free to be Faithful community at the Institute for Christian Studies, offered freely to congregations.",
+        "url": "https://f2bf.icscanada.edu/churches",
+        "inLanguage": "en-CA",
+        "isPartOf": { "@id": "https://f2bf.icscanada.edu/#website" },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Churches, pastors, and congregational leaders"
+        }
+      },
+      {
+        "@type": "ResearchProject",
+        "name": "Justice and Faith: Individual Spirituality and Social Responsibility in the Christian Reformed Church in Canada",
+        "url": "https://www.icscanada.edu/research/justice-and-faith-research-project",
+        "parentOrganization": {
+          "@type": "CollegeOrUniversity",
+          "name": "Institute for Christian Studies",
+          "url": "https://www.icscanada.edu"
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <style>
+    /* ════════════════════════════════════════════ */
+    /* HERO                                          */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-hero {
+      position: relative; min-height: 58vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; background: var(--teal-deep);
+    }
+    .f2bf-ch-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    /* Lifted off the f2bf-resource treatment: this is a page for churches, so
+       the sanctuary needs to read as a room, not just as texture. */
+    .f2bf-ch-hero__bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.42; filter: saturate(0.18) brightness(0.62);
+    }
+    .f2bf-ch-hero__bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    .f2bf-ch-hero__gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(
+        175deg,
+        rgba(15,38,49,0.15) 0%,
+        rgba(15,38,49,0.5) 40%,
+        rgba(15,38,49,0.86) 80%,
+        rgba(15,38,49,0.92) 100%
+      );
+    }
+    .f2bf-ch-hero__content {
+      position: relative; z-index: 3;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 4rem 2.5rem 4.5rem;
+      animation: f2bfReveal 1s ease-out both;
+    }
+    /* The one label on the page. It is not a section kicker — it is the frame
+       the whole page was rebuilt around, so it leads before the headline. */
+    .f2bf-ch-hero__tag {
+      display: inline-block; font-family: var(--text);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream); opacity: 0.55;
+      margin-bottom: 1.5rem;
+      animation: f2bfReveal 1s ease-out 0.15s both;
+    }
+    .f2bf-ch-hero__title {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2.6rem, 6.4vw, 5rem);
+      line-height: 0.98; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 1.4rem;
+      max-width: 16ch;
+      animation: f2bfReveal 1s ease-out 0.3s both;
+    }
+    .f2bf-ch-hero__title em {
+      font-style: italic; font-weight: 400;
+      color: var(--slate-light);
+    }
+    .f2bf-ch-hero__desc {
+      font-family: var(--text); font-size: 1.15rem;
+      color: rgba(240,235,227,0.78); line-height: 1.8;
+      max-width: 60ch; margin-bottom: 2.5rem;
+      animation: f2bfReveal 1s ease-out 0.45s both;
+    }
+    .f2bf-ch-hero__actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: f2bfReveal 1s ease-out 0.6s both;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* INTRO — quiet, centred, single column         */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-intro { background: var(--cream); padding: 6rem 2.5rem; }
+    .f2bf-ch-intro__inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .f2bf-ch-intro__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.12; color: var(--teal);
+      margin-bottom: 1.6rem;
+    }
+    .f2bf-ch-intro__body {
+      font-family: var(--text); font-size: 1.12rem;
+      color: var(--body); line-height: 1.9;
+      margin-bottom: 1.4rem; text-align: left;
+    }
+    .f2bf-ch-intro__body:last-child { margin-bottom: 0; }
+    .f2bf-ch-intro__body strong { color: var(--teal); font-weight: 600; }
+
+    /* ════════════════════════════════════════════ */
+    /* FEATURED — Justice and Faith                  */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-feature { background: var(--white); padding: 5.5rem 2.5rem; }
+    .f2bf-ch-feature__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .f2bf-ch-feature__inner { grid-template-columns: 1.05fr 1fr; gap: 4.5rem; }
+    }
+    .f2bf-ch-feature__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.1; color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .f2bf-ch-feature__heading em { font-style: italic; font-weight: 400; }
+    /* --muted lands at 3.2:1 on white; --body keeps this readable as the
+       standfirst it is rather than as decoration under the headline. */
+    .f2bf-ch-feature__sub {
+      font-family: var(--text); font-size: 0.95rem;
+      color: var(--body); line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+    .f2bf-ch-feature__body {
+      font-family: var(--text); font-size: 1.05rem;
+      color: var(--body); line-height: 1.85;
+      max-width: 64ch; margin-bottom: 1.3rem;
+    }
+    .f2bf-ch-feature__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    /* ════════════════════════════════════════════ */
+    /* VIDEO FACADE — poster until clicked           */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-video {
+      position: relative; aspect-ratio: 16 / 9;
+      background: var(--teal-deep); overflow: hidden;
+    }
+    .f2bf-ch-video iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+    .f2bf-ch-video__poster {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .f2bf-ch-video__btn {
+      position: absolute; inset: 0; width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      border: 0; cursor: pointer; padding: 0;
+      background: linear-gradient(rgba(15,38,49,0.3), rgba(15,38,49,0.5));
+      transition: background 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .f2bf-ch-video__btn:hover { background: linear-gradient(rgba(15,38,49,0.2), rgba(15,38,49,0.4)); }
+    .f2bf-ch-video__glyph {
+      width: 74px; height: 74px; border-radius: 50%;
+      background: var(--red); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 30px rgba(15,38,49,0.4);
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.35s ease;
+    }
+    .f2bf-ch-video__glyph svg { width: 24px; height: 24px; fill: currentColor; margin-left: 4px; }
+    .f2bf-ch-video__btn:hover .f2bf-ch-video__glyph,
+    .f2bf-ch-video__btn:focus-visible .f2bf-ch-video__glyph {
+      transform: scale(1.09); background: var(--red-hover);
+    }
+    .f2bf-ch-video__btn:focus-visible {
+      outline: 3px solid var(--cream); outline-offset: -3px;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* CONVERSATIONS — dark band, three recordings   */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-talks { background: var(--teal-deep); padding: 5.5rem 2.5rem; position: relative; }
+    .f2bf-ch-talks::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-ch-talks__inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .f2bf-ch-talks__top { margin-bottom: 3.5rem; max-width: 60ch; }
+    .f2bf-ch-talks__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4.2vw, 3rem);
+      line-height: 1.08; color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .f2bf-ch-talks__desc {
+      font-family: var(--text); font-size: 1.05rem;
+      color: rgba(240,235,227,0.75); line-height: 1.8;
+    }
+    .f2bf-ch-talks__grid {
+      display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+    }
+    @media (min-width: 860px) {
+      .f2bf-ch-talks__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    }
+    .f2bf-ch-talk { display: flex; flex-direction: column; }
+    .f2bf-ch-talk .f2bf-ch-video { margin-bottom: 1.4rem; }
+    .f2bf-ch-talk__title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.3rem; line-height: 1.3;
+      color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .f2bf-ch-talk__title em { font-style: italic; font-weight: 400; }
+    /* red-hover on teal-deep is 3.9:1 — under AA at this size. The section
+       already carries its red in the three play buttons. */
+    .f2bf-ch-talk__speaker {
+      font-family: var(--text); font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.04em; color: var(--slate-light);
+      margin-bottom: 0.8rem;
+    }
+    .f2bf-ch-talk__desc {
+      font-family: var(--text); font-size: 0.97rem;
+      color: rgba(240,235,227,0.75); line-height: 1.75;
+      margin-bottom: 1rem; flex-grow: 1;
+    }
+    .f2bf-ch-talk__use {
+      font-family: var(--text); font-size: 0.9rem;
+      color: rgba(240,235,227,0.62); line-height: 1.7;
+      padding-top: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .f2bf-ch-talk__use strong { color: var(--cream); font-weight: 600; }
+
+    /* ════════════════════════════════════════════ */
+    /* COURSES INVITATION — mid-tone breather        */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-invite { background: var(--slate); padding: 5rem 2.5rem; }
+    .f2bf-ch-invite__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start;
+    }
+    @media (min-width: 860px) {
+      .f2bf-ch-invite__inner { grid-template-columns: 1fr 1.15fr; gap: 4.5rem; }
+    }
+    .f2bf-ch-invite__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+      line-height: 1.1; color: var(--teal);
+    }
+    .f2bf-ch-invite__body {
+      font-family: var(--text); font-size: 1.08rem;
+      color: var(--body); line-height: 1.9; max-width: 62ch;
+      margin-bottom: 1.8rem;
+    }
+    .f2bf-ch-invite__body strong { color: var(--teal); font-weight: 600; }
+
+    /* ════════════════════════════════════════════ */
+    /* CLOSE — the ask, then how to reach a person   */
+    /* ════════════════════════════════════════════ */
+    .f2bf-ch-close { background: var(--teal); padding: 5.5rem 2.5rem 4.5rem; position: relative; }
+    .f2bf-ch-close::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+    .f2bf-ch-close__inner {
+      max-width: 720px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
+    }
+    .f2bf-ch-close__heading {
+      font-family: var(--display); font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.1; color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .f2bf-ch-close__body {
+      font-family: var(--text); font-size: 1.08rem;
+      color: rgba(240,235,227,0.78); line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .f2bf-ch-close__actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .f2bf-ch-close__contact {
+      margin-top: 3rem; padding-top: 2.2rem;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+    }
+    .f2bf-ch-contact { display: flex; align-items: center; gap: 0.75rem; }
+    .f2bf-ch-contact__icon {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,255,255,0.09); color: var(--slate-light);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .f2bf-ch-contact__icon svg {
+      width: 17px; height: 17px; stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .f2bf-ch-contact a {
+      font-family: var(--text); font-size: 1rem;
+      color: var(--cream); text-decoration: underline;
+      text-underline-offset: 3px; text-decoration-thickness: 1px;
+      text-decoration-color: rgba(240,235,227,0.4);
+      transition: text-decoration-color 0.25s ease;
+    }
+    .f2bf-ch-contact a:hover { text-decoration-color: var(--cream); }
+
+    /* ── Footer wave sits under the teal close band ── */
+    .f2bf-churches-page .f2bf-footer__wave { background: var(--teal); }
+
+    /* ════════════════════════════════════════════ */
+    /* RESPONSIVE                                    */
+    /* ════════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .f2bf-ch-hero { min-height: auto; }
+      .f2bf-ch-hero__content { padding: 3rem 1.5rem 3.5rem; }
+      .f2bf-ch-hero__desc { font-size: 1.05rem; }
+      .f2bf-ch-intro { padding: 4rem 1.5rem; }
+      .f2bf-ch-feature,
+      .f2bf-ch-talks,
+      .f2bf-ch-invite { padding: 4rem 1.5rem; }
+      .f2bf-ch-close { padding: 4rem 1.5rem 3.5rem; }
+      .f2bf-ch-close__contact { flex-direction: column; align-items: center; gap: 1.2rem; }
+    }
+    @media (max-width: 520px) {
+      .f2bf-ch-hero__actions .f2bf-btn,
+      .f2bf-ch-close__actions .f2bf-btn { width: 100%; justify-content: center; }
+      .f2bf-ch-video__glyph { width: 60px; height: 60px; }
+      .f2bf-ch-video__glyph svg { width: 20px; height: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .f2bf-ch-hero__content,
+      .f2bf-ch-hero__tag,
+      .f2bf-ch-hero__title,
+      .f2bf-ch-hero__desc,
+      .f2bf-ch-hero__actions { animation: none; }
+      .f2bf-ch-video__glyph,
+      .f2bf-ch-video__btn { transition: none; }
+    }
+  </style>
+</head>
+<body class="f2bf-churches-page">
+<!--
+THESIS: Free to be Faithful is the frame, not a footnote — a shelf of real work
+a congregation can use tonight, refusing the donation page's conversion pattern.
+OWN-WORLD: Inherited f2bf — deep teal and cream with signal red, Playfair
+Display 900 over Source Sans 3, pill buttons, grain on dark bands, wave to footer.
+STORY: A pastor arrives from a printed letter, sees within one viewport that ICS
+is offering their congregation something free and substantial, watches one thing,
+and leaves their address so the next one finds them.
+FIRST VIEWPORT: Church interior under deep teal; the F2BF mark, a serif headline
+with one italic word, one sentence, and the signup as the primary red pill.
+FORM: Extension of the incumbent f2bf world; no new identity.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+
+<!-- Navigation -->
+<header class="f2bf-header">
+  <div class="f2bf-header__inner">
+    <a class="f2bf-header__logo-link" href="/">
+      <img
+        alt="Institute for Christian Studies"
+        class="f2bf-header__logo-img"
+        src="https://files.constantcontact.com/0e42c4d3901/6fbe9de8-34f9-412d-b5e8-390aec72cad0.png"
+      />
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="f2bf-nav">
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/">Free to be Faithful</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-program">Program</a>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-resource">Resources</a>
+        </li>
+        <li class="f2bf-nav__item f2bf-nav__item--active">
+          <button aria-expanded="false" aria-haspopup="true" class="f2bf-nav__link">
+            Community<span class="f2bf-nav__caret"></span>
+          </button>
+          <div class="f2bf-dropdown">
+            <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
+            <a class="f2bf-dropdown__link" href="/churches">For Churches</a>
+            <a class="f2bf-dropdown__link" href="/events">All Events</a>
+            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
+          </div>
+        </li>
+        <li class="f2bf-nav__item">
+          <a class="f2bf-nav__link" href="/f2bf-courses">Courses</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      aria-label="Open menu"
+      class="f2bf-burger"
+      id="f2bf-burger-btn"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="f2bf-mobile-menu" id="f2bfMobileMenu">
+  <button
+    aria-label="Close menu"
+    class="f2bf-mobile-menu__close"
+    id="f2bf-mobile-close-btn"
+  >&times;</button>
+
+  <a class="f2bf-mobile-menu__link" href="/">Free to be Faithful</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-program">Program</a>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-resource">Resources</a>
+  <div>
+    <span class="f2bf-mobile-menu__link">Community</span>
+    <div class="f2bf-mobile-menu__sub">
+      <a href="/f2bf-community">Community</a>
+      <a href="/churches">For Churches</a>
+      <a href="/events">All Events</a>
+      <a href="/conference-may13">Conference</a>
+    </div>
+  </div>
+  <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
+</div>
+
+<!-- Main Content -->
+<main class="f2bf">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="f2bf-ch-hero">
+    <div class="f2bf-ch-hero__bg">
+      <img
+        src="/assets/img/church_hero.jpg"
+        srcset="/assets/img/church_hero-768.jpg 768w, /assets/img/church_hero-1280.jpg 1280w, /assets/img/church_hero.jpg 2048w"
+        sizes="100vw" width="2048" height="1366" alt=""
+        fetchpriority="high" decoding="async">
+    </div>
+    <div class="f2bf-ch-hero__gradient"></div>
+    <div class="f2bf-ch-hero__content">
+      <span class="f2bf-ch-hero__tag">Free to be Faithful</span>
+      <h1 class="f2bf-ch-hero__title">A Companion for Your <em>Congregation</em></h1>
+      <p class="f2bf-ch-hero__desc">Leading a church today is heavy work. Everything gathered here comes out of the Free to be Faithful community at ICS, and all of it is free for you and your congregation to watch, read, and talk about together.</p>
+      <div class="f2bf-ch-hero__actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg/viewform" class="f2bf-btn f2bf-btn--red" target="_blank" rel="noopener">Send Me Church Resources</a>
+        <a href="#justice-and-faith" class="f2bf-btn f2bf-btn--ghost">See What's Here</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ INTRO ══════ -->
+  <section class="f2bf-ch-intro">
+    <div class="f2bf-ch-intro__inner">
+      <h2 class="f2bf-ch-intro__heading">What we've been making, and why</h2>
+      <p class="f2bf-ch-intro__body">The Institute for Christian Studies has walked alongside churches for more than fifty years. In that time we've listened to a great many congregants describe what they are wrestling with: polarization, anxiety, and hard conversations nobody quite knows how to start, to name only three. Over the years we've hosted conversations, curated events, and created resources in response.</p>
+      <p class="f2bf-ch-intro__body"><strong>Free to be Faithful</strong> is the name we give that work now — a conviction that an ancient faith can meet the pressing questions of our moment without flinching from either. What follows is the part of it built for congregations. There is nothing to buy and nothing to join.</p>
+    </div>
+  </section>
+
+  <!-- ══════ FEATURED — JUSTICE AND FAITH ══════ -->
+  <section class="f2bf-ch-feature" id="justice-and-faith">
+    <div class="f2bf-ch-feature__inner">
+      <div class="f2bf-ch-feature__media">
+        <div class="f2bf-ch-video" data-video-id="1o6F-q_P0mw" data-video-title="Just Faith? — the Justice and Faith play">
+          <img class="f2bf-ch-video__poster"
+            src="https://i.ytimg.com/vi/1o6F-q_P0mw/maxresdefault.jpg"
+            srcset="https://i.ytimg.com/vi/1o6F-q_P0mw/mqdefault.jpg 320w, https://i.ytimg.com/vi/1o6F-q_P0mw/maxresdefault.jpg 1280w"
+            sizes="(max-width: 900px) 92vw, 560px"
+            alt="" width="1280" height="720" loading="lazy" decoding="async">
+          <a class="f2bf-ch-video__btn" href="https://www.youtube.com/watch?v=1o6F-q_P0mw" target="_blank" rel="noopener" aria-label="Play: Just Faith? — the Justice and Faith play">
+            <span class="f2bf-ch-video__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+          </a>
+        </div>
+      </div>
+      <div class="f2bf-ch-feature__text">
+        <h2 class="f2bf-ch-feature__heading">Justice and Faith</h2>
+        <p class="f2bf-ch-feature__sub">A four-year research project, and a play written out of its findings</p>
+        <p class="f2bf-ch-feature__body">ICS asked a question that turned out to be harder than it sounds: how do members of the Christian Reformed Church in Canada actually understand justice, and what do they do about it? The answer came from interviews across the country and a representative survey of congregations, carried out with the <strong>Centre for Community Based Research</strong> and Canadian Ministries of the CRC, with funding from the Social Sciences and Humanities Research Council.</p>
+        <p class="f2bf-ch-feature__body">Rather than leave the findings in a report, the project turned them into <em>Just Faith?</em> — a play built from what people actually said. It was written to be watched by a congregation and argued about afterward, which is still the best use for it. The full production is here, and the survey report and interview summaries are free to download.</p>
+        <div class="f2bf-ch-feature__actions">
+          <a href="https://www.icscanada.edu/research/justice-and-faith-research-project" class="f2bf-btn f2bf-btn--teal" target="_blank" rel="noopener">Read the Research</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CONVERSATIONS ══════ -->
+  <section class="f2bf-ch-talks" id="conversations">
+    <div class="f2bf-ch-talks__inner">
+      <div class="f2bf-ch-talks__top">
+        <h2 class="f2bf-ch-talks__heading">Conversations worth having together</h2>
+        <p class="f2bf-ch-talks__desc">Three recorded conversations from the Free to be Faithful community, each on a question congregations are already living with. They run about an hour, which makes them workable for an adult education hour, a small group, or a council that wants to think before it decides.</p>
+      </div>
+
+      <div class="f2bf-ch-talks__grid">
+
+        <div class="f2bf-ch-talk">
+          <div class="f2bf-ch-video" data-video-id="qSiFZdVWg2U" data-video-title="Hanna Reichel and Kristin Kobes Du Mez on For Such a Time as This">
+            <img class="f2bf-ch-video__poster"
+              src="https://i.ytimg.com/vi/qSiFZdVWg2U/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/qSiFZdVWg2U/mqdefault.jpg 320w, https://i.ytimg.com/vi/qSiFZdVWg2U/maxresdefault.jpg 1280w"
+              sizes="(max-width: 860px) 92vw, 360px"
+              alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <a class="f2bf-ch-video__btn" href="https://www.youtube.com/watch?v=qSiFZdVWg2U" target="_blank" rel="noopener" aria-label="Play: Hanna Reichel and Kristin Kobes Du Mez on For Such a Time as This">
+              <span class="f2bf-ch-video__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+            </a>
+          </div>
+          <h3 class="f2bf-ch-talk__title">Discerning faithful action in an extraordinary moment</h3>
+          <p class="f2bf-ch-talk__speaker">Hanna Reichel &amp; Kristin Kobes Du Mez</p>
+          <p class="f2bf-ch-talk__desc">On <em>For Such a Time as This: An Emergency Devotional</em>, and the practical question underneath it — how the wisdom of Scripture and the historical church guides a community that has to act now, without certainty.</p>
+          <p class="f2bf-ch-talk__use"><strong>For a congregation feeling</strong> the pressure to respond to events and unsure what faithfulness asks of them.</p>
+        </div>
+
+        <div class="f2bf-ch-talk">
+          <div class="f2bf-ch-video" data-video-id="4I57ttzPUnk" data-video-title="Sylvia Keesmaat and Len Vander Zee on faithful interpretation and questions of sexuality">
+            <img class="f2bf-ch-video__poster"
+              src="https://i.ytimg.com/vi/4I57ttzPUnk/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/4I57ttzPUnk/mqdefault.jpg 320w, https://i.ytimg.com/vi/4I57ttzPUnk/maxresdefault.jpg 1280w"
+              sizes="(max-width: 860px) 92vw, 360px"
+              alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <a class="f2bf-ch-video__btn" href="https://www.youtube.com/watch?v=4I57ttzPUnk" target="_blank" rel="noopener" aria-label="Play: Sylvia Keesmaat and Len Vander Zee on faithful interpretation and questions of sexuality">
+              <span class="f2bf-ch-video__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+            </a>
+          </div>
+          <h3 class="f2bf-ch-talk__title">Reading Scripture faithfully on questions of sexuality</h3>
+          <p class="f2bf-ch-talk__speaker">Dr. Sylvia Keesmaat &amp; Rev. Len Vander Zee</p>
+          <p class="f2bf-ch-talk__desc">A scholar and a pastor work through how Scripture is read well on the questions of sexuality and gender that congregations are navigating — attending to the text itself rather than starting from the conclusion.</p>
+          <p class="f2bf-ch-talk__use"><strong>For a congregation that</strong> needs a way into this conversation that doesn't presume where it ends.</p>
+        </div>
+
+        <div class="f2bf-ch-talk">
+          <div class="f2bf-ch-video" data-video-id="6wsNAdL7QZw" data-video-title="Angela Reitsma Bick and Peter Schuurman on deconstruction and faith">
+            <img class="f2bf-ch-video__poster"
+              src="https://i.ytimg.com/vi/6wsNAdL7QZw/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/6wsNAdL7QZw/mqdefault.jpg 320w, https://i.ytimg.com/vi/6wsNAdL7QZw/maxresdefault.jpg 1280w"
+              sizes="(max-width: 860px) 92vw, 360px"
+              alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <a class="f2bf-ch-video__btn" href="https://www.youtube.com/watch?v=6wsNAdL7QZw" target="_blank" rel="noopener" aria-label="Play: Angela Reitsma Bick and Peter Schuurman on deconstruction and faith">
+              <span class="f2bf-ch-video__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+            </a>
+          </div>
+          <h3 class="f2bf-ch-talk__title">When people start taking their faith apart</h3>
+          <p class="f2bf-ch-talk__speaker">Angela Reitsma Bick &amp; Peter Schuurman</p>
+          <p class="f2bf-ch-talk__desc">On <em>Blessed are the Undone</em>, and what deconstruction looks like from inside a church rather than from a distance — including what it asks of leaders watching people they love question everything.</p>
+          <p class="f2bf-ch-talk__use"><strong>For leaders wondering</strong> how to stay in relationship with members whose faith is coming apart.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ COURSES INVITATION ══════ -->
+  <section class="f2bf-ch-invite">
+    <div class="f2bf-ch-invite__inner">
+      <h2 class="f2bf-ch-invite__heading">Free to be Faithful, for people in your pews</h2>
+      <div>
+        <p class="f2bf-ch-invite__body">Alongside these recordings, ICS teaches <strong>Free to be Faithful courses</strong> online — seminars led by scholars, open to anyone, with no prior study required. Some congregations send a member or two and let what they bring back shape the wider community's thinking.</p>
+        <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--teal">See What's Being Offered</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CLOSE ══════ -->
+  <section class="f2bf-ch-close">
+    <div class="f2bf-ch-close__inner">
+      <h2 class="f2bf-ch-close__heading">Tell us what your congregation needs</h2>
+      <p class="f2bf-ch-close__body">This shelf will grow over the coming years, and what we make next depends on what we hear from churches. Leave your address and we'll send new resources as they're ready — and if your congregation is navigating something we might help with, we would genuinely like to know.</p>
+      <div class="f2bf-ch-close__actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczIUHHc_lnewM8BGUSzTkc0nV4Q5yV4X1JgmIS67GCIZMOSg/viewform" class="f2bf-btn f2bf-btn--red" target="_blank" rel="noopener">Send Me Church Resources</a>
+        <a href="https://donate.icscanada.edu" class="f2bf-btn f2bf-btn--ghost" target="_blank" rel="noopener">Support This Work</a>
+      </div>
+
+      <div class="f2bf-ch-close__contact">
+        <div class="f2bf-ch-contact">
+          <span class="f2bf-ch-contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </span>
+          <a href="mailto:info@icscanada.edu">info@icscanada.edu</a>
+        </div>
+        <div class="f2bf-ch-contact">
+          <span class="f2bf-ch-contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </span>
+          <a href="tel:+14169792331">1-416-979-2331</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="f2bf-footer" role="contentinfo">
+
+  <!-- DECORATIVE WAVE -->
+  <div class="f2bf-footer__wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none">
+      <path d="M0 160 L0 90 Q360 38 720 72 Q1080 106 1440 55 L1440 160 Z" fill="#0F2631"/>
+      <path d="M0 88 Q360 36 720 70 Q1080 104 1440 53" fill="none" stroke="#C83C2C" stroke-width="6"/>
+      <path d="M0 80 Q360 28 720 62 Q1080 96 1440 45" fill="none" stroke="#C83C2C" stroke-width="2.5" opacity="0.5"/>
+      <path d="M0 96 Q360 44 720 78 Q1080 112 1440 61" fill="none" stroke="#0F2631" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER BODY -->
+  <div class="f2bf-footer__body">
+    <div class="f2bf-footer__inner">
+
+      <!-- COL 1 — Brand + Socials -->
+      <div class="f2bf-footer-brand">
+        <a href="https://www.icscanada.edu" class="f2bf-footer-brand__logo">
+          <img
+            class="f2bf-footer-brand__logo-img"
+            src="https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w"
+            alt="Institute for Christian Studies"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="f2bf-footer-social">
+          <a href="https://www.facebook.com/instituteforchristianstudies" class="f2bf-footer-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/instituteforchristianstudies/" class="f2bf-footer-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/school/icscanada" class="f2bf-footer-social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/user/ChristianStudies" class="f2bf-footer-social__link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon fill="#0F2631" points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg>
+          </a>
+          <a href="https://instituteforchristianstudies.substack.com" class="f2bf-footer-social__link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COL 2 — Free to be Faithful -->
+      <nav class="f2bf-footer-nav" aria-label="Free to be Faithful navigation">
+        <p class="f2bf-footer-nav__heading">Free to be Faithful</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="/f2bf-program">Program</a></li>
+          <li><a href="/f2bf-courses">Courses</a></li>
+          <li><a href="/f2bf-resource">Resources</a></li>
+          <li><a href="/f2bf-community">Community</a></li>
+          <li><a href="/churches">For Churches</a></li>
+          <li><a href="/events">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 3 — Connect -->
+      <nav class="f2bf-footer-nav" aria-label="Connect navigation">
+        <p class="f2bf-footer-nav__heading">Connect</p>
+        <ul class="f2bf-footer-nav__list">
+          <li><a href="https://instituteforchristianstudies.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://www.icscanada.edu" target="_blank" rel="noopener">ICS Main Site</a></li>
+          <li><a href="https://www.icscanada.edu/academics" target="_blank" rel="noopener">ICS Programs</a></li>
+          <li><a href="https://library.icscanada.edu/" target="_blank" rel="noopener">ICS Library</a></li>
+        </ul>
+      </nav>
+
+      <!-- COL 4 — Contact + Legal -->
+      <div class="f2bf-footer-contact">
+        <p class="f2bf-footer-contact__heading">Contact</p>
+        <p>59 St. George Street</p>
+        <p>Toronto, Ontario M5S 2E6</p>
+        <div class="f2bf-footer-contact__group">
+          <p><a href="tel:+14169792331">1-416-979-2331</a></p>
+          <p><a href="tel:+18883265347">1-888-326-5347</a> (toll-free)</p>
+          <p><a href="mailto:info@icscanada.edu"><span>info@icscanada.edu</span></a></p>
+        </div>
+
+        <div class="f2bf-footer-legal">
+          <p class="f2bf-footer-legal__copyright">
+            &copy; 2026 Institute for Christian Studies.<br>
+            All rights reserved.
+          </p>
+          <div class="f2bf-footer-legal__links">
+            <a href="https://www.icscanada.edu/about/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://www.icscanada.edu/about/accessibility-policy" target="_blank" rel="noopener">Accessibility Policy</a>
+          </div>
+          <a href="https://icscanada.edu/donate" class="f2bf-footer-legal__cta" target="_blank" rel="noopener">&#9829; Support ICS</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="f2bf-footer__bottom">
+      <p>Free to be Faithful is a lifelong learning initiative of the <a href="https://www.icscanada.edu" target="_blank" rel="noopener">Institute for Christian Studies</a>, a graduate school in the <a href="https://en.wikipedia.org/wiki/Neo-Calvinism" target="_blank" rel="noopener">Reformational tradition</a> affiliated with the <a href="https://www.utoronto.ca/" target="_blank" rel="noopener">University of Toronto</a>.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+/* Click-to-play video facades. Each .f2bf-ch-video[data-video-id] holds a
+   poster and a plain YouTube link; with JS that link becomes a button that
+   swaps in a privacy-enhanced embed. Without JS the link still works. */
+(function () {
+  'use strict';
+  var facades = document.querySelectorAll('.f2bf-ch-video[data-video-id]');
+  Array.prototype.forEach.call(facades, function (facade) {
+    var id = facade.getAttribute('data-video-id');
+    var title = facade.getAttribute('data-video-title') || 'Video';
+    var link = facade.querySelector('.f2bf-ch-video__btn');
+    if (!link) return;
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = link.className;
+    btn.innerHTML = link.innerHTML;
+    btn.setAttribute('aria-label', link.getAttribute('aria-label') || ('Play: ' + title));
+
+    btn.addEventListener('click', function () {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = title;
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+      iframe.allowFullscreen = true;
+      facade.innerHTML = '';
+      facade.appendChild(iframe);
+      iframe.focus();
+    });
+
+    link.parentNode.replaceChild(btn, link);
+  });
+})();
+</script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>
