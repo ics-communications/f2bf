@@ -323,16 +323,24 @@
       border-radius: 8px; overflow: hidden;
       border: 1px solid rgba(27,58,75,0.06);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex; flex-direction: column;
     }
     .f2bf-prog-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(27,58,75,0.1);
     }
+    /* height:auto is load-bearing — the img width/height attributes are
+       presentational hints that would otherwise beat the aspect-ratio. */
     .f2bf-prog-card__img {
-      width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;
+      width: 100%; height: auto; aspect-ratio: 1/1;
+      object-fit: cover; display: block;
       filter: saturate(0.75);
     }
-    .f2bf-prog-card__body { padding: 1.6rem 1.4rem 1.8rem; }
+    .f2bf-prog-card__body {
+      padding: 1.6rem 1.4rem 1.8rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .f2bf-prog-card__body .f2bf-btn { align-self: flex-start; margin-top: auto; }
     .f2bf-prog-card__meta {
       display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem;
     }
@@ -457,7 +465,6 @@
             <a class="f2bf-dropdown__link" href="/f2bf-community">Community</a>
             <a class="f2bf-dropdown__link" href="/churches">For Churches</a>
             <a class="f2bf-dropdown__link" href="/events">All Events</a>
-            <a class="f2bf-dropdown__link" href="/conference-may13">Conference</a>
           </div>
         </li>
         <li class="f2bf-nav__item">
@@ -494,7 +501,6 @@
       <a href="/f2bf-community">Community</a>
       <a href="/churches">For Churches</a>
       <a href="/events">All Events</a>
-      <a href="/conference-may13">Conference</a>
     </div>
   </div>
   <a class="f2bf-mobile-menu__link" href="/f2bf-courses">Courses</a>
@@ -635,40 +641,66 @@
   <section class="f2bf-prog-courses" id="courses">
     <div class="f2bf-prog-courses__inner">
       <div class="f2bf-prog-courses__header">
-        <h2 class="f2bf-prog-courses__heading">Upcoming Courses</h2>
+        <h2 class="f2bf-prog-courses__heading">Upcoming Courses<br><span style="font-family: var(--text); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red);">2026&ndash;27 Season &middot; Now Enrolling</span></h2>
         <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--outline">More Details &rarr;</a>
       </div>
       <div class="f2bf-prog-courses__grid">
 
         <div class="f2bf-prog-card">
-          <img class="f2bf-prog-card__img" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/8d7495845b158f3e456a82bb0ec4bff0/revisions/35f4d5bd371699f1012e16fab1c058bd/renditions/21e84ac83daa19b516686fbe6c99d5e1" alt="Books and study">
+          <img class="f2bf-prog-card__img" src="/assets/img/JimOlthuis.jpg" alt="Jim Olthuis" width="1200" height="1200" loading="lazy">
           <div class="f2bf-prog-card__body">
             <div class="f2bf-prog-card__meta">
-              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--date">Mar 18 &middot; Wednesdays</span>
-              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--format">Online &middot; 6:30 PM ET</span>
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--date">Sept 15 &middot; Tuesdays</span>
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--format">Six weeks &middot; Online</span>
             </div>
-            <h3 class="f2bf-prog-card__title">The Christian-Jewish Question Today</h3>
-            <p class="f2bf-prog-card__instructor">Matthew D. Taylor</p>
-            <p class="f2bf-prog-card__desc">Antisemitism, Christian Zionism, and Israel: situating today's tensions in historical and theological context.</p>
+            <h3 class="f2bf-prog-card__title">Spirals of Love and Healing</h3>
+            <p class="f2bf-prog-card__instructor">Jim Olthuis</p>
+            <p class="f2bf-prog-card__desc">Healing as a four-stage spiral: letting-in, letting-go, letting-out, and letting-transform.</p>
             <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--outline" style="margin-top:1rem; font-size:0.82rem; padding:0.7em 1.8em;">Course Details &rarr;</a>
           </div>
         </div>
 
         <div class="f2bf-prog-card">
-          <img class="f2bf-prog-card__img" src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/2d31b1d604d6538884d402ac037d369f/revisions/e75081dd3e4567a5fe6590cbc85cb12d/renditions/8b516c6d1e06707f737b0fda5e14f3cc" alt="Reading and reflection">
+          <img class="f2bf-prog-card__img" src="/assets/img/BruceBerglund.jpg" alt="Bruce Berglund" width="700" height="1000" loading="lazy">
           <div class="f2bf-prog-card__body">
             <div class="f2bf-prog-card__meta">
-              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--date">Mar 19 &middot; Thursdays</span>
-              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--format">Online &middot; 6:30 PM ET</span>
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--date">Sept 16 &middot; Wednesdays</span>
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--format">Six weeks &middot; Online</span>
             </div>
-            <h3 class="f2bf-prog-card__title">The Evangelical Imagination</h3>
-            <p class="f2bf-prog-card__instructor">Karen Swallow Prior</p>
-            <p class="f2bf-prog-card__desc">How stories, images, and metaphors created a culture in crisis: exploring the evangelical social imaginary.</p>
+            <h3 class="f2bf-prog-card__title">Keeping Faith Under Dictators</h3>
+            <p class="f2bf-prog-card__instructor">Bruce Berglund</p>
+            <p class="f2bf-prog-card__desc">Resistance and complicity among Christians who lived under fascist, Nazi, and communist regimes.</p>
             <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--outline" style="margin-top:1rem; font-size:0.82rem; padding:0.7em 1.8em;">Course Details &rarr;</a>
           </div>
         </div>
 
+        <div class="f2bf-prog-card">
+          <img class="f2bf-prog-card__img" src="/assets/img/AngelaBick.jpeg" alt="Angela Reitsma Bick" width="540" height="400" loading="lazy">
+          <div class="f2bf-prog-card__body">
+            <div class="f2bf-prog-card__meta">
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--date">Nov 3 &middot; Tuesdays</span>
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--format">Six weeks &middot; Online</span>
+            </div>
+            <h3 class="f2bf-prog-card__title">&ldquo;Broken Hallelujah&rdquo;</h3>
+            <p class="f2bf-prog-card__instructor">Angela Reitsma Bick</p>
+            <p class="f2bf-prog-card__desc">Faith, deconstruction, and spiritual longing, heard through the music and poetry that give them voice.</p>
+            <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--outline" style="margin-top:1rem; font-size:0.82rem; padding:0.7em 1.8em;">Course Details &rarr;</a>
+          </div>
+        </div>
 
+        <div class="f2bf-prog-card">
+          <img class="f2bf-prog-card__img" src="/assets/img/RonKuipers.jpg" alt="Ron Kuipers" width="1200" height="800" loading="lazy">
+          <div class="f2bf-prog-card__body">
+            <div class="f2bf-prog-card__meta">
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--date">Nov 5 &middot; Thursdays</span>
+              <span class="f2bf-prog-card__tag f2bf-prog-card__tag--format">Six weeks &middot; Online</span>
+            </div>
+            <h3 class="f2bf-prog-card__title">&ldquo;We Are Free to Change the World&rdquo;</h3>
+            <p class="f2bf-prog-card__instructor">Ron Kuipers</p>
+            <p class="f2bf-prog-card__desc">Hope, resistance, and the power of the possible.</p>
+            <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--outline" style="margin-top:1rem; font-size:0.82rem; padding:0.7em 1.8em;">Course Details &rarr;</a>
+          </div>
+        </div>
 
       </div>
       <div class="f2bf-prog-courses__cta">
