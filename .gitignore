@@ -1,0 +1,4 @@
+# Playwright render toolchain (social/make-plates.py + .render/render.mjs).
+# Recreate with: cd .render && npm install playwright && npx playwright install chromium
+.render/node_modules/
+.render/package-lock.json
