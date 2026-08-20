@@ -72,9 +72,9 @@ Enrolment is open now — link in bio.
 
 ### Short caption (stories, X, reposts)
 
-What did faithfulness cost under Hitler, Mussolini, and Stalin — and what does it cost now?
+What did faithfulness cost under Hitler, Mussolini, and Stalin? And what does it cost now?
 
-Bruce Berglund on keeping faith under dictators. Six Wednesday evenings, online, starting September 16. Now enrolling.
+This fall, Bruce Berglund teaches a new Free to be Faithful course on keeping faith under dictators. Six Wednesday evenings, online, starting September 16. For more info and to register:
 
 ### First comment / alt text
 

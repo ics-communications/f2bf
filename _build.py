@@ -113,10 +113,43 @@ ROUTE_ALIASES = [
         'target': 'f2bf-landing/index.html',
     },
     {
-        'source': 'f2bf-courses/index.html',
+        # /courses is a legacy route kept alive for links already in the wild
+        # (e.g. the F26 announcement email). It emits a redirect stub so the
+        # page itself only ever has to be edited at /f2bf-courses.
+        'redirect_to': '/f2bf-courses',
         'target': 'courses/index.html',
+        'title': 'Courses | Free to be Faithful | ICS',
     },
 ]
+
+REDIRECT_TEMPLATE = '''<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{favicon}">
+  <title>{title}</title>
+  <!-- Route alias: this path is a stub. The real page lives at {dest}. -->
+  <link rel="canonical" href="https://f2bf.icscanada.edu{dest}">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0; url={dest}">
+  <script>location.replace("{dest}" + location.search + location.hash);</script>
+  <style>
+    body {{
+      margin: 0; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: #1B3A4B; color: #F4F1EA;
+      font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+      text-align: center; padding: 2rem;
+    }}
+    a {{ color: #F4F1EA; }}
+  </style>
+</head>
+<body>
+  <p>Redirecting to the <a href="{dest}">Free to be Faithful courses page</a>&hellip;</p>
+</body>
+</html>
+'''
 
 def rewrite_links(text):
     for old, new in sorted(LINK_MAP.items(), key=lambda x: -len(x[0])):
@@ -459,8 +492,17 @@ for page in PAGES:
 for alias in ROUTE_ALIASES:
     try:
         os.makedirs(os.path.dirname(alias['target']), exist_ok=True)
-        shutil.copyfile(alias['source'], alias['target'])
-        print(f"Alias {alias['source']} -> {alias['target']}")
+        if alias.get('redirect_to'):
+            with open(alias['target'], 'w', encoding='utf-8') as f:
+                f.write(REDIRECT_TEMPLATE.format(
+                    favicon=FAVICON_HREF,
+                    title=alias['title'],
+                    dest=alias['redirect_to'],
+                ))
+            print(f"Alias {alias['target']} -> redirect to {alias['redirect_to']}")
+        else:
+            shutil.copyfile(alias['source'], alias['target'])
+            print(f"Alias {alias['source']} -> {alias['target']}")
     except Exception as e:
         print(f"ERROR creating alias {alias['target']}: {e}")
 
