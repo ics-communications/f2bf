@@ -1,12 +1,13 @@
 # Free to be Faithful — 2026–27 course tiles
 
-Two 4:5 tiles (1080×1350, Instagram/Facebook feed native) plus captions.
+Three 4:5 tiles (1080×1350, Instagram/Facebook feed native) plus captions.
 Source file: `2026-27-tiles.html` · re-render with the Playwright script to change anything.
 
 | Course | Tile |
 |---|---|
 | Spirals of Love and Healing — Jim Olthuis | `f2bf-2026-spirals-of-love-and-healing-olthuis.png` |
 | Keeping Faith Under Dictators — Bruce Berglund | `f2bf-2026-keeping-faith-under-dictators-berglund.png` |
+| Fall 2026 roster (all four courses) | `f2bf-2026-fall-courses.png` |
 
 **Shared facts** — $400 CAD non-credit (PayPal on the course page) · $1,500 CAD for credit
 (email academic-registrar@icscanada.edu) · scholarship funding available · six weeks, fully

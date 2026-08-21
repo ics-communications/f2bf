@@ -10,6 +10,7 @@ const SOURCE = 'social/2026-27-tiles.html';
 const TILES = [
   ['#tile-olthuis',  'social/f2bf-2026-spirals-of-love-and-healing-olthuis.png'],
   ['#tile-berglund', 'social/f2bf-2026-keeping-faith-under-dictators-berglund.png'],
+  ['#tile-fall-2026', 'social/f2bf-2026-fall-courses.png'],
 ];
 
 const browser = await chromium.launch();
