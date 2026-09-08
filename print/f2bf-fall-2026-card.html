@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-CA"><head>
+<meta charset="UTF-8">
+<title>F2BF Fall 2026 — 7×5 print card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+<style>
+  /* ══════════════════════════════════════════════════════════════
+     F2BF — FALL 2026 COURSE CARD
+     Trim  7.000 × 5.000 in  (landscape)
+     Bleed 7.250 × 5.250 in  (0.125 in all sides)
+     Safe  6.500 × 4.500 in  (0.250 in inside trim)
+     Two sides. Front = dark teal ground. Back = cream ground.
+     All units are physical (in/pt) so the PDF is true-size vector.
+     ══════════════════════════════════════════════════════════════ */
+
+  :root {
+    --teal-deep: #0F2631;
+    --teal:      #1B3A4B;
+    --red:       #C83C2C;
+    --red-on-dark: #E97C6E;   /* red is only legible on the dark ground when lightened */
+    --cream:     #F0EBE3;
+    --slate:     #BCC7D0;
+    --slate-ink: #5B6B73;
+
+    --display: 'Playfair Display', Georgia, serif;
+    --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+    --bleed: 0.125in;
+    --edge:  0.55in;   /* from bleed edge → 0.425in inside trim, safely in */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page { size: 7.25in 5.25in; margin: 0; }
+
+  html, body { background: #6b7280; }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-family: var(--text);
+  }
+
+  /* Screen-only staging so the two sides can be proofed side by side */
+  @media screen {
+    body { display: flex; flex-direction: column; gap: 0.5in; align-items: center; padding: 0.5in; }
+  }
+
+  .card {
+    position: relative;
+    width: 7.25in; height: 5.25in;
+    overflow: hidden;
+    flex: none;
+  }
+  @media print {
+    .card { page-break-after: always; break-after: page; }
+    .card:last-child { page-break-after: auto; break-after: auto; }
+  }
+
+  /* ─────────── FRONT ─────────── */
+  .card--front { background: var(--teal-deep); color: var(--cream); }
+
+  /* Depth without texture: a print-safe radial lift behind the title block.
+     (The screen tile's fractal-noise grain is deliberately dropped — at
+     300 DPI it risks moiré and banding on press.) */
+  .card--front::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(115% 85% at 18% 16%, rgba(46,84,102,0.55) 0%, rgba(15,38,49,0) 62%);
+  }
+
+  .fr { position: absolute; inset: 0; z-index: 2; }
+
+  /* Masthead */
+  .mast { position: absolute; left: var(--edge); top: 0.52in; }
+  .mast__program {
+    font-size: 8pt; font-weight: 700;
+    letter-spacing: 0.215em; text-transform: uppercase;
+    color: var(--cream);
+  }
+  .mast__org {
+    margin-top: 0.035in;
+    font-size: 7pt; font-weight: 400;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* Left title column */
+  .lead { position: absolute; left: var(--edge); top: 1.12in; width: 2.35in; }
+  .lead__title {
+    font-family: var(--display); font-weight: 900;
+    font-size: 35pt; line-height: 0.90; letter-spacing: -0.028em;
+    color: var(--cream);
+  }
+  .lead__year {
+    display: block;
+    font-family: var(--display); font-style: italic; font-weight: 400;
+    font-size: 35pt; line-height: 0.98; letter-spacing: -0.02em;
+    color: var(--red-on-dark);
+  }
+  .lead__foot { position: absolute; left: var(--edge); top: 2.56in; width: 2.35in; }
+  .lead__rule { width: 0.62in; height: 0.032in; background: var(--red); margin: 0 0 0.17in; }
+  .lead__season {
+    font-size: 8.2pt; line-height: 1.45; font-weight: 600;
+    letter-spacing: 0.05em; color: var(--slate);
+  }
+  .lead__season strong { color: var(--cream); font-weight: 700; }
+
+  /* Vertical hairline dividing lead from roster */
+  .fr__spine {
+    position: absolute; left: 3.11in; top: 0.52in; bottom: 0.92in;
+    width: 0.008in; background: rgba(240,235,227,0.17);
+  }
+
+  /* Roster */
+  .roster {
+    position: absolute; left: 3.32in; right: 0.50in;
+    top: 0.50in; bottom: 0.92in;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .course {
+    display: grid; grid-template-columns: 0.60in 1fr;
+    column-gap: 0.17in; align-items: center;
+    padding: 0.155in 0;
+    border-top: 0.007in solid rgba(240,235,227,0.17);
+  }
+  .course:first-child { border-top: 0; padding-top: 0; }
+  .course__face {
+    position: relative; width: 0.60in; height: 0.60in;
+    border-radius: 50%; overflow: hidden;
+    box-shadow: 0 0 0 0.014in rgba(240,235,227,0.22);
+  }
+  .course__img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(0.68) contrast(1.04) brightness(0.98);
+  }
+  /* Pulls four unlike photographs toward one hue so the roster reads as a series */
+  .course__face::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--teal); opacity: 0.14;
+  }
+  .course__meta {
+    font-size: 7.3pt; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--red-on-dark);
+  }
+  .course__meta span { color: var(--slate); }
+  .course__name {
+    margin-top: 0.035in;
+    font-family: var(--display); font-weight: 900;
+    font-size: 13.2pt; line-height: 1.03; letter-spacing: -0.016em;
+    color: var(--cream);
+  }
+  .course__who {
+    margin-top: 0.042in;
+    font-size: 7.4pt; line-height: 1.28; color: var(--slate);
+  }
+  .course__who strong { font-weight: 700; color: var(--cream); }
+  .course__who em { font-style: italic; }
+
+  /* ── Scan to register ──
+     Cream modules on the dark teal ground. 41 modules (33 + a 4-module
+     quiet zone each side, baked into the viewBox so it can never be
+     cropped off) across 0.90in gives 0.56mm per module, above the
+     ~0.4mm print floor. Error correction H tolerates 30% damage.
+     Verified by decoding the rendered proof — see verify-qr.mjs. */
+  .qr {
+    position: absolute; left: var(--edge); width: 2.47in; bottom: 0.86in;
+    display: flex; align-items: center; gap: 0.15in;
+    padding-top: 0.16in; border-top: 0.018in solid rgba(240,235,227,0.35);
+  }
+  .qr__code { flex: none; width: 0.90in; height: 0.90in; }
+  .qr__code svg { display: block; width: 100%; height: 100%; }
+  .qr__code .qr__quiet { fill: var(--cream); }
+  .qr__code .qr__mod   { fill: var(--teal-deep); }
+  .qr__label {
+    font-family: var(--display); font-weight: 900;
+    font-size: 11pt; line-height: 1.03; letter-spacing: -0.014em; color: var(--cream);
+  }
+  .qr__url {
+    margin-top: 0.06in;
+    font-size: 7.6pt; line-height: 1.25; color: var(--cream); font-weight: 600;
+  }
+
+  /* Bottom band */
+  .band {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 0.70in; background: var(--red);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--edge) 0.30in;   /* lifts band content clear of the safe area */
+  }
+  .band__call {
+    font-size: 8.6pt; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #fff;
+  }
+  .band__mark { height: 0.24in; width: auto; display: block; }
+
+  /* ─────────── BACK — for churches ─────────── */
+  .card--back { background: var(--cream); color: var(--teal); }
+
+  .bk { position: absolute; inset: 0; z-index: 2; }
+  .bk__mast, .bk__head, .connect { position: absolute; z-index: 3; }
+
+  .bk__mast { position: absolute; left: var(--edge); top: 0.52in; }
+  .bk__mast .mast__program { color: var(--teal); }
+  .bk__mast .mast__org { color: var(--slate-ink); }
+
+  .bk__head { position: absolute; left: var(--edge); top: 1.16in; width: 3.68in; }
+  .bk__title {
+    font-family: var(--display); font-weight: 900;
+    font-size: 37pt; line-height: 0.93; letter-spacing: -0.028em;
+    color: var(--teal);
+  }
+  .bk__title em { font-style: italic; font-weight: 400; color: var(--red); }
+  .bk__rule { width: 0.72in; height: 0.036in; background: var(--red); margin: 0.24in 0 0.22in; }
+  .bk__lede {
+    font-size: 10.6pt; line-height: 1.52; color: #4E5E66; max-width: 3.62in;
+  }
+  .bk__lede strong { color: var(--teal); font-weight: 700; }
+
+  /* Connect-your-church call to action */
+  .connect {
+    position: absolute; left: 4.42in; right: 0.50in; top: 1.24in;
+    padding-left: 0.28in; border-left: 0.007in solid rgba(27,58,75,0.22);
+  }
+  .connect__label {
+    font-family: var(--display); font-weight: 900;
+    font-size: 20pt; line-height: 0.98; letter-spacing: -0.02em; color: var(--teal);
+  }
+  .connect__body {
+    margin-top: 0.11in; font-size: 8.6pt; line-height: 1.42; color: #4E5E66;
+  }
+  .connect__qr { margin-top: 0.22in; }
+  .connect__code { width: 1.16in; height: 1.16in; }
+  .connect__code svg { display: block; width: 100%; height: 100%; }
+  .connect__code .qr__quiet { fill: var(--cream); }
+  .connect__code .qr__mod   { fill: var(--teal); }
+  .connect__url {
+    margin-top: 0.13in;
+    font-size: 8.2pt; line-height: 1.25; color: var(--teal); font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  /* Back band */
+  .band--back { background: var(--teal); }
+  .band--back .band__call { color: var(--cream); }
+  .band__note {
+    font-size: 7.4pt; letter-spacing: 0.04em; color: var(--slate);
+    text-align: right; line-height: 1.2; white-space: nowrap;
+  }
+
+  /* ─────────── PROOF GUIDES (never in the press PDF) ─────────── */
+  .guide { display: none; }
+  body.proof .guide { display: block; position: absolute; z-index: 99; pointer-events: none; }
+  body.proof .guide--trim {
+    inset: 0.125in;
+    outline: 0.006in dashed rgba(255,0,255,0.85);
+  }
+  body.proof .guide--safe {
+    inset: 0.375in;
+    outline: 0.006in dashed rgba(0,220,255,0.85);
+  }
+</style>
+</head>
+<body style="">
+
+<!-- ══════════════════════ FRONT ══════════════════════ -->
+<div class="card card--front" id="card-front">
+  <div class="fr">
+
+    <div class="mast">
+      <div class="mast__program">Free to be Faithful</div>
+      <div class="mast__org">Institute for Christian Studies</div>
+    </div>
+
+    <div class="lead">
+      <h1 class="lead__title">Fall<br>Courses<span class="lead__year">2026</span></h1>
+    </div>
+
+    <div class="lead__foot">
+      <br>
+      <p class="lead__season"><strong>Six-week online seminars</strong><br>On Zoom · 6:30 PM ET<br>No prior study required</p>
+    </div>
+
+    <div class="qr">
+      <div class="qr__code">
+        <svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code linking to https://f2bf.icscanada.edu/courses"><rect class="qr__quiet" width="41" height="41"></rect><path class="qr__mod" d="M4 4h7v1h-7zM13 4h2v1h-2zM18 4h2v1h-2zM21 4h5v1h-5zM27 4h2v1h-2zM30 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM16 5h1v1h-1zM18 5h5v1h-5zM24 5h2v1h-2zM27 5h1v1h-1zM30 5h1v1h-1zM36 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM14 6h2v1h-2zM18 6h2v1h-2zM22 6h2v1h-2zM27 6h1v1h-1zM30 6h1v1h-1zM32 6h3v1h-3zM36 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM13 7h1v1h-1zM18 7h1v1h-1zM20 7h2v1h-2zM26 7h3v1h-3zM30 7h1v1h-1zM32 7h3v1h-3zM36 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM20 8h3v1h-3zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM30 8h1v1h-1zM32 8h3v1h-3zM36 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM14 9h2v1h-2zM17 9h2v1h-2zM20 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM36 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h7v1h-7zM12 11h5v1h-5zM18 11h1v1h-1zM20 11h2v1h-2zM23 11h1v1h-1zM26 11h1v1h-1zM6 12h2v1h-2zM10 12h4v1h-4zM17 12h1v1h-1zM25 12h1v1h-1zM29 12h2v1h-2zM32 12h1v1h-1zM5 13h4v1h-4zM11 13h2v1h-2zM21 13h5v1h-5zM27 13h1v1h-1zM29 13h2v1h-2zM34 13h3v1h-3zM4 14h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM10 14h6v1h-6zM17 14h1v1h-1zM22 14h2v1h-2zM26 14h2v1h-2zM29 14h2v1h-2zM36 14h1v1h-1zM4 15h1v1h-1zM6 15h3v1h-3zM12 15h1v1h-1zM14 15h1v1h-1zM16 15h2v1h-2zM19 15h2v1h-2zM24 15h1v1h-1zM27 15h7v1h-7zM35 15h2v1h-2zM5 16h2v1h-2zM8 16h3v1h-3zM13 16h2v1h-2zM16 16h2v1h-2zM19 16h1v1h-1zM22 16h3v1h-3zM26 16h3v1h-3zM32 16h1v1h-1zM35 16h1v1h-1zM6 17h2v1h-2zM11 17h1v1h-1zM13 17h1v1h-1zM18 17h2v1h-2zM21 17h1v1h-1zM23 17h4v1h-4zM28 17h1v1h-1zM31 17h1v1h-1zM34 17h1v1h-1zM4 18h4v1h-4zM9 18h3v1h-3zM13 18h1v1h-1zM15 18h3v1h-3zM22 18h2v1h-2zM25 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM33 18h2v1h-2zM5 19h1v1h-1zM7 19h1v1h-1zM9 19h1v1h-1zM11 19h2v1h-2zM14 19h1v1h-1zM16 19h2v1h-2zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h2v1h-2zM28 19h1v1h-1zM32 19h3v1h-3zM36 19h1v1h-1zM4 20h1v1h-1zM6 20h2v1h-2zM10 20h2v1h-2zM14 20h1v1h-1zM17 20h4v1h-4zM23 20h3v1h-3zM28 20h3v1h-3zM32 20h3v1h-3zM36 20h1v1h-1zM5 21h1v1h-1zM7 21h2v1h-2zM13 21h4v1h-4zM19 21h2v1h-2zM26 21h2v1h-2zM29 21h4v1h-4zM34 21h3v1h-3zM5 22h1v1h-1zM7 22h1v1h-1zM9 22h2v1h-2zM12 22h1v1h-1zM14 22h2v1h-2zM17 22h2v1h-2zM20 22h1v1h-1zM23 22h2v1h-2zM29 22h1v1h-1zM34 22h1v1h-1zM4 23h1v1h-1zM6 23h4v1h-4zM11 23h5v1h-5zM21 23h1v1h-1zM24 23h1v1h-1zM26 23h1v1h-1zM29 23h2v1h-2zM35 23h2v1h-2zM5 24h2v1h-2zM8 24h3v1h-3zM13 24h2v1h-2zM19 24h2v1h-2zM22 24h1v1h-1zM25 24h1v1h-1zM28 24h1v1h-1zM33 24h2v1h-2zM4 25h1v1h-1zM7 25h2v1h-2zM11 25h1v1h-1zM13 25h3v1h-3zM19 25h4v1h-4zM25 25h1v1h-1zM27 25h1v1h-1zM29 25h2v1h-2zM34 25h1v1h-1zM36 25h1v1h-1zM6 26h1v1h-1zM9 26h2v1h-2zM12 26h1v1h-1zM14 26h2v1h-2zM17 26h1v1h-1zM19 26h3v1h-3zM23 26h1v1h-1zM26 26h2v1h-2zM30 26h1v1h-1zM32 26h5v1h-5zM5 27h5v1h-5zM12 27h1v1h-1zM14 27h1v1h-1zM20 27h2v1h-2zM23 27h2v1h-2zM26 27h2v1h-2zM29 27h1v1h-1zM32 27h2v1h-2zM36 27h1v1h-1zM4 28h1v1h-1zM10 28h1v1h-1zM12 28h3v1h-3zM17 28h1v1h-1zM19 28h1v1h-1zM21 28h4v1h-4zM26 28h1v1h-1zM28 28h5v1h-5zM12 29h4v1h-4zM17 29h1v1h-1zM19 29h1v1h-1zM23 29h2v1h-2zM26 29h3v1h-3zM32 29h1v1h-1zM34 29h1v1h-1zM4 30h7v1h-7zM12 30h1v1h-1zM14 30h2v1h-2zM17 30h3v1h-3zM24 30h5v1h-5zM30 30h1v1h-1zM32 30h1v1h-1zM34 30h1v1h-1zM4 31h1v1h-1zM10 31h1v1h-1zM16 31h1v1h-1zM19 31h1v1h-1zM23 31h1v1h-1zM25 31h2v1h-2zM28 31h1v1h-1zM32 31h5v1h-5zM4 32h1v1h-1zM6 32h3v1h-3zM10 32h1v1h-1zM13 32h3v1h-3zM17 32h1v1h-1zM20 32h1v1h-1zM23 32h1v1h-1zM27 32h9v1h-9zM4 33h1v1h-1zM6 33h3v1h-3zM10 33h1v1h-1zM12 33h2v1h-2zM17 33h2v1h-2zM20 33h1v1h-1zM22 33h2v1h-2zM26 33h2v1h-2zM31 33h1v1h-1zM35 33h2v1h-2zM4 34h1v1h-1zM6 34h3v1h-3zM10 34h1v1h-1zM12 34h1v1h-1zM14 34h1v1h-1zM16 34h1v1h-1zM21 34h1v1h-1zM23 34h2v1h-2zM26 34h1v1h-1zM28 34h3v1h-3zM33 34h1v1h-1zM4 35h1v1h-1zM10 35h1v1h-1zM13 35h1v1h-1zM15 35h1v1h-1zM17 35h1v1h-1zM19 35h3v1h-3zM23 35h2v1h-2zM27 35h3v1h-3zM36 35h1v1h-1zM4 36h7v1h-7zM13 36h2v1h-2zM16 36h1v1h-1zM18 36h1v1h-1zM20 36h1v1h-1zM25 36h1v1h-1zM27 36h1v1h-1zM29 36h4v1h-4zM34 36h1v1h-1z"></path></svg>
+      </div>
+      <div>
+        <div class="qr__label">Scan to<br>register</div>
+        <div class="qr__url">f2bf.icscanada.edu/courses</div>
+      </div>
+    </div>
+
+    <div class="fr__spine"></div>
+
+    <div class="roster">
+      <div class="course">
+        <div class="course__face"><img class="course__img" src="../assets/img/JimOlthuis.jpg" alt="" style="object-position: 50% 30%"></div>
+        <div>
+          <div class="course__meta">Tuesdays <span>· Sept 15 – Oct 20</span></div>
+          <div class="course__name">Spirals of Love and Healing</div>
+          <div class="course__who"><strong>Jim Olthuis</strong> · Professor Emeritus of Philosophical Theology</div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course__face"><img class="course__img" src="../assets/img/BruceBerglund.jpg" alt="" style="object-position: 50% 8%; transform: scale(1.55); transform-origin: 50% 12%"></div>
+        <div>
+          <div class="course__meta">Wednesdays <span>· Sept 16 – Oct 21</span></div>
+          <div class="course__name">Keeping Faith Under Dictators</div>
+          <div class="course__who"><strong>Bruce Berglund</strong> · Historian of Modern Europe</div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course__face"><img class="course__img" src="../assets/img/Angela-Reitsma-Bick.jpg" alt="" style="object-position: 50% 40%"></div>
+        <div>
+          <div class="course__meta">Tuesdays <span>· Nov 3 – Dec 8</span></div>
+          <div class="course__name">“Broken Hallelujah”</div>
+          <div class="course__who"><strong>Angela Reitsma Bick</strong> · Author, <em>Blessed Are the Undone</em></div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course__face"><img class="course__img" src="../assets/img/RonKuipers.jpg" alt="" style="object-position: 44% 22%; transform: scale(1.45); transform-origin: 44% 26%"></div>
+        <div>
+          <div class="course__meta">Thursdays <span>· Nov 5 – Dec 10</span></div>
+          <div class="course__name">“We Are Free to Change the World”</div>
+          <div class="course__who"><strong>Ron Kuipers</strong> · Professor of Philosophy of Religion</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="band__call">F2BF.ICSCANADA.EDU/COURSES</div>
+      <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+    </div>
+
+  </div>
+  <div class="guide guide--trim"></div>
+  <div class="guide guide--safe"></div>
+</div>
+
+<!-- ══════════════════════ BACK ══════════════════════ -->
+<div class="card card--back" id="card-back">
+  <div class="bk">
+
+    <div class="mast bk__mast">
+      <div class="mast__program">Free to be Faithful</div>
+      <div class="mast__org">Institute for Christian Studies</div>
+    </div>
+
+    <div class="bk__head">
+      <h2 class="bk__title">A companion for your congregation</h2>
+      <br>
+      <p class="bk__lede">Leading a church today is heavy work. <strong>Free to be Faithful</strong> gathers more than fifty years of ICS working alongside congregations. We've curated resources for congregations like yours to work through the most pressing questions of our time.</p>
+    </div>
+
+    <div class="connect">
+      <div class="connect__label">Connect your<br>church</div>
+      <p class="connect__body">Tell us what your congregation needs, and we will send new resources as they are ready.</p>
+      <div class="connect__qr">
+        <div class="connect__code">
+          <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code linking to https://f2bf.icscanada.edu/churches/"><rect class="qr__quiet" width="45" height="45"></rect><path class="qr__mod" d="M4 4h7v1h-7zM12 4h2v1h-2zM17 4h2v1h-2zM20 4h2v1h-2zM23 4h1v1h-1zM26 4h1v1h-1zM28 4h2v1h-2zM32 4h1v1h-1zM34 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM16 5h1v1h-1zM18 5h2v1h-2zM21 5h3v1h-3zM25 5h2v1h-2zM31 5h2v1h-2zM34 5h1v1h-1zM40 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h2v1h-2zM20 6h3v1h-3zM26 6h1v1h-1zM28 6h1v1h-1zM31 6h1v1h-1zM34 6h1v1h-1zM36 6h3v1h-3zM40 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM14 7h4v1h-4zM19 7h6v1h-6zM28 7h4v1h-4zM34 7h1v1h-1zM36 7h3v1h-3zM40 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h4v1h-4zM23 8h1v1h-1zM25 8h2v1h-2zM28 8h3v1h-3zM34 8h1v1h-1zM36 8h3v1h-3zM40 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h2v1h-2zM17 9h1v1h-1zM21 9h1v1h-1zM23 9h2v1h-2zM26 9h1v1h-1zM29 9h4v1h-4zM34 9h1v1h-1zM40 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h7v1h-7zM12 11h1v1h-1zM14 11h1v1h-1zM16 11h3v1h-3zM20 11h1v1h-1zM22 11h2v1h-2zM26 11h1v1h-1zM28 11h2v1h-2zM32 11h1v1h-1zM6 12h3v1h-3zM10 12h1v1h-1zM12 12h3v1h-3zM16 12h4v1h-4zM27 12h1v1h-1zM30 12h1v1h-1zM32 12h4v1h-4zM38 12h3v1h-3zM4 13h1v1h-1zM6 13h4v1h-4zM11 13h1v1h-1zM15 13h1v1h-1zM17 13h1v1h-1zM23 13h1v1h-1zM25 13h2v1h-2zM29 13h1v1h-1zM31 13h1v1h-1zM34 13h3v1h-3zM10 14h4v1h-4zM16 14h2v1h-2zM20 14h1v1h-1zM22 14h2v1h-2zM28 14h5v1h-5zM34 14h1v1h-1zM36 14h1v1h-1zM40 14h1v1h-1zM4 15h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1zM11 15h2v1h-2zM16 15h1v1h-1zM22 15h1v1h-1zM25 15h2v1h-2zM30 15h2v1h-2zM34 15h3v1h-3zM39 15h2v1h-2zM6 16h2v1h-2zM9 16h2v1h-2zM12 16h2v1h-2zM15 16h2v1h-2zM18 16h1v1h-1zM20 16h3v1h-3zM24 16h3v1h-3zM29 16h3v1h-3zM33 16h4v1h-4zM38 16h1v1h-1zM40 16h1v1h-1zM4 17h1v1h-1zM6 17h1v1h-1zM9 17h1v1h-1zM11 17h2v1h-2zM14 17h1v1h-1zM16 17h2v1h-2zM24 17h1v1h-1zM26 17h2v1h-2zM29 17h1v1h-1zM32 17h2v1h-2zM35 17h1v1h-1zM37 17h2v1h-2zM4 18h1v1h-1zM10 18h1v1h-1zM14 18h5v1h-5zM21 18h4v1h-4zM26 18h2v1h-2zM29 18h4v1h-4zM34 18h1v1h-1zM37 18h1v1h-1zM39 18h2v1h-2zM6 19h1v1h-1zM8 19h2v1h-2zM13 19h1v1h-1zM15 19h4v1h-4zM20 19h3v1h-3zM33 19h1v1h-1zM35 19h1v1h-1zM5 20h2v1h-2zM9 20h6v1h-6zM16 20h1v1h-1zM18 20h1v1h-1zM21 20h3v1h-3zM27 20h1v1h-1zM29 20h3v1h-3zM33 20h2v1h-2zM36 20h1v1h-1zM38 20h1v1h-1zM40 20h1v1h-1zM4 21h3v1h-3zM9 21h1v1h-1zM13 21h2v1h-2zM19 21h4v1h-4zM26 21h3v1h-3zM32 21h2v1h-2zM35 21h1v1h-1zM4 22h4v1h-4zM9 22h3v1h-3zM14 22h2v1h-2zM17 22h3v1h-3zM21 22h2v1h-2zM27 22h2v1h-2zM30 22h6v1h-6zM37 22h4v1h-4zM4 23h3v1h-3zM8 23h1v1h-1zM14 23h1v1h-1zM19 23h1v1h-1zM21 23h1v1h-1zM25 23h3v1h-3zM30 23h1v1h-1zM33 23h2v1h-2zM36 23h2v1h-2zM40 23h1v1h-1zM4 24h1v1h-1zM7 24h1v1h-1zM10 24h1v1h-1zM12 24h2v1h-2zM15 24h4v1h-4zM21 24h1v1h-1zM23 24h3v1h-3zM27 24h5v1h-5zM34 24h7v1h-7zM4 25h1v1h-1zM6 25h1v1h-1zM8 25h2v1h-2zM13 25h3v1h-3zM19 25h1v1h-1zM21 25h1v1h-1zM24 25h1v1h-1zM26 25h1v1h-1zM30 25h1v1h-1zM35 25h1v1h-1zM38 25h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h5v1h-5zM19 26h1v1h-1zM22 26h1v1h-1zM24 26h3v1h-3zM28 26h1v1h-1zM31 26h1v1h-1zM34 26h1v1h-1zM37 26h4v1h-4zM4 27h1v1h-1zM6 27h1v1h-1zM11 27h4v1h-4zM17 27h5v1h-5zM23 27h2v1h-2zM28 27h1v1h-1zM30 27h1v1h-1zM33 27h3v1h-3zM40 27h1v1h-1zM5 28h1v1h-1zM8 28h3v1h-3zM12 28h4v1h-4zM17 28h1v1h-1zM24 28h2v1h-2zM27 28h1v1h-1zM34 28h1v1h-1zM37 28h2v1h-2zM4 29h1v1h-1zM6 29h2v1h-2zM12 29h1v1h-1zM14 29h1v1h-1zM18 29h4v1h-4zM25 29h2v1h-2zM28 29h1v1h-1zM30 29h5v1h-5zM37 29h1v1h-1zM4 30h1v1h-1zM7 30h4v1h-4zM13 30h2v1h-2zM16 30h6v1h-6zM26 30h1v1h-1zM29 30h2v1h-2zM34 30h3v1h-3zM38 30h3v1h-3zM4 31h1v1h-1zM6 31h1v1h-1zM11 31h1v1h-1zM14 31h3v1h-3zM24 31h3v1h-3zM28 31h1v1h-1zM32 31h2v1h-2zM35 31h3v1h-3zM40 31h1v1h-1zM4 32h1v1h-1zM8 32h5v1h-5zM20 32h1v1h-1zM26 32h1v1h-1zM28 32h2v1h-2zM32 32h9v1h-9zM12 33h2v1h-2zM15 33h4v1h-4zM20 33h1v1h-1zM22 33h1v1h-1zM27 33h1v1h-1zM30 33h3v1h-3zM36 33h1v1h-1zM4 34h7v1h-7zM13 34h1v1h-1zM15 34h2v1h-2zM19 34h2v1h-2zM22 34h1v1h-1zM24 34h1v1h-1zM32 34h1v1h-1zM34 34h1v1h-1zM36 34h2v1h-2zM39 34h2v1h-2zM4 35h1v1h-1zM10 35h1v1h-1zM13 35h2v1h-2zM19 35h1v1h-1zM21 35h3v1h-3zM27 35h2v1h-2zM30 35h1v1h-1zM32 35h1v1h-1zM36 35h1v1h-1zM4 36h1v1h-1zM6 36h3v1h-3zM10 36h1v1h-1zM12 36h1v1h-1zM15 36h2v1h-2zM23 36h2v1h-2zM28 36h9v1h-9zM38 36h1v1h-1zM40 36h1v1h-1zM4 37h1v1h-1zM6 37h3v1h-3zM10 37h1v1h-1zM12 37h2v1h-2zM15 37h1v1h-1zM20 37h1v1h-1zM32 37h1v1h-1zM34 37h1v1h-1zM36 37h1v1h-1zM38 37h1v1h-1zM4 38h1v1h-1zM6 38h3v1h-3zM10 38h1v1h-1zM12 38h1v1h-1zM14 38h3v1h-3zM18 38h2v1h-2zM21 38h1v1h-1zM25 38h5v1h-5zM32 38h2v1h-2zM35 38h1v1h-1zM37 38h2v1h-2zM40 38h1v1h-1zM4 39h1v1h-1zM10 39h1v1h-1zM13 39h5v1h-5zM25 39h3v1h-3zM31 39h2v1h-2zM34 39h2v1h-2zM40 39h1v1h-1zM4 40h7v1h-7zM16 40h1v1h-1zM18 40h1v1h-1zM22 40h2v1h-2zM25 40h1v1h-1zM27 40h4v1h-4zM33 40h1v1h-1zM35 40h1v1h-1zM37 40h4v1h-4z"></path></svg>
+        </div>
+        <div class="connect__url">f2bf.icscanada.edu/churches</div>
+      </div>
+    </div>
+
+    <div class="band band--back">
+      <div class="band__call">F2BF.ICSCANADA.EDU/CHURCHES</div>
+      <div class="band__note">info@icscanada.edu · 1-416-979-2331</div>
+    </div>
+
+  </div>
+  <div class="guide guide--trim"></div>
+  <div class="guide guide--safe"></div>
+</div>
+
+</body></html>

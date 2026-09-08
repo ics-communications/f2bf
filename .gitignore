@@ -2,3 +2,7 @@
 # Recreate with: cd .render && npm install playwright && npx playwright install chromium
 .render/node_modules/
 .render/package-lock.json
+
+# macOS AppleDouble resource forks — must never ship to a printer
+._*
+.DS_Store

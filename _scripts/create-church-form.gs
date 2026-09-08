@@ -16,11 +16,11 @@
  */
 
 // Where new-signup notifications go.
-const NOTIFY_EMAILS = ['info@icscanada.edu'];
+const NOTIFY_EMAILS = ['ics-communications@icscanada.edu', 'haceroferrer@icscanada.edu'];
 
 // Optional: paste a Drive folder ID to keep the form and its response sheet
 // somewhere other than the root of My Drive. Leave '' to skip.
-const DRIVE_FOLDER_ID = '';
+const DRIVE_FOLDER_ID = '1jis4WH19CxPc5yiA4ADYwC-g2nWxvfcQ';
 
 const FORM_TITLE = 'Resources for Your Church';
 const SHEET_TITLE = 'Church Signups — Responses';
