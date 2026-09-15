@@ -24,7 +24,21 @@
     "name": "Events | Free to be Faithful",
     "description": "Browse upcoming and past Free to be Faithful events, view photo galleries, and check the calendar for open community gatherings.",
     "url": "https://f2bf.icscanada.edu/events",
-    "isPartOf": { "@id": "https://f2bf.icscanada.edu/#website" }
+    "isPartOf": { "@id": "https://f2bf.icscanada.edu/#website" },
+    "mainEntity": {
+      "@type": "Event",
+      "name": "Fall Big Read \u2014 Defying Tyrants with Matthew D. Taylor",
+      "startDate": "2026-10-08T19:00:00-04:00",
+      "endDate": "2026-10-08T20:30:00-04:00",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "VirtualLocation",
+        "url": "https://www.youtube.com/user/christianstudies/live"
+      },
+      "isAccessibleForFree": true,
+      "url": "https://f2bf.icscanada.edu/big-read"
+    }
   }
   </script>
   <link rel="stylesheet" href="/assets/css/global.css">
@@ -125,6 +139,28 @@
     .f2bf-ev-featured__img-wrap img {
       width: 100%; height: 100%; object-fit: cover; display: block;
       filter: saturate(0.85) brightness(0.9);
+    }
+    /* A book cover is portrait and must not be cropped, so it sits lit on a
+       panel instead of filling the plate the way a photograph does. */
+    .f2bf-ev-featured__img-wrap--book {
+      background: var(--teal-deep);
+      display: flex; align-items: center; justify-content: center;
+      /* A portrait cover inside a 16:10 plate comes out postage-stamp sized,
+         so the book variant gets a squarer plate, squarer still on phones. */
+      aspect-ratio: 1 / 1;
+    }
+    @media (min-width: 800px) {
+      .f2bf-ev-featured__img-wrap--book { aspect-ratio: 5 / 4; }
+    }
+    .f2bf-ev-featured__img-wrap--book::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 44%,
+        rgba(200,60,44,0.32) 0%, rgba(200,60,44,0.10) 42%, rgba(200,60,44,0) 72%);
+    }
+    .f2bf-ev-featured__img-wrap--book img {
+      position: relative; width: auto; height: 78%;
+      object-fit: contain; filter: none; border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 16px 38px rgba(0,0,0,0.45);
     }
     .f2bf-ev-featured__img-badge {
       position: absolute; top: 1.2rem; left: 1.2rem;
@@ -631,6 +667,7 @@
       <h1 class="f2bf-ev-hero__title">Events <em>&amp;</em><br>Gatherings</h1>
       <p class="f2bf-ev-hero__desc">Conferences, courses, webinars, and community gatherings where Christians come together to learn, dialogue, and act faithfully in the world.</p>
       <div class="f2bf-ev-hero__actions">
+        <a href="/big-read" class="f2bf-btn f2bf-btn--red">Fall Big Read →</a>
         <a href="/f2bf-courses" class="f2bf-btn f2bf-btn--ghost">Browse Courses</a>
       </div>
     </div>
@@ -639,20 +676,21 @@
   <!-- ══════ FEATURED EVENT ══════ -->
   <section class="f2bf-ev-featured">
     <div class="f2bf-ev-featured__inner">
-      <div class="f2bf-ev-featured__img-wrap">
-        <img src="https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/2d05f111fd5740b0bf152d504666a0b7/revisions/bc4fbd9b89024de289356c65d8e8bd3c/renditions/f64c33e1866ef7ba69ff1f509ddbb55d" alt="Courageous Faith conference">
-        <span class="f2bf-ev-featured__img-badge">Featured Event</span>
+      <div class="f2bf-ev-featured__img-wrap f2bf-ev-featured__img-wrap--book">
+        <img src="/assets/img/defying-tyrants-cover.jpg" width="900" height="1350" alt="Defying Tyrants by Matthew D. Taylor">
+        <span class="f2bf-ev-featured__img-badge">Next Event</span>
       </div>
       <div class="f2bf-ev-featured__text">
-        <p class="f2bf-ev-featured__label">Public Conference</p>
-        <h2 class="f2bf-ev-featured__heading">Courageous Faith in a Time of Fear</h2>
-        <p class="f2bf-ev-featured__body">A two-day public conference exploring what it means to lead, speak, and act faithfully amid political polarization, cultural anxiety, and deep divisions within churches today.</p>
+        <p class="f2bf-ev-featured__label">Fall Big Read</p>
+        <h2 class="f2bf-ev-featured__heading">Defying Tyrants</h2>
+        <p class="f2bf-ev-featured__body">An evening with <strong>Matthew D. Taylor</strong> on his new book, <em>Defying Tyrants: Following Jesus in a World of Christian Antichrists</em>. A reckoning with how Christian fixation on political power went so wrong, and a search for the countertradition that resisted it.</p>
         <div class="f2bf-ev-featured__details">
-          <span class="f2bf-ev-featured__detail">May 13&ndash;14, 2026</span>
-          <span class="f2bf-ev-featured__detail">Hybrid: In-Person + Online</span>
+          <span class="f2bf-ev-featured__detail">Thursday, October 8, 2026</span>
+          <span class="f2bf-ev-featured__detail">7:00 PM ET</span>
+          <span class="f2bf-ev-featured__detail">Online &middot; Free</span>
         </div>
-        <p class="f2bf-ev-featured__speakers">Featuring <strong>Dr. Kristin Kobes Du Mez</strong> and <strong>Rev. Joash P. Thomas</strong>. Presented by Knox College's Ministry Forum and the Institute for Christian Studies' Free to Be Faithful initiative.</p>
-        <a href="/conference-may13" class="f2bf-btn f2bf-btn--red">Learn More →</a>
+        <p class="f2bf-ev-featured__speakers">Register free and we will send you an excerpt of the book to read beforehand, plus the livestream link.</p>
+        <a href="/big-read" class="f2bf-btn f2bf-btn--red">Register Free →</a>
       </div>
     </div>
   </section>
@@ -745,6 +783,14 @@
           <h3 class="f2bf-ev-past-card__title">Reenchanting the World: Philosophy, Spirituality, Ecology, Arts</h3>
           <p class="f2bf-ev-past-card__speaker">Multiple Contributors</p>
           <p class="f2bf-ev-past-card__summary">A multidisciplinary gathering exploring how philosophy, spirituality, and the arts can re-enchant our disenchanted age.</p>
+        </div>
+
+        <div class="f2bf-ev-past-card">
+          <p class="f2bf-ev-past-card__type">Conference</p>
+          <p class="f2bf-ev-past-card__date">May 13&ndash;14, 2026</p>
+          <h3 class="f2bf-ev-past-card__title">Courageous Faith in a Time of Fear</h3>
+          <p class="f2bf-ev-past-card__speaker">Kristin Kobes Du Mez &amp; Joash P. Thomas</p>
+          <p class="f2bf-ev-past-card__summary">Two days on pastoral leadership, public responsibility, and the risk of taking a stand. Presented with Knox College's Ministry Forum.</p>
         </div>
 
       </div>
@@ -902,7 +948,7 @@
       { summary: 'Critical Faith Podcast: Live Recording', da: 12, time: '6:30 PM', loc: 'ICS Campus', desc: 'Join us for a live taping of the Critical Faith podcast. Audience participation welcome.' },
       { summary: 'MWS-E Information Session', da: 18, time: '12 PM', loc: 'Online', desc: 'Learn about the Master of Worldview Studies in Education program, hear from current students, and ask questions.' },
       { summary: 'Scripture, Faith & Scholarship Series', da: 22, time: '7 PM', loc: 'ICS Campus', desc: '' },
-      { summary: 'Courageous Faith in a Time of Fear', da: 35, time: '9 AM', loc: 'Toronto / Online', desc: 'A two-day public conference exploring what it means to lead, speak, and act faithfully amid political polarization and deep divisions within churches. Featuring Kristin Kobes Du Mez and Joash P. Thomas.' },
+      { summary: 'Fall Big Read: Defying Tyrants', date: '2026-10-08', time: '7:00 PM ET', loc: 'Online (free)', desc: 'An evening with Matthew D. Taylor on his book Defying Tyrants: Following Jesus in a World of Christian Antichrists. Free and online; register at f2bf.icscanada.edu/big-read and we will send you an excerpt.' },
       { summary: 'PhD Colloquium: Philosophy of Education', da: 42, time: '3 PM', loc: 'Seminar Room', desc: '' },
       { summary: 'Ground Motive Forum', da: 50, time: '7:30 PM', loc: 'Online', desc: 'A moderated forum on faith, philosophy, and public life. Panelists TBA.' },
       { summary: 'Spring Convocation', da: 65, time: '2 PM', loc: '59 St. George St', desc: 'Celebrate the achievements of ICS graduating students at our annual spring convocation ceremony.' }

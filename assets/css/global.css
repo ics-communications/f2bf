@@ -26,13 +26,14 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; }
 .f2bf-c *, .f2bf-c *::before, .f2bf-c *::after,
 .f2bf-comm *, .f2bf-comm *::before, .f2bf-comm *::after,
 .f2bf-ev *, .f2bf-ev *::before, .f2bf-ev *::after,
-.cf *, .cf *::before, .cf *::after {
+.cf *, .cf *::before, .cf *::after,
+.br *, .br *::before, .br *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.f2bf, .f2bf-prog, .f2bf-c, .f2bf-comm, .f2bf-ev, .cf {
+.f2bf, .f2bf-prog, .f2bf-c, .f2bf-comm, .f2bf-ev, .cf, .br {
   font-family: var(--text);
   color: var(--ink);
   line-height: 1.7;
