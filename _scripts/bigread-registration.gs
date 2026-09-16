@@ -33,9 +33,9 @@
 
 const NOTIFY_EMAILS = ['ics-communications@icscanada.edu', 'haceroferrer@icscanada.edu'];
 
-// Drive file ID of Big-Read-Excerpt-F26.pdf. Required — without it the
-// confirmation still sends, but with a download link only and no attachment.
-const EXCERPT_FILE_ID = '';
+// Drive file ID of Big-Read-Excerpt-F26.pdf. Without it the confirmation still
+// sends, but with no attachment — so check the setup() log says it resolved.
+const EXCERPT_FILE_ID = '1Ws3qTACQHwUxyHoVubQbV36KOdr6uHQB';
 
 // Leave '' on first run; setup() creates the sheet and logs the ID to paste here.
 const SHEET_ID = '';
@@ -256,10 +256,24 @@ function notifyFailure_(data, err) {
 
 // ── Sheet ────────────────────────────────────────────────────────────────────
 
+/**
+ * The page cannot read this script's response (no-cors), so a registration
+ * that fails here is gone with no trace the registrant would ever see.
+ * Rather than throw when SHEET_ID is unset — the state after a deploy where
+ * setup() was skipped — create the spreadsheet on demand and remember it.
+ */
 function getSheet_() {
-  const ss = SHEET_ID
-    ? SpreadsheetApp.openById(SHEET_ID)
-    : SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SHEET_ID'));
+  const props = PropertiesService.getScriptProperties();
+  const id = SHEET_ID || props.getProperty('SHEET_ID');
+
+  let ss;
+  if (id) {
+    ss = SpreadsheetApp.openById(id);
+  } else {
+    ss = SpreadsheetApp.create(SHEET_TITLE);
+    props.setProperty('SHEET_ID', ss.getId());
+    console.warn('setup() was never run. Created a response sheet: ' + ss.getUrl());
+  }
 
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = createSheet_(ss);

@@ -393,12 +393,30 @@
     }
     @media (min-width: 560px) { .br-form { padding: 2.6rem; } }
     .br-form__row { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-bottom: 1.1rem; }
-    @media (min-width: 560px) { .br-form__row--two { grid-template-columns: 1fr 1fr; } }
-    .br-form__field { display: flex; flex-direction: column; }
+    /* The form lives in a grid column far narrower than the viewport, so a
+       viewport media query splits this row while the form still has no room
+       for two fields. Ask the form its own width instead. */
+    .br-form { container-type: inline-size; }
+    .br-form__field { display: grid; grid-template-rows: auto auto; align-content: start; }
+    @container (min-width: 430px) {
+      .br-form__row--two {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 0;                    /* the label's own padding sets this gap */
+      }
+      /* Labels wrap to two lines at some widths. Subgrid puts every label in
+         one shared row and every input in the next, so a wrap cannot knock
+         the field beside it out of alignment. Only needed side by side. */
+      .br-form__row--two > .br-form__field {
+        grid-row: span 2;
+        grid-template-rows: subgrid;
+      }
+    }
     .br-form__label {
+      display: flex; align-items: flex-end; flex-wrap: wrap; gap: 0 0.35em;
       font-family: var(--text); font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(240,235,227,0.72); margin-bottom: 0.5rem;
+      letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.45;
+      color: rgba(240,235,227,0.72); padding-bottom: 0.5rem;
     }
     .br-form__label span { color: var(--red-hover); }
     .br-form__label .br-form__opt {
@@ -975,7 +993,7 @@
      Deploy _scripts/create-bigread-registration.gs as a web app
      ("Execute as: Me", "Who has access: Anyone") and paste the /exec
      URL here. Until then the form fails closed with a mailto fallback. */
-  var ENDPOINT = 'PASTE_APPS_SCRIPT_EXEC_URL_HERE';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzYWXE9pKtv_nXJAb6q0D21jr9F9fk-UBrqCOW2D7W4MGhO5yTMB720SCod7R6qAI6DbQ/exec';
 
   var form    = document.getElementById('brForm');
   var confirm = document.getElementById('brConfirm');
