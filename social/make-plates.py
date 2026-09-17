@@ -86,16 +86,63 @@ SITTERS = [
         # side he is looking toward. Clamps to ~594.
         'want_x': CANVAS_MID + 95,
     },
+    {
+        'name':   'joash',
+        'src':    'assets/img/_originals/JoashThomas.jpg',    # 2500x3750
+        'out':    'social/plate-joash.jpg',
+        # Landmarks read off the source at 1/5 scale. CHIN is the jawline
+        # under the beard, not the beard's point: the beard runs ~110 source
+        # px (~50 plate px) past it and therefore lands just inside the solid
+        # wash. That is deliberate. A lit jaw cut off by the wash reads as
+        # damage; a black beard dissolving into #0F2631 reads as the tile
+        # doing what it does to every plate in the series.
+        'crown':  430.0,
+        'chin':   1490.0,
+        'eye':    1030.0,
+        'mid_x':  1400.0,
+        # CENTRED ON THE VISIBLE MASS, not on the series head box.
+        #
+        # The series registers crown-to-chin, because for the two original
+        # sitters that IS the visible head. Joash carries ~90 source px of
+        # top-knot above his hairline and ~110 of beard below his jaw, so
+        # crown-to-chin registration puts neither end where it looks like it
+        # is: at HEAD_TOP=140 his beard ran past the point where the wash
+        # goes solid and the face lost its bottom.
+        #
+        # So this sitter is registered on bun-to-beard (source 340..1600),
+        # centred in the band the tile actually shows him in -- y=0 to y=647,
+        # where the wash reaches solid #0F2631. At the one scale the source
+        # width permits (0.432, a full-width crop), that mass is 544px tall
+        # and lands with 51px of air above the bun and 51px below the beard.
+        # The numbers below are that solution expressed in the script's
+        # crown/chin terms; re-derive them if any landmark changes.
+        'head_top':    90,
+        'head_height': 458,
+        # Frontal sitter, so centre him. Clamps hard left -- the crop uses the
+        # full 2500px width of the source, so there is no horizontal slack at
+        # all and he sits ~65px right of the canvas centre.
+        'want_x': CANVAS_MID,
+    },
 ]
 
 
 def plan(s, src_w, src_h):
     """Return the crop box in source pixels, plus a report of any clamping."""
+    # A sitter may override the series head box. Only do this for a sitter who
+    # carries something ABOVE the crown -- a hat, a top-knot -- which the two
+    # original sitters do not, and for which the series HEAD_TOP of 140 leaves
+    # no room. See joash below.
+    head_top = s.get('head_top', HEAD_TOP)
+    head_height = s.get('head_height', HEAD_HEIGHT)
+
     head_src = s['chin'] - s['crown']
-    scale = HEAD_HEIGHT / head_src
+    scale = head_height / head_src
     crop_w, crop_h = PLATE_W / scale, PLATE_H / scale
 
     notes = []
+    if head_top != HEAD_TOP or head_height != HEAD_HEIGHT:
+        notes.append(f'off-series head box: crown {head_top} -> chin '
+                     f'{head_top + head_height} ({head_height}px)')
     if crop_w > src_w or crop_h > src_h:
         raise SystemExit(
             f"{s['name']}: HEAD_HEIGHT={HEAD_HEIGHT} needs a "
@@ -105,7 +152,7 @@ def plan(s, src_w, src_h):
         )
 
     left = s['mid_x'] - s['want_x'] / scale
-    top = s['crown'] - HEAD_TOP / scale
+    top = s['crown'] - head_top / scale
 
     clamped_left = min(max(left, 0.0), src_w - crop_w)
     clamped_top = min(max(top, 0.0), src_h - crop_h)

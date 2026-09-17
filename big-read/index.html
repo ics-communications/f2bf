@@ -443,29 +443,6 @@
     }
     .br-form__select option { background: var(--teal-deep); color: var(--cream); }
 
-    .br-form__consent {
-      display: flex; gap: 0.85rem; align-items: flex-start;
-      margin: 1.6rem 0 0.4rem; cursor: pointer;
-    }
-    .br-form__checkbox {
-      appearance: none; flex: none; margin-top: 0.2rem;
-      width: 20px; height: 20px; border-radius: 3px;
-      border: 1.5px solid rgba(240,235,227,0.4);
-      background: rgba(15,38,49,0.55); cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-    .br-form__checkbox:hover { border-color: rgba(240,235,227,0.7); }
-    .br-form__checkbox:checked {
-      background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/13px no-repeat;
-      border-color: var(--red);
-    }
-    .br-form__checkbox:focus-visible { outline: 3px solid var(--red-hover); outline-offset: 2px; }
-    .br-form__consent-text {
-      font-family: var(--text); font-size: 0.88rem; line-height: 1.6;
-      color: rgba(240,235,227,0.72);
-    }
-    .br-form__consent-text span { color: var(--red-hover); }
-
     .br-form__actions { margin-top: 1.8rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
     .br-form__submit { border: none; }
     .br-form__submit[disabled] { opacity: 0.55; cursor: progress; transform: none; box-shadow: none; }
@@ -817,11 +794,6 @@
             </div>
           </div>
 
-          <label class="br-form__consent" for="brConsent">
-            <input class="br-form__checkbox" type="checkbox" id="brConsent" name="consent" required>
-            <span class="br-form__consent-text">Yes, the Institute for Christian Studies may email me about this event and about future courses, resources, and gatherings. <span aria-hidden="true">*</span></span>
-          </label>
-
           <div class="br-form__actions">
             <button type="submit" class="br-btn br-btn--red br-form__submit" id="brSubmit">Register Free</button>
           </div>
@@ -1030,9 +1002,6 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       return 'That email address does not look right. We need a working one to send you the excerpt.';
     }
-    if (!document.getElementById('brConsent').checked) {
-      return 'Please tick the consent box so we are allowed to email you the excerpt and the link.';
-    }
     return null;
   }
 
@@ -1047,7 +1016,6 @@
       country:     document.getElementById('brCountry').value.trim(),
       heardFrom:   document.getElementById('brHeard').value,
       affiliation: document.getElementById('brAffiliation').value.trim(),
-      consent:     document.getElementById('brConsent').checked ? 'Yes' : 'No',
       submittedAt: new Date().toISOString(),
       pageUrl:     window.location.href
     };
