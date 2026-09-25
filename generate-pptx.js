@@ -32,6 +32,8 @@ function downloadFile(url, dest) {
 }
 
 async function ensureImage(key, url) {
+  // Images kept in the repo are used in place; only remote URLs are cached.
+  if (!/^https?:/.test(url)) return path.join(__dirname, url);
   const ext = url.match(/\.(jpe?g|png|webp|gif)/i)?.[1] || "jpg";
   const localPath = path.join(IMG_DIR, `${key}.${ext}`);
   if (!fs.existsSync(localPath)) {
@@ -49,26 +51,26 @@ async function main() {
 
   // Image URLs
   const URLS = {
-    heroCover: "https://lightroom.adobe.com/v2c/spaces/796283b06b914932aaff4c457375828c/assets/30c19c62dc8448afb3d319426fd0d25c/revisions/33c9a6f8378d4ebea32cfb4f8c7d50ed/renditions/321e45597328e883c4e3599a2d4a4b1c",
-    groupPhoto: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/f0faaa0c016a4b8ea240f85f17e2cb1e/revisions/57a5dd3a9fd4465ebd0da11be4657afb/renditions/4c4b344875c946f60233f891b131730a",
-    churchInterior: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/775c04442a88322073cac24a125450cf/revisions/78a38af1dbfc6c96835403a41a8e3686/renditions/4b74825b0c1b8b4db5492301e81827e1",
-    seminarDiscussion: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/24eada41557e46b79d5497850b7fe992/revisions/a768f52ccef249aba0dbb1a53746d965/renditions/49f0eee5fba45ed7a003be00a7565624",
-    booksStudy: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/8d7495845b158f3e456a82bb0ec4bff0/revisions/35f4d5bd371699f1012e16fab1c058bd/renditions/21e84ac83daa19b516686fbe6c99d5e1",
-    communityGathering: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/17d8f5c74f29479b90326c635ad2edcc/revisions/48661684b3ac42a8bf9d9385b572ff7d/renditions/f2a68f5a48091dd73b2183a0fbd74c56",
-    conferencePhoto: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/2d05f111fd5740b0bf152d504666a0b7/revisions/bc4fbd9b89024de289356c65d8e8bd3c/renditions/f64c33e1866ef7ba69ff1f509ddbb55d",
+    heroCover: "assets/img/f2bf-hero-cover.jpg",
+    groupPhoto: "assets/img/community-group.jpg",
+    churchInterior: "assets/img/church-interior.jpg",
+    seminarDiscussion: "assets/img/seminar-discussion.jpg",
+    booksStudy: "assets/img/books-study.jpg",
+    communityGathering: "assets/img/community-gathering.jpg",
+    conferencePhoto: "assets/img/conference-photo.jpg",
     icsLogo: "https://images.squarespace-cdn.com/content/v1/69961bfd9be8a352ca34cb2f/1771445259448-EVZXO6XGJPH95Y3MLV7Q/Logo+w+White+Writing+-+Transparent+Background.png?format=1500w",
     qrCode: "https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Ff2bf.icscanada.edu&size=600x600&ecc=H&margin=1",
-    duMez: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/59ce09f32a58fc316e527bcac3ad7d8a/revisions/7b6e0c0d080a8cca9fab99b0995a2faa/renditions/9ede31d929031de67041121df4df02a4",
+    duMez: "assets/img/du-mez-headshot.jpg",
     thomas: "https://images.squarespace-cdn.com/content/v1/66e782ff6d826327d4cbf069/259ee5d1-ff8e-412c-97a2-5896a5a18e18/DSCF1643+2.JPEG?format=1000w",
     keesmaat: "https://images.squarespace-cdn.com/content/v1/5d35d91930e35e0001f32247/0fcc6065-90e9-4a47-b3cb-7351d0a4c970/Sylvia%2Bheadshot%2Bbirch%2Btree%2B%281%29.jpeg",
     berglund: "https://images.squarespace-cdn.com/content/v1/69727fb4d6a46a29f916f46c/1381afca-dddd-4968-9ddb-ff40af3676f5/Berglund%2Bauthor%2Bphoto.jpg",
-    prior: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/2d31b1d604d6538884d402ac037d369f/revisions/e75081dd3e4567a5fe6590cbc85cb12d/renditions/8b516c6d1e06707f737b0fda5e14f3cc",
+    prior: "assets/img/prior-headshot.jpg",
     reichel: "https://ptsem.edu/wp-content/uploads/2024/04/Hanna-Reichel-News-Image-1.jpg",
-    reitsma: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/ac9ebddbbf76bdfc058b0aa14d83a7d4/revisions/1b94460a02223f66fef75f366713a3ef/renditions/79d75a0f53fa09ac959c328dd508bb6d",
+    reitsma: "assets/img/reitsma-bick-headshot.jpg",
     taylor: "https://www.drmatthewdtaylor.com/ui/images/mwvL1vOhAf-500.webp",
-    benjamins: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/4a7c49aa254f82866883d4ef75ed8fdd/revisions/f6c7ed0159314288a811c2e40aeb8435/renditions/1bd73e02f88bb8f9fa3929d07a0f6583",
-    kuipers: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/b2c10be223564c4802d880c29342eff3/revisions/f91248eeef584c9a99b27f34b97cf736/renditions/80443c43064eb8ab5e73f7a8c1f86360",
-    strauss: "https://lightroom.adobe.com/v2c/spaces/8e293c41299846de9eaf08c99ce6ee2a/assets/1989be880e740ae434956f4b5c309956/revisions/aade7317e21341bfa27d80682c0cdb11/renditions/17c5a8a134b987c53cbc6f72c7d4b019",
+    benjamins: "assets/img/benjamins-headshot.jpg",
+    kuipers: "assets/img/kuipers-headshot.jpg",
+    strauss: "assets/img/strauss-headshot.jpg",
     walsh: "https://bibleremixed.ca/cspics/graphics545.jpg?v=2",
   };
 
