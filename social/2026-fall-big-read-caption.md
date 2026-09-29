@@ -36,15 +36,17 @@ f2bf.icscanada.edu/big-read
 
 *Free to be Faithful · Institute for Christian Studies*
 
-**#FreeToBeFaithful #InstituteForChristianStudies #DefyingTyrants #MatthewDTaylor #ChristianNationalism #BigRead #FaithAndPolitics #PublicTheology #BroadleafBooks #ChristianEthics**
+#FreeToBeFaithful #InstituteForChristianStudies #DefyingTyrants #MatthewDTaylor #ChristianNationalism #BigRead #FaithAndPolitics #PublicTheology #BroadleafBooks #ChristianEthics
 
 ## Short caption (stories, X, reposts)
 
 "Christian antichrists (n.): those who use power to harm others in the name of Jesus."
 
-One free evening with Matthew D. Taylor on his new book *Defying Tyrants*.
+Join us on Thursday, October 8 at 7PM ET for an online conversation with Matthew D. Taylor on his new book Defying Tyrants.
 Thursday, October 8 · 7:00 PM ET · online.
 Register and we'll send you an excerpt → f2bf.icscanada.edu/big-read
+
+#FreeToBeFaithful #InstituteForChristianStudies #DefyingTyrants #MatthewDTaylor #ChristianNationalism #BigRead #FaithAndPolitics #PublicTheology #BroadleafBooks #ChristianEthics
 
 ## Reminder caption (week of the event)
 

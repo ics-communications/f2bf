@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<title>Christian Courier ad: Broken Hallelujah (300×300)</title>
+<!--
+  Editable source for christian-courier-angela-300x300.png.
+  Render: cd .render && node render-cc-ads.mjs
+  Copy that may change lives in the CONFIG block at the bottom of this file.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=block">
+<style>
+  /* Tokens copied from f2bf.icscanada.edu /assets/css/global.css */
+  :root {
+    --teal: #1B3A4B; --teal-deep: #0F2631;
+    --red: #C83C2C; --slate-light: #D6DDE2;
+    --cream: #F0EBE3; --cream-lt: #F7F4EF; --white: #FFFFFF;
+    --ink: #1A2A33; --body: #3D4F59;
+    --faint: rgba(27,58,75,0.10);
+    --display: 'Playfair Display', Georgia, serif;
+    --text: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #888; padding: 40px; }
+
+  .ad {
+    width: 300px; height: 300px; overflow: hidden; position: relative;
+    display: grid; grid-template-rows: 156px 144px;
+    font-family: var(--text); color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top: course block (hero treatment) ── */
+  .top { background: var(--teal); display: grid; grid-template-columns: 1fr 110px; }
+  .top__text { padding: 14px 8px 0 18px; }
+  .brand { display: block; height: 15px; width: auto; margin-bottom: 11px; }
+  .title {
+    font-family: var(--display); font-weight: 900; font-size: 26px;
+    line-height: 1; letter-spacing: -0.015em; color: var(--cream);
+    text-indent: -0.42em;           /* hang the opening quote so both words align */
+    margin-bottom: 8px;
+  }
+  .instructor {
+    font-size: 13.5px; font-weight: 700; color: var(--white);
+    line-height: 1.2; margin-bottom: 3px;
+  }
+  .subtitle { font-size: 11.5px; line-height: 1.3; color: rgba(240,235,227,0.82); }
+  .top__img { position: relative; overflow: hidden; }
+  .top__img img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 45% 30%; filter: saturate(0.75);
+  }
+
+  /* ── Bottom: schedule + offer (cream section, pricing-bar labels) ── */
+  .bottom { background: var(--cream-lt); padding: 11px 14px 0 18px; }
+  .meta { font-size: 11.5px; font-weight: 700; color: var(--teal); line-height: 1.25; }
+  .meta span { color: var(--red); padding: 0 3px; }
+  .rule { width: 24px; height: 3px; border: 0; background: var(--red); margin: 8px 0 7px; }  /* .f2bf-rule */
+  .label {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--red); line-height: 1.2; margin-bottom: 3px;
+  }
+  .scholarship {
+    font-family: var(--display); font-weight: 700; font-size: 18px;
+    font-variant-numeric: lining-nums;
+    line-height: 1.1; color: var(--teal);
+  }
+  .price { font-size: 11.5px; color: var(--body); line-height: 1.3; margin-top: 2px; }
+  .price strong { color: var(--teal); font-weight: 700; }
+  /* How to register: plain text, since the ad is a static image with no controls */
+  .how { margin-top: 7px; padding-top: 6px; border-top: 1px solid var(--faint); }
+  .how p { font-size: 11.5px; color: var(--body); line-height: 1.3; }
+  .how b { font-weight: 700; color: var(--teal); }
+</style>
+</head>
+<body>
+<div class="ad" id="ad">
+  <div class="top">
+    <div class="top__text">
+      <img class="brand" src="assets/ics-logo-white.png" alt="Institute for Christian Studies">
+      <h1 class="title">&ldquo;Broken<br>Hallelujah&rdquo;</h1>
+      <p class="instructor">Angela Reitsma Bick</p>
+      <p class="subtitle">Faith, Deconstruction, and Spirituality through Music</p>
+    </div>
+    <div class="top__img"><img src="assets/angela-reitsma-bick.jpg" alt="Angela Reitsma Bick"></div>
+  </div>
+  <div class="bottom">
+    <p class="meta">Nov. 3 to Dec. 8<span>&middot;</span>Online<span>&middot;</span>Tuesdays, 6:30 PM ET</p>
+    <hr class="rule">
+    <p class="label">Christian Courier readers</p>
+    <p class="scholarship">$100 scholarship</p>
+    <p class="price"><strong data-cfg="readerPrice"></strong>, regularly <span data-cfg="regularPrice"></span></p>
+    <div class="how">
+      <p>Register at <b data-cfg="registerUrl"></b></p>
+      <p>Use code <b data-cfg="promoCode"></b></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── CONFIG: edit here, then re-render ── */
+  const CONFIG = {
+    promoCode:    'christiancourier',
+    readerPrice:  '$300 CAD',
+    regularPrice: '$400',
+    registerUrl:  'f2bf.icscanada.edu/courses',
+  };
+  document.querySelectorAll('[data-cfg]').forEach(el => {
+    el.textContent = CONFIG[el.dataset.cfg];
+  });
+</script>
+</body>
+</html>
