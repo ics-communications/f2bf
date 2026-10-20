@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<title>Free to be Faithful Poster (Alt)</title>
+<meta name="description" content="Print-ready 8.5×11 office-printer poster for Free to be Faithful, alternate version in the style of the 11×17 poster (index-v2.html), with a QR code to f2bf.icscanada.edu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   FREE TO BE FAITHFUL — 8.5×11 office-printer poster, ALT
+   Letter-size translation of the 11×17 poster (index-v2.html):
+   full-panel sanctuary photo fading into deep teal, everything
+   anchored bottom-left, QR in a cream tile bottom-right.
+   Sheet: US Letter. No bleed — artwork sits inside a 0.3in paper
+   margin so any desktop/office printer reproduces it whole.
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  --teal-deep:   #0F2631;
+  --teal-mid:    #25516A;
+  --red:         #C83C2C;
+  --slate-light: #D6DDE2;
+  --cream:       #F0EBE3;
+
+  --display: 'Playfair Display', Georgia, serif;
+  --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+  --margin: 0.3in;   /* paper border */
+  --safe:   0.4in;   /* inner gutter of the artwork */
+}
+
+@page { size: 8.5in 11in; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #cfd6db;
+  font-family: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.stage { display: flex; justify-content: center; padding: 0.5in 0; }
+
+.sheet {
+  width: 8.5in; height: 11in;
+  padding: var(--margin);
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(15, 38, 49, 0.25);
+}
+@media print {
+  html, body { background: #fff; }
+  .stage { padding: 0; }
+  .sheet { box-shadow: none; }
+}
+
+.poster {
+  position: relative;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--teal-deep);
+}
+
+/* ════ Photo layer ════ */
+.cover__photo {
+  position: absolute; inset: 0;
+  background-image: url('../assets/img/f2bf-hero-cover.jpg');
+  background-size: cover;
+  background-position: 45% 20%;
+  opacity: 0.5;
+  filter: saturate(0.5) contrast(1.05);
+}
+.cover__gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15,38,49,0.12) 0%,
+    rgba(15,38,49,0.04) 14%,
+    rgba(15,38,49,0.10) 32%,
+    rgba(15,38,49,0.50) 50%,
+    rgba(15,38,49,0.84) 64%,
+    rgba(15,38,49,0.96) 80%,
+    rgba(15,38,49,0.99) 100%);
+}
+
+/* ════ Content ════ */
+.safe-area {
+  position: absolute;
+  inset: var(--safe);
+  color: var(--cream);
+  z-index: 2;
+}
+
+.eyebrow {
+  position: absolute; top: 0; left: 0;
+  font-size: 9pt; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(240,235,227,0.72);
+}
+.logo {
+  position: absolute; top: -0.04in; right: 0;
+  width: 0.85in; height: auto;
+  opacity: 0.9;
+}
+
+.bottom {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: flex-end;
+}
+.text-stack { flex: 1; min-width: 0; }
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 88pt;
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+}
+.wordmark em {
+  font-style: italic; font-weight: 400;
+  color: var(--slate-light);
+}
+
+.tagline {
+  font-family: var(--display); font-style: italic; font-weight: 400;
+  font-size: 16pt;
+  color: rgba(240,235,227,0.85);
+  margin-top: 0.16in;
+  white-space: nowrap;
+}
+
+.manifesto {
+  margin-top: 0.45in;
+  font-family: var(--display); font-style: italic; font-weight: 400;
+  font-size: 13.5pt; line-height: 1.6;
+  color: rgba(240,235,227,0.82);
+}
+.manifesto__rule {
+  width: 28px; height: 2px;
+  background: var(--red); border: 0;
+  margin-top: 0.2in;
+}
+.pillars {
+  margin-top: 0.14in;
+  font-size: 8.5pt; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(240,235,227,0.7);
+}
+.pillars__sep { display: inline-block; margin: 0 0.1in; color: var(--red); }
+
+/* ════ QR group ════ */
+.qr-group {
+  display: flex; align-items: flex-end; gap: 0.18in;
+  flex-shrink: 0; margin-left: 0.3in;
+}
+.qr-group__text { text-align: right; padding-bottom: 0.08in; }
+.qr-group__label {
+  font-size: 7.5pt; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.06in;
+}
+.qr-group__url {
+  font-family: var(--display); font-weight: 900;
+  font-size: 14pt; letter-spacing: 0.01em;
+  color: var(--cream);
+}
+.qr__code {
+  width: 1.45in; height: 1.45in;
+  background: var(--cream);
+  padding: 0.06in;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(200,60,44,0.2), 0 4px 14px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+.qr__code svg { display: block; width: 100%; height: 100%; }
+.qr__code .qr__quiet { fill: var(--cream); }
+.qr__code .qr__mod   { fill: var(--teal-deep); }
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="sheet">
+<div class="poster">
+
+  <div class="cover__photo"></div>
+  <div class="cover__gradient"></div>
+
+  <div class="safe-area">
+    <div class="eyebrow">Institute for Christian Studies</div>
+
+    <div class="bottom">
+      <div class="text-stack">
+        <h1 class="wordmark">Free<br><em>to be</em><br>Faithful</h1>
+        <p class="tagline">Equipping Christians for Democratic Life.</p>
+        <p class="manifesto">
+          Rooted without becoming rigid.<br>
+          Bold without becoming belligerent.<br>
+          Faithful without becoming fearful.
+        </p>
+        <hr class="manifesto__rule">
+        <p class="pillars">Program<span class="pillars__sep">·</span>Resource<span class="pillars__sep">·</span>Community</p>
+      </div>
+
+      <div class="qr-group">
+        <div class="qr-group__text">
+          <div class="qr-group__label">Begin here</div>
+          <div class="qr-group__url">f2bf.icscanada.edu</div>
+        </div>
+        <div class="qr__code"><!--QR--><svg viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code linking to f2bf.icscanada.edu"><rect class="qr__quiet" width="49" height="49"/><path class="qr__mod" d="M4 4h7v1h-7zM16 4h1v1h-1zM18 4h1v1h-1zM23 4h1v1h-1zM27 4h1v1h-1zM32 4h1v1h-1zM34 4h2v1h-2zM38 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h1v1h-1zM15 5h2v1h-2zM18 5h1v1h-1zM22 5h1v1h-1zM26 5h1v1h-1zM29 5h1v1h-1zM31 5h2v1h-2zM34 5h1v1h-1zM38 5h1v1h-1zM44 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h2v1h-2zM17 6h1v1h-1zM23 6h2v1h-2zM28 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h1v1h-1zM40 6h3v1h-3zM44 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h2v1h-2zM15 7h4v1h-4zM20 7h1v1h-1zM22 7h1v1h-1zM25 7h2v1h-2zM28 7h2v1h-2zM33 7h1v1h-1zM36 7h1v1h-1zM38 7h1v1h-1zM40 7h3v1h-3zM44 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h2v1h-2zM17 8h1v1h-1zM19 8h2v1h-2zM23 8h2v1h-2zM27 8h3v1h-3zM32 8h1v1h-1zM34 8h3v1h-3zM38 8h1v1h-1zM40 8h3v1h-3zM44 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h2v1h-2zM15 9h2v1h-2zM18 9h1v1h-1zM20 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM28 9h1v1h-1zM31 9h1v1h-1zM33 9h1v1h-1zM36 9h1v1h-1zM38 9h1v1h-1zM44 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h1v1h-1zM36 10h1v1h-1zM38 10h7v1h-7zM12 11h9v1h-9zM23 11h3v1h-3zM27 11h2v1h-2zM30 11h2v1h-2zM34 11h1v1h-1zM36 11h1v1h-1zM4 12h1v1h-1zM6 12h5v1h-5zM16 12h6v1h-6zM23 12h1v1h-1zM26 12h1v1h-1zM28 12h4v1h-4zM33 12h2v1h-2zM38 12h5v1h-5zM4 13h2v1h-2zM7 13h1v1h-1zM12 13h1v1h-1zM14 13h4v1h-4zM20 13h6v1h-6zM27 13h1v1h-1zM29 13h1v1h-1zM32 13h1v1h-1zM35 13h2v1h-2zM38 13h3v1h-3zM42 13h3v1h-3zM9 14h3v1h-3zM13 14h1v1h-1zM15 14h1v1h-1zM18 14h2v1h-2zM26 14h1v1h-1zM29 14h3v1h-3zM33 14h2v1h-2zM36 14h1v1h-1zM40 14h1v1h-1zM6 15h2v1h-2zM11 15h3v1h-3zM15 15h3v1h-3zM23 15h3v1h-3zM28 15h1v1h-1zM30 15h1v1h-1zM32 15h1v1h-1zM34 15h4v1h-4zM40 15h2v1h-2zM6 16h1v1h-1zM10 16h1v1h-1zM12 16h1v1h-1zM18 16h2v1h-2zM21 16h1v1h-1zM23 16h1v1h-1zM26 16h1v1h-1zM28 16h3v1h-3zM32 16h2v1h-2zM35 16h2v1h-2zM39 16h4v1h-4zM44 16h1v1h-1zM4 17h2v1h-2zM7 17h1v1h-1zM9 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM20 17h1v1h-1zM22 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM30 17h1v1h-1zM32 17h1v1h-1zM34 17h9v1h-9zM44 17h1v1h-1zM4 18h2v1h-2zM8 18h5v1h-5zM15 18h1v1h-1zM19 18h1v1h-1zM21 18h3v1h-3zM25 18h1v1h-1zM28 18h2v1h-2zM31 18h3v1h-3zM36 18h2v1h-2zM39 18h4v1h-4zM4 19h5v1h-5zM11 19h1v1h-1zM15 19h2v1h-2zM20 19h1v1h-1zM22 19h5v1h-5zM30 19h3v1h-3zM34 19h1v1h-1zM36 19h1v1h-1zM38 19h2v1h-2zM41 19h1v1h-1zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h1v1h-1zM14 20h1v1h-1zM16 20h2v1h-2zM20 20h2v1h-2zM23 20h1v1h-1zM26 20h1v1h-1zM28 20h6v1h-6zM35 20h3v1h-3zM39 20h1v1h-1zM41 20h4v1h-4zM5 21h1v1h-1zM13 21h1v1h-1zM16 21h1v1h-1zM19 21h7v1h-7zM27 21h1v1h-1zM29 21h1v1h-1zM31 21h3v1h-3zM35 21h2v1h-2zM38 21h4v1h-4zM44 21h1v1h-1zM5 22h1v1h-1zM7 22h1v1h-1zM10 22h2v1h-2zM13 22h2v1h-2zM17 22h1v1h-1zM19 22h3v1h-3zM24 22h2v1h-2zM28 22h1v1h-1zM30 22h4v1h-4zM38 22h1v1h-1zM40 22h2v1h-2zM43 22h1v1h-1zM5 23h2v1h-2zM8 23h2v1h-2zM12 23h3v1h-3zM16 23h1v1h-1zM18 23h1v1h-1zM20 23h3v1h-3zM24 23h3v1h-3zM28 23h1v1h-1zM30 23h3v1h-3zM35 23h2v1h-2zM38 23h1v1h-1zM40 23h2v1h-2zM44 23h1v1h-1zM5 24h2v1h-2zM9 24h3v1h-3zM15 24h1v1h-1zM17 24h1v1h-1zM23 24h3v1h-3zM29 24h2v1h-2zM32 24h2v1h-2zM35 24h2v1h-2zM39 24h1v1h-1zM42 24h1v1h-1zM44 24h1v1h-1zM6 25h2v1h-2zM11 25h4v1h-4zM16 25h5v1h-5zM22 25h1v1h-1zM24 25h4v1h-4zM32 25h1v1h-1zM35 25h2v1h-2zM38 25h7v1h-7zM4 26h2v1h-2zM7 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM14 26h3v1h-3zM19 26h2v1h-2zM24 26h2v1h-2zM29 26h1v1h-1zM31 26h4v1h-4zM36 26h2v1h-2zM40 26h1v1h-1zM4 27h1v1h-1zM6 27h2v1h-2zM9 27h1v1h-1zM11 27h3v1h-3zM17 27h1v1h-1zM22 27h1v1h-1zM24 27h3v1h-3zM30 27h3v1h-3zM34 27h8v1h-8zM43 27h2v1h-2zM8 28h6v1h-6zM16 28h1v1h-1zM18 28h2v1h-2zM21 28h1v1h-1zM23 28h1v1h-1zM26 28h1v1h-1zM28 28h3v1h-3zM33 28h1v1h-1zM35 28h1v1h-1zM39 28h1v1h-1zM42 28h2v1h-2zM5 29h3v1h-3zM11 29h1v1h-1zM13 29h1v1h-1zM16 29h4v1h-4zM23 29h1v1h-1zM25 29h1v1h-1zM27 29h1v1h-1zM30 29h1v1h-1zM34 29h2v1h-2zM37 29h5v1h-5zM43 29h2v1h-2zM5 30h2v1h-2zM8 30h1v1h-1zM10 30h2v1h-2zM24 30h3v1h-3zM29 30h1v1h-1zM31 30h1v1h-1zM33 30h2v1h-2zM36 30h1v1h-1zM39 30h2v1h-2zM43 30h1v1h-1zM4 31h2v1h-2zM11 31h3v1h-3zM15 31h1v1h-1zM20 31h1v1h-1zM25 31h4v1h-4zM30 31h1v1h-1zM32 31h1v1h-1zM35 31h2v1h-2zM39 31h1v1h-1zM41 31h1v1h-1zM43 31h2v1h-2zM4 32h2v1h-2zM10 32h1v1h-1zM13 32h1v1h-1zM15 32h2v1h-2zM18 32h4v1h-4zM24 32h1v1h-1zM26 32h1v1h-1zM29 32h3v1h-3zM33 32h1v1h-1zM35 32h1v1h-1zM41 32h2v1h-2zM4 33h3v1h-3zM8 33h2v1h-2zM11 33h1v1h-1zM15 33h1v1h-1zM17 33h2v1h-2zM20 33h1v1h-1zM22 33h1v1h-1zM25 33h3v1h-3zM30 33h1v1h-1zM32 33h1v1h-1zM34 33h2v1h-2zM38 33h4v1h-4zM43 33h2v1h-2zM4 34h1v1h-1zM6 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM14 34h2v1h-2zM18 34h5v1h-5zM24 34h1v1h-1zM26 34h1v1h-1zM28 34h1v1h-1zM31 34h1v1h-1zM37 34h2v1h-2zM40 34h2v1h-2zM4 35h1v1h-1zM6 35h2v1h-2zM9 35h1v1h-1zM13 35h4v1h-4zM18 35h1v1h-1zM22 35h1v1h-1zM25 35h2v1h-2zM30 35h3v1h-3zM35 35h1v1h-1zM37 35h5v1h-5zM43 35h1v1h-1zM4 36h1v1h-1zM8 36h3v1h-3zM13 36h3v1h-3zM17 36h2v1h-2zM21 36h1v1h-1zM24 36h1v1h-1zM26 36h2v1h-2zM29 36h3v1h-3zM33 36h1v1h-1zM36 36h7v1h-7zM12 37h2v1h-2zM15 37h2v1h-2zM20 37h1v1h-1zM22 37h2v1h-2zM27 37h1v1h-1zM32 37h1v1h-1zM36 37h1v1h-1zM40 37h5v1h-5zM4 38h7v1h-7zM19 38h2v1h-2zM22 38h1v1h-1zM26 38h1v1h-1zM31 38h1v1h-1zM33 38h4v1h-4zM38 38h1v1h-1zM40 38h2v1h-2zM43 38h1v1h-1zM4 39h1v1h-1zM10 39h1v1h-1zM12 39h1v1h-1zM16 39h1v1h-1zM18 39h2v1h-2zM23 39h2v1h-2zM30 39h3v1h-3zM35 39h2v1h-2zM40 39h1v1h-1zM4 40h1v1h-1zM6 40h3v1h-3zM10 40h1v1h-1zM12 40h3v1h-3zM17 40h2v1h-2zM22 40h2v1h-2zM25 40h9v1h-9zM36 40h7v1h-7zM4 41h1v1h-1zM6 41h3v1h-3zM10 41h1v1h-1zM12 41h1v1h-1zM14 41h3v1h-3zM20 41h2v1h-2zM23 41h3v1h-3zM27 41h1v1h-1zM35 41h1v1h-1zM37 41h1v1h-1zM39 41h1v1h-1zM41 41h1v1h-1zM43 41h2v1h-2zM4 42h1v1h-1zM6 42h3v1h-3zM10 42h1v1h-1zM12 42h1v1h-1zM15 42h3v1h-3zM25 42h2v1h-2zM28 42h2v1h-2zM31 42h4v1h-4zM36 42h6v1h-6zM4 43h1v1h-1zM10 43h1v1h-1zM13 43h1v1h-1zM18 43h1v1h-1zM22 43h1v1h-1zM24 43h2v1h-2zM30 43h3v1h-3zM34 43h1v1h-1zM36 43h2v1h-2zM40 43h2v1h-2zM43 43h1v1h-1zM4 44h7v1h-7zM12 44h1v1h-1zM14 44h3v1h-3zM18 44h2v1h-2zM21 44h2v1h-2zM26 44h1v1h-1zM28 44h4v1h-4zM33 44h1v1h-1zM35 44h1v1h-1zM38 44h5v1h-5z"/></svg><!--/QR--></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+</div>
+</body>
+</html>

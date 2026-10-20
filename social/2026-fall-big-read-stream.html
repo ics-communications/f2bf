@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-CA"><head>
+<meta charset="UTF-8">
+<title>F2BF Fall 2026 Big Read — livestream thumbnail and chat slides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&amp;family=Source+Sans+3:wght@400;600;700&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap">
+<style>
+  /* ════════════════════════════════════════════════════════════
+     LIVESTREAM KIT — Defying Tyrants, October 8, 2026
+
+     One YouTube thumbnail (1280×720) and seven 1920×1080 holding
+     slides that rotate on the stream while people arrive and leave.
+     Same construction as the 16:9 course pair and the Big Read tile:
+     teal-deep ground, masthead top-left, red rule above a Playfair
+     900 title, red call band carrying the URL and the ICS mark.
+
+     A rotating slide is read in passing, often small, beside a chat
+     column. So each slide says one thing, the URL sits in the band
+     where the eye learns to find it, and nothing below 26px.
+     ════════════════════════════════════════════════════════════ */
+  :root {
+    --teal-deep: #0F2631;
+    --teal:      #1B3A4B;
+    --red:       #C83C2C;
+    --cream:     #F0EBE3;
+    --slate:     #BCC7D0;
+    --band-ink:  #FFF6F1;
+    --display: 'Playfair Display', Georgia, serif;
+    --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #2b3238;
+    padding: 48px;
+    display: flex; flex-direction: column; gap: 48px; align-items: flex-start;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .slide {
+    position: relative; overflow: hidden; flex: none;
+    width: 1920px; height: 1080px;
+    background: var(--teal-deep);
+    font-family: var(--text);
+  }
+  .grain {
+    position: absolute; inset: 0; z-index: 6; pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  /* The cloak in the cover art is the only warm thing in the frame;
+     this is that red spilling onto the ground behind the book. */
+  .spill {
+    position: absolute; z-index: 1;
+    background: radial-gradient(closest-side,
+      rgba(200,60,44,0.34) 0%, rgba(200,60,44,0.13) 48%, rgba(200,60,44,0) 100%);
+  }
+
+  /* ─── Masthead ─── */
+  .masthead { position: absolute; z-index: 5; top: 84px; left: 108px; }
+  .masthead__program {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: 0.235em; text-transform: uppercase; color: var(--cream);
+  }
+  .masthead__org {
+    margin-top: 13px; font-size: 19px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cream); opacity: 0.76;
+  }
+
+  /* ─── Type field ─── */
+  .field { position: absolute; z-index: 5; left: 108px; }
+  .meta {
+    font-size: 26px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate);
+  }
+  .meta b { color: var(--red); font-weight: 700; }
+  .rule { width: 96px; height: 5px; background: var(--red); margin: 30px 0 36px; }
+  .title {
+    font-family: var(--display); font-weight: 900;
+    line-height: 0.94; letter-spacing: -0.028em; color: var(--cream);
+    text-wrap: balance;
+  }
+  .subtitle {
+    margin-top: 30px;
+    font-family: var(--display); font-style: italic; font-weight: 400;
+    font-size: 40px; line-height: 1.3; color: var(--cream); opacity: 0.76;
+    text-wrap: balance;
+  }
+  .who {
+    margin-top: 44px; padding-top: 34px;
+    border-top: 1px solid rgba(240,235,227,0.2);
+  }
+  .who__name { font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--cream); }
+  .who__role { margin-top: 10px; font-size: 27px; line-height: 1.35; color: var(--slate); }
+
+  /* ─── Call band ─── */
+  .band {
+    position: absolute; z-index: 5; left: 0; right: 0; bottom: 0;
+    height: 132px; background: var(--red);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 108px;
+  }
+  .band__call {
+    font-size: 28px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--band-ink);
+  }
+  .band__call span { opacity: 0.78; }
+  .band__mark { height: 62px; width: auto; display: block; }
+
+  /* ─── Portrait plate: right-hand, full height, dissolving left ─── */
+  .plate {
+    position: absolute; z-index: 2; top: 0; right: 0; bottom: 132px; width: 820px;
+  }
+  .plate img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .plate::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, var(--teal-deep) 0%, rgba(15,38,49,0.72) 16%, rgba(15,38,49,0) 46%),
+      linear-gradient(0deg, rgba(15,38,49,0.85) 0%, rgba(15,38,49,0) 28%);
+  }
+
+  /* ─── Full-bleed photograph under a teal wash ─── */
+  .bleed { position: absolute; z-index: 1; inset: 0 0 132px 0; }
+  .bleed img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bleed::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(15,38,49,0.97) 0%, rgba(15,38,49,0.9) 38%, rgba(15,38,49,0.45) 70%, rgba(15,38,49,0.2) 100%),
+      linear-gradient(0deg, rgba(15,38,49,0.75) 0%, rgba(15,38,49,0) 40%);
+  }
+
+  /* ─── The book, as object ─── */
+  .book { position: absolute; z-index: 4; }
+  .book img {
+    display: block; width: 100%; height: auto; border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.42), 0 30px 60px rgba(0,0,0,0.5), 0 70px 130px rgba(0,0,0,0.42);
+  }
+  .book::after {
+    content: ''; position: absolute; inset: 0 auto 0 0; width: 18px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.13) 46%, rgba(0,0,0,0) 100%);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .when {
+    display: flex; align-items: baseline; gap: 26px; flex-wrap: wrap;
+  }
+  .when__date {
+    font-family: var(--display); font-weight: 900;
+    font-size: 58px; line-height: 1; letter-spacing: -0.02em; color: var(--cream);
+  }
+  .when__time { font-size: 30px; font-weight: 600; letter-spacing: 0.05em; color: var(--slate); }
+  .pill {
+    font-size: 23px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--band-ink); background: var(--red);
+    padding: 10px 26px; border-radius: 100px;
+  }
+
+  /* ════════════ 1 · DEFYING TYRANTS ════════════ */
+  #slide-defying-tyrants .title { font-size: 140px; }
+  #slide-defying-tyrants .field { top: 200px; width: 940px; }
+  #slide-defying-tyrants .byline { margin-top: 40px; }
+  #slide-defying-tyrants .book { right: 210px; top: 150px; width: 486px; }
+  .byline { display: grid; grid-template-columns: 120px 1fr; column-gap: 30px; align-items: center; }
+  .byline__face { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 2px rgba(240,235,227,0.22); }
+  .byline__face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .byline__name { font-size: 42px; font-weight: 700; line-height: 1.1; color: var(--cream); }
+  .byline__role { margin-top: 8px; font-size: 26px; line-height: 1.35; color: var(--slate); }
+  .ask {
+    margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(240,235,227,0.2);
+    display: flex; align-items: center; gap: 22px;
+    font-family: var(--display); font-style: italic; font-size: 38px; line-height: 1.25;
+    color: var(--cream);
+  }
+  .ask svg { flex: none; width: 46px; height: 46px; }
+
+  /* ════════════ 2 · FREE TO BE FAITHFUL ════════════ */
+  #slide-f2bf .bleed img { object-position: 50% 62%; }
+  #slide-f2bf .field { top: 238px; width: 1060px; }
+  #slide-f2bf .title { font-size: 112px; }
+  .triad {
+    margin-top: 52px; padding-top: 40px; border-top: 1px solid rgba(240,235,227,0.2);
+    font-family: var(--display); font-style: italic; font-size: 38px; line-height: 1.5;
+    color: var(--cream);
+  }
+  .triad em { font-style: italic; color: var(--slate); }
+  .pillars { margin-top: 44px; display: flex; gap: 18px; }
+  .pillars span {
+    font-size: 24px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream); padding: 10px 26px; border-radius: 100px;
+    border: 1.5px solid rgba(240,235,227,0.32); background: rgba(15,38,49,0.5);
+  }
+
+  /* ════════════ 3 · ICS ════════════
+     This one slide speaks for the Institute, not the program, so it
+     borrows the icscanada.edu landing page instead of the F2BF world:
+     crimson ground over a desaturated photograph, burnt-copper accent
+     rule, Libre Baskerville with a copper italic turn, Outfit for text.
+     Band height and margins still match the series so the rotation
+     doesn't jump. */
+  #slide-ics {
+    --wine: #9B0D24; --wine-deep: #7A0A1C;
+    --copper: #A85A32; --copper-light: #C87A52;
+    --ics-cream: #FDFBF7; --on-dark: #E8C2C2;
+    --ics-serif: 'Libre Baskerville', Georgia, serif;
+    --ics-sans: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--wine-deep); font-family: var(--ics-sans);
+  }
+  /* The photograph is the argument (people thinking together at a
+     table), so it gets the right half to itself and the crimson only
+     tints it; the type sits on solid ground to its left. */
+  .ics-photo { position: absolute; z-index: 1; top: 0; right: 0; bottom: 132px; width: 1240px; }
+  .ics-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 8% 50%; display: block;
+    filter: saturate(0.3) brightness(0.78) contrast(1.05);
+  }
+  .ics-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, var(--wine-deep) 0%, rgba(122,10,28,0.86) 26%, rgba(122,10,28,0.5) 58%, rgba(122,10,28,0.42) 100%),
+      linear-gradient(0deg, rgba(122,10,28,0.7) 0%, rgba(122,10,28,0) 30%);
+  }
+  .ics-glow {
+    position: absolute; z-index: 2; left: -360px; top: 280px; width: 1400px; height: 1000px;
+    background: radial-gradient(closest-side, rgba(168,90,50,0.16), rgba(168,90,50,0));
+  }
+  .ics-accent {
+    position: absolute; z-index: 5; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--copper), var(--copper-light) 40%, transparent 80%);
+  }
+  .ics-logo { position: absolute; z-index: 5; top: 70px; left: 108px; height: 118px; width: auto; }
+  .ics-field {
+    position: absolute; z-index: 5; left: 108px; top: 188px; bottom: 132px; width: 1200px;
+    display: flex; flex-direction: column; justify-content: center; padding-bottom: 24px;
+  }
+  .ics-eyebrow {
+    font-size: 28px; font-weight: 500; letter-spacing: 0.06em;
+    color: var(--copper-light); opacity: 0.95;
+  }
+  .ics-title {
+    margin-top: 22px;
+    font-family: var(--ics-serif); font-weight: 700;
+    font-size: 108px; line-height: 1.12; letter-spacing: -0.015em; white-space: nowrap; color: var(--ics-cream);
+  }
+  .ics-title em { font-style: italic; color: var(--copper-light); }
+  .ics-rule { width: 96px; height: 3px; margin: 46px 0 40px; background: linear-gradient(90deg, var(--copper), var(--copper-light)); }
+  .ics-sub {
+    max-width: 900px; text-wrap: balance;
+    font-size: 34px; font-weight: 300; line-height: 1.55; color: var(--on-dark);
+  }
+  #slide-ics .band { background: var(--wine); }
+  #slide-ics .band::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--copper), var(--copper-light) 50%, transparent);
+  }
+  #slide-ics .band__call { font-family: var(--ics-sans); font-weight: 600; letter-spacing: 0.12em; color: var(--ics-cream); }
+  #slide-ics .band__call span { color: var(--on-dark); opacity: 1; }
+
+  /* ════════════ COURSE SLIDES ════════════ */
+  .course .field { top: 226px; width: 1020px; }
+  .course .title { font-size: 112px; }
+  .course .subtitle { font-size: 36px; margin-top: 26px; }
+  .course .who { margin-top: 36px; padding-top: 28px; }
+  .course .when { margin-top: 36px; }
+  #slide-course-bick .plate img    { object-position: 18% 50%; }
+  #slide-course-kuipers .plate img { object-position: 64% 40%; }
+  #slide-course-taylor .plate img  { object-position: 50% 20%; }
+
+  /* Winter pair: the 16:9 course pair, verbatim construction */
+  #slide-winter-2027 .head {
+    position: absolute; z-index: 5; top: 0; left: 0; right: 0; height: 160px;
+  }
+  #slide-winter-2027 .head .masthead { top: 50px; }
+  .head__meta {
+    position: absolute; top: 74px; right: 108px;
+    font-size: 24px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate);
+  }
+  .pair { position: absolute; top: 160px; left: 0; right: 0; bottom: 132px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pair__col { position: relative; overflow: hidden; }
+  .pair__img { position: absolute; top: 0; left: 0; right: 0; height: 430px; }
+  .pair__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pair__img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(0deg, var(--teal-deep) 0%, rgba(15,38,49,0.55) 30%, rgba(15,38,49,0) 62%);
+  }
+  .pair__body { position: absolute; left: 108px; right: 72px; top: 400px; z-index: 3; }
+  .pair__col + .pair__col .pair__body { left: 92px; }
+  .pair .meta { font-size: 23px; }
+  .pair .rule { margin: 22px 0 26px; width: 80px; height: 4px; }
+  .pair .title { font-size: 66px; line-height: 1.0; }
+  .pair .who { margin-top: 26px; padding-top: 22px; }
+  .pair .who__name { font-size: 34px; }
+  .pair .who__role { font-size: 23px; }
+
+  /* ════════════ YOUTUBE THUMBNAIL — 1280 × 720 ════════════
+     Read at ~360px wide in a sidebar, so: three words of type,
+     the book, the face. Nothing else survives that size. */
+  #yt-thumb { width: 1280px; height: 720px; }
+  #yt-thumb .spill { width: 1300px; height: 1300px; left: 420px; top: -330px; }
+  #yt-thumb .book { right: 92px; top: 52px; width: 404px; }
+  .yt-field { position: absolute; z-index: 5; left: 72px; top: 64px; width: 720px; }
+  .yt-meta {
+    font-size: 25px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .yt-title {
+    margin-top: 36px;
+    font-family: var(--display); font-weight: 900; font-size: 146px;
+    line-height: 0.88; letter-spacing: -0.03em; color: var(--cream);
+  }
+  .yt-rule { width: 84px; height: 5px; background: var(--red); margin: 36px 0 32px; }
+  .yt-by { display: flex; align-items: center; gap: 22px; }
+  .yt-by__face { width: 104px; height: 104px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 3px rgba(240,235,227,0.3); flex: none; }
+  .yt-by__face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .yt-by__name { font-size: 44px; font-weight: 700; line-height: 1.05; color: var(--cream); }
+  .yt-by__role { margin-top: 6px; font-size: 26px; font-weight: 600; color: var(--slate); }
+  .yt-foot img { height: 46px; width: auto; display: block; }
+  .yt-foot {
+    position: absolute; z-index: 5; left: 72px; bottom: 40px;
+    display: flex; align-items: center; gap: 22px;
+    font-size: 24px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ YOUTUBE THUMBNAIL ══════════════ -->
+<div class="slide" id="yt-thumb">
+  <div class="spill"></div>
+  <div class="grain"></div>
+  <div class="yt-field">
+    <div class="yt-meta">Fall Big Read &middot; <span style="color:var(--red)">Free</span></div>
+    <div class="yt-title">Defying<br>Tyrants</div>
+    <div class="yt-rule"></div>
+    <div class="yt-by">
+      <div class="yt-by__face"><img src="../assets/img/MatthewDTaylor.webp" alt=""></div>
+      <div>
+        <div class="yt-by__name">Matthew D. Taylor</div>
+        <div class="yt-by__role">Thu, Oct 8 &middot; 7 PM ET</div>
+  </div>
+    </div>
+  </div>
+  <div class="book"><img src="cover-defying-tyrants.jpg" alt=""></div>
+  <div class="yt-foot"><img src="../assets/img/ICS+logo+white-01.png" alt="">Free to be Faithful</div>
+</div>
+
+<!-- ══════════════ 1 · DEFYING TYRANTS ══════════════ -->
+<div class="slide" id="slide-defying-tyrants">
+  <div class="spill" style="width:1900px;height:1900px;left:520px;top:-440px;"></div>
+  <div class="grain"></div>
+  <div class="masthead">
+    <div class="masthead__program">Free to be Faithful</div>
+    <div class="masthead__org">Institute for Christian Studies</div>
+  </div>
+  <div class="field">
+    <div class="meta">Fall Big Read &middot; <b>Live tonight</b></div>
+    <div class="rule"></div>
+    <h1 class="title">Defying<br>Tyrants</h1>
+    <p class="subtitle">Following Jesus in a World of Christian Antichrists</p>
+    <div class="byline">
+      <div class="byline__face"><img src="../assets/img/MatthewDTaylor.webp" alt=""></div>
+      <div>
+        <div class="byline__name">Matthew D. Taylor</div>
+        <div class="byline__role">Author of <i>Defying Tyrants</i> &middot; Broadleaf Books</div>
+  </div>
+    </div>
+    <div class="ask">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C83C2C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/></svg>
+      Questions for Matthew? Put them in the live chat.
+    </div>
+  </div>
+  <div class="book"><img src="cover-defying-tyrants.jpg" alt="Defying Tyrants by Matthew D. Taylor"></div>
+  <div class="band">
+    <div class="band__call">Excerpt &amp; details <span>&middot;</span> f2bf.icscanada.edu/big-read</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+</div>
+
+<!-- ══════════════ 2 · FREE TO BE FAITHFUL ══════════════ -->
+<div class="slide" id="slide-f2bf">
+  <div class="bleed"><img src="../assets/img/f2bf-hero-cover.jpg" alt=""></div>
+  <div class="grain"></div>
+  <div class="masthead">
+    <div class="masthead__program">Free to be Faithful</div>
+    <div class="masthead__org">Institute for Christian Studies</div>
+  </div>
+  <div class="field">
+    <div class="meta">Courses &middot; Resources &middot; Community</div>
+    <div class="rule"></div>
+    <h1 class="title">Equipping<br>Christians for<br>Democratic Life</h1>
+    <p class="triad">Rooted without becoming rigid.<br>Bold without becoming belligerent.<br>Faithful without becoming fearful.</p>
+  </div>
+  <div class="band">
+    <div class="band__call">f2bf.icscanada.edu</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+</div>
+
+<!-- ══════════════ 3 · INSTITUTE FOR CHRISTIAN STUDIES ══════════════ -->
+<div class="slide" id="slide-ics">
+  <div class="ics-glow"></div>
+  <div class="ics-photo"><img src="ics/ics-hero.jpg" alt=""></div>
+  <div class="grain"></div>
+  <div class="ics-accent"></div>
+  <img class="ics-logo" src="ics/ics-full-logo-white.svg" alt="Institute for Christian Studies">
+  <div class="ics-field">
+    <p class="ics-eyebrow">Toronto | Online</p>
+    <h1 class="ics-title">Where Faith Meets<br><em>Rigorous Scholarship</em></h1>
+    <div class="ics-rule"></div>
+    <p class="ics-sub">A graduate school in the reformational Christian tradition, cultivating wisdom at the intersection of philosophy, theology, and the disciplines that shape our world.</p>
+  </div>
+  <div class="band">
+    <div class="band__call">icscanada.edu</div>
+    <div class="band__call"><span>Home of Free to be Faithful</span></div>
+  </div>
+</div>
+
+<!-- ══════════════ 4 · COURSE — REITSMA BICK ══════════════ -->
+<div class="slide course" id="slide-course-bick">
+  <div class="plate"><img src="../assets/img/Angela-Reitsma-Bick.jpg" alt=""></div>
+  <div class="grain"></div>
+  <div class="masthead">
+    <div class="masthead__program">Free to be Faithful</div>
+    <div class="masthead__org">Institute for Christian Studies</div>
+  </div>
+  <div class="field">
+    <div class="meta">Six-week online course &middot; <b>Now enrolling</b></div>
+    <div class="rule"></div>
+    <h1 class="title">&ldquo;Broken Hallelujah&rdquo;</h1>
+    <p class="subtitle">Faith, Deconstruction, and Spirituality through Music</p>
+    <div class="who">
+      <div class="who__name">Angela Reitsma Bick</div>
+      <div class="who__role">Author of <i>Blessed Are the Undone</i> &middot; former editor, <i>Christian Courier</i></div>
+    </div>
+    <div class="when">
+      <div class="when__date">Tuesdays from Nov 3</div>
+      <div class="when__time">6:30 PM ET &middot; Online</div>
+    </div>
+  </div>
+  <div class="band">
+    <div class="band__call">Register <span>&middot;</span> f2bf.icscanada.edu/courses</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+</div>
+
+<!-- ══════════════ 5 · COURSE — KUIPERS ══════════════ -->
+<div class="slide course" id="slide-course-kuipers">
+  <div class="plate"><img src="../assets/img/_originals/RonKuipers.jpg" alt=""></div>
+  <div class="grain"></div>
+  <div class="masthead">
+    <div class="masthead__program">Free to be Faithful</div>
+    <div class="masthead__org">Institute for Christian Studies</div>
+  </div>
+  <div class="field">
+    <div class="meta">Six-week online course &middot; <b>Now enrolling</b></div>
+    <div class="rule"></div>
+    <h1 class="title">&ldquo;We Are Free to Change the World&rdquo;</h1>
+    <p class="subtitle">Hannah Arendt on Resistance, Hope, and the Power of the Possible</p>
+    <div class="who">
+      <div class="who__name">Ron Kuipers</div>
+      <div class="who__role">Professor of Philosophy of Religion, ICS</div>
+    </div>
+    <div class="when">
+      <div class="when__date">Thursdays from Nov 5</div>
+      <div class="when__time">6:30 PM ET &middot; Online</div>
+    </div>
+  </div>
+  <div class="band">
+    <div class="band__call">Register <span>&middot;</span> f2bf.icscanada.edu/courses</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+</div>
+
+<!-- ══════════════ 6 · COURSE — TAYLOR (SPRING 2027) ══════════════ -->
+<div class="slide course" id="slide-course-taylor">
+  <div class="plate"><img src="../assets/img/MatthewDTaylor.webp" alt=""></div>
+  <div class="grain"></div>
+  <div class="masthead">
+    <div class="masthead__program">Free to be Faithful</div>
+    <div class="masthead__org">Institute for Christian Studies</div>
+  </div>
+  <div class="field">
+    <div class="meta">Spring 2027 &middot; <b>Keep reading with Matthew</b></div>
+    <div class="rule"></div>
+    <h1 class="title">Christian Antichrists</h1>
+    <p class="subtitle">Recovering a Biblical Category for a Christian Crisis</p>
+    <div class="who">
+      <div class="who__name">Matthew D. Taylor</div>
+      <div class="who__role">A six-week seminar built on <i>Defying Tyrants</i></div>
+    </div>
+    <div class="when">
+      <div class="when__date">Thursdays from Mar 4</div>
+      <div class="when__time">6:30 PM ET &middot; Online</div>
+    </div>
+  </div>
+  <div class="band">
+    <div class="band__call">Details <span>&middot;</span> f2bf.icscanada.edu/courses</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+</div>
+
+<!-- ══════════════ 7 · WINTER 2027 PAIR ══════════════ -->
+<div class="slide" id="slide-winter-2027">
+  <div class="grain"></div>
+  <div class="head">
+    <div class="masthead">
+      <div class="masthead__program">Free to be Faithful</div>
+      <div class="masthead__org">Institute for Christian Studies</div>
+    </div>
+    <div class="head__meta">Winter 2027 &middot; Six-week online seminars &middot; 6:30 PM ET</div>
+  </div>
+  <div class="pair">
+    <div class="pair__col">
+      <div class="pair__img"><img src="../assets/img/prior-headshot.jpg" alt="" style="object-position:50% 14%"></div>
+      <div class="pair__body">
+        <div class="meta">Thursdays &middot; <b>Jan 7 &ndash; Feb 11</b></div>
+        <div class="rule"></div>
+        <h2 class="title">Readings for the Soul</h2>
+        <p class="subtitle" style="font-size:31px;margin-top:18px;">More encounters with the good, the true, and the beautiful</p>
+        <div class="who">
+          <div class="who__name">Karen Swallow Prior</div>
+        </div>
+  </div>
+    </div>
+    <div class="pair__col">
+      <div class="pair__img"><img src="../assets/img/_originals/JoashThomas.jpg" alt="" style="object-position:50% 10%"></div>
+      <div class="pair__body">
+        <div class="meta">Tuesdays &middot; <b>Jan 12 &ndash; Feb 16</b></div>
+        <div class="rule"></div>
+        <h2 class="title">Decolonizing the Great Commission</h2>
+        <p class="subtitle" style="font-size:31px;margin-top:18px;">Mission and witness through a Jesus-shaped lens</p>
+        <div class="who">
+          <div class="who__name">Joash Thomas</div>
+        </div>
+  </div>
+    </div>
+  </div>
+  <div class="band">
+    <div class="band__call">Coming this winter <span>&middot;</span> f2bf.icscanada.edu/courses</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<title>Free to be Faithful Poster</title>
+<meta name="description" content="Print-ready 8.5×11 office-printer poster for Free to be Faithful (Institute for Christian Studies), evergreen, with a QR code to f2bf.icscanada.edu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   FREE TO BE FAITHFUL — 8.5×11 office-printer poster (evergreen)
+   Sheet: US Letter, portrait. No bleed. Artwork sits inside a 0.3in
+   paper margin so any desktop/office printer reproduces it whole.
+   Palette + faces from assets/css/global.css. Nothing dated: no
+   course titles, prices or seasons — it can stay on a board all year.
+
+   THESIS  The poster is the creed, not the catalogue: the site's
+           three "without becoming" lines set as the centrepiece.
+           Refuses the photo-and-course-list layout of the 11×17 and
+           the Fall card.
+   OWN-WORLD  Deep teal field with the packed-sanctuary photo washed
+           into it; stacked Playfair 900 wordmark with red italic
+           "to be"; Source Sans tracked caps; white paper ground for
+           the creed, teal ink, red as the only accent.
+   STORY   A churchgoer in a foyer reads one strong sentence about
+           faith without fear, learns it's courses, resources and
+           community, and scans.
+   FIRST VIEWPORT  Top 43%: teal field, wordmark lower-left at 64pt.
+           Middle: the three creed lines at 25pt. Bottom: three ways
+           in, then QR 1.6in at lower right.
+   FORM    Typographic creed poster (surface extension of an
+           established world; no concept seed run).
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  --teal:        #1B3A4B;
+  --teal-deep:   #0F2631;
+  --teal-mid:    #25516A;
+  --red:         #C83C2C;
+  --slate:       #BCC7D0;
+  --slate-light: #D6DDE2;
+  --cream:       #F0EBE3;
+  --white:       #FFFFFF;
+  --ink:         #1A2A33;
+  --body:        #3D4F59;
+  --rule:        rgba(27, 58, 75, 0.18);
+
+  --display: 'Playfair Display', Georgia, serif;
+  --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+  --margin: 0.3in;
+  --pad:    0.42in;
+}
+
+@page { size: 8.5in 11in; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #cfd6db;
+  font-family: var(--text);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.stage { display: flex; justify-content: center; padding: 0.5in 0; }
+
+.sheet {
+  width: 8.5in; height: 11in;
+  padding: var(--margin);
+  background: var(--white);
+  box-shadow: 0 10px 40px rgba(15, 38, 49, 0.25);
+}
+@media print {
+  html, body { background: #fff; }
+  .stage { padding: 0; }
+  .sheet { box-shadow: none; }
+}
+
+.art {
+  width: 100%; height: 100%;
+  display: grid;
+  grid-template-rows: 4.2in auto 1fr auto;
+  overflow: hidden;
+}
+
+/* ════ 1. Teal field + wordmark ════ */
+.field {
+  position: relative;
+  background: var(--teal-deep);
+  color: var(--cream);
+  overflow: hidden;
+}
+.field__photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  filter: saturate(0.45) contrast(1.05);
+  opacity: 0.55;
+}
+.field__wash {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(15,38,49,0.92) 0%, rgba(15,38,49,0.62) 48%, rgba(15,38,49,0.18) 100%),
+    linear-gradient(180deg, rgba(15,38,49,0.35) 0%, rgba(15,38,49,0) 30%, rgba(15,38,49,0.55) 100%);
+}
+.field__top {
+  position: absolute; top: var(--pad); left: var(--pad); right: var(--pad);
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.field__label {
+  font-size: 8.5pt; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(240,235,227,0.8);
+}
+.field__logo { width: 0.9in; height: auto; display: block; }
+
+.mark {
+  position: absolute; left: var(--pad); bottom: 0.38in;
+  font-family: var(--display);
+  color: var(--cream);
+}
+.mark__big {
+  display: block;
+  font-weight: 900;
+  font-size: 64pt;
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+}
+.mark__mid {
+  display: block;
+  font-style: italic; font-weight: 400;
+  font-size: 30pt; line-height: 1.05;
+  color: var(--red);
+  margin: 0.02in 0 0.02in 0.06in;
+}
+.mark__tag {
+  display: block;
+  margin-top: 0.2in;
+  font-family: var(--text);
+  font-size: 10pt; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--slate-light);
+}
+
+.verse {
+  position: absolute; right: var(--pad); bottom: 0.4in;
+  width: 2.35in;
+  font-family: var(--display); font-style: italic;
+  font-size: 10.5pt; line-height: 1.45;
+  color: var(--cream);
+  text-align: right;
+}
+.verse cite {
+  display: block; margin-top: 0.06in;
+  font-family: var(--text); font-style: normal;
+  font-size: 7.5pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* ════ 2. The creed ════ */
+.creed {
+  padding: 0.34in var(--pad) 0;
+}
+.creed__line {
+  font-family: var(--display);
+  font-size: 27pt; line-height: 1.18;
+  color: var(--teal-mid);
+  font-style: italic; font-weight: 400;
+}
+.creed__line + .creed__line { margin-top: 0.04in; }
+.creed__line b {
+  font-style: normal; font-weight: 900;
+  color: var(--teal-deep);
+}
+.creed__line s {
+  text-decoration: none;
+  color: var(--red);
+}
+.creed__coda {
+  margin-top: 0.16in;
+  max-width: 6.4in;
+  font-size: 11.5pt; line-height: 1.5;
+  color: var(--body);
+}
+.creed__coda strong { color: var(--teal-deep); font-weight: 700; }
+
+/* ════ 3. Three ways in ════ */
+.ways {
+  margin: 0.26in var(--pad) 0;
+  padding-top: 0.18in;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 0.3in;
+  align-self: start;
+}
+.way__name {
+  font-family: var(--display); font-weight: 700;
+  font-size: 15pt; line-height: 1.2;
+  color: var(--teal-deep);
+}
+.way__name::after { content: '.'; color: var(--red); }
+.way__desc {
+  margin-top: 0.06in;
+  font-size: 9.6pt; line-height: 1.45;
+  color: var(--body);
+}
+
+/* ════ 4. Close + QR ════ */
+.close {
+  margin: 0 var(--pad) var(--pad);
+  display: grid; grid-template-columns: 1fr auto; column-gap: 0.36in;
+  align-items: end;
+}
+.close__ask {
+  font-family: var(--display); font-weight: 700;
+  font-size: 21pt; line-height: 1.18;
+  color: var(--teal-deep);
+}
+.close__ask em { font-style: italic; color: var(--red); }
+.close__sub {
+  margin-top: 0.1in;
+  font-size: 10.5pt; line-height: 1.5; color: var(--body);
+  max-width: 4.6in;
+}
+.close__ics {
+  margin-top: 0.16in;
+  font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--teal-mid);
+}
+
+.qr { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.qr__code { width: 1.5in; height: 1.5in; }
+.qr__code svg { display: block; width: 100%; height: 100%; }
+.qr__code .qr__quiet { fill: var(--white); }
+.qr__code .qr__mod   { fill: var(--teal-deep); }
+.qr__scan {
+  margin-top: 0.06in;
+  font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--red);
+}
+.qr__url { margin-top: 0.03in; font-size: 10.5pt; font-weight: 700; color: var(--teal-deep); }
+</style>
+</head>
+<body>
+<div class="stage">
+<main class="sheet">
+<div class="art">
+
+  <section class="field">
+    <img class="field__photo" src="../assets/img/f2bf-hero-cover.jpg" alt="">
+    <div class="field__wash"></div>
+    <div class="field__top">
+      <div class="field__label">Institute for Christian Studies</div>
+      <img class="field__logo" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+    </div>
+    <h1 class="mark">
+      <span class="mark__big">Free</span>
+      <span class="mark__mid">to be</span>
+      <span class="mark__big">Faithful</span>
+      <span class="mark__tag">Equipping Christians for Democratic Life</span>
+    </h1>
+    <blockquote class="verse">“For freedom Christ has set us free. Stand firm, therefore, and do not submit again to a yoke of slavery.”<cite>Galatians 5:1</cite></blockquote>
+  </section>
+
+  <section class="creed">
+    <p class="creed__line"><b>Rooted</b> without becoming <s>rigid.</s></p>
+    <p class="creed__line"><b>Bold</b> without becoming <s>belligerent.</s></p>
+    <p class="creed__line"><b>Faithful</b> without becoming <s>fearful.</s></p>
+    <p class="creed__coda">This is not a political movement. It’s a <strong>discipleship practice</strong>, one that cultivates a Christian imagination, civic wisdom, and relational depth.</p>
+  </section>
+
+  <section class="ways" aria-label="Three ways to connect">
+    <div class="way">
+      <h2 class="way__name">Program</h2>
+      <p class="way__desc">Six-week online courses led by world-class scholars, with the option to earn ICS credit.</p>
+    </div>
+    <div class="way">
+      <h2 class="way__name">Resource</h2>
+      <p class="way__desc">What we’ve been reading, listening to, and watching on the most pressing issues facing Christians today.</p>
+    </div>
+    <div class="way">
+      <h2 class="way__name">Community</h2>
+      <p class="way__desc">Open events and welcoming people from every tradition, eager to continue the conversation.</p>
+    </div>
+  </section>
+
+  <section class="close">
+    <div>
+      <p class="close__ask">Embrace your freedom<br><em>to be faithful.</em></p>
+      <p class="close__sub">Join a growing community of Christians who believe that ancient faith can actively engage the pressing issues of our time.</p>
+      <p class="close__ics">A lifelong learning initiative of the Institute for Christian Studies</p>
+    </div>
+    <div class="qr">
+      <div class="qr__code"><!--QR--><svg viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code linking to f2bf.icscanada.edu"><rect class="qr__quiet" width="49" height="49"/><path class="qr__mod" d="M4 4h7v1h-7zM13 4h1v1h-1zM16 4h3v1h-3zM23 4h1v1h-1zM27 4h1v1h-1zM32 4h1v1h-1zM34 4h2v1h-2zM38 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h1v1h-1zM15 5h4v1h-4zM22 5h1v1h-1zM26 5h1v1h-1zM29 5h1v1h-1zM31 5h2v1h-2zM34 5h1v1h-1zM38 5h1v1h-1zM44 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM12 6h4v1h-4zM17 6h2v1h-2zM23 6h2v1h-2zM28 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h1v1h-1zM40 6h3v1h-3zM44 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM15 7h3v1h-3zM20 7h1v1h-1zM22 7h1v1h-1zM25 7h2v1h-2zM28 7h1v1h-1zM33 7h1v1h-1zM36 7h1v1h-1zM38 7h1v1h-1zM40 7h3v1h-3zM44 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM19 8h2v1h-2zM23 8h2v1h-2zM27 8h3v1h-3zM32 8h1v1h-1zM34 8h3v1h-3zM38 8h1v1h-1zM40 8h3v1h-3zM44 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h3v1h-3zM18 9h1v1h-1zM20 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM28 9h1v1h-1zM31 9h1v1h-1zM33 9h1v1h-1zM36 9h1v1h-1zM38 9h1v1h-1zM44 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h1v1h-1zM36 10h1v1h-1zM38 10h7v1h-7zM12 11h9v1h-9zM23 11h3v1h-3zM27 11h2v1h-2zM30 11h2v1h-2zM34 11h1v1h-1zM36 11h1v1h-1zM4 12h1v1h-1zM6 12h5v1h-5zM13 12h2v1h-2zM17 12h3v1h-3zM21 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM28 12h4v1h-4zM33 12h2v1h-2zM38 12h5v1h-5zM5 13h1v1h-1zM7 13h2v1h-2zM12 13h1v1h-1zM15 13h3v1h-3zM20 13h6v1h-6zM27 13h1v1h-1zM29 13h1v1h-1zM32 13h1v1h-1zM35 13h2v1h-2zM38 13h3v1h-3zM42 13h3v1h-3zM4 14h1v1h-1zM10 14h2v1h-2zM13 14h1v1h-1zM18 14h2v1h-2zM26 14h1v1h-1zM29 14h3v1h-3zM33 14h2v1h-2zM36 14h1v1h-1zM40 14h1v1h-1zM6 15h4v1h-4zM11 15h3v1h-3zM17 15h1v1h-1zM23 15h3v1h-3zM28 15h1v1h-1zM30 15h1v1h-1zM32 15h1v1h-1zM34 15h4v1h-4zM40 15h2v1h-2zM5 16h2v1h-2zM8 16h3v1h-3zM12 16h1v1h-1zM18 16h1v1h-1zM21 16h1v1h-1zM23 16h1v1h-1zM26 16h1v1h-1zM29 16h2v1h-2zM32 16h2v1h-2zM35 16h2v1h-2zM39 16h4v1h-4zM44 16h1v1h-1zM7 17h3v1h-3zM11 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM19 17h2v1h-2zM22 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM30 17h1v1h-1zM32 17h1v1h-1zM34 17h9v1h-9zM44 17h1v1h-1zM10 18h3v1h-3zM15 18h2v1h-2zM20 18h4v1h-4zM25 18h1v1h-1zM29 18h1v1h-1zM31 18h3v1h-3zM36 18h2v1h-2zM39 18h4v1h-4zM6 19h3v1h-3zM11 19h1v1h-1zM15 19h2v1h-2zM19 19h1v1h-1zM22 19h5v1h-5zM28 19h1v1h-1zM30 19h3v1h-3zM34 19h1v1h-1zM36 19h1v1h-1zM38 19h2v1h-2zM41 19h1v1h-1zM5 20h4v1h-4zM10 20h1v1h-1zM12 20h1v1h-1zM14 20h1v1h-1zM16 20h2v1h-2zM19 20h3v1h-3zM23 20h1v1h-1zM26 20h1v1h-1zM28 20h6v1h-6zM35 20h3v1h-3zM39 20h1v1h-1zM41 20h4v1h-4zM7 21h1v1h-1zM11 21h2v1h-2zM16 21h2v1h-2zM19 21h7v1h-7zM27 21h1v1h-1zM29 21h1v1h-1zM31 21h3v1h-3zM35 21h2v1h-2zM38 21h4v1h-4zM44 21h1v1h-1zM5 22h1v1h-1zM7 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM17 22h1v1h-1zM19 22h3v1h-3zM24 22h2v1h-2zM28 22h6v1h-6zM38 22h1v1h-1zM40 22h2v1h-2zM43 22h1v1h-1zM5 23h2v1h-2zM8 23h2v1h-2zM11 23h4v1h-4zM16 23h1v1h-1zM20 23h3v1h-3zM24 23h3v1h-3zM28 23h2v1h-2zM31 23h2v1h-2zM35 23h2v1h-2zM38 23h1v1h-1zM40 23h2v1h-2zM44 23h1v1h-1zM5 24h1v1h-1zM7 24h1v1h-1zM9 24h2v1h-2zM12 24h1v1h-1zM14 24h2v1h-2zM17 24h2v1h-2zM23 24h3v1h-3zM30 24h1v1h-1zM32 24h2v1h-2zM35 24h2v1h-2zM39 24h1v1h-1zM42 24h1v1h-1zM44 24h1v1h-1zM6 25h1v1h-1zM12 25h1v1h-1zM14 25h1v1h-1zM16 25h1v1h-1zM18 25h3v1h-3zM22 25h1v1h-1zM24 25h4v1h-4zM32 25h1v1h-1zM35 25h2v1h-2zM38 25h7v1h-7zM4 26h4v1h-4zM10 26h1v1h-1zM12 26h5v1h-5zM18 26h3v1h-3zM24 26h2v1h-2zM29 26h1v1h-1zM31 26h4v1h-4zM36 26h2v1h-2zM40 26h1v1h-1zM4 27h1v1h-1zM9 27h1v1h-1zM12 27h3v1h-3zM22 27h1v1h-1zM24 27h3v1h-3zM30 27h3v1h-3zM34 27h8v1h-8zM43 27h2v1h-2zM8 28h5v1h-5zM14 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM26 28h1v1h-1zM28 28h3v1h-3zM33 28h1v1h-1zM35 28h1v1h-1zM39 28h1v1h-1zM42 28h1v1h-1zM44 28h1v1h-1zM4 29h4v1h-4zM11 29h1v1h-1zM13 29h1v1h-1zM15 29h4v1h-4zM20 29h1v1h-1zM23 29h1v1h-1zM25 29h1v1h-1zM27 29h1v1h-1zM30 29h1v1h-1zM34 29h2v1h-2zM37 29h5v1h-5zM43 29h2v1h-2zM4 30h3v1h-3zM8 30h4v1h-4zM19 30h1v1h-1zM24 30h3v1h-3zM29 30h1v1h-1zM31 30h1v1h-1zM33 30h2v1h-2zM36 30h1v1h-1zM39 30h2v1h-2zM43 30h1v1h-1zM8 31h1v1h-1zM11 31h3v1h-3zM15 31h1v1h-1zM19 31h2v1h-2zM25 31h4v1h-4zM30 31h1v1h-1zM32 31h1v1h-1zM35 31h2v1h-2zM39 31h1v1h-1zM41 31h1v1h-1zM43 31h2v1h-2zM4 32h1v1h-1zM10 32h1v1h-1zM13 32h1v1h-1zM15 32h1v1h-1zM18 32h1v1h-1zM21 32h1v1h-1zM24 32h1v1h-1zM26 32h1v1h-1zM28 32h4v1h-4zM33 32h1v1h-1zM35 32h1v1h-1zM41 32h2v1h-2zM4 33h3v1h-3zM8 33h2v1h-2zM11 33h1v1h-1zM17 33h2v1h-2zM20 33h1v1h-1zM22 33h1v1h-1zM25 33h2v1h-2zM30 33h1v1h-1zM32 33h1v1h-1zM34 33h2v1h-2zM38 33h4v1h-4zM43 33h2v1h-2zM4 34h1v1h-1zM6 34h1v1h-1zM8 34h3v1h-3zM12 34h1v1h-1zM14 34h1v1h-1zM16 34h1v1h-1zM18 34h5v1h-5zM24 34h1v1h-1zM26 34h3v1h-3zM31 34h1v1h-1zM37 34h2v1h-2zM40 34h2v1h-2zM4 35h1v1h-1zM6 35h4v1h-4zM13 35h4v1h-4zM18 35h1v1h-1zM20 35h1v1h-1zM22 35h1v1h-1zM25 35h3v1h-3zM30 35h3v1h-3zM35 35h1v1h-1zM37 35h5v1h-5zM43 35h1v1h-1zM4 36h1v1h-1zM7 36h2v1h-2zM10 36h1v1h-1zM13 36h3v1h-3zM17 36h3v1h-3zM21 36h1v1h-1zM24 36h1v1h-1zM26 36h2v1h-2zM29 36h3v1h-3zM33 36h1v1h-1zM36 36h7v1h-7zM12 37h1v1h-1zM15 37h2v1h-2zM20 37h1v1h-1zM22 37h2v1h-2zM27 37h1v1h-1zM32 37h1v1h-1zM36 37h1v1h-1zM40 37h5v1h-5zM4 38h7v1h-7zM17 38h4v1h-4zM22 38h1v1h-1zM26 38h1v1h-1zM31 38h1v1h-1zM33 38h4v1h-4zM38 38h1v1h-1zM40 38h2v1h-2zM43 38h1v1h-1zM4 39h1v1h-1zM10 39h1v1h-1zM12 39h3v1h-3zM16 39h1v1h-1zM18 39h2v1h-2zM23 39h2v1h-2zM30 39h3v1h-3zM35 39h2v1h-2zM40 39h1v1h-1zM4 40h1v1h-1zM6 40h3v1h-3zM10 40h1v1h-1zM12 40h1v1h-1zM22 40h2v1h-2zM25 40h4v1h-4zM31 40h3v1h-3zM36 40h7v1h-7zM4 41h1v1h-1zM6 41h3v1h-3zM10 41h1v1h-1zM12 41h5v1h-5zM18 41h1v1h-1zM20 41h2v1h-2zM23 41h3v1h-3zM27 41h1v1h-1zM30 41h1v1h-1zM35 41h1v1h-1zM37 41h1v1h-1zM39 41h1v1h-1zM41 41h1v1h-1zM4 42h1v1h-1zM6 42h3v1h-3zM10 42h1v1h-1zM12 42h2v1h-2zM15 42h2v1h-2zM22 42h1v1h-1zM25 42h2v1h-2zM28 42h2v1h-2zM31 42h4v1h-4zM36 42h6v1h-6zM4 43h1v1h-1zM10 43h1v1h-1zM13 43h1v1h-1zM17 43h2v1h-2zM21 43h1v1h-1zM24 43h2v1h-2zM30 43h3v1h-3zM34 43h1v1h-1zM36 43h2v1h-2zM40 43h2v1h-2zM43 43h1v1h-1zM4 44h7v1h-7zM12 44h2v1h-2zM15 44h3v1h-3zM19 44h2v1h-2zM22 44h1v1h-1zM26 44h1v1h-1zM28 44h4v1h-4zM33 44h1v1h-1zM35 44h1v1h-1zM38 44h5v1h-5z"/></svg><!--/QR--></div>
+      <div class="qr__scan">Scan to explore</div>
+      <div class="qr__url">f2bf.icscanada.edu</div>
+    </div>
+  </section>
+
+</div>
+</main>
+</div>
+</body>
+</html>

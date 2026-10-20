@@ -60,15 +60,15 @@
     font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--red); line-height: 1.2; margin-bottom: 3px;
   }
-  .scholarship {
-    font-family: var(--display); font-weight: 700; font-size: 18px;
+  .cost {
+    font-family: var(--display); font-weight: 700; font-size: 20px;
     font-variant-numeric: lining-nums;
-    line-height: 1.1; color: var(--teal);
+    line-height: 1; color: var(--teal);
   }
-  .price { font-size: 11.5px; color: var(--body); line-height: 1.3; margin-top: 2px; }
-  .price strong { color: var(--teal); font-weight: 700; }
+  .terms { font-size: 11.5px; color: var(--body); line-height: 1.3; margin-top: 2px; }
+  .terms strong { color: var(--teal); font-weight: 700; }
   /* How to register: plain text, since the ad is a static image with no controls */
-  .how { margin-top: 7px; padding-top: 6px; border-top: 1px solid var(--faint); }
+  .how { margin-top: 5px; padding-top: 5px; border-top: 1px solid var(--faint); }
   .how p { font-size: 11.5px; color: var(--body); line-height: 1.3; }
   .how b { font-weight: 700; color: var(--teal); }
 </style>
@@ -88,8 +88,8 @@
     <p class="meta">Nov. 3 to Dec. 8<span>&middot;</span>Online<span>&middot;</span>Tuesdays, 6:30 PM ET</p>
     <hr class="rule">
     <p class="label">Christian Courier readers</p>
-    <p class="scholarship">$100 scholarship</p>
-    <p class="price"><strong data-cfg="readerPrice"></strong>, regularly <span data-cfg="regularPrice"></span></p>
+    <p class="cost" data-cfg="readerPrice"></p>
+    <p class="terms"><strong>$100 scholarship</strong>, regularly <span data-cfg="regularPrice"></span></p>
     <div class="how">
       <p>Register at <b data-cfg="registerUrl"></b></p>
       <p>Use code <b data-cfg="promoCode"></b></p>

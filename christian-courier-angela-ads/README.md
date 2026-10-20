@@ -4,13 +4,17 @@ Two display ads promoting Angela Reitsma Bick's Free to be Faithful course to *C
 readers, with a $100 scholarship ($300 CAD instead of the regular $400 CAD non-credit tuition).
 Campaign runs from about October 1, 2026 until the course starts on November 3, 2026.
 
-The $300 price is a scholarship only for Christian Courier readers. Every ad pairs it with the
-"Christian Courier readers" label and the regular $400 price. The public course page keeps $400.
+The $300 price is a scholarship only for Christian Courier readers. It is the largest figure in
+the offer, so every ad puts the "Christian Courier readers" label directly above it and the
+$100 scholarship and regular $400 price directly below it. The public course page keeps $400.
 
 | File | Size | Use |
 | --- | --- | --- |
 | `christian-courier-angela-300x300.png` | 300 × 300 px | Christian Courier website display ad |
 | `christian-courier-angela-600x200.png` | 600 × 200 px | Christian Courier email newsletter |
+| `christian-courier-angela-300x300@2x.png` | 600 × 600 px | high-density version of the website ad, **displayed at 300 × 300** |
+| `christian-courier-angela-600x200@2x.png` | 1200 × 400 px | high-density version of the newsletter ad, **displayed at 600 × 200** |
+| `f2bf-cc-angela-bick-*.png` | same as above | identical copies of the four PNGs above, under the delivery file names |
 | `christian-courier-angela-300x300.html` | editable source | HTML/CSS, the canvas is `#ad` |
 | `christian-courier-angela-600x200.html` | editable source | HTML/CSS, the canvas is `#ad` |
 | `assets/angela-reitsma-bick.jpg` | 1080 × 800 | local copy of the site portrait |
@@ -19,10 +23,31 @@ The $300 price is a scholarship only for Christian Courier readers. Every ad pai
 The sources are HTML/CSS rather than SVG. That way they use the same web fonts and CSS tokens as
 the site, and they render through the repo's existing Playwright pipeline.
 
+## Sharpness on phones and retina screens (@2x files)
+
+Most phones and many laptops draw each image pixel across 2 or 3 physical pixels. At exactly
+300 × 300 or 600 × 200, the ads look soft or pixelated on those screens. The `@2x` files are the
+same layout rendered at twice the pixel density (the type is re-rendered, not upscaled). They
+must still be shown at the 1× size.
+
+Send Christian Courier the @2x files and ask them to set the display size explicitly:
+
+```html
+<!-- Website -->
+<img src="christian-courier-angela-300x300@2x.png" width="300" height="300" alt="Broken Hallelujah, an online course with Angela Reitsma Bick, Nov. 3 to Dec. 8. Christian Courier readers pay $300 CAD with a $100 scholarship; use code christiancourier.">
+<!-- Newsletter -->
+<img src="christian-courier-angela-600x200@2x.png" width="600" height="200"
+     style="display:block;width:100%;max-width:600px;height:auto" alt="Broken Hallelujah, an online course with Angela Reitsma Bick, Nov. 3 to Dec. 8. Christian Courier readers pay $300 CAD with a $100 scholarship; use code christiancourier.">
+```
+
+If their ad system requires an upload of exactly 300 × 300 or 600 × 200, use the 1× files; that
+is the most sharpness the slot allows. "DPI" (the PNG's pixels-per-inch tag) has no effect on
+screens, so changing it would not help; only the pixel dimensions matter.
+
 ## Editing and re-rendering
 
 1. Edit the `CONFIG` block at the bottom of either HTML file (promo code and prices), or the markup.
-2. Render both PNGs at exact size, with `deviceScaleFactor: 1` and no resizing:
+2. Render the PNGs, with no resizing: 1× at exact size (`deviceScaleFactor: 1`) and @2x (`deviceScaleFactor: 2`):
 
    ```sh
    cd .render && node render-cc-ads.mjs
@@ -67,7 +92,7 @@ link to this address.
 
 ### Fonts (Google Fonts, same as the site)
 
-- Playfair Display: 900 (title), 700 ("$100 scholarship", set with lining numerals). No italics are used.
+- Playfair Display: 900 (title), 700 ("$300 CAD", set with lining numerals). No italics are used.
 - Source Sans 3: 400 (body), 700 (name, schedule, labels, address, code)
 
 ### Colours (from `/assets/css/global.css`)
@@ -101,8 +126,8 @@ Angela Reitsma Bick
 Faith, Deconstruction, and Spirituality through Music
 Nov. 3 to Dec. 8 · Online · Tuesdays, 6:30 PM ET
 CHRISTIAN COURIER READERS
-$100 scholarship
-$300 CAD, regularly $400
+$300 CAD
+$100 scholarship, regularly $400
 Register at f2bf.icscanada.edu/courses
 Use code christiancourier
 ```
@@ -117,8 +142,8 @@ Faith, Deconstruction, and Spirituality through Music
 Nov. 3 to Dec. 8 · Online
 Tuesdays, 6:30 PM ET
 CHRISTIAN COURIER READERS
-A $100 scholarship
-Register for $300 CAD
+$300 CAD
+With a $100 scholarship
 Regularly $400 CAD
 f2bf.icscanada.edu/courses
 Use code christiancourier
@@ -129,6 +154,6 @@ Use code christiancourier
 - Both PNGs were checked at 300 × 300 and 600 × 200, at 1× and zoomed in. No text is clipped,
   the fonts loaded (no fallback fonts), quotation marks are curly, and there are no em dashes.
 - **Narrow email clients**: on a phone, the 600 × 200 ad shrinks to about 320 px wide (about 53%).
-  The title, Angela's name and "$100 scholarship" still read at that size. The schedule and
+  The title, Angela's name and "$300 CAD" still read at that size. The schedule and
   promo code get very small, so the linked landing page should repeat them.
 - Smallest text in the square ad: 9.5 px (the uppercase eyebrow label), with everything else at 11 px or larger.

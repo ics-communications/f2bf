@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-CA"><head>
+<meta charset="UTF-8">
+<title>F2BF Fall 2026 Big Read — pre-show chyron</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&amp;family=Source+Sans+3:wght@600;700&amp;display=swap">
+<style>
+  /* ════════════════════════════════════════════════════════════
+     PRE-SHOW CHYRON — Defying Tyrants, October 8, 2026
+
+     Overlaid bottom-right in OBS on top of the rotating holding
+     slides, between going live and the event starting. Rendered
+     to a transparent PNG; the 40px clear margin around the card
+     holds its shadow, so line up the card edge, not the PNG edge.
+
+     Cream rather than red: the slides' call band is red and the
+     ICS slide is wine, so a cream card is the one ground that
+     reads on every slide in the rotation.
+     ════════════════════════════════════════════════════════════ */
+  :root {
+    --teal-deep: #0F2631;
+    --red:       #C83C2C;
+    --cream:     #F0EBE3;
+    --display: 'Playfair Display', Georgia, serif;
+    --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #chyron { display: inline-block; padding: 40px; }
+
+  .card {
+    display: flex; align-items: center; gap: 26px;
+    height: 112px; padding: 0 44px 0 36px;
+    background: var(--cream);
+    border-left: 12px solid var(--red);
+    box-shadow: 0 14px 34px rgba(8,20,26,0.42), 0 2px 6px rgba(8,20,26,0.28);
+    font-family: var(--text); color: var(--teal-deep);
+    white-space: nowrap;
+  }
+  .dot {
+    width: 18px; height: 18px; border-radius: 50%; flex: none;
+    background: var(--red);
+    box-shadow: 0 0 0 6px rgba(200,60,44,0.18);
+  }
+  .lead {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .time {
+    font-family: var(--display); font-weight: 900;
+    font-size: 58px; line-height: 1; letter-spacing: -0.01em;
+    color: var(--red);
+  }
+  .time small { font-size: 0.62em; letter-spacing: 0.02em; }
+</style>
+</head><body>
+
+<div id="chyron">
+  <div class="card">
+    <span class="dot"></span>
+    <span class="lead">Big Read begins at</span>
+    <span class="time">7PM <small>ET</small></span>
+  </div>
+</div>
+
+</body></html>
