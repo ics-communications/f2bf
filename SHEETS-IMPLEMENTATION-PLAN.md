@@ -71,9 +71,10 @@ live page appears in it, content identical.
 
 **Who:** Claude.
 **What:** turn the current page markup into a template with slots, and write
-a build script that renders `_data/events.csv` through it. Note: the old
-`_build.py` references source files that no longer exist in this repo — it
-is a leftover from the original site migration. Replace or rewrite it.
+a build script that renders `_data/events.csv` through it. Note: `_build.py`
+no longer generates page content; it only syncs `_includes/nav.html` and
+`_includes/footer.html` into the existing pages and regenerates the route
+aliases. The pages themselves are the source of truth.
 
 **Prompt:**
 
@@ -88,7 +89,8 @@ is a leftover from the original site migration. Replace or rewrite it.
 > Verify by building and confirming the output renders visually identical
 > to the current page — open both before and after in a browser or compare
 > the rendered structure carefully, and show me a summary of any differences.
-> Do not delete `_build.py` yet; just stop using it.
+> Leave `_build.py` in place: it syncs the shared nav and footer, so the
+> events template must keep the page's nav and footer blocks as they are.
 
 **Done when:** running `python3 build.py` regenerates `events/index.html`
 with no visible change to the live page.
