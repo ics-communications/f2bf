@@ -5,14 +5,16 @@ Fall 2026 · Tuesdays, November 3 – December 8, 2026 · 6:30 PM ET · six week
 | Asset | File | Size |
 |---|---|---|
 | 4:5 feed tile (Instagram, Facebook, LinkedIn) | `f2bf-2026-broken-hallelujah-reitsma-bick.png` | 1080 × 1350 |
+| 9:16 promo video, 2:03 (Reel, Facebook, Substack) | `f2bf-2026-broken-hallelujah-promo.mp4` | 720 × 1280 |
 
 Source: `2026-fall-angela.html`. Re-render with `node .render/render-angela.mjs`. The portrait
 plate is cut by `social/make-plates.py` (Angela is the fourth sitter) from
 `assets/img/Angela-Reitsma-Bick.jpg`, the course-card portrait.
 
 **Planned post:** Thursday, October 22, 2026, 11:00 AM ET, via Constant Contact.
-**Substack Note:** Monday, October 26, 2026, 11:00 AM ET, scheduled in Buffer (primary caption,
-without the hashtags, with the tile).
+**Promo video:** Monday, October 26, 2026, 11:00 AM ET, scheduled in Buffer as a Substack Note,
+an Instagram Reel and a Facebook video post, using the video caption below. It replaces the tile
+on Substack.
 
 **Not on this tile:** the `christiancourier` $300 reader price. That offer belongs to
 *Christian Courier* readers only (see `christian-courier-angela-ads/README.md`); public posts
@@ -48,6 +50,39 @@ Register at f2bf.icscanada.edu/courses
 **#FreeToBeFaithful #InstituteForChristianStudies #BrokenHallelujah #BlessedAreTheUndone
 #Deconstruction #FaithAndMusic #Springsteen #LeonardCohen #NoahKahan #Spirituality
 #OnlineLearning**
+
+## Video caption (promo video)
+
+Angela speaks to camera in the video, so this caption follows her two stories rather than the
+tile copy. The Substack Note drops the hashtags.
+
+"I hope you threw a brick right into that stained glass."
+
+Angela Reitsma Bick's daughter plays Noah Kahan everywhere, in the car and in the kitchen. Then,
+at a folk festival this July, Ruben and the Dark joined the Anishinaabe drum and vocal group
+Nimkii and the Niimiig on the main stage, and a woman stepped out to dance an Ojibwe healing
+dance.
+
+Faith, doubt and righteous anger, all at folk festivals.
+
+That's where "Broken Hallelujah" begins. Over six Tuesday evenings, Angela, author of *Blessed
+Are the Undone* and former editor-in-chief of *Christian Courier*, reads song lyrics alongside
+faith deconstruction in Canada and our own experiences of faith and doubt. Each week brings a
+playlist: songs that preach, songs that bring people together, songs of anger written straight
+to God, protest songs, and songs that heal.
+
+What songs are playing in your kitchen and your car?
+
+Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online. Take it for your own
+sake, or for ICS credit.
+
+Register at f2bf.icscanada.edu/courses
+
+**#FreeToBeFaithful #InstituteForChristianStudies #BrokenHallelujah #BlessedAreTheUndone
+#Deconstruction #FaithAndMusic #NoahKahan #FolkMusic #Spirituality #OnlineLearning**
+
+The source is an iPhone HLG HDR clip (HEVC 10-bit). The MP4 is tone-mapped to SDR BT.709
+H.264 (`zscale` + `tonemap=mobius`, npl 203) so it doesn't wash out on Instagram or Facebook.
 
 ## Short caption (stories, X, reposts)
 
