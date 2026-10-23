@@ -53,33 +53,22 @@ Register at f2bf.icscanada.edu/courses
 
 ## Video caption (promo video)
 
-Angela speaks to camera in the video, so this caption follows her two stories rather than the
-tile copy. The Substack Note drops the hashtags.
+Kept plain on purpose: the video carries the pitch, the caption just says who, what and when.
+The Substack Note drops the hashtags.
 
-"I hope you threw a brick right into that stained glass."
-
-Angela Reitsma Bick's daughter plays Noah Kahan everywhere, in the car and in the kitchen. Then,
-at a folk festival this July, Ruben and the Dark joined the Anishinaabe drum and vocal group
-Nimkii and the Niimiig on the main stage, and a woman stepped out to dance an Ojibwe healing
-dance.
-
-Faith, doubt and righteous anger, all at folk festivals.
-
-That's where "Broken Hallelujah" begins. Over six Tuesday evenings, Angela, author of *Blessed
-Are the Undone* and former editor-in-chief of *Christian Courier*, reads song lyrics alongside
-faith deconstruction in Canada and our own experiences of faith and doubt. Each week brings a
-playlist: songs that preach, songs that bring people together, songs of anger written straight
-to God, protest songs, and songs that heal.
-
-What songs are playing in your kitchen and your car?
+Angela Reitsma Bick, author of *Blessed Are the Undone* and former editor-in-chief of
+*Christian Courier*, introduces her fall course, "Broken Hallelujah": faith, deconstruction and
+spirituality through music.
 
 Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online. Take it for your own
 sake, or for ICS credit.
 
 Register at f2bf.icscanada.edu/courses
 
-**#FreeToBeFaithful #InstituteForChristianStudies #BrokenHallelujah #BlessedAreTheUndone
-#Deconstruction #FaithAndMusic #NoahKahan #FolkMusic #Spirituality #OnlineLearning**
+*Free to be Faithful · Institute for Christian Studies*
+
+**#FreeToBeFaithful #InstituteForChristianStudies #BrokenHallelujah #Deconstruction
+#FaithAndMusic**
 
 The source is an iPhone HLG HDR clip (HEVC 10-bit). The MP4 is tone-mapped to SDR BT.709
 H.264 (`zscale` + `tonemap=mobius`, npl 203) so it doesn't wash out on Instagram or Facebook.
