@@ -60,8 +60,7 @@ Angela Reitsma Bick, author of *Blessed Are the Undone* and former editor-in-chi
 *Christian Courier*, introduces her fall course, "Broken Hallelujah": faith, deconstruction and
 spirituality through music.
 
-Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online. Take it for your own
-sake, or for ICS credit.
+Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online.
 
 Register at f2bf.icscanada.edu/courses
 
