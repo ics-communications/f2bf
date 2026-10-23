@@ -123,6 +123,30 @@ SITTERS = [
         # all and he sits ~65px right of the canvas centre.
         'want_x': CANVAS_MID,
     },
+    {
+        'name':   'angela',
+        # The site's course-card portrait. The only other copies are smaller
+        # re-saves of the same frame, so this is the best source there is.
+        'src':    'assets/img/Angela-Reitsma-Bick.jpg',        # 1080x800
+        'out':    'social/plate-angela.jpg',
+        # Crown is the top of the hair at the parting, not the flyaways.
+        'crown':  60.0,
+        'chin':   357.0,
+        'eye':    208.0,
+        'mid_x':  487.0,
+        # OFF-SERIES HEAD BOX. The photographer left only ~60 source px above
+        # her hair, so the crown cannot reach the series y=140 at any scale;
+        # at the series 480 it pinned at 97 and put her chin at 577, deep in
+        # the wash. A smaller head (420, scale 1.41, less of an upscale too)
+        # sits flush to the source top with the crown at 85 and the chin at
+        # 505, so her whole face clears the dissolve. Her tile also starts
+        # the wash later; see .plate__wash in 2026-fall-angela.html.
+        'head_top':    85,
+        'head_height': 420,
+        # Offset right of centre so her hair clears the masthead, which runs
+        # to x=405 along the top-left.
+        'want_x': CANVAS_MID + 100,
+    },
 ]
 
 
