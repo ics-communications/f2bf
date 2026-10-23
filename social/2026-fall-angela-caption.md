@@ -40,8 +40,7 @@ story too.
 
 Provocative to cathartic. Ultimately, anthems of hope.
 
-Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online. Take it for your own
-sake, or for ICS credit.
+Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online.
 
 Register at f2bf.icscanada.edu/courses
 
@@ -56,8 +55,11 @@ Register at f2bf.icscanada.edu/courses
 Kept plain on purpose: the video carries the pitch, the caption just says who, what and when.
 The Substack Note drops the hashtags.
 
-Angela Reitsma Bick, author of *Blessed Are the Undone* and former editor-in-chief of
-*Christian Courier*, introduces her fall course, "Broken Hallelujah": faith, deconstruction and
+Angela's handles: Instagram **@rogue_librarian**, Substack **@angelareitsmabick**
+(angelareitsmabick.substack.com). The Note uses the Substack handle in place of the Instagram one.
+
+Angela Reitsma Bick (@rogue_librarian), author of *Blessed Are the Undone* and former
+editor-in-chief of *Christian Courier*, introduces her fall course, "Broken Hallelujah": faith, deconstruction and
 spirituality through music.
 
 Tuesdays, November 3 – December 8, 6:30 PM ET. Six weeks, fully online.
