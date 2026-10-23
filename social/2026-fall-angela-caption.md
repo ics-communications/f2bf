@@ -12,9 +12,9 @@ plate is cut by `social/make-plates.py` (Angela is the fourth sitter) from
 `assets/img/Angela-Reitsma-Bick.jpg`, the course-card portrait.
 
 **Planned post:** Thursday, October 22, 2026, 11:00 AM ET, via Constant Contact.
-**Promo video:** Monday, October 26, 2026, 11:00 AM ET, scheduled in Buffer as a Substack Note,
-an Instagram Reel and a Facebook video post, using the video caption below. It replaces the tile
-on Substack.
+**Promo video:** Monday, October 26, 2026, 11:00 AM ET, using the video caption below. Instagram
+Reel and Facebook video post are scheduled in Buffer. The Substack Note is scheduled natively in
+Substack (not Buffer) so Angela is a real @mention there.
 
 **Not on this tile:** the `christiancourier` $300 reader price. That offer belongs to
 *Christian Courier* readers only (see `christian-courier-angela-ads/README.md`); public posts
@@ -56,7 +56,8 @@ Kept plain on purpose: the video carries the pitch, the caption just says who, w
 The Substack Note drops the hashtags.
 
 Angela's handles: Instagram **@rogue_librarian**, Substack **@angelareitsmabick**
-(angelareitsmabick.substack.com). The Note uses the Substack handle in place of the Instagram one.
+(angelareitsmabick.substack.com). The Note opens with a live Substack mention of her name instead of the bracketed handle.
+Facebook can't tag her: she has no public Page, and personal profiles can't be tagged via API.
 
 Angela Reitsma Bick (@rogue_librarian), author of *Blessed Are the Undone* and former
 editor-in-chief of *Christian Courier*, introduces her fall course, "Broken Hallelujah": faith, deconstruction and
