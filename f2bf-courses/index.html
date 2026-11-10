@@ -709,6 +709,12 @@
       outline: none; transition: border-color 0.2s, box-shadow 0.2s;
       width: 100%;
     }
+    .f2bf-c-modal__select {
+      appearance: none; -webkit-appearance: none; cursor: pointer;
+      padding-right: 2.6em; text-overflow: ellipsis;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231B3A4B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1em center;
+    }
     .f2bf-c-modal__input:focus {
       border-color: var(--teal);
       box-shadow: 0 0 0 3px rgba(27,58,75,0.08);
@@ -1266,7 +1272,14 @@
           <div class="f2bf-c-modal__row--full f2bf-c-modal__row">
             <div class="f2bf-c-modal__field">
               <label class="f2bf-c-modal__label" for="f2bf-course">Course Title <span>*</span></label>
-              <input class="f2bf-c-modal__input" type="text" id="f2bf-course" placeholder="e.g. The Contemplative Life" required>
+              <!-- COURSE LIST: when courses change each term, add/remove an <option> here.
+                   Each value must exactly match the title passed to f2bfOpenReg('...') on that
+                   course's Register button; it is what gets sent to the registration sheet. -->
+              <select class="f2bf-c-modal__input f2bf-c-modal__select" id="f2bf-course" required>
+                <option value="" disabled selected>Choose a course&hellip;</option>
+                <option value="Readings for the Soul">Readings for the Soul &middot; Karen Swallow Prior &middot; Thursdays from Jan 7</option>
+                <option value="Decolonizing The Great Commission">Decolonizing The Great Commission &middot; Joash P. Thomas &middot; Tuesdays from Jan 12</option>
+              </select>
             </div>
           </div>
 
@@ -1512,7 +1525,8 @@
     errBox.classList.remove('is-active');
     fields.forEach(function(id) {
       var el = document.getElementById(id);
-      el.value = ''; el.classList.remove('is-invalid');
+      if (el.tagName === 'SELECT') el.selectedIndex = 0; else el.value = '';
+      el.classList.remove('is-invalid');
     });
     codeInput.value = '';
     setCodeMsg('');
