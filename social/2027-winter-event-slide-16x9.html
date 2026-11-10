@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-CA"><head>
+<meta charset="UTF-8">
+<title>F2BF Winter 2027 — Prior &amp; Thomas event slide (16:9)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+<style>
+  :root {
+    --teal-deep: #0F2631;
+    --teal:      #1B3A4B;
+    --red:       #C83C2C;
+    --cream:     #F0EBE3;
+    --slate:     #BCC7D0;
+    --display: 'Playfair Display', Georgia, serif;
+    --text:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #2b3238; padding: 48px;
+    display: flex; flex-direction: column; gap: 48px; align-items: flex-start;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ════ CANVAS — 1920 × 1080 (16:9) ════ */
+  .canvas {
+    position: relative; width: 1920px; height: 1080px; overflow: hidden;
+    background: var(--teal-deep); font-family: var(--text); flex: none;
+  }
+
+  /* ─── Masthead strip ─── */
+  .head {
+    position: absolute; z-index: 4; top: 0; left: 0; right: 0; height: 104px;
+    padding: 0 72px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .head__program {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: 0.235em; text-transform: uppercase; color: var(--cream);
+  }
+
+  /* ─── Two-course spread ─── */
+  .spread {
+    position: absolute; z-index: 3; top: 104px; left: 0; right: 0; bottom: 110px;
+    display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px;
+  }
+  .col { position: relative; overflow: hidden; }
+
+  .plate { position: absolute; top: 0; left: 0; right: 0; height: 430px; overflow: hidden; }
+  .plate__img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block;
+    filter: saturate(0.92) contrast(1.05) brightness(1.08);
+  }
+  /* Pulls two unlike photographs toward one hue so the pair reads as a series */
+  .plate__tint { position: absolute; inset: 0; background: var(--teal); mix-blend-mode: color; opacity: 0.08; }
+  /* Dissolve reaches solid #0F2631 at the plate foot — an exact match for the
+     canvas ground, so the photo edge is invisible under the type field. */
+  .plate__wash {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(15,38,49,0.10)  0%,
+      rgba(15,38,49,0.00) 18%,
+      rgba(15,38,49,0.00) 66%,
+      rgba(15,38,49,0.55) 84%,
+      rgba(15,38,49,0.94) 95%,
+      #0F2631 100%
+    );
+  }
+
+  /* ─── Type field ─── */
+  .bill { position: absolute; z-index: 3; bottom: 44px; }
+  .col--l .bill { left: 72px;  right: 56px; }
+  .col--r .bill { left: 56px;  right: 72px; }
+  .bill__meta {
+    margin-top: 10px;
+    font-size: 26px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate);
+  }
+  .bill__meta span { color: var(--cream); }
+  .bill__title {
+    font-family: var(--display); font-weight: 900;
+    font-size: 74px; line-height: 0.96; letter-spacing: -0.026em; color: var(--cream);
+  }
+  .bill__subtitle {
+    margin-top: 16px; text-wrap: balance;
+    font-family: var(--display); font-style: italic; font-weight: 400;
+    font-size: 34px; line-height: 1.22; color: var(--cream); opacity: 0.8;
+  }
+  .bill__byline { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(240,235,227,0.2); }
+  .bill__name { font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--cream); }
+
+  /* ─── Enrolment band ─── */
+  .band {
+    position: absolute; z-index: 4; left: 0; right: 0; bottom: 0;
+    height: 110px; background: var(--red);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 72px;
+  }
+  .band__call {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #FFF6F1;
+  }
+  .band__mark { height: 62px; width: auto; display: block; }
+
+  .canvas__grain {
+    position: absolute; inset: 0; z-index: 5; pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+</style>
+</head>
+<body>
+
+<div class="canvas" id="tile-event-winter">
+
+  <div class="head">
+    <div>
+      <div class="head__program">Free to be Faithful</div>
+    </div>
+  </div>
+
+  <div class="spread">
+
+    <!-- ── Prior ── -->
+    <div class="col col--l">
+      <div class="plate">
+        <img class="plate__img" src="plate-prior-wide.jpg" alt="Karen Swallow Prior">
+        <div class="plate__tint"></div>
+        <div class="plate__wash"></div>
+      </div>
+      <div class="bill">
+        <h1 class="bill__title">Readings<br>for the Soul</h1>
+        <p class="bill__subtitle">More Encounters with the Good, the True, and the Beautiful</p>
+        <div class="bill__byline">
+          <div class="bill__name">Karen Swallow Prior</div>
+          <div class="bill__meta">Thursdays <span>· Jan 7 – Feb 11</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Thomas ── -->
+    <div class="col col--r">
+      <div class="plate">
+        <img class="plate__img" src="plate-joash-wide.jpg" alt="Fr. Joash P. Thomas">
+        <div class="plate__tint"></div>
+        <div class="plate__wash"></div>
+      </div>
+      <div class="bill">
+        <h1 class="bill__title">Decolonizing the<br>Great Commission</h1>
+        <p class="bill__subtitle">Rethinking mission through a decolonized, Jesus-shaped lens</p>
+        <div class="bill__byline">
+          <div class="bill__name">Fr. Joash P. Thomas</div>
+          <div class="bill__meta">Tuesdays <span>· Jan 12 – Feb 16</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="band">
+    <div class="band__call">f2bf.icscanada.edu/courses</div>
+    <img class="band__mark" src="../assets/img/ICS+logo+white-01.png" alt="Institute for Christian Studies">
+  </div>
+
+  <div class="canvas__grain"></div>
+</div>
+
+</body></html>
